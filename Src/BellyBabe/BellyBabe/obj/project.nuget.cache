@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "C1OuWKNtVbwBiyTBNghf+S6Ty9Cxb1KmNR0N4ty1s2iIKgXpYTt6+Os5F0mG8VI+GJdfBAKmfZarYLoIa8HGYw==",
+  "success": true,
+  "projectFilePath": "F:\\SWP391\\BellyNBabe\\Src\\BellyBabe\\BellyBabe\\BellyBabe.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Cicca.Mini\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\Cicca.Mini\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Cicca.Mini\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.6\\microsoft.visualstudio.azure.containers.tools.targets.1.19.6.nupkg.sha512",
+    "C:\\Users\\Cicca.Mini\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "C:\\Users\\Cicca.Mini\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "C:\\Users\\Cicca.Mini\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "C:\\Users\\Cicca.Mini\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}

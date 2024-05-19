@@ -1,0 +1,6 @@
+@BellyBabe_HostAddress = http://localhost:5198
+
+GET {{BellyBabe_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
