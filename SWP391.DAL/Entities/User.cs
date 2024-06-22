@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using WebApplication1.Entities;
 
 namespace SWP391.DAL.Entities;
 
@@ -24,14 +23,11 @@ public partial class User
 
     public int? CumulativeScore { get; set; }
 
-    public string? OTP { get; set; }
+    public string? Otp { get; set; }
 
-    public DateTime? OTPExpiry { get; set; }
-    public virtual ICollection<Message> Messages { get; set; }
-    public virtual ICollection<MessageInboxUser> MessageInboxUserFromUserNameNavigations { get; set; }
-    public virtual ICollection<MessageInboxUser> MessageInboxUserToUserNameNavigations { get; set; }
-    public virtual ICollection<MessageOutboxUser> MessageOutboxUserFromUserNameNavigations { get; set; }
-    public virtual ICollection<MessageOutboxUser> MessageOutboxUserToUserNameNavigations { get; set; }
+    public DateTime? Otpexpiry { get; set; }
+
+    public bool? IsActive { get; set; }
 
     public virtual ICollection<Blog> Blogs { get; set; } = new List<Blog>();
 
@@ -39,9 +35,21 @@ public partial class User
 
     public virtual ICollection<CumulativeScore> CumulativeScores { get; set; } = new List<CumulativeScore>();
 
+    public virtual ICollection<CustomerOption> CustomerOptions { get; set; } = new List<CustomerOption>();
+
     public virtual ICollection<FeedbackResponse> FeedbackResponses { get; set; } = new List<FeedbackResponse>();
 
     public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();
+
+    public virtual ICollection<MessageInboxUser> MessageInboxUserFromUsers { get; set; } = new List<MessageInboxUser>();
+
+    public virtual ICollection<MessageInboxUser> MessageInboxUserToUsers { get; set; } = new List<MessageInboxUser>();
+
+    public virtual ICollection<MessageOutboxUser> MessageOutboxUserFromUsers { get; set; } = new List<MessageOutboxUser>();
+
+    public virtual ICollection<MessageOutboxUser> MessageOutboxUserToUsers { get; set; } = new List<MessageOutboxUser>();
+
+    public virtual ICollection<Message> Messages { get; set; } = new List<Message>();
 
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 

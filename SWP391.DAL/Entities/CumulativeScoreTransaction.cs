@@ -1,8 +1,7 @@
-﻿using SWP391.DAL.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace WebApplication1.Entities;
+namespace SWP391.DAL.Entities;
 
 public partial class CumulativeScoreTransaction
 {

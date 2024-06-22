@@ -847,3 +847,11 @@ F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\D
 F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.pdb
 F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.genruntimeconfig.cache
 F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\ref\SWP391.APIs.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.csproj.AssemblyReference.cache
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.AssemblyInfoInputs.cache
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.AssemblyInfo.cs
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.csproj.CoreCompileInputs.cache
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.MvcApplicationPartsAssemblyInfo.cs
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.MvcApplicationPartsAssemblyInfo.cache
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.sourcelink.json

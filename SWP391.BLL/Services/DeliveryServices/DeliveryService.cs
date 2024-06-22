@@ -1,5 +1,6 @@
 ﻿using SWP391.DAL.Entities;
 using SWP391.DAL.Repositories.DeliveryRepository;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -14,29 +15,76 @@ namespace SWP391.BLL.Services
             _deliveryRepository = deliveryRepository;
         }
 
-        public async Task AddDelivery(string deliveryName, string deliveryMethod, decimal deliveryFee)
+        public async Task AddDelivery(string deliveryName, int? deliveryFee)
         {
-            await _deliveryRepository.AddDelivery(deliveryName, deliveryMethod, deliveryFee);
+            try
+            {
+                await _deliveryRepository.AddDelivery(deliveryName, deliveryFee);
+            }
+            catch (ArgumentException ex)
+            {
+                throw new ArgumentException($"Thêm phương thức giao hàng thất bại: {ex.Message}");
+            }
         }
 
         public async Task DeleteDelivery(int deliveryId)
         {
-            await _deliveryRepository.DeleteDelivery(deliveryId);
+            try
+            {
+                await _deliveryRepository.DeleteDelivery(deliveryId);
+            }
+            catch (KeyNotFoundException)
+            {
+                throw new KeyNotFoundException("Xóa phương thức giao hàng thất bại: Không tìm thấy phương thức giao hàng.");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Xóa phương thức giao hàng thất bại: {ex.Message}");
+            }
         }
 
         public async Task UpdateDelivery(int deliveryId, Dictionary<string, object> updates)
         {
-            await _deliveryRepository.UpdateDelivery(deliveryId, updates);
+            try
+            {
+                await _deliveryRepository.UpdateDelivery(deliveryId, updates);
+            }
+            catch (ArgumentException ex)
+            {
+                throw new ArgumentException($"Cập nhật phương thức giao hàng thất bại: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Cập nhật phương thức giao hàng thất bại: {ex.Message}");
+            }
         }
 
         public async Task<List<Delivery>> GetAllDeliveries()
         {
-            return await _deliveryRepository.GetAllDeliveries();
+            try
+            {
+                return await _deliveryRepository.GetAllDeliveries();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Lấy danh sách phương thức giao hàng thất bại: {ex.Message}");
+            }
         }
 
-        public async Task<Delivery?> GetDeliveryById(int deliveryId)
+        public async Task<Delivery> GetDeliveryById(int deliveryId)
         {
-            return await _deliveryRepository.GetDeliveryById(deliveryId);
+            try
+            {
+                return await _deliveryRepository.GetDeliveryById(deliveryId) ?? throw new KeyNotFoundException("Không tìm thấy phương thức giao hàng.");
+            }
+            catch (KeyNotFoundException)
+            {
+                throw new KeyNotFoundException("Không tìm thấy phương thức giao hàng.");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Lấy thông tin phương thức giao hàng thất bại: {ex.Message}");
+            }
         }
     }
 }

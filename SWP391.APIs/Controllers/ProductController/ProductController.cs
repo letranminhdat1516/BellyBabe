@@ -19,16 +19,45 @@ namespace SWP391.APIs.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddProduct(string productName, bool isSelling, string madeIn, string unit, string suitableAge, string usageInstructions, string storageInstructions, int quantity, int categoryId, int brandId, int manufacturerId, int rating)
+        public async Task<IActionResult> AddProduct(
+            string productName,
+            bool? isSelling,
+            string description,
+            int quantity,
+            int isSoldOut,
+            DateTime? backInStockDate,
+            int? categoryId,
+            int? brandId,
+            int? feedbackTotal,
+            int oldPrice,
+            decimal discount,
+            string imageLinks)
         {
             try
             {
-                await _productService.AddProduct(productName, isSelling, madeIn, unit, suitableAge, usageInstructions, storageInstructions, quantity, categoryId, brandId, manufacturerId, rating);
-                return Ok(new { message = "Product added successfully." });
+                await _productService.AddProduct(
+                    productName,
+                    isSelling,
+                    description,
+                    quantity,
+                    isSoldOut,
+                    backInStockDate,
+                    categoryId,
+                    brandId,
+                    feedbackTotal,
+                    oldPrice,
+                    discount,
+                    imageLinks);
+
+                return Ok(new { message = "Sản phẩm đã được thêm thành công." });
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = $"Failed to add product: {ex.Message}" });
+                return StatusCode(500, new { message = $"Thêm sản phẩm thất bại: {ex.Message}" });
             }
         }
 
@@ -38,11 +67,15 @@ namespace SWP391.APIs.Controllers
             try
             {
                 await _productService.DeleteProduct(productId);
-                return Ok(new { message = "Product deleted successfully." });
+                return Ok(new { message = "Sản phẩm đã được xóa thành công." });
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = $"Failed to delete product: {ex.Message}" });
+                return StatusCode(500, new { message = $"Xóa sản phẩm thất bại: {ex.Message}" });
             }
         }
 
@@ -54,23 +87,31 @@ namespace SWP391.APIs.Controllers
                 List<Product> foundProducts = await _productService.SearchProductByName(name);
                 return Ok(foundProducts);
             }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = $"Failed to search products by name: {ex.Message}" });
+                return StatusCode(500, new { message = $"Tìm kiếm sản phẩm theo tên thất bại: {ex.Message}" });
             }
         }
 
         [HttpGet("search-by-status/{isSelling}")]
-        public async Task<IActionResult> SearchProductByStatus(bool isSelling)
+        public async Task<IActionResult> SearchProductByStatus(bool isSelling = true)
         {
             try
             {
                 List<Product> foundProducts = await _productService.SearchProductByStatus(isSelling);
                 return Ok(foundProducts);
             }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = $"Failed to search products by status: {ex.Message}" });
+                return StatusCode(500, new { message = $"Tìm kiếm sản phẩm theo trạng thái thất bại: {ex.Message}" });
             }
         }
 
@@ -84,7 +125,7 @@ namespace SWP391.APIs.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = $"Failed to retrieve all products: {ex.Message}" });
+                return StatusCode(500, new { message = $"Lấy danh sách sản phẩm thất bại: {ex.Message}" });
             }
         }
 
@@ -98,7 +139,7 @@ namespace SWP391.APIs.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = $"Failed to sort products by name: {ex.Message}" });
+                return StatusCode(500, new { message = $"Sắp xếp sản phẩm theo tên thất bại: {ex.Message}" });
             }
         }
 
@@ -112,7 +153,7 @@ namespace SWP391.APIs.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = $"Failed to sort products by price: {ex.Message}" });
+                return StatusCode(500, new { message = $"Sắp xếp sản phẩm theo giá thất bại: {ex.Message}" });
             }
         }
 
@@ -122,11 +163,15 @@ namespace SWP391.APIs.Controllers
             try
             {
                 await _productService.UpdateProduct(productId, updates);
-                return Ok(new { message = "Product updated successfully." });
+                return Ok(new { message = "Cập nhật sản phẩm thành công." });
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = $"Failed to update product: {ex.Message}" });
+                return StatusCode(500, new { message = $"Cập nhật sản phẩm thất bại: {ex.Message}" });
             }
         }
     }

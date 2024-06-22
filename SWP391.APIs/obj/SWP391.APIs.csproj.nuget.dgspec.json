@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.APIs\\SWP391.APIs.csproj": {}
+    "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.APIs\\SWP391.APIs.csproj": {}
   },
   "projects": {
-    "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.APIs\\SWP391.APIs.csproj": {
+    "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.APIs\\SWP391.APIs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.APIs\\SWP391.APIs.csproj",
+        "projectUniqueName": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.APIs\\SWP391.APIs.csproj",
         "projectName": "SWP391.APIs",
-        "projectPath": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.APIs\\SWP391.APIs.csproj",
-        "packagesPath": "C:\\Users\\Cicca.Mini\\.nuget\\packages\\",
-        "outputPath": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.APIs\\obj\\",
+        "projectPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.APIs\\SWP391.APIs.csproj",
+        "packagesPath": "C:\\Users\\phiye\\.nuget\\packages\\",
+        "outputPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.APIs\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Cicca.Mini\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\phiye\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -33,11 +29,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.BLL\\SWP391.BLL.csproj": {
-                "projectPath": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.BLL\\SWP391.BLL.csproj"
+              "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.BLL\\SWP391.BLL.csproj": {
+                "projectPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.BLL\\SWP391.BLL.csproj"
               },
-              "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.DAL\\SWP391.DAL.csproj": {
-                "projectPath": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.DAL\\SWP391.DAL.csproj"
+              "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj": {
+                "projectPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj"
               }
             }
           }
@@ -105,25 +101,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.BLL\\SWP391.BLL.csproj": {
+    "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.BLL\\SWP391.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.BLL\\SWP391.BLL.csproj",
+        "projectUniqueName": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.BLL\\SWP391.BLL.csproj",
         "projectName": "SWP391.BLL",
-        "projectPath": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.BLL\\SWP391.BLL.csproj",
-        "packagesPath": "C:\\Users\\Cicca.Mini\\.nuget\\packages\\",
-        "outputPath": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.BLL\\obj\\",
+        "projectPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.BLL\\SWP391.BLL.csproj",
+        "packagesPath": "C:\\Users\\phiye\\.nuget\\packages\\",
+        "outputPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.BLL\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Cicca.Mini\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\phiye\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -138,8 +130,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.DAL\\SWP391.DAL.csproj": {
-                "projectPath": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.DAL\\SWP391.DAL.csproj"
+              "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj": {
+                "projectPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj"
               }
             }
           }
@@ -212,25 +204,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.DAL\\SWP391.DAL.csproj": {
+    "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.DAL\\SWP391.DAL.csproj",
+        "projectUniqueName": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj",
         "projectName": "SWP391.DAL",
-        "projectPath": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.DAL\\SWP391.DAL.csproj",
-        "packagesPath": "C:\\Users\\Cicca.Mini\\.nuget\\packages\\",
-        "outputPath": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.DAL\\obj\\",
+        "projectPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj",
+        "packagesPath": "C:\\Users\\phiye\\.nuget\\packages\\",
+        "outputPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.DAL\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Cicca.Mini\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\phiye\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -303,7 +291,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

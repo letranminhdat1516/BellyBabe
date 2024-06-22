@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SWP391.BLL.Services;
 using SWP391.DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -18,42 +19,93 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPost("AddDelivery")]
-        public async Task<IActionResult> AddDelivery(string deliveryName, string deliveryMethod, decimal deliveryFee)
+        public async Task<IActionResult> AddDelivery(string deliveryName, int? deliveryFee)
         {
-            await _deliveryService.AddDelivery(deliveryName, deliveryMethod, deliveryFee);
-            return Ok("Add delivery successfully");
+            try
+            {
+                await _deliveryService.AddDelivery(deliveryName, deliveryFee);
+                return Ok("Thêm phương thức giao hàng thành công.");
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Lỗi không xác định: {ex.Message}");
+            }
         }
 
         [HttpDelete("DeleteDelivery/{deliveryId}")]
         public async Task<IActionResult> DeleteDelivery(int deliveryId)
         {
-            await _deliveryService.DeleteDelivery(deliveryId);
-            return Ok();
+            try
+            {
+                await _deliveryService.DeleteDelivery(deliveryId);
+                return Ok("Xóa phương thức giao hàng thành công.");
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound("Không tìm thấy phương thức giao hàng để xóa.");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Lỗi không xác định: {ex.Message}");
+            }
         }
 
         [HttpPut("UpdateDelivery/{deliveryId}")]
         public async Task<IActionResult> UpdateDelivery(int deliveryId, [FromBody] Dictionary<string, object> updates)
         {
-            await _deliveryService.UpdateDelivery(deliveryId, updates);
-            return Ok();
+            try
+            {
+                await _deliveryService.UpdateDelivery(deliveryId, updates);
+                return Ok("Cập nhật phương thức giao hàng thành công.");
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Lỗi không xác định: {ex.Message}");
+            }
         }
 
         [HttpGet("GetAllDeliveries")]
         public async Task<ActionResult<List<Delivery>>> GetAllDeliveries()
         {
-            var deliveries = await _deliveryService.GetAllDeliveries();
-            return Ok(deliveries);
+            try
+            {
+                var deliveries = await _deliveryService.GetAllDeliveries();
+                return Ok(deliveries);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Lỗi không xác định: {ex.Message}");
+            }
         }
 
-        [HttpGet("GetDeliveriesById/{deliveryId}")]
-        public async Task<ActionResult<Delivery?>> GetDeliveryById(int deliveryId)
+        [HttpGet("GetDeliveryById/{deliveryId}")]
+        public async Task<ActionResult<Delivery>> GetDeliveryById(int deliveryId)
         {
-            var delivery = await _deliveryService.GetDeliveryById(deliveryId);
-            if (delivery == null)
+            try
             {
-                return NotFound();
+                var delivery = await _deliveryService.GetDeliveryById(deliveryId);
+                if (delivery == null)
+                {
+                    return NotFound("Không tìm thấy phương thức giao hàng.");
+                }
+                return Ok(delivery);
             }
-            return Ok(delivery);
+            catch (KeyNotFoundException)
+            {
+                return NotFound("Không tìm thấy phương thức giao hàng.");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Lỗi không xác định: {ex.Message}");
+            }
         }
     }
 }

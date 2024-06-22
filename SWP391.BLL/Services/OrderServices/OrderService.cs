@@ -15,14 +15,14 @@ namespace SWP391.BLL.Services.OrderServices
             _orderRepository = orderRepository;
         }
 
-        public async Task PlaceOrderAsync(int userId, string address, int deliveryId, string paymentMethod, string phoneNumber, string note)
+        public async Task PlaceOrderAsync(int userId, string recipientName, string recipientPhone, string recipientAddress, int deliveryId, string paymentMethod, string note)
         {
             if (userId <= 0)
             {
-                throw new ArgumentException("User ID must be provided.");
+                throw new ArgumentException("ID người dùng phải được cung cấp.");
             }
 
-            await _orderRepository.PlaceOrderAsync(userId, address, deliveryId, paymentMethod, phoneNumber, note);
+            await _orderRepository.PlaceOrderAsync(userId, recipientName, recipientPhone, recipientAddress, deliveryId, paymentMethod, note);
         }
 
         public async Task<List<Order>> GetOrdersAsync(int userId)
@@ -34,7 +34,7 @@ namespace SWP391.BLL.Services.OrderServices
         {
             if (orderId <= 0)
             {
-                throw new ArgumentException("Order ID must be provided.");
+                throw new ArgumentException("ID đơn hàng phải được cung cấp.");
             }
 
             await _orderRepository.UpdateOrderStatusAsync(orderId, newStatus);
@@ -44,7 +44,7 @@ namespace SWP391.BLL.Services.OrderServices
         {
             if (userId <= 0)
             {
-                throw new ArgumentException("User ID must be provided.");
+                throw new ArgumentException("ID người dùng phải được cung cấp.");
             }
 
             return await _orderRepository.GetOrdersByStatusAsync(userId, statusName);
@@ -54,7 +54,7 @@ namespace SWP391.BLL.Services.OrderServices
         {
             if (orderId <= 0)
             {
-                throw new ArgumentException("Order ID must be provided.");
+                throw new ArgumentException("ID đơn hàng phải được cung cấp.");
             }
 
             await _orderRepository.CancelOrderAsync(orderId);

@@ -53,7 +53,7 @@ namespace SWP391.BLL.Services.LoginService
         public async Task<UserLoginResponseDTO> UserLoginAsync(UserLoginDTO loginDTO)
         {
             var user = await _userRepository.GetUserByPhoneNumberAsync(loginDTO.PhoneNumber);
-            if (user == null || user.OTP != loginDTO.OTP || user.OTPExpiry < DateTime.UtcNow)
+            if (user == null || user.Otp != loginDTO.OTP || user.Otpexpiry < DateTime.UtcNow)
             {
                 return null;
             }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using WebApplication1.Entities;
 
 namespace SWP391.DAL.Entities;
 
@@ -12,15 +11,7 @@ public partial class Product
 
     public bool? IsSelling { get; set; }
 
-    public string? MadeIn { get; set; }
-
-    public string? Unit { get; set; }
-
-    public string? SuitableAge { get; set; }
-
-    public string? UsageInstructions { get; set; }
-
-    public string? StorageInstructions { get; set; }
+    public string? Description { get; set; }
 
     public int Quantity { get; set; }
 
@@ -28,13 +19,19 @@ public partial class Product
 
     public DateTime? BackInStockDate { get; set; }
 
-    public int? ManufacturerId { get; set; }
-
     public int? CategoryId { get; set; }
 
     public int? BrandId { get; set; }
 
-    public int? Rating { get; set; }
+    public int? FeedbackTotal { get; set; }
+
+    public int? OldPrice { get; set; }
+
+    public decimal? Discount { get; set; }
+
+    public decimal? NewPrice { get; set; }
+
+    public string? ImageLinks { get; set; }
 
     public virtual Brand? Brand { get; set; }
 
@@ -44,15 +41,11 @@ public partial class Product
 
     public virtual ICollection<CumulativeScore> CumulativeScores { get; set; } = new List<CumulativeScore>();
 
-    public virtual Manufacturer? Manufacturer { get; set; }
-
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 
     public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
 
     public virtual ICollection<PreOrder> PreOrders { get; set; } = new List<PreOrder>();
-
-    public virtual ICollection<PriceUpdate> PriceUpdates { get; set; } = new List<PriceUpdate>();
 
     public virtual ICollection<Rating> Ratings { get; set; } = new List<Rating>();
 }

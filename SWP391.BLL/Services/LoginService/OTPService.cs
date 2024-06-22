@@ -56,8 +56,8 @@ public class OtpService
             user = new User
             {
                 UserName = userName,
-                OTP = otp,
-                OTPExpiry = DateTime.UtcNow.AddMinutes(5),
+                Otp = otp,
+                Otpexpiry = DateTime.UtcNow.AddMinutes(5),
                 Password = "default_password"
             };
             if (isEmail)
@@ -73,8 +73,8 @@ public class OtpService
         }
         else
         {
-            user.OTP = otp;
-            user.OTPExpiry = DateTime.UtcNow.AddMinutes(5);
+            user.Otp = otp;
+            user.Otpexpiry = DateTime.UtcNow.AddMinutes(5);
             await _userRepository.UpdateUserAsync(user);
             _logger.LogInformation($"Updated user with identifier: {identifier} with new OTP: {otp}");
         }
@@ -141,7 +141,7 @@ public class OtpService
             user = await _userRepository.GetUserByPhoneNumberAsync(identifier);
         }
 
-        var isValid = user != null && user.OTP == otp && user.OTPExpiry >= DateTime.UtcNow;
+        var isValid = user != null && user.Otp == otp && user.Otpexpiry >= DateTime.UtcNow;
         _logger.LogInformation($"Verification result for identifier {identifier}: {isValid}");
         return isValid;
     }

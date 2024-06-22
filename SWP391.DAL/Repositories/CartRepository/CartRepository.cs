@@ -14,93 +14,149 @@ namespace SWP391.DAL.Repositories.CartRepository
 
         public CartRepository(Swp391Context context)
         {
-            _context = context; 
+            _context = context;
         }
-
-        public async Task AddToCartAsync(int userId, int productId, int quantity)
+        public async Task<string> AddToCartAsync(int userId, int productId, int quantity)
         {
-            var user = await _context.Users.FindAsync(userId);
-            if (user == null)
+            try
             {
-                throw new ArgumentException("Invalid user ID.");
-            }
+                var user = await _context.Users.FindAsync(userId);
+                if (user == null)
+                {
+                    throw new ArgumentException("ID người dùng không hợp lệ.");
+                }
 
-            var product = await _context.Products.FindAsync(productId);
-            if (product == null)
-            {
-                throw new ArgumentException("Invalid product ID.");
-            }
+                var product = await _context.Products.FindAsync(productId);
+                if (product == null)
+                {
+                    throw new ArgumentException("ID sản phẩm không hợp lệ.");
+                }
 
-            var priceUpdates = await _context.PriceUpdates
-                .Where(p => p.ProductId == productId)
-                .OrderByDescending(p => p.DateApplied)
-                .Take(2)
-                .ToListAsync();
+                if (product.IsSelling != true) 
+                {
+                    throw new Exception("Sản phẩm hiện không có sẵn để mua.");
+                }
 
-            if (priceUpdates.Count == 0)
-            {
-                throw new Exception("No price updates found for the product.");
-            }
+                if (quantity <= 0)
+                {
+                    throw new ArgumentException("Số lượng sản phẩm phải lớn hơn 0.");
+                }
 
-            var latestPrice = priceUpdates.First().Price;
-            var oldPrice = priceUpdates.Skip(1).FirstOrDefault()?.Price ?? 0;
+                var orderDetail = new OrderDetail
+                {
+                    UserId = userId,
+                    ProductId = productId,
+                    Quantity = quantity,
+                    Price = (int)(product.NewPrice * quantity) 
+                };
 
-            var orderDetail = new OrderDetail
-            {
-                UserId = userId,
-                ProductId = productId,
-                Quantity = quantity,
-                Price = latestPrice
-            };
-
-            _context.OrderDetails.Add(orderDetail);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task<List<OrderDetail>> GetCartDetailsAsync(int userId)
-        {
-            return await _context.OrderDetails
-                .Where(od => od.UserId == userId && od.OrderId == null)
-                .ToListAsync();
-        }
-
-        public async Task IncreaseQuantityAsync(int userId, int productId, int quantityToAdd)
-        {
-            var orderDetail = await _context.OrderDetails
-                .FirstOrDefaultAsync(od => od.UserId == userId && od.ProductId == productId && od.OrderId == null);
-
-            if (orderDetail != null)
-            {
-                orderDetail.Quantity += quantityToAdd;
+                _context.OrderDetails.Add(orderDetail);
                 await _context.SaveChangesAsync();
+
+                return "Đã thêm sản phẩm vào giỏ hàng thành công.";
+            }
+            catch (Exception ex)
+            {
+                return $"Thêm sản phẩm vào giỏ hàng thất bại: {ex.Message}";
             }
         }
 
-        public async Task DecreaseQuantityAsync(int userId, int productId, int quantityToSubtract)
+        public async Task<(List<OrderDetail>, string)> GetCartDetailsAsync(int userId)
         {
-            var orderDetail = await _context.OrderDetails
-                .FirstOrDefaultAsync(od => od.UserId == userId && od.ProductId == productId && od.OrderId == null);
-
-            if (orderDetail != null)
+            try
             {
-                orderDetail.Quantity -= quantityToSubtract;
-                if (orderDetail.Quantity <= 0)
+                var orderDetails = await _context.OrderDetails
+                    .Where(od => od.UserId == userId && od.OrderId == null)
+                    .Include(od => od.Product)
+                    .ToListAsync();
+
+                return (orderDetails, "Đã lấy thông tin giỏ hàng thành công.");
+            }
+            catch (Exception ex)
+            {
+                return (null, $"Lấy thông tin giỏ hàng thất bại: {ex.Message}");
+            }
+        }
+
+        public async Task<string> IncreaseQuantityAsync(int userId, int productId, int quantityToAdd)
+        {
+            try
+            {
+                var orderDetail = await _context.OrderDetails
+                    .FirstOrDefaultAsync(od => od.UserId == userId && od.ProductId == productId && od.OrderId == null);
+
+                if (orderDetail != null)
+                {
+                    var availableQuantity = await _context.Products
+                        .Where(p => p.ProductId == productId)
+                        .Select(p => p.Quantity)
+                        .FirstOrDefaultAsync();
+
+                    if (availableQuantity < orderDetail.Quantity + quantityToAdd)
+                    {
+                        throw new Exception("Không đủ số lượng sản phẩm để thêm vào giỏ hàng.");
+                    }
+
+                    orderDetail.Quantity += quantityToAdd;
+                    await _context.SaveChangesAsync();
+
+                    return "Số lượng sản phẩm trong giỏ hàng đã được cập nhật thành công.";
+                }
+
+                return "Không tìm thấy sản phẩm trong giỏ hàng.";
+            }
+            catch (Exception ex)
+            {
+                return $"Cập nhật số lượng sản phẩm trong giỏ hàng thất bại: {ex.Message}";
+            }
+        }
+
+        public async Task<string> DecreaseQuantityAsync(int userId, int productId, int quantityToSubtract)
+        {
+            try
+            {
+                var orderDetail = await _context.OrderDetails
+                    .FirstOrDefaultAsync(od => od.UserId == userId && od.ProductId == productId && od.OrderId == null);
+
+                if (orderDetail != null)
+                {
+                    orderDetail.Quantity -= quantityToSubtract;
+                    if (orderDetail.Quantity <= 0)
+                    {
+                        _context.OrderDetails.Remove(orderDetail);
+                    }
+                    await _context.SaveChangesAsync();
+
+                    return "Số lượng sản phẩm trong giỏ hàng đã được cập nhật thành công.";
+                }
+
+                return "Không tìm thấy sản phẩm trong giỏ hàng.";
+            }
+            catch (Exception ex)
+            {
+                return $"Cập nhật số lượng sản phẩm trong giỏ hàng thất bại: {ex.Message}";
+            }
+        }
+        public async Task<string> DeleteProductFromCartAsync(int userId, int productId)
+        {
+            try
+            {
+                var orderDetail = await _context.OrderDetails
+                    .FirstOrDefaultAsync(od => od.UserId == userId && od.ProductId == productId && od.OrderId == null);
+
+                if (orderDetail != null)
                 {
                     _context.OrderDetails.Remove(orderDetail);
+                    await _context.SaveChangesAsync();
+
+                    return "Sản phẩm đã được xóa khỏi giỏ hàng thành công.";
                 }
-                await _context.SaveChangesAsync();
+
+                return "Không tìm thấy sản phẩm trong giỏ hàng.";
             }
-        }
-
-        public async Task DeleteProductFromCartAsync(int userId, int productId)
-        {
-            var orderDetail = await _context.OrderDetails
-                .FirstOrDefaultAsync(od => od.UserId == userId && od.ProductId == productId && od.OrderId == null);
-
-            if (orderDetail != null)
+            catch (Exception ex)
             {
-                _context.OrderDetails.Remove(orderDetail);
-                await _context.SaveChangesAsync();
+                return $"Xóa sản phẩm khỏi giỏ hàng thất bại: {ex.Message}";
             }
         }
     }

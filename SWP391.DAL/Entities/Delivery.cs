@@ -9,9 +9,7 @@ public partial class Delivery
 
     public string DeliveryName { get; set; } = null!;
 
-    public string DeliveryMethod { get; set; } = null!;
-
-    public decimal DeliveryFee { get; set; }
+    public int? DeliveryFee { get; set; }
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }

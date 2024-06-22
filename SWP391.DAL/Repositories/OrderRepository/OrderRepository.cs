@@ -4,7 +4,6 @@ using SWP391.DAL.Swp391DbContext;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace SWP391.DAL.Repositories.OrderRepository
@@ -22,42 +21,40 @@ namespace SWP391.DAL.Repositories.OrderRepository
             _cumulativeScoreRepository = cumulativeScoreRepository;
         }
 
-        public async Task PlaceOrderAsync(int userId, string address, int deliveryId, string paymentMethod, string phoneNumber, string note)
+        public async Task PlaceOrderAsync(int userId, string recipientName, string recipientPhone, string recipientAddress, int deliveryId, string paymentMethod, string note)
         {
             var user = await _context.Users.FindAsync(userId);
             if (user == null)
             {
-                throw new ArgumentException("Invalid user ID.");
+                throw new ArgumentException("ID người dùng không hợp lệ.");
             }
 
             var processingStatus = await _context.OrderStatuses.FirstOrDefaultAsync(s => s.StatusName == "Chờ xác nhận");
             if (processingStatus == null)
             {
-                throw new Exception("Processing status not found.");
+                throw new Exception("Không tìm thấy trạng thái xử lý.");
             }
 
             var orderDetails = await _context.OrderDetails.Where(od => od.UserId == userId && od.OrderId == null).ToListAsync();
             if (!orderDetails.Any())
             {
-                throw new Exception("No items in the cart.");
+                throw new Exception("Không có sản phẩm trong giỏ hàng.");
             }
 
             var delivery = await _context.Deliveries.FirstOrDefaultAsync(d => d.DeliveryId == deliveryId);
             if (delivery == null)
             {
-                throw new Exception("Delivery method not found.");
+                throw new Exception("Không tìm thấy phương thức giao hàng.");
             }
 
             var order = new Order
             {
                 UserId = userId,
                 StatusId = processingStatus.StatusId,
-                Address = address,
+                RecipientName = recipientName,
+                RecipientPhone = recipientPhone,
+                RecipientAddress = recipientAddress,
                 DeliveryId = deliveryId,
-                DeliveryMethod = delivery.DeliveryMethod,
-                DeliveryFee = delivery.DeliveryFee,
-                PaymentMethod = paymentMethod,
-                PhoneNumber = phoneNumber,
                 Note = note,
                 OrderDate = DateTime.Now,
                 TotalPrice = orderDetails.Sum(od => od.Price * od.Quantity)
@@ -71,7 +68,7 @@ namespace SWP391.DAL.Repositories.OrderRepository
                 orderDetail.OrderId = order.OrderId;
                 orderDetail.UserId = null;
 
-                // Update product quantity
+                // Cập nhật số lượng sản phẩm
                 if (orderDetail.ProductId.HasValue && orderDetail.Quantity.HasValue)
                 {
                     await _productRepository.UpdateProductQuantity(orderDetail.ProductId.Value, orderDetail.Quantity.Value);
@@ -104,13 +101,13 @@ namespace SWP391.DAL.Repositories.OrderRepository
             var order = await _context.Orders.FindAsync(orderId);
             if (order == null)
             {
-                throw new ArgumentException("Invalid order ID.");
+                throw new ArgumentException("ID đơn hàng không hợp lệ.");
             }
 
             var status = await _context.OrderStatuses.FirstOrDefaultAsync(s => s.StatusName == statusName);
             if (status == null)
             {
-                throw new ArgumentException("Invalid status name.");
+                throw new ArgumentException("Tên trạng thái không hợp lệ.");
             }
 
             order.StatusId = status.StatusId;
@@ -118,7 +115,7 @@ namespace SWP391.DAL.Repositories.OrderRepository
 
             if (statusName == "Đã giao hàng")
             {
-                await _cumulativeScoreRepository.UpdateCumulativeScoreAsync(order.UserId ?? 0);
+                await _cumulativeScoreRepository.UpdateCumulativeScoreAsync(order.UserId);
             }
         }
 
@@ -127,7 +124,7 @@ namespace SWP391.DAL.Repositories.OrderRepository
             var status = await _context.OrderStatuses.FirstOrDefaultAsync(s => s.StatusName == statusName);
             if (status == null)
             {
-                throw new ArgumentException("Invalid status name.");
+                throw new ArgumentException("Tên trạng thái không hợp lệ.");
             }
 
             return await _context.Orders
@@ -140,24 +137,51 @@ namespace SWP391.DAL.Repositories.OrderRepository
             var order = await _context.Orders.FindAsync(orderId);
             if (order == null)
             {
-                throw new ArgumentException("Invalid order ID.");
+                throw new ArgumentException("ID đơn hàng không hợp lệ.");
             }
 
-            var status = await _context.OrderStatuses.FirstOrDefaultAsync(s => s.StatusName == "Đã hủy");
-            if (status == null)
+            // Get the 'Đã hủy' (Cancelled) status
+            var cancelStatus = await _context.OrderStatuses.FirstOrDefaultAsync(s => s.StatusName == "Đã hủy");
+            if (cancelStatus == null)
             {
-                throw new Exception("Cancel status not found.");
+                throw new Exception("Không tìm thấy trạng thái hủy.");
             }
 
-            if (order.StatusId != status.StatusId)
+            // Get the current status of the order
+            var currentStatus = await _context.OrderStatuses.FindAsync(order.StatusId);
+            if (currentStatus == null)
             {
-                order.StatusId = status.StatusId;
-                await _context.SaveChangesAsync();
+                throw new Exception("Không tìm thấy trạng thái đơn hàng hiện tại.");
             }
-            else
+
+            // Check if the order is already canceled
+            if (order.StatusId == cancelStatus.StatusId)
             {
-                throw new InvalidOperationException("Order is already cancelled.");
+                throw new InvalidOperationException("Đơn hàng đã bị hủy.");
             }
+
+            // Add logic to prevent cancellation of orders that are already delivered or in process
+            var nonCancelableStatuses = new List<string> { "Đã giao hàng", "Đang giao hàng" };
+            if (nonCancelableStatuses.Contains(currentStatus.StatusName))
+            {
+                throw new InvalidOperationException("Không thể hủy đơn hàng đã được giao hoặc đang giao.");
+            }
+
+            // Update the status of the order to 'Đã hủy' (Cancelled)
+            order.StatusId = cancelStatus.StatusId;
+            await _context.SaveChangesAsync();
+
+            // Logic to revert product quantities
+            var orderDetails = await _context.OrderDetails.Where(od => od.OrderId == orderId).ToListAsync();
+            foreach (var orderDetail in orderDetails)
+            {
+                if (orderDetail.ProductId.HasValue && orderDetail.Quantity.HasValue)
+                {
+                    await _productRepository.UpdateProductQuantity(orderDetail.ProductId.Value, -orderDetail.Quantity.Value);
+                }
+            }
+
+            await _context.SaveChangesAsync();
         }
     }
 }

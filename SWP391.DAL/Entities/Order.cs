@@ -7,9 +7,7 @@ public partial class Order
 {
     public int OrderId { get; set; }
 
-    public int? UserId { get; set; }
-
-    public string? Address { get; set; }
+    public int UserId { get; set; }
 
     public int? StatusId { get; set; }
 
@@ -19,19 +17,15 @@ public partial class Order
 
     public int? VoucherId { get; set; }
 
-    public string? DeliveryMethod { get; set; }
-
-    public decimal? TotalPrice { get; set; }
-
-    public string? PaymentMethod { get; set; }
+    public int? TotalPrice { get; set; }
 
     public DateTime? OrderDate { get; set; }
 
-    public string? PhoneNumber { get; set; }
+    public string? RecipientName { get; set; }
 
-    public decimal DeliveryFee { get; set; }
+    public string? RecipientPhone { get; set; }
 
-    public bool? Checked { get; set; }
+    public string? RecipientAddress { get; set; }
 
     public virtual Delivery? Delivery { get; set; }
 
@@ -41,7 +35,7 @@ public partial class Order
 
     public virtual OrderStatus? Status { get; set; }
 
-    public virtual User? User { get; set; }
+    public virtual User User { get; set; } = null!;
 
     public virtual Voucher? Voucher { get; set; }
 }

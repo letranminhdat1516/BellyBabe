@@ -15,74 +15,119 @@ namespace SWP391.BLL.Services.CartServices
             _cartRepository = cartRepository;
         }
 
-        public async Task AddProductToCartAsync(int userId, int productId, int quantity)
+        public async Task<string> AddProductToCartAsync(int userId, int productId, int quantity)
         {
-            if (userId <= 0)
+            try
             {
-                throw new ArgumentException("User ID must be provided.");
-            }
+                if (userId <= 0)
+                {
+                    throw new ArgumentException("ID người dùng không hợp lệ.");
+                }
 
-            await _cartRepository.AddToCartAsync(userId, productId, quantity);
+                var result = await _cartRepository.AddToCartAsync(userId, productId, quantity);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Thêm sản phẩm vào giỏ hàng thất bại: {ex.Message}");
+            }
         }
 
-        public async Task<List<OrderDetail>> GetCartDetailsAsync(int userId)
+        public async Task<(List<OrderDetail>, string)> GetCartDetailsAsync(int userId)
         {
-            return await _cartRepository.GetCartDetailsAsync(userId);
+            try
+            {
+                if (userId <= 0)
+                {
+                    throw new ArgumentException("ID người dùng không hợp lệ.");
+                }
+
+                var result = await _cartRepository.GetCartDetailsAsync(userId);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Lấy thông tin giỏ hàng thất bại: {ex.Message}");
+            }
         }
 
-        public async Task IncreaseQuantityAsync(int userId, int productId, int quantityToAdd)
+        public async Task<string> IncreaseQuantityAsync(int userId, int productId, int quantityToAdd)
         {
-            if (userId <= 0)
+            try
             {
-                throw new ArgumentException("User ID must be provided.");
-            }
+                if (userId <= 0)
+                {
+                    throw new ArgumentException("ID người dùng không hợp lệ.");
+                }
 
-            if (productId <= 0)
+                if (productId <= 0)
+                {
+                    throw new ArgumentException("ID sản phẩm không hợp lệ.");
+                }
+
+                if (quantityToAdd <= 0)
+                {
+                    throw new ArgumentException("Số lượng sản phẩm phải lớn hơn 0.");
+                }
+
+                var result = await _cartRepository.IncreaseQuantityAsync(userId, productId, quantityToAdd);
+                return result;
+            }
+            catch (Exception ex)
             {
-                throw new ArgumentException("Product ID must be provided.");
+                throw new Exception($"Cập nhật số lượng sản phẩm trong giỏ hàng thất bại: {ex.Message}");
             }
-
-            if (quantityToAdd <= 0)
-            {
-                throw new ArgumentException("Quantity to add must be greater than zero.");
-            }
-
-            await _cartRepository.IncreaseQuantityAsync(userId, productId, quantityToAdd);
         }
 
-        public async Task DecreaseQuantityAsync(int userId, int productId, int quantityToSubtract)
+        public async Task<string> DecreaseQuantityAsync(int userId, int productId, int quantityToSubtract)
         {
-            if (userId <= 0)
+            try
             {
-                throw new ArgumentException("User ID must be provided.");
-            }
+                if (userId <= 0)
+                {
+                    throw new ArgumentException("ID người dùng không hợp lệ.");
+                }
 
-            if (productId <= 0)
+                if (productId <= 0)
+                {
+                    throw new ArgumentException("ID sản phẩm không hợp lệ.");
+                }
+
+                if (quantityToSubtract <= 0)
+                {
+                    throw new ArgumentException("Số lượng sản phẩm phải lớn hơn 0.");
+                }
+
+                var result = await _cartRepository.DecreaseQuantityAsync(userId, productId, quantityToSubtract);
+                return result;
+            }
+            catch (Exception ex)
             {
-                throw new ArgumentException("Product ID must be provided.");
+                throw new Exception($"Cập nhật số lượng sản phẩm trong giỏ hàng thất bại: {ex.Message}");
             }
-
-            if (quantityToSubtract <= 0)
-            {
-                throw new ArgumentException("Quantity to subtract must be greater than zero.");
-            }
-
-            await _cartRepository.DecreaseQuantityAsync(userId, productId, quantityToSubtract);
         }
 
-        public async Task DeleteProductFromCartAsync(int userId, int productId)
+        public async Task<string> DeleteProductFromCartAsync(int userId, int productId)
         {
-            if (userId <= 0)
+            try
             {
-                throw new ArgumentException("User ID must be provided.");
-            }
+                if (userId <= 0)
+                {
+                    throw new ArgumentException("ID người dùng không hợp lệ.");
+                }
 
-            if (productId <= 0)
+                if (productId <= 0)
+                {
+                    throw new ArgumentException("ID sản phẩm không hợp lệ.");
+                }
+
+                var result = await _cartRepository.DeleteProductFromCartAsync(userId, productId);
+                return result;
+            }
+            catch (Exception ex)
             {
-                throw new ArgumentException("Product ID must be provided.");
+                throw new Exception($"Xóa sản phẩm khỏi giỏ hàng thất bại: {ex.Message}");
             }
-
-            await _cartRepository.DeleteProductFromCartAsync(userId, productId);
         }
     }
 }

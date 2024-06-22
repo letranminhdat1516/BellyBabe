@@ -2,6 +2,7 @@
 using SWP391.DAL.Entities;
 using SWP391.BLL.Services.OrderServices;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SWP391.API.Controllers
@@ -18,15 +19,15 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPost("placeOrder")]
-        public async Task<IActionResult> PlaceOrderAsync(int userId, string address, int deliveryId, string paymentMethod, string phoneNumber, string note)
+        public async Task<IActionResult> PlaceOrderAsync(int userId, string recipientName, string recipientPhone, string recipientAddress, int deliveryId, string paymentMethod, string note)
         {
             if (userId <= 0)
             {
-                return BadRequest("User ID must be provided.");
+                return BadRequest("ID người dùng phải được cung cấp.");
             }
 
-            await _orderService.PlaceOrderAsync(userId, address, deliveryId, paymentMethod, phoneNumber, note);
-            return Ok("Order placed successfully.");
+            await _orderService.PlaceOrderAsync(userId, recipientName, recipientPhone, recipientAddress, deliveryId, paymentMethod, note);
+            return Ok("Đặt hàng thành công.");
         }
 
         [HttpGet("orders/{userId}")]
@@ -35,7 +36,7 @@ namespace SWP391.API.Controllers
             var orders = await _orderService.GetOrdersAsync(userId);
             if (orders == null || !orders.Any())
             {
-                return NotFound("No orders found for this user.");
+                return NotFound("Không tìm thấy đơn hàng nào cho người dùng này.");
             }
             return Ok(orders);
         }
@@ -45,11 +46,11 @@ namespace SWP391.API.Controllers
         {
             if (orderId <= 0)
             {
-                return BadRequest("Order ID must be provided.");
+                return BadRequest("ID đơn hàng phải được cung cấp.");
             }
 
             await _orderService.UpdateOrderStatusAsync(orderId, newStatus);
-            return Ok("Order status updated successfully.");
+            return Ok("Cập nhật trạng thái đơn hàng thành công.");
         }
 
         [HttpGet("ordersByStatus/{userId}/{statusName}")]
@@ -57,13 +58,13 @@ namespace SWP391.API.Controllers
         {
             if (userId <= 0)
             {
-                return BadRequest("User ID must be provided.");
+                return BadRequest("ID người dùng phải được cung cấp.");
             }
 
             var orders = await _orderService.GetOrdersByStatusAsync(userId, statusName);
             if (orders == null || !orders.Any())
             {
-                return NotFound($"No orders found for user with status {statusName}.");
+                return NotFound($"Không tìm thấy đơn hàng nào cho người dùng với trạng thái {statusName}.");
             }
             return Ok(orders);
         }
@@ -73,11 +74,11 @@ namespace SWP391.API.Controllers
         {
             if (orderId <= 0)
             {
-                return BadRequest("Order ID must be provided.");
+                return BadRequest("ID đơn hàng phải được cung cấp.");
             }
 
             await _orderService.CancelOrderAsync(orderId);
-            return Ok("Order cancelled successfully.");
+            return Ok("Hủy đơn hàng thành công.");
         }
     }
 }
