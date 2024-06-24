@@ -106,3 +106,15 @@ D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP39
 D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.AssemblyInfo.cs
 D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.CoreCompileInputs.cache
 D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.sourcelink.json
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.deps.json
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.runtimeconfig.json
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.pdb
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\bin\Debug\net8.0\SWP391.DAL.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\bin\Debug\net8.0\SWP391.DAL.pdb
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.Up2Date
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\refint\SWP391.BLL.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.pdb
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.genruntimeconfig.cache
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\ref\SWP391.BLL.dll

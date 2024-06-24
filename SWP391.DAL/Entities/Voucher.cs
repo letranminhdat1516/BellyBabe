@@ -9,6 +9,8 @@ public partial class Voucher
 
     public string VoucherName { get; set; } = null!;
 
+    public string? VoucherCode { get; set; }
+
     public int? Quantity { get; set; }
 
     public DateTime? ExpiredDate { get; set; }

@@ -15,11 +15,11 @@ namespace SWP391.API.Controllers
 
         public DeliveryController(DeliveryService deliveryService)
         {
-            _deliveryService = deliveryService;
+            _deliveryService = deliveryService ?? throw new ArgumentNullException(nameof(deliveryService));
         }
 
         [HttpPost("AddDelivery")]
-        public async Task<IActionResult> AddDelivery(string deliveryName, int? deliveryFee)
+        public async Task<IActionResult> AddDelivery([FromQuery] string deliveryName, [FromQuery] int? deliveryFee)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace SWP391.API.Controllers
         }
 
         [HttpDelete("DeleteDelivery/{deliveryId}")]
-        public async Task<IActionResult> DeleteDelivery(int deliveryId)
+        public async Task<IActionResult> DeleteDelivery([FromRoute] int deliveryId)
         {
             try
             {
@@ -55,11 +55,11 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPut("UpdateDelivery/{deliveryId}")]
-        public async Task<IActionResult> UpdateDelivery(int deliveryId, [FromBody] Dictionary<string, object> updates)
+        public async Task<IActionResult> UpdateDelivery([FromRoute] int deliveryId, [FromQuery] string deliveryName, [FromQuery] int? deliveryFee)
         {
             try
             {
-                await _deliveryService.UpdateDelivery(deliveryId, updates);
+                await _deliveryService.UpdateDelivery(deliveryId, deliveryName, deliveryFee);
                 return Ok("Cập nhật phương thức giao hàng thành công.");
             }
             catch (ArgumentException ex)
@@ -87,7 +87,7 @@ namespace SWP391.API.Controllers
         }
 
         [HttpGet("GetDeliveryById/{deliveryId}")]
-        public async Task<ActionResult<Delivery>> GetDeliveryById(int deliveryId)
+        public async Task<ActionResult<Delivery>> GetDeliveryById([FromRoute] int deliveryId)
         {
             try
             {

@@ -2,9 +2,10 @@
 using SWP391.BLL.Services.FeedbackService;
 using SWP391.DAL.Entities;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace SWP391.APIs.Controllers.FeedbackController
+namespace SWP391.APIs.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -14,84 +15,114 @@ namespace SWP391.APIs.Controllers.FeedbackController
 
         public FeedbackController(FeedbackService feedbackService)
         {
-            _feedbackService = feedbackService;
+            _feedbackService = feedbackService ?? throw new ArgumentNullException(nameof(feedbackService));
         }
 
-        [HttpPost]
+        [HttpPost("AddFeedback")]
         public async Task<IActionResult> AddFeedback(int userId, string content, int rating)
         {
-            if (userId <= 0 || string.IsNullOrEmpty(content) || rating < 1 || rating > 5)
-            {
-                return BadRequest("Phản hồi phải chứa ID người dùng hợp lệ, nội dung và đánh giá từ 1 đến 5.");
-            }
-
             try
             {
-                var addedFeedback = await _feedbackService.AddFeedbackAsync(userId, content, rating);
-                return CreatedAtAction(nameof(GetFeedbackById), new { feedbackId = addedFeedback.FeedbackId }, addedFeedback);
+                var feedback = await _feedbackService.AddFeedbackAsync(userId, content, rating);
+                return CreatedAtAction(nameof(GetFeedbackById), new { feedbackId = feedback.FeedbackId }, feedback);
             }
             catch (ArgumentException ex)
             {
                 return BadRequest(ex.Message);
             }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Lỗi không xác định: {ex.Message}");
+            }
         }
 
-        [HttpGet("user/{userId}")]
+        [HttpGet("GetFeedbacksByUserId/{userId}")]
         public async Task<IActionResult> GetFeedbacksByUserId(int userId)
         {
-            var feedbacks = await _feedbackService.GetFeedbacksByUserIdAsync(userId);
-            return Ok(feedbacks);
+            try
+            {
+                var feedbacks = await _feedbackService.GetFeedbacksByUserIdAsync(userId);
+                return Ok(feedbacks);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Lỗi không xác định: {ex.Message}");
+            }
         }
 
-        [HttpGet("{feedbackId}")]
+        [HttpGet("GetFeedbackById/{feedbackId}")]
         public async Task<IActionResult> GetFeedbackById(int feedbackId)
         {
-            var feedback = await _feedbackService.GetFeedbackByIdAsync(feedbackId);
-            if (feedback == null)
+            try
             {
-                return NotFound("Không tìm thấy phản hồi");
+                var feedback = await _feedbackService.GetFeedbackByIdAsync(feedbackId);
+                if (feedback == null)
+                {
+                    return NotFound("Không tìm thấy phản hồi.");
+                }
+                return Ok(feedback);
             }
-            return Ok(feedback);
+            catch (KeyNotFoundException)
+            {
+                return NotFound("Không tìm thấy phản hồi.");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Lỗi không xác định: {ex.Message}");
+            }
         }
 
-        [HttpGet]
+        [HttpGet("GetAllFeedbacks")]
         public async Task<IActionResult> GetAllFeedbacks()
         {
-            var feedbacks = await _feedbackService.GetAllFeedbacksAsync();
-            return Ok(feedbacks);
+            try
+            {
+                var feedbacks = await _feedbackService.GetAllFeedbacksAsync();
+                return Ok(feedbacks);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Lỗi không xác định: {ex.Message}");
+            }
         }
 
-        [HttpDelete("{feedbackId}")]
+        [HttpDelete("DeleteFeedback/{feedbackId}")]
         public async Task<IActionResult> DeleteFeedback(int feedbackId)
         {
-            var result = await _feedbackService.DeleteFeedbackAsync(feedbackId);
-            if (!result)
+            try
             {
-                return NotFound("Không tìm thấy phản hồi để xóa");
+                var result = await _feedbackService.DeleteFeedbackAsync(feedbackId);
+                if (!result)
+                {
+                    return NotFound("Không tìm thấy phản hồi để xóa.");
+                }
+                return Ok("Xóa phản hồi thành công.");
             }
-            return Ok("Đã xóa phản hồi thành công");
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Lỗi không xác định: {ex.Message}");
+            }
         }
 
-        [HttpPut("{feedbackId}")]
+        [HttpPut("UpdateFeedback/{feedbackId}")]
         public async Task<IActionResult> UpdateFeedback(int feedbackId, string content, int rating)
         {
-            if (string.IsNullOrEmpty(content) || rating < 1 || rating > 5)
-            {
-                return BadRequest("Phải cung cấp nội dung hợp lệ và đánh giá từ 1 đến 5 để cập nhật.");
-            }
-
             try
             {
                 var result = await _feedbackService.UpdateFeedbackAsync(feedbackId, content, rating);
                 if (!result)
                 {
-                    return NotFound("Không tìm thấy phản hồi để cập nhật");
+                    return NotFound("Không tìm thấy phản hồi để cập nhật.");
                 }
-                return Ok("Đã cập nhật phản hồi thành công");
+                return Ok("Cập nhật phản hồi thành công.");
             }
             catch (ArgumentException ex)
             {
                 return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Lỗi không xác định: {ex.Message}");
             }
         }
     }

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SWP391.DAL.Entities;
 using SWP391.BLL.Services.OrderServices;
+using SWP391.DAL.Entities;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace SWP391.API.Controllers
@@ -15,70 +15,97 @@ namespace SWP391.API.Controllers
 
         public OrderController(OrderService orderService)
         {
-            _orderService = orderService;
+            _orderService = orderService ?? throw new ArgumentNullException(nameof(orderService));
         }
 
-        [HttpPost("placeOrder")]
-        public async Task<IActionResult> PlaceOrderAsync(int userId, string recipientName, string recipientPhone, string recipientAddress, int deliveryId, string paymentMethod, string note)
+        [HttpPost("place-order")]
+        public async Task<IActionResult> PlaceOrder(int userId, string recipientName, string recipientPhone, string recipientAddress, int deliveryId, string note)
         {
-            if (userId <= 0)
+            try
             {
-                return BadRequest("ID người dùng phải được cung cấp.");
+                await _orderService.PlaceOrderAsync(userId, recipientName, recipientPhone, recipientAddress, deliveryId, note);
+                return Ok(new { Message = "Đặt hàng thành công." });
             }
-
-            await _orderService.PlaceOrderAsync(userId, recipientName, recipientPhone, recipientAddress, deliveryId, paymentMethod, note);
-            return Ok("Đặt hàng thành công.");
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { Error = $"Lỗi đặt hàng: {ex.Message}" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Error = $"Lỗi server: {ex.Message}" });
+            }
         }
 
-        [HttpGet("orders/{userId}")]
-        public async Task<ActionResult<List<Order>>> GetOrdersAsync(int userId)
+        [HttpGet("get-orders/{userId}")]
+        public async Task<IActionResult> GetOrders(int userId)
         {
-            var orders = await _orderService.GetOrdersAsync(userId);
-            if (orders == null || !orders.Any())
+            try
             {
-                return NotFound("Không tìm thấy đơn hàng nào cho người dùng này.");
+                var orders = await _orderService.GetOrdersAsync(userId);
+                return Ok(orders);
             }
-            return Ok(orders);
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { Error = $"Lỗi lấy đơn hàng: {ex.Message}" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Error = $"Lỗi server: {ex.Message}" });
+            }
         }
 
-        [HttpPost("updateOrderStatus")]
-        public async Task<IActionResult> UpdateOrderStatusAsync(int orderId, string newStatus)
+        [HttpPut("update-order-status/{orderId}")]
+        public async Task<IActionResult> UpdateOrderStatus(int orderId, string statusName)
         {
-            if (orderId <= 0)
+            try
             {
-                return BadRequest("ID đơn hàng phải được cung cấp.");
+                await _orderService.UpdateOrderStatusAsync(orderId, statusName);
+                return Ok(new { Message = "Cập nhật trạng thái đơn hàng thành công." });
             }
-
-            await _orderService.UpdateOrderStatusAsync(orderId, newStatus);
-            return Ok("Cập nhật trạng thái đơn hàng thành công.");
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { Error = $"Lỗi cập nhật trạng thái đơn hàng: {ex.Message}" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Error = $"Lỗi server: {ex.Message}" });
+            }
         }
 
-        [HttpGet("ordersByStatus/{userId}/{statusName}")]
-        public async Task<ActionResult<List<Order>>> GetOrdersByStatusAsync(int userId, string statusName)
+        [HttpGet("get-orders-by-status/{userId}")]
+        public async Task<IActionResult> GetOrdersByStatus(int userId, string statusName)
         {
-            if (userId <= 0)
+            try
             {
-                return BadRequest("ID người dùng phải được cung cấp.");
+                var orders = await _orderService.GetOrdersByStatusAsync(userId, statusName);
+                return Ok(orders);
             }
-
-            var orders = await _orderService.GetOrdersByStatusAsync(userId, statusName);
-            if (orders == null || !orders.Any())
+            catch (ArgumentException ex)
             {
-                return NotFound($"Không tìm thấy đơn hàng nào cho người dùng với trạng thái {statusName}.");
+                return BadRequest(new { Error = $"Lỗi lấy đơn hàng theo trạng thái: {ex.Message}" });
             }
-            return Ok(orders);
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Error = $"Lỗi server: {ex.Message}" });
+            }
         }
 
-        [HttpPost("cancelOrder")]
-        public async Task<IActionResult> CancelOrderAsync(int orderId)
+        [HttpDelete("cancel-order/{orderId}")]
+        public async Task<IActionResult> CancelOrder(int orderId)
         {
-            if (orderId <= 0)
+            try
             {
-                return BadRequest("ID đơn hàng phải được cung cấp.");
+                await _orderService.CancelOrderAsync(orderId);
+                return Ok(new { Message = "Hủy đơn hàng thành công." });
             }
-
-            await _orderService.CancelOrderAsync(orderId);
-            return Ok("Hủy đơn hàng thành công.");
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { Error = $"Lỗi hủy đơn hàng: {ex.Message}" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Error = $"Lỗi server: {ex.Message}" });
+            }
         }
     }
 }

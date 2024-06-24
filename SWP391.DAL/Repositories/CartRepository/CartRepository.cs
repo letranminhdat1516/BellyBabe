@@ -16,6 +16,7 @@ namespace SWP391.DAL.Repositories.CartRepository
         {
             _context = context;
         }
+
         public async Task<string> AddToCartAsync(int userId, int productId, int quantity)
         {
             try
@@ -42,15 +43,26 @@ namespace SWP391.DAL.Repositories.CartRepository
                     throw new ArgumentException("Số lượng sản phẩm phải lớn hơn 0.");
                 }
 
-                var orderDetail = new OrderDetail
-                {
-                    UserId = userId,
-                    ProductId = productId,
-                    Quantity = quantity,
-                    Price = (int)(product.NewPrice * quantity) 
-                };
+                var orderDetail = await _context.OrderDetails
+                    .FirstOrDefaultAsync(od => od.UserId == userId && od.ProductId == productId && od.OrderId == null);
 
-                _context.OrderDetails.Add(orderDetail);
+                if (orderDetail == null)
+                {
+                    orderDetail = new OrderDetail
+                    {
+                        UserId = userId,
+                        ProductId = productId,
+                        Quantity = quantity,
+                        Price = (int)(product.NewPrice * quantity) 
+                    };
+
+                    _context.OrderDetails.Add(orderDetail);
+                }
+                else
+                {
+                    orderDetail.Quantity += quantity;
+                }
+
                 await _context.SaveChangesAsync();
 
                 return "Đã thêm sản phẩm vào giỏ hàng thành công.";
@@ -87,10 +99,18 @@ namespace SWP391.DAL.Repositories.CartRepository
 
                 if (orderDetail != null)
                 {
-                    var availableQuantity = await _context.Products
-                        .Where(p => p.ProductId == productId)
-                        .Select(p => p.Quantity)
-                        .FirstOrDefaultAsync();
+                    var product = await _context.Products.FindAsync(productId);
+                    if (product == null)
+                    {
+                        throw new ArgumentException("ID sản phẩm không hợp lệ.");
+                    }
+
+                    if (product.IsSelling != true) 
+                    {
+                        throw new Exception("Sản phẩm hiện không có sẵn để mua.");
+                    }
+
+                    var availableQuantity = product.Quantity;
 
                     if (availableQuantity < orderDetail.Quantity + quantityToAdd)
                     {
@@ -137,6 +157,7 @@ namespace SWP391.DAL.Repositories.CartRepository
                 return $"Cập nhật số lượng sản phẩm trong giỏ hàng thất bại: {ex.Message}";
             }
         }
+
         public async Task<string> DeleteProductFromCartAsync(int userId, int productId)
         {
             try

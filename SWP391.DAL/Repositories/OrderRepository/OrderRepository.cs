@@ -12,16 +12,21 @@ namespace SWP391.DAL.Repositories.OrderRepository
     {
         private readonly Swp391Context _context;
         private readonly ProductRepository.ProductRepository _productRepository;
+        private readonly CartRepository.CartRepository _cartRepository;
         private readonly CumulativeScoreRepository.CumulativeScoreRepository _cumulativeScoreRepository;
 
-        public OrderRepository(Swp391Context context, ProductRepository.ProductRepository productRepository, CumulativeScoreRepository.CumulativeScoreRepository cumulativeScoreRepository)
+        public OrderRepository(Swp391Context context,
+                               ProductRepository.ProductRepository productRepository,
+                               CartRepository.CartRepository cartRepository,
+                               CumulativeScoreRepository.CumulativeScoreRepository cumulativeScoreRepository)
         {
             _context = context;
             _productRepository = productRepository;
+            _cartRepository = cartRepository;
             _cumulativeScoreRepository = cumulativeScoreRepository;
         }
 
-        public async Task PlaceOrderAsync(int userId, string recipientName, string recipientPhone, string recipientAddress, int deliveryId, string paymentMethod, string note)
+        public async Task PlaceOrderAsync(int userId, string recipientName, string recipientPhone, string recipientAddress, int deliveryId, string note)
         {
             var user = await _context.Users.FindAsync(userId);
             if (user == null)
@@ -35,8 +40,8 @@ namespace SWP391.DAL.Repositories.OrderRepository
                 throw new Exception("Không tìm thấy trạng thái xử lý.");
             }
 
-            var orderDetails = await _context.OrderDetails.Where(od => od.UserId == userId && od.OrderId == null).ToListAsync();
-            if (!orderDetails.Any())
+            var (orderDetails, cartNotification) = await _cartRepository.GetCartDetailsAsync(userId);
+            if (orderDetails == null || !orderDetails.Any())
             {
                 throw new Exception("Không có sản phẩm trong giỏ hàng.");
             }
@@ -68,7 +73,6 @@ namespace SWP391.DAL.Repositories.OrderRepository
                 orderDetail.OrderId = order.OrderId;
                 orderDetail.UserId = null;
 
-                // Cập nhật số lượng sản phẩm
                 if (orderDetail.ProductId.HasValue && orderDetail.Quantity.HasValue)
                 {
                     await _productRepository.UpdateProductQuantity(orderDetail.ProductId.Value, orderDetail.Quantity.Value);
@@ -140,38 +144,32 @@ namespace SWP391.DAL.Repositories.OrderRepository
                 throw new ArgumentException("ID đơn hàng không hợp lệ.");
             }
 
-            // Get the 'Đã hủy' (Cancelled) status
             var cancelStatus = await _context.OrderStatuses.FirstOrDefaultAsync(s => s.StatusName == "Đã hủy");
             if (cancelStatus == null)
             {
                 throw new Exception("Không tìm thấy trạng thái hủy.");
             }
 
-            // Get the current status of the order
             var currentStatus = await _context.OrderStatuses.FindAsync(order.StatusId);
             if (currentStatus == null)
             {
                 throw new Exception("Không tìm thấy trạng thái đơn hàng hiện tại.");
             }
 
-            // Check if the order is already canceled
             if (order.StatusId == cancelStatus.StatusId)
             {
                 throw new InvalidOperationException("Đơn hàng đã bị hủy.");
             }
 
-            // Add logic to prevent cancellation of orders that are already delivered or in process
             var nonCancelableStatuses = new List<string> { "Đã giao hàng", "Đang giao hàng" };
             if (nonCancelableStatuses.Contains(currentStatus.StatusName))
             {
                 throw new InvalidOperationException("Không thể hủy đơn hàng đã được giao hoặc đang giao.");
             }
 
-            // Update the status of the order to 'Đã hủy' (Cancelled)
             order.StatusId = cancelStatus.StatusId;
             await _context.SaveChangesAsync();
 
-            // Logic to revert product quantities
             var orderDetails = await _context.OrderDetails.Where(od => od.OrderId == orderId).ToListAsync();
             foreach (var orderDetail in orderDetails)
             {
