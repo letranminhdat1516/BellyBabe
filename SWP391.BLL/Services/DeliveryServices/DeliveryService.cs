@@ -12,7 +12,7 @@ namespace SWP391.BLL.Services
 
         public DeliveryService(DeliveryRepository deliveryRepository)
         {
-            _deliveryRepository = deliveryRepository;
+            _deliveryRepository = deliveryRepository ?? throw new ArgumentNullException(nameof(deliveryRepository));
         }
 
         public async Task AddDelivery(string deliveryName, int? deliveryFee)
@@ -43,11 +43,11 @@ namespace SWP391.BLL.Services
             }
         }
 
-        public async Task UpdateDelivery(int deliveryId, Dictionary<string, object> updates)
+        public async Task UpdateDelivery(int deliveryId, string deliveryName, int? deliveryFee)
         {
             try
             {
-                await _deliveryRepository.UpdateDelivery(deliveryId, updates);
+                await _deliveryRepository.UpdateDelivery(deliveryId, deliveryName, deliveryFee);
             }
             catch (ArgumentException ex)
             {

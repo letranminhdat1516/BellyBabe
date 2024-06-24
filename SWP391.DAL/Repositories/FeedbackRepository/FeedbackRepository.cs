@@ -14,22 +14,28 @@ namespace SWP391.DAL.Repositories.FeedbackRepository
 
         public FeedbackRepository(Swp391Context context)
         {
-            _context = context;
+            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task<Feedback> AddFeedbackAsync(Feedback feedback)
+        public async Task<Feedback> AddFeedbackAsync(int userId, string content, int rating)
         {
-            if (feedback == null)
+            if (string.IsNullOrEmpty(content))
             {
-                throw new ArgumentNullException(nameof(feedback), "Phản hồi không được để trống.");
+                throw new ArgumentException("Nội dung phản hồi không được để trống.");
             }
 
-            if (feedback.UserId == null || feedback.Rating == null || string.IsNullOrEmpty(feedback.Content))
+            if (rating < 1 || rating > 5)
             {
-                throw new ArgumentException("Phản hồi phải chứa ID người dùng, nội dung và đánh giá.");
+                throw new ArgumentException("Đánh giá phải từ 1 đến 5.");
             }
 
-            feedback.DateCreated = DateTime.UtcNow;
+            var feedback = new Feedback
+            {
+                UserId = userId,
+                Content = content,
+                Rating = rating,
+                DateCreated = DateTime.UtcNow
+            };
 
             await _context.Feedbacks.AddAsync(feedback);
             await _context.SaveChangesAsync();
@@ -46,7 +52,7 @@ namespace SWP391.DAL.Repositories.FeedbackRepository
                 .ToListAsync();
         }
 
-        public async Task<Feedback?> GetFeedbackByIdAsync(int feedbackId)
+        public async Task<Feedback> GetFeedbackByIdAsync(int feedbackId)
         {
             return await _context.Feedbacks
                 .Include(f => f.User)
@@ -77,16 +83,26 @@ namespace SWP391.DAL.Repositories.FeedbackRepository
             return true;
         }
 
-        public async Task<bool> UpdateFeedbackAsync(Feedback feedback)
+        public async Task<bool> UpdateFeedbackAsync(int feedbackId, string content, int rating)
         {
-            var existingFeedback = await _context.Feedbacks.FindAsync(feedback.FeedbackId);
+            var existingFeedback = await _context.Feedbacks.FindAsync(feedbackId);
             if (existingFeedback == null)
             {
                 return false;
             }
 
-            existingFeedback.Content = feedback.Content ?? existingFeedback.Content;
-            existingFeedback.Rating = feedback.Rating ?? existingFeedback.Rating;
+            if (string.IsNullOrEmpty(content))
+            {
+                throw new ArgumentException("Nội dung phản hồi không được để trống.");
+            }
+
+            if (rating < 1 || rating > 5)
+            {
+                throw new ArgumentException("Đánh giá phải từ 1 đến 5.");
+            }
+
+            existingFeedback.Content = content;
+            existingFeedback.Rating = rating;
 
             _context.Feedbacks.Update(existingFeedback);
             await _context.SaveChangesAsync();

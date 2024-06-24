@@ -12,96 +12,92 @@ namespace SWP391.BLL.Services.FeedbackService
 
         public FeedbackService(FeedbackRepository feedbackRepository)
         {
-            _feedbackRepository = feedbackRepository;
+            _feedbackRepository = feedbackRepository ?? throw new ArgumentNullException(nameof(feedbackRepository));
         }
 
         public async Task<Feedback> AddFeedbackAsync(int userId, string content, int rating)
         {
-            if (userId <= 0)
+            try
             {
-                throw new ArgumentException("ID người dùng phải là số nguyên dương.", nameof(userId));
+                return await _feedbackRepository.AddFeedbackAsync(userId, content, rating);
             }
-
-            if (string.IsNullOrWhiteSpace(content))
+            catch (ArgumentException ex)
             {
-                throw new ArgumentException("Nội dung không được để trống hoặc chỉ chứa khoảng trắng.", nameof(content));
+                throw new ArgumentException($"Thêm phản hồi thất bại: {ex.Message}");
             }
-
-            if (rating < 1 || rating > 5)
-            {
-                throw new ArgumentException("Đánh giá phải từ 1 đến 5.", nameof(rating));
-            }
-
-            var feedback = new Feedback
-            {
-                UserId = userId,
-                Content = content,
-                Rating = rating
-            };
-
-            return await _feedbackRepository.AddFeedbackAsync(feedback);
         }
 
         public async Task<IEnumerable<Feedback>> GetFeedbacksByUserIdAsync(int userId)
         {
-            if (userId <= 0)
+            try
             {
-                throw new ArgumentException("ID người dùng phải là số nguyên dương.", nameof(userId));
+                return await _feedbackRepository.GetFeedbacksByUserIdAsync(userId);
             }
-
-            return await _feedbackRepository.GetFeedbacksByUserIdAsync(userId);
+            catch (Exception ex)
+            {
+                throw new Exception($"Lấy phản hồi theo người dùng thất bại: {ex.Message}");
+            }
         }
 
         public async Task<Feedback> GetFeedbackByIdAsync(int feedbackId)
         {
-            if (feedbackId <= 0)
+            try
             {
-                throw new ArgumentException("ID phản hồi phải là số nguyên dương.", nameof(feedbackId));
+                var feedback = await _feedbackRepository.GetFeedbackByIdAsync(feedbackId);
+                if (feedback == null)
+                {
+                    throw new KeyNotFoundException("Không tìm thấy phản hồi.");
+                }
+                return feedback;
             }
-
-            return await _feedbackRepository.GetFeedbackByIdAsync(feedbackId);
+            catch (KeyNotFoundException)
+            {
+                throw new KeyNotFoundException("Không tìm thấy phản hồi.");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Lấy thông tin phản hồi thất bại: {ex.Message}");
+            }
         }
 
         public async Task<IEnumerable<Feedback>> GetAllFeedbacksAsync()
         {
-            return await _feedbackRepository.GetAllFeedbacksAsync();
+            try
+            {
+                return await _feedbackRepository.GetAllFeedbacksAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Lấy danh sách phản hồi thất bại: {ex.Message}");
+            }
         }
 
         public async Task<bool> DeleteFeedbackAsync(int feedbackId)
         {
-            if (feedbackId <= 0)
+            try
             {
-                throw new ArgumentException("ID phản hồi phải là số nguyên dương.", nameof(feedbackId));
+                return await _feedbackRepository.DeleteFeedbackAsync(feedbackId);
             }
-
-            return await _feedbackRepository.DeleteFeedbackAsync(feedbackId);
+            catch (Exception ex)
+            {
+                throw new Exception($"Xóa phản hồi thất bại: {ex.Message}");
+            }
         }
 
         public async Task<bool> UpdateFeedbackAsync(int feedbackId, string content, int rating)
         {
-            if (feedbackId <= 0)
+            try
             {
-                throw new ArgumentException("ID phản hồi phải là số nguyên dương.", nameof(feedbackId));
+                return await _feedbackRepository.UpdateFeedbackAsync(feedbackId, content, rating);
             }
-
-            if (string.IsNullOrWhiteSpace(content))
+            catch (ArgumentException ex)
             {
-                throw new ArgumentException("Nội dung không được để trống hoặc chỉ chứa khoảng trắng.", nameof(content));
+                throw new ArgumentException($"Cập nhật phản hồi thất bại: {ex.Message}");
             }
-
-            if (rating < 1 || rating > 5)
+            catch (Exception ex)
             {
-                throw new ArgumentException("Đánh giá phải từ 1 đến 5.", nameof(rating));
+                throw new Exception($"Cập nhật phản hồi thất bại: {ex.Message}");
             }
-
-            var feedback = new Feedback
-            {
-                FeedbackId = feedbackId,
-                Content = content,
-                Rating = rating
-            };
-
-            return await _feedbackRepository.UpdateFeedbackAsync(feedback);
         }
     }
 }

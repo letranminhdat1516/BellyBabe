@@ -18,42 +18,13 @@ namespace SWP391.APIs.Controllers
             _productService = productService;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AddProduct(
-            string productName,
-            bool? isSelling,
-            string description,
-            int quantity,
-            int isSoldOut,
-            DateTime? backInStockDate,
-            int? categoryId,
-            int? brandId,
-            int? feedbackTotal,
-            int oldPrice,
-            decimal discount,
-            string imageLinks)
+        [HttpPost("add-product")]
+        public async Task<IActionResult> AddProduct(string productName, bool? isSelling, string? description, int quantity, int isSoldOut, DateTime? backInStockDate, int? categoryId, int? brandId, int? feedbackTotal, int? oldPrice, decimal? discount, string? imageLinks)
         {
             try
             {
-                await _productService.AddProduct(
-                    productName,
-                    isSelling,
-                    description,
-                    quantity,
-                    isSoldOut,
-                    backInStockDate,
-                    categoryId,
-                    brandId,
-                    feedbackTotal,
-                    oldPrice,
-                    discount,
-                    imageLinks);
-
-                return Ok(new { message = "Sản phẩm đã được thêm thành công." });
-            }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(new { message = ex.Message });
+                await _productService.AddProduct(productName, isSelling, description, quantity, isSoldOut, backInStockDate, categoryId, brandId, feedbackTotal, oldPrice, discount, imageLinks);
+                return Ok(new { message = "Thêm sản phẩm thành công." });
             }
             catch (Exception ex)
             {
@@ -61,17 +32,13 @@ namespace SWP391.APIs.Controllers
             }
         }
 
-        [HttpDelete("{productId}")]
+        [HttpDelete("delete-product/{productId}")]
         public async Task<IActionResult> DeleteProduct(int productId)
         {
             try
             {
                 await _productService.DeleteProduct(productId);
-                return Ok(new { message = "Sản phẩm đã được xóa thành công." });
-            }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(new { message = ex.Message });
+                return Ok(new { message = "Xóa sản phẩm thành công." });
             }
             catch (Exception ex)
             {
@@ -87,10 +54,6 @@ namespace SWP391.APIs.Controllers
                 List<Product> foundProducts = await _productService.SearchProductByName(name);
                 return Ok(foundProducts);
             }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
             catch (Exception ex)
             {
                 return StatusCode(500, new { message = $"Tìm kiếm sản phẩm theo tên thất bại: {ex.Message}" });
@@ -98,16 +61,12 @@ namespace SWP391.APIs.Controllers
         }
 
         [HttpGet("search-by-status/{isSelling}")]
-        public async Task<IActionResult> SearchProductByStatus(bool isSelling = true)
+        public async Task<IActionResult> SearchProductByStatus(bool isSelling)
         {
             try
             {
                 List<Product> foundProducts = await _productService.SearchProductByStatus(isSelling);
                 return Ok(foundProducts);
-            }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(new { message = ex.Message });
             }
             catch (Exception ex)
             {
@@ -115,7 +74,7 @@ namespace SWP391.APIs.Controllers
             }
         }
 
-        [HttpGet("all")]
+        [HttpGet("all-products")]
         public async Task<IActionResult> ShowAllProducts()
         {
             try
@@ -125,7 +84,7 @@ namespace SWP391.APIs.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = $"Lấy danh sách sản phẩm thất bại: {ex.Message}" });
+                return StatusCode(500, new { message = $"Lấy danh sách tất cả sản phẩm thất bại: {ex.Message}" });
             }
         }
 
@@ -157,21 +116,31 @@ namespace SWP391.APIs.Controllers
             }
         }
 
-        [HttpPut("{productId}")]
-        public async Task<IActionResult> UpdateProduct(int productId, [FromBody] Dictionary<string, object> updates)
+        [HttpPut("update-product")]
+        public async Task<IActionResult> UpdateProduct(int productId, string productName, bool? isSelling, string? description, int quantity, int isSoldOut, DateTime? backInStockDate, int? categoryId, int? brandId, int? feedbackTotal, int? oldPrice, decimal? discount, string? imageLinks)
         {
             try
             {
-                await _productService.UpdateProduct(productId, updates);
+                await _productService.UpdateProduct(productId, productName, isSelling, description, quantity, isSoldOut, backInStockDate, categoryId, brandId, feedbackTotal, oldPrice, discount, imageLinks);
                 return Ok(new { message = "Cập nhật sản phẩm thành công." });
-            }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(new { message = ex.Message });
             }
             catch (Exception ex)
             {
                 return StatusCode(500, new { message = $"Cập nhật sản phẩm thất bại: {ex.Message}" });
+            }
+        }
+
+        [HttpPut("update-product-quantity/{productId}/{quantity}")]
+        public async Task<IActionResult> UpdateProductQuantity(int productId, int quantity)
+        {
+            try
+            {
+                await _productService.UpdateProductQuantity(productId, quantity);
+                return Ok(new { message = "Cập nhật số lượng sản phẩm thành công." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = $"Cập nhật số lượng sản phẩm thất bại: {ex.Message}" });
             }
         }
     }

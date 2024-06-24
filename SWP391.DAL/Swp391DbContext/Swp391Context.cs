@@ -66,7 +66,7 @@ public partial class Swp391Context : DbContext
     {
         modelBuilder.Entity<Blog>(entity =>
         {
-            entity.HasKey(e => e.BlogId).HasName("PK__Blog__FA0AA70DF6C5A482");
+            entity.HasKey(e => e.BlogId).HasName("PK__Blog__FA0AA70DC1DB1B34");
 
             entity.ToTable("Blog");
 
@@ -91,7 +91,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<BlogCategory>(entity =>
         {
-            entity.HasKey(e => e.CategoryId).HasName("PK__BlogCate__23CAF1F858B83345");
+            entity.HasKey(e => e.CategoryId).HasName("PK__BlogCate__23CAF1F8D9E5002B");
 
             entity.ToTable("BlogCategory");
 
@@ -108,7 +108,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<Brand>(entity =>
         {
-            entity.HasKey(e => e.BrandId).HasName("PK__Brand__06B772B96C3545C6");
+            entity.HasKey(e => e.BrandId).HasName("PK__Brand__06B772B98F1C84BA");
 
             entity.ToTable("Brand");
 
@@ -122,7 +122,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<CumulativeScore>(entity =>
         {
-            entity.HasKey(e => e.ScoreId).HasName("PK__Cumulati__B56A0D6DD4C07D90");
+            entity.HasKey(e => e.ScoreId).HasName("PK__Cumulati__B56A0D6D91E5D529");
 
             entity.ToTable("CumulativeScore");
 
@@ -149,7 +149,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<CumulativeScoreTransaction>(entity =>
         {
-            entity.HasKey(e => e.TransactionId).HasName("PK__Cumulati__9B57CF52CC657AD9");
+            entity.HasKey(e => e.TransactionId).HasName("PK__Cumulati__9B57CF5248716A7E");
 
             entity.ToTable("CumulativeScoreTransaction");
 
@@ -180,7 +180,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<CustomerOption>(entity =>
         {
-            entity.HasKey(e => e.CustomerOptionId).HasName("PK__Customer__E946505107C7D651");
+            entity.HasKey(e => e.CustomerOptionId).HasName("PK__Customer__E946505135660A47");
 
             entity.ToTable("CustomerOption");
 
@@ -213,7 +213,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<Delivery>(entity =>
         {
-            entity.HasKey(e => e.DeliveryId).HasName("PK__Delivery__CDC3A0D26E2B94F0");
+            entity.HasKey(e => e.DeliveryId).HasName("PK__Delivery__CDC3A0D26F1B4967");
 
             entity.ToTable("Delivery");
 
@@ -226,7 +226,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<Feedback>(entity =>
         {
-            entity.HasKey(e => e.FeedbackId).HasName("PK__Feedback__2613FDC42E2FDFA0");
+            entity.HasKey(e => e.FeedbackId).HasName("PK__Feedback__2613FDC49FF7691E");
 
             entity.ToTable("Feedback");
 
@@ -246,7 +246,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<FeedbackResponse>(entity =>
         {
-            entity.HasKey(e => e.ResponseId).HasName("PK__Feedback__0C2BB651F1DF8BF1");
+            entity.HasKey(e => e.ResponseId).HasName("PK__Feedback__0C2BB651B49B031F");
 
             entity.Property(e => e.ResponseId).HasColumnName("responseID");
             entity.Property(e => e.DateCreated)
@@ -267,7 +267,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<Message>(entity =>
         {
-            entity.HasKey(e => e.MessageId).HasName("PK__Message__4808B873D1C178EF");
+            entity.HasKey(e => e.MessageId).HasName("PK__Message__4808B8731449FDAD");
 
             entity.ToTable("Message");
 
@@ -289,7 +289,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<MessageInboxUser>(entity =>
         {
-            entity.HasKey(e => e.InboxId).HasName("PK__MessageI__FD7C285A132157D8");
+            entity.HasKey(e => e.InboxId).HasName("PK__MessageI__FD7C285A0A9070C5");
 
             entity.ToTable("MessageInboxUser");
 
@@ -320,7 +320,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<MessageOutboxUser>(entity =>
         {
-            entity.HasKey(e => e.OutboxId).HasName("PK__MessageO__4FC6E63EC9E8017A");
+            entity.HasKey(e => e.OutboxId).HasName("PK__MessageO__4FC6E63EFBD67836");
 
             entity.ToTable("MessageOutboxUser");
 
@@ -351,7 +351,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.OrderId).HasName("PK__Order__0809337D42183D4A");
+            entity.HasKey(e => e.OrderId).HasName("PK__Order__0809337DEBCB621E");
 
             entity.ToTable("Order");
 
@@ -397,7 +397,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<OrderDetail>(entity =>
         {
-            entity.HasKey(e => e.OrderDetailId).HasName("PK__OrderDet__E4FEDE2AEF1AE0AF");
+            entity.HasKey(e => e.OrderDetailId).HasName("PK__OrderDet__E4FEDE2AA98E8758");
 
             entity.Property(e => e.OrderDetailId).HasColumnName("orderDetailID");
             entity.Property(e => e.IsChecked).HasColumnName("isChecked");
@@ -422,7 +422,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<OrderStatus>(entity =>
         {
-            entity.HasKey(e => e.StatusId).HasName("PK__OrderSta__36257A381E94C308");
+            entity.HasKey(e => e.StatusId).HasName("PK__OrderSta__36257A38075395E1");
 
             entity.ToTable("OrderStatus");
 
@@ -434,7 +434,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<Payment>(entity =>
         {
-            entity.HasKey(e => e.PaymentId).HasName("PK__Payment__A0D9EFA6D976F185");
+            entity.HasKey(e => e.PaymentId).HasName("PK__Payment__A0D9EFA6CF123163");
 
             entity.ToTable("Payment");
 
@@ -507,7 +507,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<PreOrder>(entity =>
         {
-            entity.HasKey(e => e.PreOrderId).HasName("PK__PreOrder__50EDC3694CFE7881");
+            entity.HasKey(e => e.PreOrderId).HasName("PK__PreOrder__50EDC3698C29F430");
 
             entity.ToTable("PreOrder");
 
@@ -535,7 +535,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity.HasKey(e => e.ProductId).HasName("PK__Product__2D10D14AD6F8CAF0");
+            entity.HasKey(e => e.ProductId).HasName("PK__Product__2D10D14A17C2DE79");
 
             entity.ToTable("Product");
 
@@ -579,7 +579,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<ProductCategory>(entity =>
         {
-            entity.HasKey(e => e.CategoryId).HasName("PK__ProductC__23CAF1F8764B4B4F");
+            entity.HasKey(e => e.CategoryId).HasName("PK__ProductC__23CAF1F89F37E042");
 
             entity.ToTable("ProductCategory");
 
@@ -596,7 +596,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<Rating>(entity =>
         {
-            entity.HasKey(e => e.RatingId).HasName("PK__Rating__2D290D497726E3E0");
+            entity.HasKey(e => e.RatingId).HasName("PK__Rating__2D290D4913947CC0");
 
             entity.ToTable("Rating");
 
@@ -620,7 +620,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<Role>(entity =>
         {
-            entity.HasKey(e => e.RoleId).HasName("PK__Role__CD98460A5E5F4688");
+            entity.HasKey(e => e.RoleId).HasName("PK__Role__CD98460ADDB81573");
 
             entity.ToTable("Role");
 
@@ -632,15 +632,15 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.UserId).HasName("PK__User__CB9A1CDFA7733D26");
+            entity.HasKey(e => e.UserId).HasName("PK__User__CB9A1CDF748B3E7C");
 
             entity.ToTable("User");
 
-            entity.HasIndex(e => e.PhoneNumber, "UQ__User__4849DA01D260B89E").IsUnique();
+            entity.HasIndex(e => e.PhoneNumber, "UQ__User__4849DA0174BB6BBB").IsUnique();
 
-            entity.HasIndex(e => e.UserName, "UQ__User__66DCF95C140069F6").IsUnique();
+            entity.HasIndex(e => e.UserName, "UQ__User__66DCF95C86B52077").IsUnique();
 
-            entity.HasIndex(e => e.Email, "UQ__User__AB6E61641BD4F3A3").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__User__AB6E6164AF0E53F9").IsUnique();
 
             entity.Property(e => e.UserId).HasColumnName("userID");
             entity.Property(e => e.Address)
@@ -680,7 +680,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<Voucher>(entity =>
         {
-            entity.HasKey(e => e.VoucherId).HasName("PK__Vouchers__F53389895EB790B1");
+            entity.HasKey(e => e.VoucherId).HasName("PK__Vouchers__F5338989C5978F83");
 
             entity.Property(e => e.VoucherId).HasColumnName("voucherID");
             entity.Property(e => e.ExpiredDate)
@@ -689,6 +689,9 @@ public partial class Swp391Context : DbContext
                 .HasColumnName("expiredDate");
             entity.Property(e => e.Quantity).HasColumnName("quantity");
             entity.Property(e => e.UserId).HasColumnName("userID");
+            entity.Property(e => e.VoucherCode)
+                .HasMaxLength(30)
+                .HasColumnName("voucherCode");
             entity.Property(e => e.VoucherName)
                 .HasMaxLength(100)
                 .HasColumnName("voucherName");

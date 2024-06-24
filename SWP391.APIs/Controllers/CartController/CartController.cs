@@ -2,7 +2,6 @@
 using SWP391.DAL.Entities;
 using SWP391.BLL.Services.CartServices;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace SWP391.API.Controllers
@@ -19,127 +18,108 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPost("add-to-cart")]
-        public async Task<IActionResult> AddToCartAsync(int userId, int productId, int quantity)
+        public async Task<IActionResult> AddToCartAsync([FromQuery] int userId, [FromQuery] int productId, [FromQuery] int quantity)
         {
-            try
+            if (userId <= 0)
             {
-                if (userId <= 0)
-                {
-                    return BadRequest("ID người dùng không hợp lệ.");
-                }
+                return BadRequest("Vui lòng cung cấp ID người dùng.");
+            }
 
-                await _cartService.AddProductToCartAsync(userId, productId, quantity);
-                return Ok("Đã thêm sản phẩm vào giỏ hàng thành công.");
-            }
-            catch (Exception ex)
+            var result = await _cartService.AddProductToCartAsync(userId, productId, quantity);
+            if (result.Contains("thất bại"))
             {
-                return BadRequest($"Thêm sản phẩm vào giỏ hàng thất bại: {ex.Message}");
+                return BadRequest(result);
             }
+
+            return Ok("Đã thêm sản phẩm vào giỏ hàng thành công.");
         }
 
-        [HttpGet("cartdetails/{userId}")]
-        public async Task<IActionResult> GetCartDetailsAsync(int userId)
+        [HttpGet("cart-details/{userId}")]
+        public async Task<ActionResult<List<OrderDetail>>> GetCartDetailsAsync(int userId)
         {
-            try
+            var (orderDetails, message) = await _cartService.GetCartDetailsAsync(userId);
+            if (orderDetails == null || orderDetails.Count == 0)
             {
-                if (userId <= 0)
-                {
-                    return BadRequest("ID người dùng không hợp lệ.");
-                }
+                return NotFound("Không có sản phẩm nào trong giỏ hàng.");
+            }
 
-                var (orderDetails, message) = await _cartService.GetCartDetailsAsync(userId);
-                if (orderDetails == null || !orderDetails.Any())
-                {
-                    return NotFound("Không có sản phẩm nào trong giỏ hàng.");
-                }
-                return Ok(orderDetails);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Lấy thông tin giỏ hàng thất bại: {ex.Message}");
-            }
+            return Ok(orderDetails);
         }
 
-        [HttpPost("increaseQuantity")]
-        public async Task<IActionResult> IncreaseQuantityAsync(int userId, int productId, int quantityToAdd)
+        [HttpPost("increase-quantity")]
+        public async Task<IActionResult> IncreaseQuantityAsync([FromQuery] int userId, [FromQuery] int productId, [FromQuery] int quantityToAdd)
         {
-            try
+            if (userId <= 0)
             {
-                if (userId <= 0)
-                {
-                    return BadRequest("ID người dùng không hợp lệ.");
-                }
-
-                if (productId <= 0)
-                {
-                    return BadRequest("ID sản phẩm không hợp lệ.");
-                }
-
-                if (quantityToAdd <= 0)
-                {
-                    return BadRequest("Số lượng sản phẩm phải lớn hơn 0.");
-                }
-
-                await _cartService.IncreaseQuantityAsync(userId, productId, quantityToAdd);
-                return Ok("Đã cập nhật số lượng sản phẩm trong giỏ hàng thành công.");
+                return BadRequest("Vui lòng cung cấp ID người dùng.");
             }
-            catch (Exception ex)
+
+            if (productId <= 0)
             {
-                return BadRequest($"Cập nhật số lượng sản phẩm trong giỏ hàng thất bại: {ex.Message}");
+                return BadRequest("Vui lòng cung cấp ID sản phẩm.");
             }
+
+            if (quantityToAdd <= 0)
+            {
+                return BadRequest("Số lượng cần thêm phải lớn hơn không.");
+            }
+
+            var result = await _cartService.IncreaseQuantityAsync(userId, productId, quantityToAdd);
+            if (result.Contains("thất bại"))
+            {
+                return BadRequest(result);
+            }
+
+            return Ok("Đã tăng số lượng sản phẩm trong giỏ hàng thành công.");
         }
 
-        [HttpPost("decreaseQuantity")]
-        public async Task<IActionResult> DecreaseQuantityAsync(int userId, int productId, int quantityToSubtract)
+        [HttpPost("decrease-quantity")]
+        public async Task<IActionResult> DecreaseQuantityAsync([FromQuery] int userId, [FromQuery] int productId, [FromQuery] int quantityToSubtract)
         {
-            try
+            if (userId <= 0)
             {
-                if (userId <= 0)
-                {
-                    return BadRequest("ID người dùng không hợp lệ.");
-                }
-
-                if (productId <= 0)
-                {
-                    return BadRequest("ID sản phẩm không hợp lệ.");
-                }
-
-                if (quantityToSubtract <= 0)
-                {
-                    return BadRequest("Số lượng sản phẩm phải lớn hơn 0.");
-                }
-
-                await _cartService.DecreaseQuantityAsync(userId, productId, quantityToSubtract);
-                return Ok("Đã cập nhật số lượng sản phẩm trong giỏ hàng thành công.");
+                return BadRequest("Vui lòng cung cấp ID người dùng.");
             }
-            catch (Exception ex)
+
+            if (productId <= 0)
             {
-                return BadRequest($"Cập nhật số lượng sản phẩm trong giỏ hàng thất bại: {ex.Message}");
+                return BadRequest("Vui lòng cung cấp ID sản phẩm.");
             }
+
+            if (quantityToSubtract <= 0)
+            {
+                return BadRequest("Số lượng cần giảm phải lớn hơn không.");
+            }
+
+            var result = await _cartService.DecreaseQuantityAsync(userId, productId, quantityToSubtract);
+            if (result.Contains("thất bại"))
+            {
+                return BadRequest(result);
+            }
+
+            return Ok("Đã giảm số lượng sản phẩm trong giỏ hàng thành công.");
         }
 
-        [HttpDelete("deleteProductfromCart")]
-        public async Task<IActionResult> DeleteProductFromCartAsync(int userId, int productId)
+        [HttpDelete("delete-product-from-cart")]
+        public async Task<IActionResult> DeleteProductFromCartAsync([FromQuery] int userId, [FromQuery] int productId)
         {
-            try
+            if (userId <= 0)
             {
-                if (userId <= 0)
-                {
-                    return BadRequest("ID người dùng không hợp lệ.");
-                }
-
-                if (productId <= 0)
-                {
-                    return BadRequest("ID sản phẩm không hợp lệ.");
-                }
-
-                await _cartService.DeleteProductFromCartAsync(userId, productId);
-                return Ok("Đã xóa sản phẩm khỏi giỏ hàng thành công.");
+                return BadRequest("Vui lòng cung cấp ID người dùng.");
             }
-            catch (Exception ex)
+
+            if (productId <= 0)
             {
-                return BadRequest($"Xóa sản phẩm khỏi giỏ hàng thất bại: {ex.Message}");
+                return BadRequest("Vui lòng cung cấp ID sản phẩm.");
             }
+
+            var result = await _cartService.DeleteProductFromCartAsync(userId, productId);
+            if (result.Contains("thất bại"))
+            {
+                return BadRequest(result);
+            }
+
+            return Ok("Đã xóa sản phẩm khỏi giỏ hàng thành công.");
         }
     }
 }

@@ -49,42 +49,35 @@ namespace SWP391.DAL.Repositories.DeliveryRepository
             }
         }
 
-        public async Task UpdateDelivery(int deliveryId, Dictionary<string, object> updates)
+        public async Task UpdateDelivery(int deliveryId, string deliveryName, int? deliveryFee)
         {
             var delivery = await _context.Deliveries.FindAsync(deliveryId);
 
             if (delivery != null)
             {
-                foreach (var update in updates)
+                if (!string.IsNullOrEmpty(deliveryName))
                 {
-                    switch (update.Key)
-                    {
-                        case "deliveryName":
-                            if (update.Value is string newName && !string.IsNullOrEmpty(newName))
-                            {
-                                delivery.DeliveryName = newName;
-                            }
-                            else
-                            {
-                                throw new ArgumentException("Tên phương thức giao hàng không được để trống.");
-                            }
-                            break;
-                        case "deliveryFee":
-                            if (update.Value is int newFee)
-                            {
-                                delivery.DeliveryFee = newFee;
-                            }
-                            else
-                            {
-                                throw new ArgumentException("Phí giao hàng phải là số nguyên.");
-                            }
-                            break;
-                        default:
-                            throw new ArgumentException($"Tên thuộc tính không hợp lệ: {update.Key}", nameof(updates));
-                    }
+                    delivery.DeliveryName = deliveryName;
+                }
+                else
+                {
+                    throw new ArgumentException("Tên phương thức giao hàng không được để trống.");
+                }
+
+                if (deliveryFee.HasValue && deliveryFee >= 0)
+                {
+                    delivery.DeliveryFee = deliveryFee;
+                }
+                else
+                {
+                    throw new ArgumentException("Phí giao hàng phải lớn hơn hoặc bằng 0.");
                 }
 
                 await _context.SaveChangesAsync();
+            }
+            else
+            {
+                throw new KeyNotFoundException("Không tìm thấy phương thức giao hàng.");
             }
         }
 

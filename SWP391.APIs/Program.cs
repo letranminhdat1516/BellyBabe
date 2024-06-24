@@ -31,6 +31,9 @@ using SWP391.BLL.Config;
 using SWP391.DAL.Entities.payment.Request;
 using SWP391.DAL.Entities.payment.Response;
 using SWP391.BLL.Mapper;
+using SWP391.DAL.Entities;
+using SWP391.DAL.Repositories.OrderStatusRepository;
+using SWP391.BLL.Services.OrderStatusServices;
 
 namespace SWP391.APIs
 {
@@ -63,6 +66,7 @@ namespace SWP391.APIs
             builder.Services.AddScoped<RatingRepository>();
             builder.Services.AddScoped<PreOrderRepository>();
             builder.Services.AddScoped<FeedbackRepository>();
+            builder.Services.AddScoped<OrderStatusRepository>();
 
             // Register services
             builder.Services.AddScoped<IEmailService, EmailService>();
@@ -81,7 +85,8 @@ namespace SWP391.APIs
             builder.Services.AddScoped<RatingService>();
             builder.Services.AddScoped<PreOrderService>();
             builder.Services.AddScoped<FeedbackService>();
-            builder.Services.AddScoped<ChatService>();
+            builder.Services.AddScoped<OrderStatusService>();
+
             builder.Services.AddSignalR();
 
 
@@ -148,7 +153,6 @@ namespace SWP391.APIs
             app.UseAuthentication();
             app.UseAuthorization();
             app.MapControllers();
-            app.MapHub<ChatHub>("/chatHub");
             app.Run();
         }
     }

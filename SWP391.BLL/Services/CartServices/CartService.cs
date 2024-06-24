@@ -15,39 +15,29 @@ namespace SWP391.BLL.Services.CartServices
             _cartRepository = cartRepository;
         }
 
+        public async Task<(List<OrderDetail>, string)> GetCartDetailsAsync(int userId)
+        {
+            try
+            {
+                var (orderDetails, message) = await _cartRepository.GetCartDetailsAsync(userId);
+                return (orderDetails, message);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Lấy chi tiết giỏ hàng thất bại: {ex.Message}");
+            }
+        }
+
         public async Task<string> AddProductToCartAsync(int userId, int productId, int quantity)
         {
             try
             {
-                if (userId <= 0)
-                {
-                    throw new ArgumentException("ID người dùng không hợp lệ.");
-                }
-
                 var result = await _cartRepository.AddToCartAsync(userId, productId, quantity);
                 return result;
             }
             catch (Exception ex)
             {
-                throw new Exception($"Thêm sản phẩm vào giỏ hàng thất bại: {ex.Message}");
-            }
-        }
-
-        public async Task<(List<OrderDetail>, string)> GetCartDetailsAsync(int userId)
-        {
-            try
-            {
-                if (userId <= 0)
-                {
-                    throw new ArgumentException("ID người dùng không hợp lệ.");
-                }
-
-                var result = await _cartRepository.GetCartDetailsAsync(userId);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Lấy thông tin giỏ hàng thất bại: {ex.Message}");
+                return $"Thêm sản phẩm vào giỏ hàng thất bại: {ex.Message}";
             }
         }
 
@@ -55,27 +45,12 @@ namespace SWP391.BLL.Services.CartServices
         {
             try
             {
-                if (userId <= 0)
-                {
-                    throw new ArgumentException("ID người dùng không hợp lệ.");
-                }
-
-                if (productId <= 0)
-                {
-                    throw new ArgumentException("ID sản phẩm không hợp lệ.");
-                }
-
-                if (quantityToAdd <= 0)
-                {
-                    throw new ArgumentException("Số lượng sản phẩm phải lớn hơn 0.");
-                }
-
                 var result = await _cartRepository.IncreaseQuantityAsync(userId, productId, quantityToAdd);
                 return result;
             }
             catch (Exception ex)
             {
-                throw new Exception($"Cập nhật số lượng sản phẩm trong giỏ hàng thất bại: {ex.Message}");
+                return $"Cập nhật số lượng sản phẩm thất bại: {ex.Message}";
             }
         }
 
@@ -83,27 +58,12 @@ namespace SWP391.BLL.Services.CartServices
         {
             try
             {
-                if (userId <= 0)
-                {
-                    throw new ArgumentException("ID người dùng không hợp lệ.");
-                }
-
-                if (productId <= 0)
-                {
-                    throw new ArgumentException("ID sản phẩm không hợp lệ.");
-                }
-
-                if (quantityToSubtract <= 0)
-                {
-                    throw new ArgumentException("Số lượng sản phẩm phải lớn hơn 0.");
-                }
-
                 var result = await _cartRepository.DecreaseQuantityAsync(userId, productId, quantityToSubtract);
                 return result;
             }
             catch (Exception ex)
             {
-                throw new Exception($"Cập nhật số lượng sản phẩm trong giỏ hàng thất bại: {ex.Message}");
+                return $"Cập nhật số lượng sản phẩm thất bại: {ex.Message}";
             }
         }
 
@@ -111,22 +71,12 @@ namespace SWP391.BLL.Services.CartServices
         {
             try
             {
-                if (userId <= 0)
-                {
-                    throw new ArgumentException("ID người dùng không hợp lệ.");
-                }
-
-                if (productId <= 0)
-                {
-                    throw new ArgumentException("ID sản phẩm không hợp lệ.");
-                }
-
                 var result = await _cartRepository.DeleteProductFromCartAsync(userId, productId);
                 return result;
             }
             catch (Exception ex)
             {
-                throw new Exception($"Xóa sản phẩm khỏi giỏ hàng thất bại: {ex.Message}");
+                return $"Xóa sản phẩm khỏi giỏ hàng thất bại: {ex.Message}";
             }
         }
     }
