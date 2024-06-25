@@ -1,7 +1,8 @@
 ﻿using SWP391.DAL.Entities;
-using SWP391.DAL.Entities.Chat;
+using SWP391.DAL.Model.Chat;
 using SWP391.DAL.Swp391DbContext;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 public class ChatService
 {
@@ -14,6 +15,20 @@ public class ChatService
 
     public async Task SaveMessageAsync(ChatMessageModel message)
     {
+        // Kiểm tra người dùng tồn tại trong hệ thống
+        var fromUser = await _context.Users.FirstOrDefaultAsync(u => u.UserName == message.FromUser);
+        var toUser = await _context.Users.FirstOrDefaultAsync(u => u.UserName == message.ToUser);
+
+        if (fromUser == null && !message.IsAdmin)
+        {
+            throw new Exception("Người dùng gửi không tồn tại trong hệ thống.");
+        }
+
+        if (toUser == null && message.IsAdmin)
+        {
+            throw new Exception("Người dùng nhận không tồn tại trong hệ thống.");
+        }
+
         // Tạo bản ghi mới trong bảng Message
         var newMessage = new Message
         {
@@ -54,17 +69,55 @@ public class ChatService
         await _context.SaveChangesAsync();
     }
 
+
+
     public async Task SaveCustomerOptionAsync(CustomerOptionModel model)
     {
-        // Lưu thông tin lựa chọn của khách hàng vào bảng tùy chọn hoặc một bảng liên quan
+        // Kiểm tra sự tồn tại của UserId
+        if (model.UserId.HasValue)
+        {
+            var userExists = await _context.Users.AnyAsync(u => u.UserId == model.UserId.Value);
+            if (!userExists)
+            {
+                throw new ArgumentException("User ID không tồn tại.");
+            }
+        }
+
+        // Kiểm tra sự tồn tại của MessageId
+        if (model.MessageId.HasValue)
+        {
+            var messageExists = await _context.Messages.AnyAsync(m => m.MessageId == model.MessageId.Value);
+            if (!messageExists)
+            {
+                throw new ArgumentException("Message ID không tồn tại.");
+            }
+        }
+
+        // Tạo đối tượng CustomerOption và gán giá trị từ model
         var customerOption = new CustomerOption
         {
-            UserName = model.UserName,
-            Option = model.Option,
-            DateSelected = DateTime.Now
+            UserId = model.UserId ?? 0, // Chuyển đổi giá trị nullable int thành int, nếu null thì gán giá trị mặc định là 0
+            MessageId = model.MessageId ?? 0,
+            InboxId = model.InboxId ?? 0,
+            OutboxId = model.OutboxId ?? 0,
+            OptionValue = model.OptionValue,
         };
 
+        // Thêm vào cơ sở dữ liệu và lưu lại
         _context.CustomerOptions.Add(customerOption);
         await _context.SaveChangesAsync();
+    }
+
+
+
+
+    public async Task<List<Message>> GetMessagesAsync()
+    {
+        return await _context.Messages.Include(m => m.UserNameNavigation).ToListAsync();
+    }
+
+    public async Task<List<CustomerOption>> GetCustomerOptionsAsync()
+    {
+        return await _context.CustomerOptions.ToListAsync();
     }
 }

@@ -33,6 +33,7 @@ using SWP391.BLL.Config;
 using SWP391.DAL.Entities.payment.Request;
 using SWP391.DAL.Entities.payment.Response;
 using SWP391.BLL.Mapper;
+using SWP391.DAL.Repositories;
 
 namespace SWP391.APIs
 {
@@ -52,7 +53,7 @@ namespace SWP391.APIs
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             // Register repositories
-            builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<VoucherRepository>();
             builder.Services.AddScoped<ProductRepository>();
             builder.Services.AddScoped<CartRepository>();
             builder.Services.AddScoped<OrderRepository>();
@@ -67,9 +68,11 @@ namespace SWP391.APIs
             builder.Services.AddScoped<RatingRepository>();
             builder.Services.AddScoped<PreOrderRepository>();
             builder.Services.AddScoped<FeedbackRepository>();
+            builder.Services.AddScoped<VoucherRepository>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
 
             // Register services
-            builder.Services.AddScoped<IEmailService, EmailService>();
+            builder.Services.AddSingleton<EmailService>();
             builder.Services.AddScoped<IAuthService, AuthService>();
             builder.Services.AddScoped<OtpService>();
             builder.Services.AddScoped<UserService>();
@@ -88,13 +91,12 @@ namespace SWP391.APIs
             builder.Services.AddScoped<PreOrderService>();
             builder.Services.AddScoped<FeedbackService>();
             builder.Services.AddScoped<ChatService>();
+            builder.Services.AddScoped<VoucherService>();
             builder.Services.AddSignalR();
-
 
             builder.Services.AddHttpContextAccessor();
 
-
-            //Add mapper
+            // Add mapper
             var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new ApplicationMapper());
@@ -102,19 +104,15 @@ namespace SWP391.APIs
 
             IMapper mapper = mapperConfig.CreateMapper();
             builder.Services.AddSingleton(mapper);
-            //Get config vnpay from appsettings.json
+
+            // Get config vnpay from appsettings.json
             builder.Services.Configure<VnpayConfig>(
                 builder.Configuration.GetSection(VnpayConfig.ConfigName));
-
-            //Add connection to database
-            builder.Services.AddDbContext<Swp391Context>(opt =>
-            {
-                opt.UseSqlServer(builder.Configuration.GetConnectionString("Database"));
-            });
 
             builder.Services.AddScoped<VnpayService>();
             builder.Services.AddScoped<VnpayPayResponse>();
             builder.Services.AddScoped<VnpayPayRequest>();
+
             // Add JSON options
             builder.Services.AddControllers().AddJsonOptions(options =>
             {
@@ -136,22 +134,22 @@ namespace SWP391.APIs
                 {
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateIssuer = false,
-                    ValidateAudience = false
+                    ValidateIssuer = true,
+                    ValidIssuer = builder.Configuration["Jwt:Issuer"],
+                    ValidateAudience = true,
+                    ValidAudience = builder.Configuration["Jwt:Audience"]
                 };
             });
 
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
+            app.UseSwagger();
+            app.UseSwaggerUI();
 
             app.UseHttpsRedirection();
             app.UseAuthentication();
+
             app.UseAuthorization();
             app.MapControllers();
             app.MapHub<ChatHub>("/chatHub");

@@ -3,6 +3,7 @@ using SWP391.DAL.Entities;
 using SWP391.DAL.Repositories.Contract;
 using SWP391.DAL.Swp391DbContext;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SWP391.DAL.Repositories.UserRepository
@@ -18,19 +19,33 @@ namespace SWP391.DAL.Repositories.UserRepository
 
         public async Task<User> GetUserByPhoneNumberAsync(string phoneNumber)
         {
-            return await _context.Users.Include(u => u.Role).FirstOrDefaultAsync(u => u.PhoneNumber == phoneNumber);
-        }
-        public async Task<User> GetUserByEmailAsync(string email)
-        {
-            return await _context.Users.Include(u => u.Role).FirstOrDefaultAsync(u => u.Email == email);
+            return await _context.Users
+                .Include(u => u.Role)
+                .FirstOrDefaultAsync(u => u.PhoneNumber == phoneNumber);
         }
 
+        public async Task<User> GetUserByEmailAsync(string email)
+        {
+            return await _context.Users
+                .Include(u => u.Role)
+                .FirstOrDefaultAsync(u => u.Email == email);
+        }
 
         public async Task AddUserAsync(User user)
         {
-            await _context.Users.AddAsync(user);
+            // Kiểm tra nếu UserName đã tồn tại
+            var existingUser = await _context.Users
+                .FirstOrDefaultAsync(u => u.UserName == user.UserName);
+
+            if (existingUser != null)
+            {
+                throw new InvalidOperationException("UserName already exists.");
+            }
+
+            _context.Users.Add(user);
             await _context.SaveChangesAsync();
         }
+
 
         public async Task UpdateUserAsync(User user)
         {
@@ -46,6 +61,16 @@ namespace SWP391.DAL.Repositories.UserRepository
                 _context.Users.Remove(user);
                 await _context.SaveChangesAsync();
             }
+        }
+
+        public async Task<List<User>> GetUsersAsync()
+        {
+            return await _context.Users.ToListAsync();
+        }
+
+        public async Task<User> GetUserByIdAsync(int userId)
+        {
+            return await _context.Users.FindAsync(userId);
         }
     }
 }

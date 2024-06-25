@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using SWP391.DAL.Entities;
-using SWP391.DAL.Entities.Chat;
 using WebApplication1.Entities;
 
 namespace SWP391.DAL.Swp391DbContext
@@ -368,21 +367,19 @@ namespace SWP391.DAL.Swp391DbContext
 
             modelBuilder.Entity<CustomerOption>(entity =>
             {
-                entity.HasKey(e => e.CustomerOptionId).HasName("PK__CustomerOption__5D7E7E59");
+                entity.HasKey(e => e.CustomerOptionId).HasName("PK__Customer__E9465051D9CDE185");
 
                 entity.ToTable("CustomerOption");
 
                 entity.Property(e => e.CustomerOptionId).HasColumnName("customerOptionID");
-                entity.Property(e => e.UserName)
-                    .HasMaxLength(50)
-                    .HasColumnName("userName");
-                entity.Property(e => e.Option)
+                entity.Property(e => e.InboxId).HasColumnName("inboxID");
+                entity.Property(e => e.MessageId).HasColumnName("messageID");
+                entity.Property(e => e.OptionValue)
+                    .IsRequired()
                     .HasMaxLength(255)
-                    .HasColumnName("option");
-                entity.Property(e => e.DateSelected)
-                    .HasDefaultValueSql("(getdate())")
-                    .HasColumnType("datetime")
-                    .HasColumnName("dateSelected");
+                    .HasColumnName("optionValue");
+                entity.Property(e => e.OutboxId).HasColumnName("outboxID");
+                entity.Property(e => e.UserId).HasColumnName("userID");
             });
 
             modelBuilder.Entity<Order>(entity =>

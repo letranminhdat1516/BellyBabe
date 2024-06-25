@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SWP391.BLL.Services;
 using SWP391.DAL.Model.users;
+using SWP391.DAL.Entities;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SWP391.APIs.Controllers
@@ -44,8 +46,23 @@ namespace SWP391.APIs.Controllers
             await _userService.DeleteUserAsync(userId);
             return NoContent();
         }
+
+        [HttpGet("get-user/{id}")]
+        public async Task<IActionResult> GetUserById(int id)
+        {
+            var user = await _userService.GetUserByIdAsync(id);
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+            return Ok(user);
+        }
+
+        [HttpGet("get-users")]
+        public async Task<IActionResult> GetUsers()
+        {
+            var users = await _userService.GetUsersAsync();
+            return Ok(users);
+        }
     }
 }
-
-
-

@@ -44,13 +44,13 @@ namespace SWP391.APIs.Controllers
         }
     }
 
-    public class RequestOtpModel
+    public record RequestOtpModel
     {
         public string PhoneNumber { get; set; }
         public string UserName { get; set; }
     }
 
-    public class VerifyUserOtpModel
+    public record VerifyUserOtpModel
     {
         public string PhoneNumber { get; set; }
         public string OTP { get; set; }

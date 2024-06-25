@@ -1,8 +1,8 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using SWP391.DAL.Model.Login;
 using SWP391.DAL.Repositories.Contract;
-
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -19,36 +19,7 @@ namespace SWP391.BLL.Services.LoginService
             _userRepository = userRepository;
             _configuration = configuration;
         }
-
-        public async Task<AdminLoginResponseDTO> AdminLoginAsync(AdminLoginDTO loginDTO)
-        {
-            var user = await _userRepository.GetUserByEmailAsync(loginDTO.Email);
-            if (user == null)
-            {
-                Console.WriteLine("User not found.");
-                return null;
-            }
-
-            if (user.Password != loginDTO.Password)
-            {
-                Console.WriteLine("Password mismatch.");
-                return null;
-            }
-
-            if (user.Role == null)
-            {
-                Console.WriteLine("User role is null.");
-                return null;
-            }
-
-            if (user.Role.RoleName != "Admin")
-            {
-                Console.WriteLine($"User role is not Admin, it is {user.Role.RoleName}.");
-                return null;
-            }
-
-            return new AdminLoginResponseDTO { Email = user.Email };
-        }
+      
 
         public async Task<UserLoginResponseDTO> UserLoginAsync(UserLoginDTO loginDTO)
         {
@@ -60,6 +31,16 @@ namespace SWP391.BLL.Services.LoginService
 
             var token = GenerateJwtToken(user.Email, "User");
             return new UserLoginResponseDTO { Token = token, PhoneNumber = user.PhoneNumber };
+        }
+
+        public async Task<AdminLoginResponseDTO> AdminLoginAsync(AdminLoginDTO loginDTO)
+        {
+            var user = await _userRepository.GetUserByEmailAsync(loginDTO.Email);
+            if (user == null || user.Password != loginDTO.Password || user.RoleId != 1)  // Sửa lại để kiểm tra RoleId
+            {
+                return null;
+            }
+            return new AdminLoginResponseDTO { Email = user.Email };
         }
 
         public string GenerateJwtToken(string email, string role)
@@ -74,6 +55,8 @@ namespace SWP391.BLL.Services.LoginService
                     new Claim(ClaimTypes.Role, role)
                 }),
                 Expires = DateTime.UtcNow.AddHours(1),
+                Issuer = _configuration["Jwt:Issuer"],
+                Audience = _configuration["Jwt:Audience"],
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);

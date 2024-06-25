@@ -14,4 +14,5 @@ namespace SWP391.DAL.Entities
         public virtual ICollection<MessageInboxUser> MessageInboxUsers { get; set; } = new List<MessageInboxUser>();
         public virtual ICollection<MessageOutboxUser> MessageOutboxUsers { get; set; } = new List<MessageOutboxUser>();
     }
+
 }

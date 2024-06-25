@@ -1,8 +1,12 @@
-﻿using SWP391.DAL.Model.Login;
+﻿using System.Threading.Tasks;
+using SWP391.DAL.Model.Login;
 
-public interface IAuthService
+namespace SWP391.BLL.Services.LoginService
 {
-    Task<AdminLoginResponseDTO> AdminLoginAsync(AdminLoginDTO loginDTO);
-    Task<UserLoginResponseDTO> UserLoginAsync(UserLoginDTO loginDTO);
-    string GenerateJwtToken(string email, string role);
+    public interface IAuthService
+    {
+        Task<AdminLoginResponseDTO> AdminLoginAsync(AdminLoginDTO loginDTO);
+        Task<UserLoginResponseDTO> UserLoginAsync(UserLoginDTO loginDTO);
+        string GenerateJwtToken(string email, string role);
+    }
 }

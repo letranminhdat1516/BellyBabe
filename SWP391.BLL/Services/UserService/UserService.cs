@@ -1,9 +1,9 @@
 ﻿using SWP391.DAL.Entities;
 using SWP391.DAL.Model.users;
 using SWP391.DAL.Repositories.Contract;
-using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-
+using BCrypt.Net;
 namespace SWP391.BLL.Services
 {
     public class UserService
@@ -52,6 +52,16 @@ namespace SWP391.BLL.Services
         public async Task DeleteUserAsync(int userId)
         {
             await _userRepository.DeleteUserAsync(userId);
+        }
+
+        public async Task<List<User>> GetUsersAsync()
+        {
+            return await _userRepository.GetUsersAsync();
+        }
+
+        public async Task<User> GetUserByIdAsync(int userId)
+        {
+            return await _userRepository.GetUserByIdAsync(userId);
         }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.APIs\\SWP391.APIs.csproj": {}
+    "F:\\Repo\\Src\\SWP391.APIs\\SWP391.APIs.csproj": {}
   },
   "projects": {
-    "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.APIs\\SWP391.APIs.csproj": {
+    "F:\\Repo\\Src\\SWP391.APIs\\SWP391.APIs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.APIs\\SWP391.APIs.csproj",
+        "projectUniqueName": "F:\\Repo\\Src\\SWP391.APIs\\SWP391.APIs.csproj",
         "projectName": "SWP391.APIs",
-        "projectPath": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.APIs\\SWP391.APIs.csproj",
+        "projectPath": "F:\\Repo\\Src\\SWP391.APIs\\SWP391.APIs.csproj",
         "packagesPath": "C:\\Users\\Cicca.Mini\\.nuget\\packages\\",
-        "outputPath": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.APIs\\obj\\",
+        "outputPath": "F:\\Repo\\Src\\SWP391.APIs\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,11 +33,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.BLL\\SWP391.BLL.csproj": {
-                "projectPath": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.BLL\\SWP391.BLL.csproj"
+              "F:\\Repo\\Src\\SWP391.BLL\\SWP391.BLL.csproj": {
+                "projectPath": "F:\\Repo\\Src\\SWP391.BLL\\SWP391.BLL.csproj"
               },
-              "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.DAL\\SWP391.DAL.csproj": {
-                "projectPath": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.DAL\\SWP391.DAL.csproj"
+              "F:\\Repo\\Src\\SWP391.DAL\\SWP391.DAL.csproj": {
+                "projectPath": "F:\\Repo\\Src\\SWP391.DAL\\SWP391.DAL.csproj"
               }
             }
           }
@@ -57,6 +57,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.6, )"
@@ -80,6 +84,18 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.6, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.19.6, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.29.3, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.8.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -109,14 +125,14 @@
         }
       }
     },
-    "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.BLL\\SWP391.BLL.csproj": {
+    "F:\\Repo\\Src\\SWP391.BLL\\SWP391.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.BLL\\SWP391.BLL.csproj",
+        "projectUniqueName": "F:\\Repo\\Src\\SWP391.BLL\\SWP391.BLL.csproj",
         "projectName": "SWP391.BLL",
-        "projectPath": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.BLL\\SWP391.BLL.csproj",
+        "projectPath": "F:\\Repo\\Src\\SWP391.BLL\\SWP391.BLL.csproj",
         "packagesPath": "C:\\Users\\Cicca.Mini\\.nuget\\packages\\",
-        "outputPath": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.BLL\\obj\\",
+        "outputPath": "F:\\Repo\\Src\\SWP391.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -138,8 +154,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.DAL\\SWP391.DAL.csproj": {
-                "projectPath": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.DAL\\SWP391.DAL.csproj"
+              "F:\\Repo\\Src\\SWP391.DAL\\SWP391.DAL.csproj": {
+                "projectPath": "F:\\Repo\\Src\\SWP391.DAL\\SWP391.DAL.csproj"
               }
             }
           }
@@ -162,6 +178,10 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[13.0.1, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.6.0, )"
             },
             "Microsoft.AspNetCore.Http.Abstractions": {
               "target": "Package",
@@ -194,6 +214,14 @@
             "Microsoft.Extensions.Http": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.29.3, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.8.0, )"
             }
           },
           "imports": [
@@ -216,14 +244,14 @@
         }
       }
     },
-    "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.DAL\\SWP391.DAL.csproj": {
+    "F:\\Repo\\Src\\SWP391.DAL\\SWP391.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.DAL\\SWP391.DAL.csproj",
+        "projectUniqueName": "F:\\Repo\\Src\\SWP391.DAL\\SWP391.DAL.csproj",
         "projectName": "SWP391.DAL",
-        "projectPath": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.DAL\\SWP391.DAL.csproj",
+        "projectPath": "F:\\Repo\\Src\\SWP391.DAL\\SWP391.DAL.csproj",
         "packagesPath": "C:\\Users\\Cicca.Mini\\.nuget\\packages\\",
-        "outputPath": "F:\\BellyBabe\\BellyBabe-BE06-DevSWP391\\BellyBabe-BE06-DevSWP391\\SWP391.DAL\\obj\\",
+        "outputPath": "F:\\Repo\\Src\\SWP391.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -262,6 +290,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            },
             "Microsoft.AspNetCore.Mvc.Core": {
               "target": "Package",
               "version": "[2.2.5, )"
@@ -285,6 +321,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.6, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.29.3, )"
             }
           },
           "imports": [
