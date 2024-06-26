@@ -16,12 +16,13 @@ namespace SWP391.DAL.Repositories.BrandRepository
             _context = context;
         }
 
-        public async Task AddBrand(string brandName, string? description)
+        public async Task AddBrand(string brandName, string? description, string? imageBrand)
         {
             var newBrand = new Brand
             {
                 BrandName = brandName,
-                Description = description
+                Description = description,
+                ImageBrand = imageBrand
             };
 
             _context.Brands.Add(newBrand);

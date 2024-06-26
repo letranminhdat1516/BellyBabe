@@ -18,7 +18,7 @@ namespace SWP391.API.Controllers
             _blogService = blogService;
         }
 
-        [HttpPost("Add-blog")]
+        [HttpPost("AddBlock")]
         public async Task<IActionResult> AddBlog(int? userId, string? blogContent, int? categoryId, string? titleName, DateTime? dateCreated)
         {
             await _blogService.AddBlog(userId, blogContent, categoryId, titleName, dateCreated);
@@ -46,7 +46,7 @@ namespace SWP391.API.Controllers
             return Ok(blogs);
         }
 
-        [HttpGet("GetBlogsById/{blogId}")]
+        [HttpGet("GetBlogById/{blogId}")]
         public async Task<ActionResult<Blog?>> GetBlogById(int blogId)
         {
             var blog = await _blogService.GetBlogById(blogId);

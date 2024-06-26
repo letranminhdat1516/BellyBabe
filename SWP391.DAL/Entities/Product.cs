@@ -48,4 +48,7 @@ public partial class Product
     public virtual ICollection<PreOrder> PreOrders { get; set; } = new List<PreOrder>();
 
     public virtual ICollection<Rating> Ratings { get; set; } = new List<Rating>();
+
+    public virtual ICollection<Statistic> Statistics { get; set; } = new List<Statistic>();
+
 }

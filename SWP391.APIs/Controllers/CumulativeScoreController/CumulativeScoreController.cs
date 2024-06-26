@@ -15,7 +15,7 @@ namespace SWP391.API.Controllers
             _cumulativeScoreService = cumulativeScoreService;
         }
 
-        [HttpPost("updateScore/{userId}")]
+        [HttpPost("UpdateScore/{userId}")]
         public async Task<IActionResult> UpdateCumulativeScoreAsync(int userId)
         {
             if (userId <= 0)
@@ -27,7 +27,7 @@ namespace SWP391.API.Controllers
             return Ok("Cumulative score updated successfully.");
         }
 
-        [HttpGet("getScore/{userId}")]
+        [HttpGet("GetScore/{userId}")]
         public async Task<IActionResult> GetCumulativeScoreAsync(int userId)
         {
             if (userId <= 0)

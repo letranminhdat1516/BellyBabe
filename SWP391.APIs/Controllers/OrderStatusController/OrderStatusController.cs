@@ -18,7 +18,7 @@ namespace SWP391.APIs.Controllers
             _orderStatusService = orderStatusService;
         }
 
-        [HttpGet("all")]
+        [HttpGet("GetAllOrderStatuses")]
         public async Task<IActionResult> GetAllOrderStatuses()
         {
             try
@@ -32,7 +32,7 @@ namespace SWP391.APIs.Controllers
             }
         }
 
-        [HttpGet("{statusId}")]
+        [HttpGet("GetOrderStatusById/{statusId}")]
         public async Task<IActionResult> GetOrderStatusById(int statusId)
         {
             try
@@ -46,7 +46,7 @@ namespace SWP391.APIs.Controllers
             }
         }
 
-        [HttpPost("add")]
+        [HttpPost("AddOrderStatus")]
         public async Task<IActionResult> AddOrderStatus(OrderStatus orderStatus)
         {
             try
@@ -60,7 +60,7 @@ namespace SWP391.APIs.Controllers
             }
         }
 
-        [HttpPut("update")]
+        [HttpPut("UpdateOrderStatus/{orderStatus}")]
         public async Task<IActionResult> UpdateOrderStatus(OrderStatus orderStatus)
         {
             try
@@ -74,7 +74,7 @@ namespace SWP391.APIs.Controllers
             }
         }
 
-        [HttpDelete("delete/{statusId}")]
+        [HttpDelete("DeleteOrderStatus/{statusId}")]
         public async Task<IActionResult> DeleteOrderStatus(int statusId)
         {
             try

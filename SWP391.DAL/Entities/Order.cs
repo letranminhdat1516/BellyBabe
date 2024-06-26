@@ -38,4 +38,7 @@ public partial class Order
     public virtual User User { get; set; } = null!;
 
     public virtual Voucher? Voucher { get; set; }
+
+    public virtual ICollection<Statistic> Statistics { get; set; } = new List<Statistic>();
+
 }

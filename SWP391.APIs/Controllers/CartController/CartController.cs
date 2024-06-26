@@ -17,7 +17,7 @@ namespace SWP391.API.Controllers
             _cartService = cartService;
         }
 
-        [HttpPost("add-to-cart")]
+        [HttpPost("AddToCart")]
         public async Task<IActionResult> AddToCartAsync([FromQuery] int userId, [FromQuery] int productId, [FromQuery] int quantity)
         {
             if (userId <= 0)
@@ -34,7 +34,7 @@ namespace SWP391.API.Controllers
             return Ok("Đã thêm sản phẩm vào giỏ hàng thành công.");
         }
 
-        [HttpGet("cart-details/{userId}")]
+        [HttpGet("CartDetails/{userId}")]
         public async Task<ActionResult<List<OrderDetail>>> GetCartDetailsAsync(int userId)
         {
             var (orderDetails, message) = await _cartService.GetCartDetailsAsync(userId);
@@ -46,7 +46,7 @@ namespace SWP391.API.Controllers
             return Ok(orderDetails);
         }
 
-        [HttpPost("increase-quantity")]
+        [HttpPost("IncreaseQuantity/{productId}")]
         public async Task<IActionResult> IncreaseQuantityAsync([FromQuery] int userId, [FromQuery] int productId, [FromQuery] int quantityToAdd)
         {
             if (userId <= 0)
@@ -73,7 +73,7 @@ namespace SWP391.API.Controllers
             return Ok("Đã tăng số lượng sản phẩm trong giỏ hàng thành công.");
         }
 
-        [HttpPost("decrease-quantity")]
+        [HttpPost("DecreaseQuantity/{productId}")]
         public async Task<IActionResult> DecreaseQuantityAsync([FromQuery] int userId, [FromQuery] int productId, [FromQuery] int quantityToSubtract)
         {
             if (userId <= 0)
@@ -100,7 +100,7 @@ namespace SWP391.API.Controllers
             return Ok("Đã giảm số lượng sản phẩm trong giỏ hàng thành công.");
         }
 
-        [HttpDelete("delete-product-from-cart")]
+        [HttpDelete("DeleteProductFromCart/{productId}")]
         public async Task<IActionResult> DeleteProductFromCartAsync([FromQuery] int userId, [FromQuery] int productId)
         {
             if (userId <= 0)

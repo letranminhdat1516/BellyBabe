@@ -14,9 +14,9 @@ namespace SWP391.BLL.Services
             _brandRepository = brandRepository;
         }
 
-        public async Task AddBrand(string brandName, string? description)
+        public async Task AddBrand(string brandName, string? description, string? imageBrand)
         {
-            await _brandRepository.AddBrand(brandName, description);
+            await _brandRepository.AddBrand(brandName, description, imageBrand);
         }
 
         public async Task DeleteBrand(int brandId)

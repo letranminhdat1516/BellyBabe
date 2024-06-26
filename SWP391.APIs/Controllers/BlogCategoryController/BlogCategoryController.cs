@@ -18,35 +18,35 @@ namespace SWP391.APIs.Controllers.BlogCategoryController
             _blogCategoryService = blogCategoryService;
         }
 
-        [HttpPost("add-blog-category")]
+        [HttpPost("AddBlogCategory")]
         public async Task<IActionResult> AddBlogCategory(string categoryName, int? parentCategoryId)
         {
             await _blogCategoryService.AddBlogCategory(categoryName, parentCategoryId);
             return Ok("Add Blog Category successfully");
         }
 
-        [HttpDelete("deleteCategory/{categoryId}")]
+        [HttpDelete("DeleteBlogCategory/{categoryId}")]
         public async Task<IActionResult> DeleteBlogCategory(int categoryId)
         {
             await _blogCategoryService.DeleteBlogCategory(categoryId);
             return Ok();
         }
 
-        [HttpPut("updateCategory/{categoryId}")]
+        [HttpPut("UpdateBlogCategory/{categoryId}")]
         public async Task<IActionResult> UpdateBlogCategory(int categoryId, [FromBody] Dictionary<string, object> updates)
         {
             await _blogCategoryService.UpdateBlogCategory(categoryId, updates);
             return Ok();
         }
 
-        [HttpGet("getBlogCategory")]
+        [HttpGet("GetBlogCategories")]
         public async Task<ActionResult<List<BlogCategory>>> GetAllBlogCategories()
         {
             var blogCategories = await _blogCategoryService.GetAllBlogCategories();
             return Ok(blogCategories);
         }
 
-        [HttpGet("getBlogCategoryById/{categoryId}")]
+        [HttpGet("GetBlogCategoryById/{categoryId}")]
         public async Task<ActionResult<BlogCategory?>> GetBlogCategoryById(int categoryId)
         {
             var blogCategory = await _blogCategoryService.GetBlogCategoryById(categoryId);

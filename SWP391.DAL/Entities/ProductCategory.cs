@@ -16,4 +16,7 @@ public partial class ProductCategory
     public virtual ProductCategory? ParentCategory { get; set; }
 
     public virtual ICollection<Product> Products { get; set; } = new List<Product>();
+
+    public virtual ICollection<Statistic> Statistics { get; set; } = new List<Statistic>();
+
 }

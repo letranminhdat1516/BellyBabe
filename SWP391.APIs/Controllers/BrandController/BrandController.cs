@@ -18,9 +18,9 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPost("AddBrand")]
-        public async Task<IActionResult> AddBrand(string brandName, string? description)
+        public async Task<IActionResult> AddBrand(string brandName, string? description, string? imageBrand)
         {
-            await _brandService.AddBrand(brandName, description);
+            await _brandService.AddBrand(brandName, description, imageBrand);
             return Ok("Add Brand successfully");
         }
 
@@ -45,7 +45,7 @@ namespace SWP391.API.Controllers
             return Ok(brands);
         }
 
-        [HttpGet("GetBrandsById/{brandId}")]
+        [HttpGet("GetBrandById/{brandId}")]
         public async Task<ActionResult<Brand?>> GetBrandById(int brandId)
         {
             var brand = await _brandService.GetBrandById(brandId);

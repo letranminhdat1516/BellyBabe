@@ -58,6 +58,8 @@ public partial class Swp391Context : DbContext
 
     public virtual DbSet<Role> Roles { get; set; }
 
+    public virtual DbSet<Statistic> Statistics { get; set; }
+
     public virtual DbSet<User> Users { get; set; }
 
     public virtual DbSet<Voucher> Vouchers { get; set; }
@@ -628,6 +630,31 @@ public partial class Swp391Context : DbContext
             entity.Property(e => e.RoleName)
                 .HasMaxLength(50)
                 .HasColumnName("roleName");
+        });
+
+        modelBuilder.Entity<Statistic>(entity =>
+        {
+            entity.HasKey(e => e.StatisticsId).HasName("PK__Statisti__7002690ADE58579E");
+
+            entity.Property(e => e.StatisticsId).HasColumnName("statisticsID");
+            entity.Property(e => e.Date).HasMaxLength(10);
+            entity.Property(e => e.OrderId).HasColumnName("OrderID");
+            entity.Property(e => e.ProductCategoryId).HasColumnName("ProductCategoryID");
+            entity.Property(e => e.ProductId).HasColumnName("ProductID");
+            entity.Property(e => e.Profit).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.TotalAmount).HasColumnType("decimal(18, 2)");
+
+            entity.HasOne(d => d.Order).WithMany(p => p.Statistics)
+                .HasForeignKey(d => d.OrderId)
+                .HasConstraintName("FK__Statistic__Order__2B0A656D");
+
+            entity.HasOne(d => d.ProductCategory).WithMany(p => p.Statistics)
+                .HasForeignKey(d => d.ProductCategoryId)
+                .HasConstraintName("FK__Statistic__Produ__29221CFB");
+
+            entity.HasOne(d => d.Product).WithMany(p => p.Statistics)
+                .HasForeignKey(d => d.ProductId)
+                .HasConstraintName("FK__Statistic__Produ__2A164134");
         });
 
         modelBuilder.Entity<User>(entity =>

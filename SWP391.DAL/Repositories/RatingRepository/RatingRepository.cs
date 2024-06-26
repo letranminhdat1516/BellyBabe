@@ -17,13 +17,25 @@ namespace SWP391.DAL.Repositories.RatingRepository
             _context = context;
         }
 
-        public async Task<bool> AddRating(int? userId, int? productId, int? ratingValue, DateTime? ratingDate)
+        public async Task AddRating(int userId, int productId, int ratingValue, DateTime ratingDate)
         {
-            if (userId == null || productId == null)
+            if (userId <= 0)
             {
-                return false;
+                throw new ArgumentException("Mã người dùng không hợp lệ.");
             }
 
+            var userExists = await _context.Users.AnyAsync(u => u.UserId == userId);
+            if (!userExists)
+            {
+                throw new ArgumentException("Người dùng không tồn tại.");
+            }
+
+            if (productId <= 0)
+            {
+                throw new ArgumentException("Mã sản phẩm không hợp lệ.");
+            }
+
+            // Check if the user has bought and received the product
             var hasBoughtAndDelivered = await _context.Orders
                 .Include(o => o.OrderDetails)
                 .Include(o => o.Status)
@@ -33,7 +45,16 @@ namespace SWP391.DAL.Repositories.RatingRepository
 
             if (!hasBoughtAndDelivered)
             {
-                return false;
+                throw new ArgumentException("Người dùng chưa mua hoặc nhận sản phẩm này.");
+            }
+
+            // Check if the user has already rated the product
+            var alreadyRated = await _context.Ratings
+                .AnyAsync(r => r.UserId == userId && r.ProductId == productId);
+
+            if (alreadyRated)
+            {
+                throw new ArgumentException("Người dùng đã đánh giá sản phẩm này.");
             }
 
             var newRating = new Rating
@@ -46,7 +67,6 @@ namespace SWP391.DAL.Repositories.RatingRepository
 
             _context.Ratings.Add(newRating);
             await _context.SaveChangesAsync();
-            return true;
         }
 
         public async Task<bool> DeleteRating(int ratingId)
@@ -58,40 +78,28 @@ namespace SWP391.DAL.Repositories.RatingRepository
                 await _context.SaveChangesAsync();
                 return true;
             }
-            return false;
+            else
+            {
+                throw new ArgumentException("Đánh giá không tồn tại.");
+            }
         }
 
-        public async Task<bool> UpdateRating(int ratingId, Dictionary<string, object> updates)
+        public async Task<bool> UpdateRating(int ratingId, int ratingValue, DateTime ratingDate)
         {
             var rating = await _context.Ratings.FindAsync(ratingId);
 
             if (rating != null)
             {
-                foreach (var update in updates)
-                {
-                    switch (update.Key)
-                    {
-                        case "userId":
-                            rating.UserId = (int?)update.Value;
-                            break;
-                        case "productId":
-                            rating.ProductId = (int?)update.Value;
-                            break;
-                        case "ratingValue":
-                            rating.RatingValue = (int?)update.Value;
-                            break;
-                        case "ratingDate":
-                            rating.RatingDate = (DateTime?)update.Value;
-                            break;
-                        default:
-                            throw new ArgumentException($"Invalid property name: {update.Key}", nameof(updates));
-                    }
-                }
+                rating.RatingValue = ratingValue;
+                rating.RatingDate = ratingDate;
 
                 await _context.SaveChangesAsync();
                 return true;
             }
-            return false;
+            else
+            {
+                throw new ArgumentException("Đánh giá không tồn tại.");
+            }
         }
 
         public async Task<List<Rating>> GetAllRatings()
@@ -103,7 +111,7 @@ namespace SWP391.DAL.Repositories.RatingRepository
                 .ToListAsync();
         }
 
-        public async Task<Rating?> GetRatingById(int ratingId)
+        public async Task<Rating> GetRatingById(int ratingId)
         {
             return await _context.Ratings
                 .Include(r => r.Product)

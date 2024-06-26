@@ -18,7 +18,7 @@ namespace SWP391.APIs.Controllers
             _productService = productService;
         }
 
-        [HttpPost("add-product")]
+        [HttpPost("AddProduct")]
         public async Task<IActionResult> AddProduct(string productName, bool? isSelling, string? description, int quantity, int isSoldOut, DateTime? backInStockDate, int? categoryId, int? brandId, int? feedbackTotal, int? oldPrice, decimal? discount, string? imageLinks)
         {
             try
@@ -32,7 +32,7 @@ namespace SWP391.APIs.Controllers
             }
         }
 
-        [HttpDelete("delete-product/{productId}")]
+        [HttpDelete("DeleteProduct/{productId}")]
         public async Task<IActionResult> DeleteProduct(int productId)
         {
             try
@@ -46,7 +46,7 @@ namespace SWP391.APIs.Controllers
             }
         }
 
-        [HttpGet("search-by-name/{name}")]
+        [HttpGet("SearchByName/{name}")]
         public async Task<IActionResult> SearchProductByName(string name)
         {
             try
@@ -60,7 +60,7 @@ namespace SWP391.APIs.Controllers
             }
         }
 
-        [HttpGet("search-by-status/{isSelling}")]
+        [HttpGet("SearchProductByStatus/{isSelling}")]
         public async Task<IActionResult> SearchProductByStatus(bool isSelling)
         {
             try
@@ -74,7 +74,7 @@ namespace SWP391.APIs.Controllers
             }
         }
 
-        [HttpGet("all-products")]
+        [HttpGet("GetAllProducts")]
         public async Task<IActionResult> ShowAllProducts()
         {
             try
@@ -88,7 +88,7 @@ namespace SWP391.APIs.Controllers
             }
         }
 
-        [HttpGet("sort-by-name")]
+        [HttpGet("SortProductByName")]
         public async Task<IActionResult> SortProductByName(bool ascending = true)
         {
             try
@@ -102,7 +102,7 @@ namespace SWP391.APIs.Controllers
             }
         }
 
-        [HttpGet("sort-by-price")]
+        [HttpGet("SortProductByPrice")]
         public async Task<IActionResult> SortProductByPrice(bool ascending = true)
         {
             try
@@ -116,7 +116,7 @@ namespace SWP391.APIs.Controllers
             }
         }
 
-        [HttpPut("update-product")]
+        [HttpPut("UpdateProduct/{productId}")]
         public async Task<IActionResult> UpdateProduct(int productId, string productName, bool? isSelling, string? description, int quantity, int isSoldOut, DateTime? backInStockDate, int? categoryId, int? brandId, int? feedbackTotal, int? oldPrice, decimal? discount, string? imageLinks)
         {
             try
@@ -130,7 +130,7 @@ namespace SWP391.APIs.Controllers
             }
         }
 
-        [HttpPut("update-product-quantity/{productId}/{quantity}")]
+        [HttpPut("UpdateProducQuantity/{productId}")]
         public async Task<IActionResult> UpdateProductQuantity(int productId, int quantity)
         {
             try

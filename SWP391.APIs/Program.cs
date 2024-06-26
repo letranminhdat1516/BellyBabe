@@ -34,6 +34,7 @@ using SWP391.BLL.Mapper;
 using SWP391.DAL.Entities;
 using SWP391.DAL.Repositories.OrderStatusRepository;
 using SWP391.BLL.Services.OrderStatusServices;
+using SWP391.DAL.Repositories.StatisticsRepository;
 
 namespace SWP391.APIs
 {
@@ -67,6 +68,9 @@ namespace SWP391.APIs
             builder.Services.AddScoped<PreOrderRepository>();
             builder.Services.AddScoped<FeedbackRepository>();
             builder.Services.AddScoped<OrderStatusRepository>();
+            builder.Services.AddScoped<StatisticsByMonth>();
+            builder.Services.AddScoped<StatisticsByYear>();
+            builder.Services.AddScoped<StatisticsByWeek>();
 
             // Register services
             builder.Services.AddScoped<IEmailService, EmailService>();
@@ -86,6 +90,7 @@ namespace SWP391.APIs
             builder.Services.AddScoped<PreOrderService>();
             builder.Services.AddScoped<FeedbackService>();
             builder.Services.AddScoped<OrderStatusService>();
+            builder.Services.AddScoped<StatisticsService>();
 
             builder.Services.AddSignalR();
 

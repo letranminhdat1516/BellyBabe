@@ -18,7 +18,7 @@ namespace SWP391.API.Controllers
             _orderService = orderService ?? throw new ArgumentNullException(nameof(orderService));
         }
 
-        [HttpPost("place-order")]
+        [HttpPost("PlaceOrder")]
         public async Task<IActionResult> PlaceOrder(int userId, string recipientName, string recipientPhone, string recipientAddress, int deliveryId, string note)
         {
             try
@@ -36,7 +36,7 @@ namespace SWP391.API.Controllers
             }
         }
 
-        [HttpGet("get-orders/{userId}")]
+        [HttpGet("GetOrdersFromUser/{userId}")]
         public async Task<IActionResult> GetOrders(int userId)
         {
             try
@@ -54,7 +54,7 @@ namespace SWP391.API.Controllers
             }
         }
 
-        [HttpPut("update-order-status/{orderId}")]
+        [HttpPut("UpdateOrderStatus/{orderId}")]
         public async Task<IActionResult> UpdateOrderStatus(int orderId, string statusName)
         {
             try
@@ -72,7 +72,7 @@ namespace SWP391.API.Controllers
             }
         }
 
-        [HttpGet("get-orders-by-status/{userId}")]
+        [HttpGet("GetOrdersByStatusFromUser/{userId}")]
         public async Task<IActionResult> GetOrdersByStatus(int userId, string statusName)
         {
             try
@@ -90,7 +90,7 @@ namespace SWP391.API.Controllers
             }
         }
 
-        [HttpDelete("cancel-order/{orderId}")]
+        [HttpDelete("CancelOrder/{orderId}")]
         public async Task<IActionResult> CancelOrder(int orderId)
         {
             try
