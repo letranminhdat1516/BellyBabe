@@ -1,0 +1,137 @@
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.deps.json
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.runtimeconfig.json
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.pdb
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.BLL\bin\Debug\net8.0\SWP391.DAL.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.BLL\bin\Debug\net8.0\SWP391.DAL.pdb
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.AssemblyReference.cache
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.AssemblyInfoInputs.cache
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.AssemblyInfo.cs
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.CoreCompileInputs.cache
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.Up2Date
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.BLL\obj\Debug\net8.0\refint\SWP391.BLL.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.pdb
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.genruntimeconfig.cache
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.BLL\obj\Debug\net8.0\ref\SWP391.BLL.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.deps.json
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.runtimeconfig.json
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.pdb
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.BLL\bin\Debug\net8.0\SWP391.DAL.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.BLL\bin\Debug\net8.0\SWP391.DAL.pdb
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.AssemblyReference.cache
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.GeneratedMSBuildEditorConfig.editorconfig
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.AssemblyInfoInputs.cache
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.AssemblyInfo.cs
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.CoreCompileInputs.cache
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.Up2Date
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.BLL\obj\Debug\net8.0\refint\SWP391.BLL.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.pdb
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.genruntimeconfig.cache
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.BLL\obj\Debug\net8.0\ref\SWP391.BLL.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.AssemblyReference.cache
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.AssemblyInfoInputs.cache
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.AssemblyInfo.cs
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.CoreCompileInputs.cache
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.BLL\obj\Debug\net8.0\refint\SWP391.BLL.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.pdb
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.deps.json
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.runtimeconfig.json
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.pdb
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.BLL\bin\Debug\net8.0\SWP391.DAL.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.BLL\bin\Debug\net8.0\SWP391.DAL.pdb
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.Up2Date
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.genruntimeconfig.cache
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.BLL\obj\Debug\net8.0\ref\SWP391.BLL.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.deps.json
+D:\My files\DemoWebSWP\BellyBabe\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.runtimeconfig.json
+D:\My files\DemoWebSWP\BellyBabe\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.pdb
+D:\My files\DemoWebSWP\BellyBabe\SWP391.BLL\bin\Debug\net8.0\SWP391.DAL.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.BLL\bin\Debug\net8.0\SWP391.DAL.pdb
+D:\My files\DemoWebSWP\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.AssemblyReference.cache
+D:\My files\DemoWebSWP\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\My files\DemoWebSWP\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.AssemblyInfoInputs.cache
+D:\My files\DemoWebSWP\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.AssemblyInfo.cs
+D:\My files\DemoWebSWP\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.CoreCompileInputs.cache
+D:\My files\DemoWebSWP\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.Up2Date
+D:\My files\DemoWebSWP\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.BLL\obj\Debug\net8.0\refint\SWP391.BLL.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.pdb
+D:\My files\DemoWebSWP\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.genruntimeconfig.cache
+D:\My files\DemoWebSWP\BellyBabe\SWP391.BLL\obj\Debug\net8.0\ref\SWP391.BLL.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.deps.json
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.runtimeconfig.json
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.pdb
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.DAL.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.DAL.pdb
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.AssemblyReference.cache
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.GeneratedMSBuildEditorConfig.editorconfig
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.AssemblyInfoInputs.cache
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.AssemblyInfo.cs
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.CoreCompileInputs.cache
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.Up2Date
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.BLL\obj\Debug\net8.0\refint\SWP391.BLL.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.pdb
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.genruntimeconfig.cache
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.BLL\obj\Debug\net8.0\ref\SWP391.BLL.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.deps.json
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.runtimeconfig.json
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.pdb
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.DAL.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.DAL.pdb
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.AssemblyReference.cache
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.GeneratedMSBuildEditorConfig.editorconfig
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.AssemblyInfoInputs.cache
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.AssemblyInfo.cs
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.CoreCompileInputs.cache
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.Up2Date
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.BLL\obj\Debug\net8.0\refint\SWP391.BLL.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.pdb
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.genruntimeconfig.cache
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.BLL\obj\Debug\net8.0\ref\SWP391.BLL.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.deps.json
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.runtimeconfig.json
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.pdb
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\bin\Debug\net8.0\SWP391.DAL.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\bin\Debug\net8.0\SWP391.DAL.pdb
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.AssemblyReference.cache
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.AssemblyInfoInputs.cache
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.AssemblyInfo.cs
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.CoreCompileInputs.cache
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.sourcelink.json
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.Up2Date
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\refint\SWP391.BLL.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.pdb
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.genruntimeconfig.cache
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\ref\SWP391.BLL.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.AssemblyReference.cache
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.GeneratedMSBuildEditorConfig.editorconfig
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.AssemblyInfoInputs.cache
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.AssemblyInfo.cs
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.CoreCompileInputs.cache
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\obj\Debug\net8.0\refint\SWP391.BLL.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.pdb
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.deps.json
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.runtimeconfig.json
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.pdb
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.DAL.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.DAL.pdb
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.Up2Date
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.genruntimeconfig.cache
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\obj\Debug\net8.0\ref\SWP391.BLL.dll

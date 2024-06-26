@@ -1,0 +1,1141 @@
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\appsettings.Development.json
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\appsettings.json
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.exe
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.deps.json
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.runtimeconfig.json
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.pdb
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Azure.Core.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Azure.Identity.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Humanizer.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\System.CodeDom.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\System.Composition.Convention.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\System.Composition.Hosting.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\System.Composition.Runtime.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\System.Composition.TypedParts.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\System.Drawing.Common.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\System.Memory.Data.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\System.Runtime.Caching.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\System.Security.Permissions.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\System.Windows.Extensions.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\SWP391.BLL.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\SWP391.DAL.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\SWP391.BLL.pdb
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\bin\Debug\net8.0\SWP391.DAL.pdb
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.csproj.AssemblyReference.cache
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.AssemblyInfoInputs.cache
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.AssemblyInfo.cs
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.csproj.CoreCompileInputs.cache
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.MvcApplicationPartsAssemblyInfo.cs
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.MvcApplicationPartsAssemblyInfo.cache
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\obj\Debug\net8.0\staticwebassets.build.json
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\obj\Debug\net8.0\staticwebassets.development.json
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.SWP391.APIs.Microsoft.AspNetCore.StaticWebAssets.props
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.build.SWP391.APIs.props
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.SWP391.APIs.props
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SWP391.APIs.props
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\obj\Debug\net8.0\staticwebassets.pack.json
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\obj\Debug\net8.0\scopedcss\bundle\SWP391.APIs.styles.css
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\obj\Debug\net8.0\SWP391.A.3A385815.Up2Date
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\obj\Debug\net8.0\refint\SWP391.APIs.dll
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.pdb
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.genruntimeconfig.cache
+D:\FPT\SEMESTER_5\SWP391\APIs\SWP391_Solution\SWP391.APIs\obj\Debug\net8.0\ref\SWP391.APIs.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\appsettings.Development.json
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\appsettings.json
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.exe
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.deps.json
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.runtimeconfig.json
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.pdb
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Azure.Core.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Azure.Identity.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Humanizer.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.OpenApi.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Mono.TextTemplating.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\System.CodeDom.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\System.Composition.Convention.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\System.Composition.Hosting.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\System.Composition.Runtime.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\System.Composition.TypedParts.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\System.Drawing.Common.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\System.Memory.Data.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\System.Runtime.Caching.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\System.Security.Permissions.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\System.Windows.Extensions.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\SWP391.BLL.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\SWP391.DAL.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\SWP391.BLL.pdb
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\SWP391.DAL.pdb
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.csproj.AssemblyReference.cache
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.GeneratedMSBuildEditorConfig.editorconfig
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.AssemblyInfoInputs.cache
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.AssemblyInfo.cs
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.csproj.CoreCompileInputs.cache
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.MvcApplicationPartsAssemblyInfo.cs
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.MvcApplicationPartsAssemblyInfo.cache
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\obj\Debug\net8.0\staticwebassets.build.json
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\obj\Debug\net8.0\staticwebassets.development.json
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.SWP391.APIs.Microsoft.AspNetCore.StaticWebAssets.props
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.build.SWP391.APIs.props
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.SWP391.APIs.props
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SWP391.APIs.props
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\obj\Debug\net8.0\staticwebassets.pack.json
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\obj\Debug\net8.0\scopedcss\bundle\SWP391.APIs.styles.css
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\obj\Debug\net8.0\SWP391.A.3A385815.Up2Date
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\obj\Debug\net8.0\refint\SWP391.APIs.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.pdb
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.genruntimeconfig.cache
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\obj\Debug\net8.0\ref\SWP391.APIs.dll
+F:\CodeDemo\BellyBabe-BE03_CRUDProductAndAddToCart\SWP391.APIs\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.csproj.AssemblyReference.cache
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.AssemblyInfoInputs.cache
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.AssemblyInfo.cs
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.csproj.CoreCompileInputs.cache
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\obj\Debug\net8.0\refint\SWP391.APIs.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.pdb
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\appsettings.json
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.exe
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.deps.json
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.runtimeconfig.json
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.pdb
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Azure.Core.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Azure.Identity.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Humanizer.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Mono.TextTemplating.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\System.CodeDom.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\System.Composition.Convention.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\System.Composition.Hosting.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\System.Composition.Runtime.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\System.Composition.TypedParts.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\System.Drawing.Common.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\System.Memory.Data.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\System.Runtime.Caching.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\System.Security.Permissions.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\System.Windows.Extensions.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\SWP391.BLL.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\SWP391.DAL.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\SWP391.BLL.pdb
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\bin\Debug\net8.0\SWP391.DAL.pdb
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.SWP391.APIs.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.build.SWP391.APIs.props
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.SWP391.APIs.props
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SWP391.APIs.props
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\obj\Debug\net8.0\scopedcss\bundle\SWP391.APIs.styles.css
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\obj\Debug\net8.0\SWP391.A.3A385815.Up2Date
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.genruntimeconfig.cache
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\obj\Debug\net8.0\ref\SWP391.APIs.dll
+C:\Users\phiye\Downloads\TestingCode\TestPart2\BellyBabe-BE04\BellyBabe-BE04\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.MvcApplicationPartsAssemblyInfo.cs
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\appsettings.Development.json
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\appsettings.json
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.exe
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.deps.json
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.runtimeconfig.json
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.pdb
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Azure.Core.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Azure.Identity.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Humanizer.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.CodeDom.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Composition.Convention.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Composition.Hosting.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Composition.Runtime.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Composition.TypedParts.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Drawing.Common.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Memory.Data.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Runtime.Caching.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Security.Permissions.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Windows.Extensions.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\SWP391.BLL.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\SWP391.DAL.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\SWP391.BLL.pdb
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\bin\Debug\net8.0\SWP391.DAL.pdb
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.csproj.AssemblyReference.cache
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.GeneratedMSBuildEditorConfig.editorconfig
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.AssemblyInfoInputs.cache
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.AssemblyInfo.cs
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.csproj.CoreCompileInputs.cache
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.MvcApplicationPartsAssemblyInfo.cs
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.MvcApplicationPartsAssemblyInfo.cache
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\obj\Debug\net8.0\staticwebassets.build.json
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\obj\Debug\net8.0\staticwebassets.development.json
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.SWP391.APIs.Microsoft.AspNetCore.StaticWebAssets.props
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.build.SWP391.APIs.props
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.SWP391.APIs.props
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SWP391.APIs.props
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\obj\Debug\net8.0\staticwebassets.pack.json
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\obj\Debug\net8.0\scopedcss\bundle\SWP391.APIs.styles.css
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.A.3A385815.Up2Date
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\obj\Debug\net8.0\refint\SWP391.APIs.dll
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.pdb
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.genruntimeconfig.cache
+D:\My files\DemoWebSWP\BellyBabe\SWP391.APIs\obj\Debug\net8.0\ref\SWP391.APIs.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\appsettings.Development.json
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\appsettings.json
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.exe
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.deps.json
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.runtimeconfig.json
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.pdb
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Azure.Core.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Azure.Identity.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Humanizer.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.OpenApi.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Mono.TextTemplating.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\System.CodeDom.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Composition.Convention.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Composition.Hosting.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Composition.Runtime.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Composition.TypedParts.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Drawing.Common.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Memory.Data.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Runtime.Caching.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Security.Permissions.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Windows.Extensions.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.BLL.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.DAL.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.BLL.pdb
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.DAL.pdb
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.csproj.AssemblyReference.cache
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.GeneratedMSBuildEditorConfig.editorconfig
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.AssemblyInfoInputs.cache
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.AssemblyInfo.cs
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.csproj.CoreCompileInputs.cache
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.MvcApplicationPartsAssemblyInfo.cs
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.MvcApplicationPartsAssemblyInfo.cache
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\obj\Debug\net8.0\staticwebassets.build.json
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\obj\Debug\net8.0\staticwebassets.development.json
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.SWP391.APIs.Microsoft.AspNetCore.StaticWebAssets.props
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.build.SWP391.APIs.props
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.SWP391.APIs.props
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SWP391.APIs.props
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\obj\Debug\net8.0\staticwebassets.pack.json
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\obj\Debug\net8.0\scopedcss\bundle\SWP391.APIs.styles.css
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.A.3A385815.Up2Date
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\obj\Debug\net8.0\refint\SWP391.APIs.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.pdb
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.genruntimeconfig.cache
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\obj\Debug\net8.0\ref\SWP391.APIs.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\AutoMapper.dll
+F:\New folder\BellyBabe-BE05_SWP391\SWP391.APIs\bin\Debug\net8.0\Newtonsoft.Json.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\appsettings.Development.json
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\appsettings.json
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.exe
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.deps.json
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.runtimeconfig.json
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.pdb
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\AutoMapper.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Azure.Core.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Azure.Identity.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Humanizer.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.OpenApi.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Mono.TextTemplating.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Newtonsoft.Json.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\System.CodeDom.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\System.Composition.Convention.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\System.Composition.Hosting.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\System.Composition.Runtime.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\System.Composition.TypedParts.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\System.Drawing.Common.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\System.Memory.Data.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\System.Runtime.Caching.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\System.Security.Permissions.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\System.Windows.Extensions.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.BLL.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.DAL.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.BLL.pdb
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.DAL.pdb
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.csproj.AssemblyReference.cache
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.GeneratedMSBuildEditorConfig.editorconfig
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.AssemblyInfoInputs.cache
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.AssemblyInfo.cs
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.csproj.CoreCompileInputs.cache
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.MvcApplicationPartsAssemblyInfo.cs
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.MvcApplicationPartsAssemblyInfo.cache
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\staticwebassets.build.json
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\staticwebassets.development.json
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.SWP391.APIs.Microsoft.AspNetCore.StaticWebAssets.props
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.build.SWP391.APIs.props
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.SWP391.APIs.props
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SWP391.APIs.props
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\staticwebassets.pack.json
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\scopedcss\bundle\SWP391.APIs.styles.css
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.A.3A385815.Up2Date
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\refint\SWP391.APIs.dll
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.pdb
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.genruntimeconfig.cache
+F:\BellyBabe\BellyBabe-BE06-DevSWP391\BellyBabe-BE06-DevSWP391\SWP391.APIs\obj\Debug\net8.0\ref\SWP391.APIs.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\appsettings.Development.json
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\appsettings.json
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.exe
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.deps.json
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.runtimeconfig.json
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.pdb
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\AutoMapper.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Azure.Core.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Azure.Identity.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Humanizer.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.CodeDom.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Composition.Convention.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Composition.Hosting.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Composition.Runtime.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Composition.TypedParts.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Drawing.Common.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Memory.Data.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Runtime.Caching.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Security.Permissions.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\System.Windows.Extensions.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\SWP391.BLL.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\SWP391.DAL.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\SWP391.BLL.pdb
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\bin\Debug\net8.0\SWP391.DAL.pdb
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.csproj.AssemblyReference.cache
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.AssemblyInfoInputs.cache
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.AssemblyInfo.cs
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.csproj.CoreCompileInputs.cache
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.MvcApplicationPartsAssemblyInfo.cs
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.MvcApplicationPartsAssemblyInfo.cache
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.sourcelink.json
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\staticwebassets.build.json
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\staticwebassets.development.json
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.SWP391.APIs.Microsoft.AspNetCore.StaticWebAssets.props
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.build.SWP391.APIs.props
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.SWP391.APIs.props
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SWP391.APIs.props
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\staticwebassets.pack.json
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\scopedcss\bundle\SWP391.APIs.styles.css
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.A.3A385815.Up2Date
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\refint\SWP391.APIs.dll
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.pdb
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.genruntimeconfig.cache
+D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.APIs\obj\Debug\net8.0\ref\SWP391.APIs.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.csproj.AssemblyReference.cache
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.GeneratedMSBuildEditorConfig.editorconfig
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.AssemblyInfoInputs.cache
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.AssemblyInfo.cs
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.csproj.CoreCompileInputs.cache
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.MvcApplicationPartsAssemblyInfo.cs
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.MvcApplicationPartsAssemblyInfo.cache
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\obj\Debug\net8.0\refint\SWP391.APIs.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.pdb
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\appsettings.Development.json
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\appsettings.json
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.exe
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.deps.json
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.runtimeconfig.json
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.APIs.pdb
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\AutoMapper.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Azure.Core.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Azure.Identity.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Humanizer.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.OpenApi.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Mono.TextTemplating.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Newtonsoft.Json.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\System.CodeDom.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Composition.Convention.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Composition.Hosting.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Composition.Runtime.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Composition.TypedParts.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Drawing.Common.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Memory.Data.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Runtime.Caching.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Security.Permissions.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Windows.Extensions.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.BLL.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.DAL.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.BLL.pdb
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\SWP391.DAL.pdb
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\obj\Debug\net8.0\staticwebassets.build.json
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\obj\Debug\net8.0\staticwebassets.development.json
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.SWP391.APIs.Microsoft.AspNetCore.StaticWebAssets.props
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.build.SWP391.APIs.props
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.SWP391.APIs.props
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SWP391.APIs.props
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\obj\Debug\net8.0\staticwebassets.pack.json
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\obj\Debug\net8.0\scopedcss\bundle\SWP391.APIs.styles.css
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.A.3A385815.Up2Date
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\obj\Debug\net8.0\SWP391.APIs.genruntimeconfig.cache
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\obj\Debug\net8.0\ref\SWP391.APIs.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Web.Cors.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Net.Http.Formatting.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Web.Http.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\System.Web.Http.Cors.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.APIs\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
