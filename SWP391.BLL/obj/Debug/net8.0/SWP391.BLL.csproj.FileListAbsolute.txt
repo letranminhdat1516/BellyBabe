@@ -118,3 +118,23 @@ D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\refin
 D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.pdb
 D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.genruntimeconfig.cache
 D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.BLL\obj\Debug\net8.0\ref\SWP391.BLL.dll
+<<<<<<< HEAD
+=======
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.AssemblyReference.cache
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.GeneratedMSBuildEditorConfig.editorconfig
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.AssemblyInfoInputs.cache
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.AssemblyInfo.cs
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.CoreCompileInputs.cache
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\obj\Debug\net8.0\refint\SWP391.BLL.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.pdb
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.deps.json
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.runtimeconfig.json
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.BLL.pdb
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.DAL.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\bin\Debug\net8.0\SWP391.DAL.pdb
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.csproj.Up2Date
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\obj\Debug\net8.0\SWP391.BLL.genruntimeconfig.cache
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.BLL\obj\Debug\net8.0\ref\SWP391.BLL.dll
+>>>>>>> master

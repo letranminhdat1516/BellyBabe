@@ -97,3 +97,20 @@ D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.DAL\obj\Debug\net8.0\refin
 D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.DAL\obj\Debug\net8.0\SWP391.DAL.pdb
 D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.DAL\obj\Debug\net8.0\SWP391.DAL.genruntimeconfig.cache
 D:\FPT\SEMESTER_5\SWP391\GitHubClone\BellyBabe\SWP391.DAL\obj\Debug\net8.0\ref\SWP391.DAL.dll
+<<<<<<< HEAD
+=======
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.DAL\bin\Debug\net8.0\SWP391.DAL.deps.json
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.DAL\bin\Debug\net8.0\SWP391.DAL.runtimeconfig.json
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.DAL\bin\Debug\net8.0\SWP391.DAL.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.DAL\bin\Debug\net8.0\SWP391.DAL.pdb
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.DAL\obj\Debug\net8.0\SWP391.DAL.csproj.AssemblyReference.cache
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.DAL\obj\Debug\net8.0\SWP391.DAL.GeneratedMSBuildEditorConfig.editorconfig
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.DAL\obj\Debug\net8.0\SWP391.DAL.AssemblyInfoInputs.cache
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.DAL\obj\Debug\net8.0\SWP391.DAL.AssemblyInfo.cs
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.DAL\obj\Debug\net8.0\SWP391.DAL.csproj.CoreCompileInputs.cache
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.DAL\obj\Debug\net8.0\SWP391.DAL.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.DAL\obj\Debug\net8.0\refint\SWP391.DAL.dll
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.DAL\obj\Debug\net8.0\SWP391.DAL.pdb
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.DAL\obj\Debug\net8.0\SWP391.DAL.genruntimeconfig.cache
+F:\SWP391\BellyBabe-BE07_SWP391\SWP391.DAL\obj\Debug\net8.0\ref\SWP391.DAL.dll
+>>>>>>> master

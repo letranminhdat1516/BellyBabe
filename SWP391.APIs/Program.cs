@@ -73,7 +73,11 @@ namespace SWP391.APIs
             builder.Services.AddScoped<StatisticsByWeek>();
 
             // Register services
+<<<<<<< HEAD
             builder.Services.AddScoped<IEmailService, EmailService>();
+=======
+            builder.Services.AddScoped<EmailService>();
+>>>>>>> master
             builder.Services.AddScoped<IAuthService, AuthService>();
             builder.Services.AddScoped<OtpService>();
             builder.Services.AddScoped<UserService>();
@@ -91,14 +95,23 @@ namespace SWP391.APIs
             builder.Services.AddScoped<FeedbackService>();
             builder.Services.AddScoped<OrderStatusService>();
             builder.Services.AddScoped<StatisticsService>();
+<<<<<<< HEAD
 
+=======
+            builder.Services.AddScoped<ChatService>();
+            builder.Services.AddScoped<VoucherService>();
+>>>>>>> master
             builder.Services.AddSignalR();
 
 
             builder.Services.AddHttpContextAccessor();
 
 
+<<<<<<< HEAD
             //Add mapper
+=======
+            // Add mapper
+>>>>>>> master
             var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new ApplicationMapper());
@@ -106,6 +119,7 @@ namespace SWP391.APIs
 
             IMapper mapper = mapperConfig.CreateMapper();
             builder.Services.AddSingleton(mapper);
+<<<<<<< HEAD
             //Get config vnpay from appsettings.json
             builder.Services.Configure<VnpayConfig>(
                 builder.Configuration.GetSection(VnpayConfig.ConfigName));
@@ -119,6 +133,17 @@ namespace SWP391.APIs
             builder.Services.AddScoped<VnpayService>();
             builder.Services.AddScoped<VnpayPayResponse>();
             builder.Services.AddScoped<VnpayPayRequest>();
+=======
+
+            // Get config vnpay from appsettings.json
+            builder.Services.Configure<VnpayConfig>(
+                builder.Configuration.GetSection(VnpayConfig.ConfigName));
+
+            builder.Services.AddScoped<VnpayService>();
+            builder.Services.AddScoped<VnpayPayResponse>();
+            builder.Services.AddScoped<VnpayPayRequest>();
+
+>>>>>>> master
             // Add JSON options
             builder.Services.AddControllers().AddJsonOptions(options =>
             {
@@ -140,6 +165,7 @@ namespace SWP391.APIs
                 {
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(key),
+<<<<<<< HEAD
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };
@@ -158,6 +184,37 @@ namespace SWP391.APIs
             app.UseAuthentication();
             app.UseAuthorization();
             app.MapControllers();
+=======
+                    ValidateIssuer = true,
+                    ValidIssuer = builder.Configuration["Jwt:Issuer"],
+                    ValidateAudience = true,
+                    ValidAudience = builder.Configuration["Jwt:Audience"]
+                };
+            });
+            // CORS
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowLocalhost",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                               .AllowAnyHeader()
+                               .AllowAnyMethod();
+                    });
+            });
+            var app = builder.Build();
+
+            // Configure the HTTP request pipeline.
+            app.UseSwagger();
+            app.UseSwaggerUI();
+
+            app.UseHttpsRedirection();
+            app.UseCors("AllowLocalhost");
+            app.UseAuthentication();
+            app.UseAuthorization();
+            app.MapControllers();
+            app.MapHub<ChatHub>("/chatHub");
+>>>>>>> master
             app.Run();
         }
     }

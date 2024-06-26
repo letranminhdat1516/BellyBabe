@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using SWP391.DAL.Model.Login;
 
 public interface IAuthService
@@ -5,4 +6,17 @@ public interface IAuthService
     Task<AdminLoginResponseDTO> AdminLoginAsync(AdminLoginDTO loginDTO);
     Task<UserLoginResponseDTO> UserLoginAsync(UserLoginDTO loginDTO);
     string GenerateJwtToken(string email, string role);
+=======
+﻿using System.Threading.Tasks;
+using SWP391.DAL.Model.Login;
+
+namespace SWP391.BLL.Services.LoginService
+{
+    public interface IAuthService
+    {
+        Task<AdminLoginResponseDTO> AdminLoginAsync(AdminLoginDTO loginDTO);
+        Task<UserLoginResponseDTO> UserLoginAsync(UserLoginDTO loginDTO);
+        string GenerateJwtToken(string email, string role);
+    }
+>>>>>>> master
 }

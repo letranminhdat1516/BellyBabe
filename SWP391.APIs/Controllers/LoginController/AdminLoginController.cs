@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 ﻿using Microsoft.AspNetCore.Mvc;
+=======
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using SWP391.BLL.Services.LoginService;
+>>>>>>> master
 using SWP391.DAL.Model.Login;
 using System.Threading.Tasks;
 
@@ -9,6 +15,7 @@ namespace SWP391.APIs.Controllers.LoginController
     public class AdminLoginController : ControllerBase
     {
         private readonly IAuthService _authService;
+<<<<<<< HEAD
         private readonly IEmailService _emailService;
         private readonly OtpService _otpService;
 
@@ -20,6 +27,16 @@ namespace SWP391.APIs.Controllers.LoginController
         }
 
         [HttpPost("login")]
+=======
+
+        public AdminLoginController(IAuthService authService)
+        {
+            _authService = authService;
+        }
+
+        [HttpPost("login")]
+        [AllowAnonymous]
+>>>>>>> master
         public async Task<IActionResult> Login([FromBody] AdminLoginDTO loginDTO)
         {
             if (loginDTO == null)
@@ -30,6 +47,7 @@ namespace SWP391.APIs.Controllers.LoginController
             var response = await _authService.AdminLoginAsync(loginDTO);
             if (response == null)
             {
+<<<<<<< HEAD
                 return Unauthorized();
             }
 
@@ -56,6 +74,12 @@ namespace SWP391.APIs.Controllers.LoginController
             }
 
             var token = _authService.GenerateJwtToken(verifyOtpModel.Email, "Admin");
+=======
+                return Unauthorized("Invalid email or password");
+            }
+
+            var token = _authService.GenerateJwtToken(loginDTO.Email, "Admin");
+>>>>>>> master
             return Ok(new { Token = token });
         }
     }

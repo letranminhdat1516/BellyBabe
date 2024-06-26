@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using SWP391.DAL.Model.Login;
 using SWP391.DAL.Repositories.Contract;
 
+=======
+﻿using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using SWP391.DAL.Model.Login;
+using SWP391.DAL.Repositories.Contract;
+>>>>>>> master
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -19,6 +27,7 @@ namespace SWP391.BLL.Services.LoginService
             _userRepository = userRepository;
             _configuration = configuration;
         }
+<<<<<<< HEAD
 
         public async Task<AdminLoginResponseDTO> AdminLoginAsync(AdminLoginDTO loginDTO)
         {
@@ -49,6 +58,9 @@ namespace SWP391.BLL.Services.LoginService
 
             return new AdminLoginResponseDTO { Email = user.Email };
         }
+=======
+      
+>>>>>>> master
 
         public async Task<UserLoginResponseDTO> UserLoginAsync(UserLoginDTO loginDTO)
         {
@@ -62,6 +74,19 @@ namespace SWP391.BLL.Services.LoginService
             return new UserLoginResponseDTO { Token = token, PhoneNumber = user.PhoneNumber };
         }
 
+<<<<<<< HEAD
+=======
+        public async Task<AdminLoginResponseDTO> AdminLoginAsync(AdminLoginDTO loginDTO)
+        {
+            var user = await _userRepository.GetUserByEmailAsync(loginDTO.Email);
+            if (user == null || user.Password != loginDTO.Password || user.RoleId != 1)  // Sửa lại để kiểm tra RoleId
+            {
+                return null;
+            }
+            return new AdminLoginResponseDTO { Email = user.Email };
+        }
+
+>>>>>>> master
         public string GenerateJwtToken(string email, string role)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -74,6 +99,11 @@ namespace SWP391.BLL.Services.LoginService
                     new Claim(ClaimTypes.Role, role)
                 }),
                 Expires = DateTime.UtcNow.AddHours(1),
+<<<<<<< HEAD
+=======
+                Issuer = _configuration["Jwt:Issuer"],
+                Audience = _configuration["Jwt:Audience"],
+>>>>>>> master
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
