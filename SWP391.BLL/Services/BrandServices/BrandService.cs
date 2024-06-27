@@ -24,9 +24,9 @@ namespace SWP391.BLL.Services
             await _brandRepository.DeleteBrand(brandId);
         }
 
-        public async Task UpdateBrand(int brandId, Dictionary<string, object> updates)
+        public async Task UpdateBrand(int brandId, string? brandName, string? description, string? imageBrand)
         {
-            await _brandRepository.UpdateBrand(brandId, updates);
+            await _brandRepository.UpdateBrand(brandId, brandName, description, imageBrand);
         }
 
         public async Task<List<Brand>> GetAllBrands()

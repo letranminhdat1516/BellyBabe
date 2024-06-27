@@ -3,6 +3,7 @@ using SWP391.DAL.Entities;
 using SWP391.DAL.Swp391DbContext;
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace SWP391.DAL.Repositories.BrandRepository
@@ -39,30 +40,31 @@ namespace SWP391.DAL.Repositories.BrandRepository
             }
         }
 
-        public async Task UpdateBrand(int brandId, Dictionary<string, object> updates)
+        public async Task UpdateBrand(int brandId, string? brandName, string? description, string? imageBrand)
         {
             var brand = await _context.Brands.FindAsync(brandId);
 
-            if (brand != null)
+            if (brand == null)
             {
-                foreach (var update in updates)
+                throw new ArgumentException("Thương hiệu không tồn tại.");
+            }
+
+            if (brandName != null)
+            {
+                if (string.IsNullOrWhiteSpace(brandName) || brandName.Length > 100)
                 {
-                    switch (update.Key)
-                    {
-                        case "brandName":
-                            brand.BrandName = (string)update.Value;
-                            break;
-                        case "description":
-                            brand.Description = (string)update.Value;
-                            break;
-                        default:
-                            throw new ArgumentException($"Invalid property name: {update.Key}", nameof(updates));
-                    }
+                    throw new ArgumentException("Tên thương hiệu không được để trống và phải dưới 100 ký tự.");
                 }
 
-                await _context.SaveChangesAsync();
             }
+
+            brand.BrandName = brandName ?? brand.BrandName;
+            brand.Description = description ?? brand.Description;
+            brand.ImageBrand = imageBrand ?? brand.ImageBrand;
+
+            await _context.SaveChangesAsync();
         }
+
 
         public async Task<List<Brand>> GetAllBrands()
         {

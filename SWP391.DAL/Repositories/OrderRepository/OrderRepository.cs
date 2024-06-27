@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using SWP391.DAL.Entities;
 using SWP391.DAL.Swp391DbContext;
 using System;

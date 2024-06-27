@@ -49,7 +49,7 @@ namespace SWP391.DAL.Repositories.OrderStatusRepository
             }
             catch (ArgumentException)
             {
-                throw; 
+                throw;
             }
             catch (Exception ex)
             {
@@ -79,29 +79,23 @@ namespace SWP391.DAL.Repositories.OrderStatusRepository
             }
         }
 
-        public async Task UpdateOrderStatus(OrderStatus orderStatus)
+        public async Task UpdateOrderStatus(int statusId, string statusName)
         {
             try
             {
-                if (orderStatus == null)
-                {
-                    throw new ArgumentNullException(nameof(orderStatus), "Thông tin trạng thái đơn hàng không được để trống.");
-                }
-
-                var existingOrderStatus = await _context.OrderStatuses.FindAsync(orderStatus.StatusId);
-
+                var existingOrderStatus = await _context.OrderStatuses.FindAsync(statusId);
                 if (existingOrderStatus == null)
                 {
                     throw new ArgumentException("Không tìm thấy trạng thái đơn hàng để cập nhật.");
                 }
 
-                existingOrderStatus.StatusName = orderStatus.StatusName;
+                existingOrderStatus.StatusName = statusName;
 
                 await _context.SaveChangesAsync();
             }
             catch (ArgumentException)
             {
-                throw; 
+                throw;
             }
             catch (DbUpdateException)
             {
@@ -112,6 +106,7 @@ namespace SWP391.DAL.Repositories.OrderStatusRepository
                 throw new Exception($"Đã xảy ra lỗi khi cập nhật trạng thái đơn hàng: {ex.Message}");
             }
         }
+
 
         public async Task DeleteOrderStatus(int statusId)
         {
@@ -129,7 +124,7 @@ namespace SWP391.DAL.Repositories.OrderStatusRepository
             }
             catch (ArgumentException)
             {
-                throw; 
+                throw;
             }
             catch (DbUpdateException)
             {

@@ -155,7 +155,7 @@ namespace SWP391.DAL.Repositories.ProductRepository
                 throw new ArgumentException("Vui lòng nhập một thuật ngữ tìm kiếm.", nameof(name));
             }
 
-            name = name.Trim(); 
+            name = name.Trim();
 
             if (name.Length > MaxSearchLength)
             {
@@ -168,7 +168,7 @@ namespace SWP391.DAL.Repositories.ProductRepository
             }
 
             var products = await _context.Products
-                .Where(p => EF.Functions.Like(p.ProductName, $"%{name}%")) 
+                .Where(p => EF.Functions.Like(p.ProductName, $"%{name}%"))
                 .Include(p => p.Brand)
                 .Include(p => p.Category)
                 .AsNoTracking()
@@ -256,6 +256,30 @@ namespace SWP391.DAL.Repositories.ProductRepository
                 product.Quantity -= quantity;
                 await _context.SaveChangesAsync();
             }
+        }
+        public async Task AddFeedbackAsync(int productId, int userId, string content, int rating)
+        {
+            // Validate feedback content and rating
+
+            var feedback = new Feedback
+            {
+                UserId = userId,
+                Content = content,
+                Rating = rating,
+                DateCreated = DateTime.UtcNow
+            };
+
+            await _context.Feedbacks.AddAsync(feedback);
+
+            // Update feedbackTotal for the product
+            var product = await _context.Products.FindAsync(productId);
+            if (product != null)
+            {
+                product.FeedbackTotal++;
+                _context.Products.Update(product);
+            }
+
+            await _context.SaveChangesAsync();
         }
     }
 }

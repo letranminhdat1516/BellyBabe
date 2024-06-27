@@ -19,24 +19,24 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPost("AddBlock")]
-        public async Task<IActionResult> AddBlog(int? userId, string? blogContent, int? categoryId, string? titleName, DateTime? dateCreated)
+        public async Task<IActionResult> AddBlog(int? userId, string? blogContent, int? categoryId, string? titleName)
         {
-            await _blogService.AddBlog(userId, blogContent, categoryId, titleName, dateCreated);
-            return Ok("Add Blog successfully");
+            await _blogService.AddBlog(userId, blogContent, categoryId, titleName);
+            return Ok("Blog đã được thêm thành công");
         }
 
         [HttpDelete("DeleteBlog/{blogId}")]
         public async Task<IActionResult> DeleteBlog(int blogId)
         {
             await _blogService.DeleteBlog(blogId);
-            return Ok();
+            return Ok("Blog đã được xóa thành công");
         }
 
         [HttpPut("UpdateBlog/{blogId}")]
-        public async Task<IActionResult> UpdateBlog(int blogId, [FromBody] Dictionary<string, object> updates)
+        public async Task<IActionResult> UpdateBlog(int blogId, int? userId, string? blogContent, int? categoryId, string? titleName)
         {
-            await _blogService.UpdateBlog(blogId, updates);
-            return Ok();
+            await _blogService.UpdateBlog(blogId, userId, blogContent, categoryId, titleName);
+            return Ok("Nội dung blog đã được cập nhật");
         }
 
         [HttpGet("GetAllBlogs")]

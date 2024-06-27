@@ -61,11 +61,11 @@ namespace SWP391.APIs.Controllers
         }
 
         [HttpPut("UpdateOrderStatus/{orderStatus}")]
-        public async Task<IActionResult> UpdateOrderStatus(OrderStatus orderStatus)
+        public async Task<IActionResult> UpdateOrderStatus(int statusId, string statusName)
         {
             try
             {
-                await _orderStatusService.UpdateOrderStatus(orderStatus);
+                await _orderStatusService.UpdateOrderStatus(statusId, statusName);
                 return Ok(new { message = "Cập nhật trạng thái đơn hàng thành công." });
             }
             catch (Exception ex)

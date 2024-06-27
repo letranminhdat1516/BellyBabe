@@ -21,21 +21,21 @@ namespace SWP391.API.Controllers
         public async Task<IActionResult> AddProductCategory(string categoryName, int? parentCategoryId)
         {
             await _productCategoryService.AddProductCategory(categoryName, parentCategoryId);
-            return Ok("Add Product Category successfully");
+            return Ok("Thêm danh mục sản phẩm thành công");
         }
 
         [HttpDelete("DeleteProductCategory/{categoryId}")]
         public async Task<IActionResult> DeleteProductCategory(int categoryId)
         {
             await _productCategoryService.DeleteProductCategory(categoryId);
-            return Ok();
+            return Ok("Xóa danh mục sản phẩm thành công");
         }
 
         [HttpPut("UpdateProductCategory/{categoryId}")]
-        public async Task<IActionResult> UpdateProductCategory(int categoryId, [FromBody] Dictionary<string, object> updates)
+        public async Task<IActionResult> UpdateProductCategory(int categoryId, string? categoryName, int? parentCategoryId)
         {
-            await _productCategoryService.UpdateProductCategory(categoryId, updates);
-            return Ok();
+            await _productCategoryService.UpdateProductCategory(categoryId, categoryName, parentCategoryId);
+            return Ok("Cập nhật danh mục sản phẩm thành công");
         }
 
         [HttpGet("GetAllProductCategories")]

@@ -21,21 +21,21 @@ namespace SWP391.API.Controllers
         public async Task<IActionResult> AddBrand(string brandName, string? description, string? imageBrand)
         {
             await _brandService.AddBrand(brandName, description, imageBrand);
-            return Ok("Add Brand successfully");
+            return Ok("Đã thêm thương hiệu thành công");
         }
 
         [HttpDelete("DeleteBrand/{brandId}")]
         public async Task<IActionResult> DeleteBrand(int brandId)
         {
             await _brandService.DeleteBrand(brandId);
-            return Ok();
+            return Ok("Đã xóa thương hiệu thành công");
         }
 
         [HttpPut("UpdateBrand/{brandId}")]
-        public async Task<IActionResult> UpdateBrand(int brandId, [FromBody] Dictionary<string, object> updates)
+        public async Task<IActionResult> UpdateBrand(int brandId, string? brandName, string? description, string? imageBrand)
         {
-            await _brandService.UpdateBrand(brandId, updates);
-            return Ok();
+            await _brandService.UpdateBrand(brandId, brandName, description, imageBrand);
+            return Ok("Đã cập nhật thương hiệu thành công");
         }
 
         [HttpGet("GetAllBrands")]

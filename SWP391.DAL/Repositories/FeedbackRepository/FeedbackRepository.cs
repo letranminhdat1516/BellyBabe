@@ -14,7 +14,7 @@ namespace SWP391.DAL.Repositories.FeedbackRepository
 
         public FeedbackRepository(Swp391Context context)
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context));
+            _context = context;
         }
 
         public async Task<Feedback> AddFeedbackAsync(int userId, string content, int rating)
@@ -29,6 +29,15 @@ namespace SWP391.DAL.Repositories.FeedbackRepository
                 throw new ArgumentException("Đánh giá phải từ 1 đến 5.");
             }
 
+            var hasDeliveredOrder = await _context.Orders
+                .Include(o => o.Status)
+                .AnyAsync(o => o.UserId == userId && o.Status.StatusName == "Đã giao hàng");
+
+            if (!hasDeliveredOrder)
+            {
+                throw new InvalidOperationException("Người dùng chỉ có thể phản hồi sau khi đơn hàng đã được giao.");
+            }
+
             var feedback = new Feedback
             {
                 UserId = userId,
@@ -39,6 +48,7 @@ namespace SWP391.DAL.Repositories.FeedbackRepository
 
             await _context.Feedbacks.AddAsync(feedback);
             await _context.SaveChangesAsync();
+
             return feedback;
         }
 

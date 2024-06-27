@@ -3,6 +3,7 @@ using SWP391.DAL.Entities;
 using SWP391.DAL.Swp391DbContext;
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace SWP391.DAL.Repositories.BlogRepository
@@ -16,15 +17,14 @@ namespace SWP391.DAL.Repositories.BlogRepository
             _context = context;
         }
 
-        public async Task AddBlog(int? userId, string? blogContent, int? categoryId, string? titleName, DateTime? dateCreated)
+        public async Task AddBlog(int? userId, string? blogContent, int? categoryId, string? titleName)
         {
             var newBlog = new Blog
             {
                 UserId = userId,
                 BlogContent = blogContent,
                 CategoryId = categoryId,
-                TitleName = titleName,
-                DateCreated = dateCreated
+                TitleName = titleName
             };
 
             _context.Blogs.Add(newBlog);
@@ -41,38 +41,30 @@ namespace SWP391.DAL.Repositories.BlogRepository
             }
         }
 
-        public async Task UpdateBlog(int blogId, Dictionary<string, object> updates)
+        public async Task UpdateBlog(int blogId, int? userId, string? blogContent, int? categoryId, string? titleName)
         {
             var blog = await _context.Blogs.FindAsync(blogId);
 
-            if (blog != null)
+            if (blog == null)
             {
-                foreach (var update in updates)
+                throw new ArgumentException("Blog không tồn tại.");
+            }
+
+            if (titleName != null)
+            {
+                if (string.IsNullOrWhiteSpace(titleName) || titleName.Length > 100)
                 {
-                    switch (update.Key)
-                    {
-                        case "userId":
-                            blog.UserId = (int?)update.Value;
-                            break;
-                        case "blogContent":
-                            blog.BlogContent = (string?)update.Value;
-                            break;
-                        case "categoryId":
-                            blog.CategoryId = (int?)update.Value;
-                            break;
-                        case "titleName":
-                            blog.TitleName = (string?)update.Value;
-                            break;
-                        case "dateCreated":
-                            blog.DateCreated = (DateTime?)update.Value;
-                            break;
-                        default:
-                            throw new ArgumentException($"Invalid property name: {update.Key}", nameof(updates));
-                    }
+                    throw new ArgumentException("Tên tiêu đề không được để trống và phải dưới 100 ký tự.");
                 }
 
-                await _context.SaveChangesAsync();
             }
+
+            blog.UserId = userId ?? blog.UserId;
+            blog.BlogContent = blogContent ?? blog.BlogContent;
+            blog.CategoryId = categoryId ?? blog.CategoryId;
+            blog.TitleName = titleName ?? blog.TitleName;
+
+            await _context.SaveChangesAsync();
         }
 
         public async Task<List<Blog>> GetAllBlogs()

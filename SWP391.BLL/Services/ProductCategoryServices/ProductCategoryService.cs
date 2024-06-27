@@ -24,9 +24,9 @@ namespace SWP391.BLL.Services
             await _productCategoryRepository.DeleteProductCategory(categoryId);
         }
 
-        public async Task UpdateProductCategory(int categoryId, Dictionary<string, object> updates)
+        public async Task UpdateProductCategory(int categoryId, string? categoryName, int? parentCategoryId)
         {
-            await _productCategoryRepository.UpdateProductCategory(categoryId, updates);
+            await _productCategoryRepository.UpdateProductCategory(categoryId, categoryName, parentCategoryId);
         }
 
         public async Task<List<ProductCategory>> GetAllProductCategories()

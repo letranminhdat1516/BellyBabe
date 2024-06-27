@@ -22,21 +22,21 @@ namespace SWP391.APIs.Controllers.BlogCategoryController
         public async Task<IActionResult> AddBlogCategory(string categoryName, int? parentCategoryId)
         {
             await _blogCategoryService.AddBlogCategory(categoryName, parentCategoryId);
-            return Ok("Add Blog Category successfully");
+            return Ok("Đã thêm danh mục cho Blog thành công");
         }
 
         [HttpDelete("DeleteBlogCategory/{categoryId}")]
         public async Task<IActionResult> DeleteBlogCategory(int categoryId)
         {
             await _blogCategoryService.DeleteBlogCategory(categoryId);
-            return Ok();
+            return Ok("Đã xóa danh mục blog thành công");
         }
 
         [HttpPut("UpdateBlogCategory/{categoryId}")]
-        public async Task<IActionResult> UpdateBlogCategory(int categoryId, [FromBody] Dictionary<string, object> updates)
+        public async Task<IActionResult> UpdateBlogCategory(int categoryId, string? categoryName, int? parentCategoryId)
         {
-            await _blogCategoryService.UpdateBlogCategory(categoryId, updates);
-            return Ok();
+            await _blogCategoryService.UpdateBlogCategory(categoryId, categoryName, parentCategoryId);
+            return Ok("Đã update danh mục blog thành công");
         }
 
         [HttpGet("GetBlogCategories")]

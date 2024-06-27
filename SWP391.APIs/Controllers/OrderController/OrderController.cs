@@ -15,7 +15,7 @@ namespace SWP391.API.Controllers
 
         public OrderController(OrderService orderService)
         {
-            _orderService = orderService ?? throw new ArgumentNullException(nameof(orderService));
+            _orderService = orderService;
         }
 
         [HttpPost("PlaceOrder")]

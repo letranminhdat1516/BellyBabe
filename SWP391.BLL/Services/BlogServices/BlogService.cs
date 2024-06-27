@@ -15,9 +15,9 @@ namespace SWP391.BLL.Services
             _blogRepository = blogRepository;
         }
 
-        public async Task AddBlog(int? userId, string? blogContent, int? categoryId, string? titleName, DateTime? dateCreated)
+        public async Task AddBlog(int? userId, string? blogContent, int? categoryId, string? titleName)
         {
-            await _blogRepository.AddBlog(userId, blogContent, categoryId, titleName, dateCreated);
+            await _blogRepository.AddBlog(userId, blogContent, categoryId, titleName);
         }
 
         public async Task DeleteBlog(int blogId)
@@ -25,9 +25,9 @@ namespace SWP391.BLL.Services
             await _blogRepository.DeleteBlog(blogId);
         }
 
-        public async Task UpdateBlog(int blogId, Dictionary<string, object> updates)
+        public async Task UpdateBlog(int blogId, int? userId, string? blogContent, int? categoryId, string? titleName)
         {
-            await _blogRepository.UpdateBlog(blogId, updates);
+            await _blogRepository.UpdateBlog(blogId, userId, blogContent, categoryId, titleName);
         }
 
         public async Task<List<Blog>> GetAllBlogs()

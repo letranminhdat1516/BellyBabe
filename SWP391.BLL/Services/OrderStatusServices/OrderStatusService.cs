@@ -51,11 +51,11 @@ namespace SWP391.BLL.Services.OrderStatusServices
             }
         }
 
-        public async Task UpdateOrderStatus(OrderStatus orderStatus)
+        public async Task UpdateOrderStatus(int statusId, string statusName)
         {
             try
             {
-                await _orderStatusRepository.UpdateOrderStatus(orderStatus);
+                await _orderStatusRepository.UpdateOrderStatus(statusId, statusName);
             }
             catch (Exception ex)
             {

@@ -25,9 +25,9 @@ namespace SWP391.BLL.Services
             await _blogCategoryRepository.DeleteBlogCategory(categoryId);
         }
 
-        public async Task UpdateBlogCategory(int categoryId, Dictionary<string, object> updates)
+        public async Task UpdateBlogCategory(int categoryId, string? categoryName, int? parentCategoryId)
         {
-            await _blogCategoryRepository.UpdateBlogCategory(categoryId, updates);
+            await _blogCategoryRepository.UpdateBlogCategory(categoryId, categoryName, parentCategoryId);
         }
 
         public async Task<List<BlogCategory>> GetAllBlogCategories()

@@ -3,6 +3,7 @@ using SWP391.DAL.Entities;
 using SWP391.DAL.Swp391DbContext;
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace SWP391.DAL.Repositories.ProductCategoryRepository
@@ -38,29 +39,28 @@ namespace SWP391.DAL.Repositories.ProductCategoryRepository
             }
         }
 
-        public async Task UpdateProductCategory(int categoryId, Dictionary<string, object> updates)
+        public async Task UpdateProductCategory(int categoryId, string? categoryName, int? parentCategoryId)
         {
             var category = await _context.ProductCategories.FindAsync(categoryId);
 
-            if (category != null)
+            if (category == null)
             {
-                foreach (var update in updates)
+                throw new ArgumentException("Danh mục sản phẩm không tồn tại.");
+            }
+
+            if (categoryName != null)
+            {
+                if (string.IsNullOrWhiteSpace(categoryName) || categoryName.Length > 100)
                 {
-                    switch (update.Key)
-                    {
-                        case "categoryName":
-                            category.CategoryName = (string)update.Value;
-                            break;
-                        case "parentCategoryId":
-                            category.ParentCategoryId = (int?)update.Value;
-                            break;
-                        default:
-                            throw new ArgumentException($"Invalid property name: {update.Key}", nameof(updates));
-                    }
+                    throw new ArgumentException("Tên danh mục không được để trống và phải dưới 100 ký tự.");
                 }
 
-                await _context.SaveChangesAsync();
             }
+
+            category.CategoryName = categoryName ?? category.CategoryName;
+            category.ParentCategoryId = parentCategoryId ?? category.ParentCategoryId;
+
+            await _context.SaveChangesAsync();
         }
 
         public async Task<List<ProductCategory>> GetAllProductCategories()

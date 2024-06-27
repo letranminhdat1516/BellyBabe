@@ -31,7 +31,7 @@ namespace SWP391.DAL.Repositories.StatisticsRepository
 
             var statistics = new Statistic
             {
-                Date = formattedStartDate, 
+                Date = formattedStartDate,
                 NumberOfOrders = totalOrders,
                 ItemsSold = totalItemsSold,
                 TotalAmount = totalAmount,

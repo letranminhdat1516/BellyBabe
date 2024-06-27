@@ -33,7 +33,7 @@ namespace SWP391.DAL.Repositories.CartRepository
                     throw new ArgumentException("ID sản phẩm không hợp lệ.");
                 }
 
-                if (product.IsSelling != true) 
+                if (product.IsSelling != true)
                 {
                     throw new Exception("Sản phẩm hiện không có sẵn để mua.");
                 }
@@ -53,7 +53,7 @@ namespace SWP391.DAL.Repositories.CartRepository
                         UserId = userId,
                         ProductId = productId,
                         Quantity = quantity,
-                        Price = (int)(product.NewPrice * quantity) 
+                        Price = (int)(product.NewPrice * quantity)
                     };
 
                     _context.OrderDetails.Add(orderDetail);
@@ -105,7 +105,7 @@ namespace SWP391.DAL.Repositories.CartRepository
                         throw new ArgumentException("ID sản phẩm không hợp lệ.");
                     }
 
-                    if (product.IsSelling != true) 
+                    if (product.IsSelling != true)
                     {
                         throw new Exception("Sản phẩm hiện không có sẵn để mua.");
                     }
