@@ -25,6 +25,4 @@ public partial class OrderDetail
 
     public virtual User? User { get; set; }
 
-    public virtual Statistic Statistics { get; set; }
-
 }

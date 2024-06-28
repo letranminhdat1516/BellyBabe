@@ -50,6 +50,11 @@ namespace SWP391.BLL.Services.ProductServices
             return await _productRepository.SortProductByPrice(ascending);
         }
 
+        public async Task<Product> GetProductById(int productId)
+        {
+            return await _productRepository.GetProductById(productId);
+        }
+
         public async Task UpdateProduct(int productId, string? productName, bool? isSelling, string? description, int? quantity, int? isSoldOut, DateTime? backInStockDate, int? categoryId, int? brandId, int? feedbackTotal, int? oldPrice, decimal? discount, string? imageLinks)
         {
             await _productRepository.UpdateProduct(productId, productName, isSelling, description, quantity, isSoldOut, backInStockDate, categoryId, brandId, feedbackTotal, oldPrice, discount, imageLinks);

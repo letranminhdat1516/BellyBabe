@@ -18,7 +18,7 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPost("AddToCart")]
-        public async Task<IActionResult> AddToCartAsync([FromQuery] int userId, [FromQuery] int productId, [FromQuery] int quantity)
+        public async Task<IActionResult> AddToCartAsync(int userId, int productId, int quantity)
         {
             if (userId <= 0)
             {
@@ -47,7 +47,7 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPost("IncreaseQuantity/{productId}")]
-        public async Task<IActionResult> IncreaseQuantityAsync([FromQuery] int userId, [FromQuery] int productId, [FromQuery] int quantityToAdd)
+        public async Task<IActionResult> IncreaseQuantityAsync(int userId, int productId, int quantityToAdd)
         {
             if (userId <= 0)
             {
@@ -74,7 +74,7 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPost("DecreaseQuantity/{productId}")]
-        public async Task<IActionResult> DecreaseQuantityAsync([FromQuery] int userId, [FromQuery] int productId, [FromQuery] int quantityToSubtract)
+        public async Task<IActionResult> DecreaseQuantityAsync(int userId, int productId,  int quantityToSubtract)
         {
             if (userId <= 0)
             {
@@ -101,7 +101,7 @@ namespace SWP391.API.Controllers
         }
 
         [HttpDelete("DeleteProductFromCart/{productId}")]
-        public async Task<IActionResult> DeleteProductFromCartAsync([FromQuery] int userId, [FromQuery] int productId)
+        public async Task<IActionResult> DeleteProductFromCartAsync(int userId, int productId)
         {
             if (userId <= 0)
             {

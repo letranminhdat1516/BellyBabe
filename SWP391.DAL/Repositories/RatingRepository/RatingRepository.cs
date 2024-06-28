@@ -17,7 +17,7 @@ namespace SWP391.DAL.Repositories.RatingRepository
             _context = context;
         }
 
-        public async Task AddRating(int userId, int productId, int ratingValue, DateTime ratingDate)
+        public async Task AddRating(int userId, int productId, int ratingValue)
         {
             if (userId <= 0)
             {
@@ -62,7 +62,7 @@ namespace SWP391.DAL.Repositories.RatingRepository
                 UserId = userId,
                 ProductId = productId,
                 RatingValue = ratingValue,
-                RatingDate = ratingDate
+                //RatingDate = ratingDate
             };
 
             _context.Ratings.Add(newRating);
@@ -84,14 +84,14 @@ namespace SWP391.DAL.Repositories.RatingRepository
             }
         }
 
-        public async Task<bool> UpdateRating(int ratingId, int ratingValue, DateTime ratingDate)
+        public async Task<bool> UpdateRating(int ratingId, int ratingValue)
         {
             var rating = await _context.Ratings.FindAsync(ratingId);
 
             if (rating != null)
             {
                 rating.RatingValue = ratingValue;
-                rating.RatingDate = ratingDate;
+                //rating.RatingDate = ratingDate;
 
                 await _context.SaveChangesAsync();
                 return true;

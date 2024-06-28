@@ -73,18 +73,30 @@ namespace SWP391.APIs.Controllers
                 return StatusCode(500, new { message = $"Tìm kiếm sản phẩm theo trạng thái thất bại: {ex.Message}" });
             }
         }
-
         [HttpGet("GetAllProducts")]
-        public async Task<IActionResult> ShowAllProducts()
+        public async Task<IActionResult> GetAllProducts()
         {
             try
             {
-                List<Product> allProducts = await _productService.ShowAllProducts();
-                return Ok(allProducts);
+                var products = await _productService.ShowAllProducts();
+                var productResponses = new List<object>();
+
+                foreach (var product in products)
+                {
+                    var parentCategoryName = product.Category?.ParentCategory?.CategoryName;
+
+                    productResponses.Add(new
+                    {
+                        Product = product,
+                        ParentCategoryName = parentCategoryName
+                    });
+                }
+
+                return Ok(productResponses);
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = $"Lấy danh sách tất cả sản phẩm thất bại: {ex.Message}" });
+                return StatusCode(500, new { message = $"Lấy danh sách sản phẩm thất bại: {ex.Message}" });
             }
         }
 
@@ -116,8 +128,32 @@ namespace SWP391.APIs.Controllers
             }
         }
 
+        [HttpGet("GetProductById/{productId}")]
+        public async Task<IActionResult> GetProductById(int productId)
+        {
+            try
+            {
+                var product = await _productService.GetProductById(productId);
+                var parentCategoryName = product.Category?.ParentCategory?.CategoryName;
+
+                return Ok(new
+                {
+                    Product = product,
+                    ParentCategoryName = parentCategoryName
+                });
+            }
+            catch (ArgumentException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = $"Lấy sản phẩm thất bại: {ex.Message}" });
+            }
+        }
+
         [HttpPut("UpdateProduct/{productId}")]
-        public async Task<IActionResult> UpdateProduct(int productId, string productName, bool? isSelling, string? description, int quantity, int isSoldOut, DateTime? backInStockDate, int? categoryId, int? brandId, int? feedbackTotal, int? oldPrice, decimal? discount, string? imageLinks)
+        public async Task<IActionResult> UpdateProduct(int productId, string? productName, bool? isSelling, string? description, int? quantity, int? isSoldOut, DateTime? backInStockDate, int? categoryId, int? brandId, int? feedbackTotal, int? oldPrice, decimal? discount, string? imageLinks)
         {
             try
             {

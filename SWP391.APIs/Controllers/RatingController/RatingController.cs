@@ -19,11 +19,11 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPost("AddRating")]
-        public async Task<IActionResult> AddRating(int? userId, int? productId, int? ratingValue, DateTime? ratingDate)
+        public async Task<IActionResult> AddRating(int? userId, int? productId, int? ratingValue/*, DateTime ratingDate*/)
         {
             try
             {
-                await _ratingService.AddRating(userId ?? 0, productId ?? 0, ratingValue ?? 0, ratingDate ?? DateTime.Now);
+                await _ratingService.AddRating(userId ?? 0, productId ?? 0, ratingValue ?? 0/*, ratingDate ?? DateTime.Now*/);
                 return Ok("Thêm đánh giá thành công");
             }
             catch (ArgumentException ex)
@@ -51,11 +51,11 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPut("UpdateRating/{ratingId}")]
-        public async Task<IActionResult> UpdateRating(int ratingId, int ratingValue, DateTime ratingDate)
+        public async Task<IActionResult> UpdateRating(int ratingId, int ratingValue/*, DateTime ratingDate*/)
         {
             try
             {
-                var result = await _ratingService.UpdateRating(ratingId, ratingValue, ratingDate);
+                var result = await _ratingService.UpdateRating(ratingId, ratingValue/*, ratingDate*/);
                 if (result)
                 {
                     return Ok("Cập nhật đánh giá thành công");
