@@ -4,6 +4,7 @@ using SWP391.DAL.Model.users;
 using SWP391.DAL.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using static System.Net.WebRequestMethods;
 
 namespace SWP391.APIs.Controllers
 {
@@ -63,6 +64,27 @@ namespace SWP391.APIs.Controllers
         {
             var users = await _userService.GetUsersAsync();
             return Ok(users);
+        }
+        [HttpPost("forgot-password")]
+        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDTO forgotPasswordDto, OtpService otpService)
+        {
+            var otp = await _userService.GeneratePasswordResetTokenAsync(forgotPasswordDto.Email, otpService: otpService);
+            if (otp == null)
+            {
+                return BadRequest("Email not found.");
+            }
+            return Ok(new { otp = otp });
+        }
+
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDTO resetPasswordDto)
+        {
+            var result = await _userService.ResetPasswordAsync(resetPasswordDto.Email, resetPasswordDto.Otp, resetPasswordDto.NewPassword);
+            if (!result)
+            {
+                return BadRequest("Invalid OTP or OTP expired.");
+            }
+            return Ok("Password reset successful.");
         }
     }
 }

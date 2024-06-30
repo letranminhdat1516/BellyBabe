@@ -36,7 +36,7 @@ namespace SWP391.BLL.Services.LoginService
         public async Task<AdminLoginResponseDTO> AdminLoginAsync(AdminLoginDTO loginDTO)
         {
             var user = await _userRepository.GetUserByEmailAsync(loginDTO.Email);
-            if (user == null || user.Password != loginDTO.Password || user.RoleId != 1)  // Sửa lại để kiểm tra RoleId
+            if (user == null || user.Password != loginDTO.Password || user.RoleId != 1)  
             {
                 return null;
             }

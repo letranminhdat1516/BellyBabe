@@ -31,9 +31,15 @@ namespace SWP391.DAL.Repositories.UserRepository
                 .FirstOrDefaultAsync(u => u.Email == email);
         }
 
+        public async Task<User> GetUserByNameAsync(string userName)
+        {
+            return await _context.Users
+                .Include(u => u.Role)
+                .FirstOrDefaultAsync(u => u.UserName == userName);
+        }
+
         public async Task AddUserAsync(User user)
         {
-            // Kiểm tra nếu UserName đã tồn tại
             var existingUser = await _context.Users
                 .FirstOrDefaultAsync(u => u.UserName == user.UserName);
 
@@ -45,7 +51,6 @@ namespace SWP391.DAL.Repositories.UserRepository
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
         }
-
 
         public async Task UpdateUserAsync(User user)
         {

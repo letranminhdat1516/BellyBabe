@@ -58,7 +58,8 @@ public class OtpService
                 UserName = userName,
                 Otp = otp,
                 Otpexpiry = DateTime.UtcNow.AddMinutes(5),
-                Password = "default_password"
+                Password = "default_password",
+                RoleId = 3
             };
             if (isEmail)
             {
@@ -153,6 +154,12 @@ public class OtpService
         if (!isValid)
         {
             return null;
+        }
+        var user = await _userRepository.GetUserByPhoneNumberAsync(loginDTO.PhoneNumber);
+        if (user != null && user.RoleId != 3)
+        {
+            user.RoleId = 3;
+            await _userRepository.UpdateUserAsync(user);
         }
 
         var token = GenerateJwtToken(loginDTO.PhoneNumber);
