@@ -8,10 +8,12 @@ namespace SWP391.DAL.Model.Voucher
 {
     public class VoucherDTO
     {
+        public int VoucherId;
+
+        public string VoucherCode { get; set; } 
         public string VoucherName { get; set; }
         public int Quantity { get; set; }
         public DateTime ExpiredDate { get; set; }
-        public int? UserId { get; set; }
     }
 
 }

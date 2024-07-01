@@ -18,13 +18,13 @@ namespace SWP391.APIs.Controllers
             _voucherService = voucherService;
         }
 
-        [HttpGet]
+        [HttpGet("GetAllVoucher")]
         public async Task<ActionResult<IEnumerable<Voucher>>> GetVouchers()
         {
             return await _voucherService.GetVouchersAsync();
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetVoucherByID/{id}")]
         public async Task<ActionResult<Voucher>> GetVoucher(int id)
         {
             var voucher = await _voucherService.GetVoucherByIdAsync(id);
@@ -37,27 +37,38 @@ namespace SWP391.APIs.Controllers
             return voucher;
         }
 
-        [HttpPost]
+        [HttpPost("CreateVoucher")]
         public async Task<ActionResult<Voucher>> AddVoucher(VoucherDTO voucherDTO)
         {
             var voucher = await _voucherService.AddVoucherAsync(voucherDTO);
             return CreatedAtAction(nameof(GetVoucher), new { id = voucher.VoucherId }, voucher);
         }
 
-        [HttpPut("{id}")]
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> UpdateVoucher(int id, VoucherDTO voucherDTO)
+        //{
+        //    var voucher = await _voucherService.UpdateVoucherAsync(id, voucherDTO);
+
+        //    if (voucher == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return NoContent();
+        //}
+        [HttpPut("UpdateVoucherByID/{id}")]
         public async Task<IActionResult> UpdateVoucher(int id, VoucherDTO voucherDTO)
         {
             var voucher = await _voucherService.UpdateVoucherAsync(id, voucherDTO);
-
             if (voucher == null)
             {
                 return NotFound();
             }
-
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
+
+        [HttpDelete("DeleteVoucherById/{id}")]
         public async Task<IActionResult> DeleteVoucher(int id)
         {
             var result = await _voucherService.DeleteVoucherAsync(id);
@@ -70,21 +81,21 @@ namespace SWP391.APIs.Controllers
             return NoContent();
         }
 
-        [HttpPost("generate")]
+        [HttpPost("generateCode")]
         public async Task<ActionResult<string>> GenerateVoucherCode()
         {
             var voucherCode = await _voucherService.GenerateVoucherCodeAsync();
             return Ok(voucherCode);
         }
 
-        [HttpPost("send")]
+        [HttpPost("sendCodeByGmail")]
         public async Task<IActionResult> SendVoucherByEmail([FromQuery] string email, [FromQuery] string voucherCode)
         {
             await _voucherService.SendVoucherByEmailAsync(email, voucherCode);
             return NoContent();
         }
 
-        [HttpPost("validate")]
+        [HttpPost("validateCode")]
         public async Task<IActionResult> ValidateVoucher([FromQuery] string voucherCode)
         {
             var isValid = await _voucherService.ValidateVoucherAsync(voucherCode);

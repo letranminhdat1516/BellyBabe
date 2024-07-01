@@ -80,8 +80,6 @@ namespace SWP391.BLL.Services
             return user;
         }
 
-
-
         public async Task DeleteUserAsync(int userId)
         {
             await _userRepository.DeleteUserAsync(userId);
