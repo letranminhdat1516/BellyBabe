@@ -45,7 +45,6 @@ public class UserController : ControllerBase
             FullName = user.FullName,
             RoleId = userUploadProfile.RoleId,
             Image = userUploadProfile.Image
-
         });
 
         return Ok(updatedUser);

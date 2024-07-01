@@ -33,10 +33,11 @@ namespace SWP391.BLL.Services
         {
             var voucher = new Voucher
             {
+                VoucherCode = voucherDTO.VoucherCode,
                 VoucherName = voucherDTO.VoucherName,
                 Quantity = voucherDTO.Quantity,
                 ExpiredDate = voucherDTO.ExpiredDate,
-                UserId = voucherDTO.UserId
+
             };
             _context.Vouchers.Add(voucher);
             await _context.SaveChangesAsync();
@@ -50,11 +51,10 @@ namespace SWP391.BLL.Services
             {
                 return null;
             }
-
+            voucher.VoucherCode = voucherDTO.VoucherCode;
             voucher.VoucherName = voucherDTO.VoucherName;
             voucher.Quantity = voucherDTO.Quantity;
             voucher.ExpiredDate = voucherDTO.ExpiredDate;
-            voucher.UserId = voucherDTO.UserId;
 
             _context.Vouchers.Update(voucher);
             await _context.SaveChangesAsync();
