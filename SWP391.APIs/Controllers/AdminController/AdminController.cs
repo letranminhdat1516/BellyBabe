@@ -5,6 +5,7 @@ using SWP391.DAL.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using static System.Net.WebRequestMethods;
+using SWP391.DAL.Model.Voucher;
 
 namespace SWP391.APIs.Controllers
 {
@@ -85,6 +86,17 @@ namespace SWP391.APIs.Controllers
                 return BadRequest("Invalid OTP or OTP expired.");
             }
             return Ok("Password reset successful.");
+        }
+        [HttpPost("send-voucher-to-users")]
+        public async Task<IActionResult> SendVoucherToUsers([FromBody] SendVoucherRequest request)
+        {
+            var result = await _userService.SendVoucherToUsersAsync(request.UserIds, request.VoucherCode);
+            if (!result)
+            {
+                return BadRequest("Voucher not sent or no users found.");
+            }
+
+            return Ok("Vouchers sent to specified users.");
         }
     }
 }

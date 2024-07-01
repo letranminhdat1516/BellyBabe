@@ -35,6 +35,7 @@ using SWP391.BLL.Services.OrderStatusServices;
 using SWP391.DAL.Repositories.StatisticsRepository;
 using SWP391.DAL.Repositories;
 using SWP391.DAL.Services.StatisticsServices;
+using SWP391.DAL.Repositories.VoucherRepository;
 
 namespace SWP391.APIs
 {
@@ -69,6 +70,7 @@ namespace SWP391.APIs
             builder.Services.AddScoped<OrderStatusRepository>();
             builder.Services.AddScoped<CartRepository>();
             builder.Services.AddScoped<StatisticsRepository>();
+            builder.Services.AddScoped<VoucherRepository>();    
 
             // Register services
             builder.Services.AddScoped<EmailService>();

@@ -12,7 +12,7 @@ namespace SWP391.BLL.Services
     {
         private readonly Swp391Context _context;
         private readonly EmailService _emailService;
-
+        private readonly UserService _userService;
         public VoucherService(Swp391Context context, EmailService emailService)
         {
             _context = context;
@@ -84,7 +84,7 @@ namespace SWP391.BLL.Services
 
         public async Task<bool> SendVoucherByEmailAsync(string email, string voucherCode)
         {
-            var subject = "Your Voucher Code";
+            var subject = "Voucher Belly and Babe";
             var message = $"Your voucher code is: {voucherCode}";
 
             await _emailService.SendEmailAsync(email, subject, message);

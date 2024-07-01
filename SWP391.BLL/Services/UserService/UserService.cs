@@ -2,6 +2,7 @@
 using SWP391.DAL.Entities;
 using SWP391.DAL.Model.users;
 using SWP391.DAL.Repositories.Contract;
+using SWP391.DAL.Repositories.VoucherRepository;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using static System.Net.WebRequestMethods;
@@ -13,11 +14,12 @@ namespace SWP391.BLL.Services
         private readonly EmailService _emailService;
         private readonly OtpService otpService;
         private readonly ILogger<UserService> _logger;
-        public UserService(IUserRepository userRepository, EmailService emailService)
+        private readonly VoucherRepository _voucherRepository;
+        public UserService(IUserRepository userRepository, EmailService emailService, VoucherRepository voucherRepository)
         {
             _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
              _emailService = emailService ?? throw new ArgumentNullException(nameof(emailService));
-         
+            _voucherRepository = voucherRepository ?? throw new ArgumentNullException(nameof(voucherRepository));
         }
 
         private object logger()
@@ -130,5 +132,41 @@ namespace SWP391.BLL.Services
 
             return true;
         }
+        public async Task<bool> SendVoucherToUsersAsync(List<int> userIds, string voucherCode)
+        {
+            var users = await _userRepository.GetUsersByIdsAsync(userIds);
+
+            if (users == null || !users.Any())
+            {
+                return false;
+            }
+            bool IsValidEmail(string email)
+            {
+                try
+                {
+                    var addr = new System.Net.Mail.MailAddress(email);
+                    return addr.Address == email;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+            var subject = "Voucher Belly and Babe";
+            var message = $"Your voucher code is: {voucherCode}";
+
+            foreach (var user in users)
+            {
+                if (!string.IsNullOrEmpty(user.Email) && IsValidEmail(user.Email))
+                {
+                    await _emailService.SendEmailAsync(user.Email, subject, message);
+                }
+            }
+
+            return true;
+        }
+
+    
+
     }
 }

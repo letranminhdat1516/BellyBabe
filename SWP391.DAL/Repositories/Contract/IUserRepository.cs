@@ -14,5 +14,6 @@ namespace SWP391.DAL.Repositories.Contract
         Task<List<User>> GetUsersAsync();
         Task<User> GetUserByIdAsync(int userId);
         Task<User> GetUserByNameAsync(string userName);
+        Task<List<User>> GetUsersByIdsAsync(List<int> userIds);
     }
 }

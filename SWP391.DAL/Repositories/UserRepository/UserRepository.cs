@@ -77,5 +77,9 @@ namespace SWP391.DAL.Repositories.UserRepository
         {
             return await _context.Users.FindAsync(userId);
         }
+        public async Task<List<User>> GetUsersByIdsAsync(List<int> userIds)
+        {
+            return await _context.Users.Where(u => userIds.Contains(u.UserId)).ToListAsync();
+        }
     }
 }
