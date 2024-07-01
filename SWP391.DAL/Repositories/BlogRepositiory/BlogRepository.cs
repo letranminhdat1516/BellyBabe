@@ -70,8 +70,8 @@ namespace SWP391.DAL.Repositories.BlogRepository
         public async Task<List<Blog>> GetAllBlogs()
         {
             return await _context.Blogs
-                .Include(b => b.Category)
-                .Include(b => b.User)
+               // .Include(b => b.Category)
+               // .Include(b => b.User)
                 .AsNoTracking()
                 .ToListAsync();
         }
@@ -79,8 +79,8 @@ namespace SWP391.DAL.Repositories.BlogRepository
         public async Task<Blog?> GetBlogById(int blogId)
         {
             return await _context.Blogs
-                .Include(b => b.Category)
-                .Include(b => b.User)
+                //.Include(b => b.Category)
+                //.Include(b => b.User)
                 .AsNoTracking()
                 .FirstOrDefaultAsync(b => b.BlogId == blogId);
         }
@@ -89,8 +89,8 @@ namespace SWP391.DAL.Repositories.BlogRepository
         {
             return await _context.Blogs
                 .Where(b => b.CategoryId == categoryId)
-                .Include(b => b.Category)
-                .Include(b => b.User)
+                //.Include(b => b.Category)
+                //.Include(b => b.User)
                 .AsNoTracking()
                 .ToListAsync();
         }
@@ -99,8 +99,8 @@ namespace SWP391.DAL.Repositories.BlogRepository
         {
             return await _context.Blogs
                 .Where(b => b.UserId == userId)
-                .Include(b => b.Category)
-                .Include(b => b.User)
+                //.Include(b => b.Category)
+                //.Include(b => b.User)
                 .AsNoTracking()
                 .ToListAsync();
         }

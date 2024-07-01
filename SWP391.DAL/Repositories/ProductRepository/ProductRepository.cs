@@ -1,11 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SWP391.DAL.Entities;
 using SWP391.DAL.Swp391DbContext;
+using SWP391.DAL.Model.Product;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -16,55 +15,57 @@ namespace SWP391.DAL.Repositories.ProductRepository
         private readonly Swp391Context _context;
         private const int MaxSearchLength = 100;
         private const int MinSearchLength = 3;
-        private static readonly Regex AllowedCharactersRegex = new Regex("^[a-zA-Z0-9 áàảãạăắằẳẵặâấầẩẫậéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵđÁÀẢÃẠĂẮẰẲẴẶÂẤẦẨẪẬÉÈẺẼẸÊẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢÚÙỦŨỤƯỨỪỬỮỰÝỲỶỸỴĐ ()-]*$");
+        private static readonly Regex AllowedCharactersRegex = new Regex("^[a-zA-Z0-9 áàảãạăắằẳẵặâấầẩẫậéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵđÁÀẢÃẠĂẮẰẲẴẶÂẤẦẨẪẬÉÈẺẼẸÊẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢÚÙỦŨỤƯỨỪỬỮỰÝỲỶỸỴĐ ,.()-]*$");
 
         public ProductRepository(Swp391Context context)
         {
             _context = context;
         }
 
-        public async Task AddProduct(string productName, bool? isSelling, string? description, int quantity, int isSoldOut, DateTime? backInStockDate, int? categoryId, int? brandId, int? feedbackTotal, int? oldPrice, decimal? discount, string? imageLinks)
+        public async Task AddProduct(ProductModel productModel)
         {
-            if (string.IsNullOrWhiteSpace(productName) || productName.Length > 100)
+            if (string.IsNullOrWhiteSpace(productModel.ProductName) || productModel.ProductName.Length > 100)
             {
                 throw new ArgumentException("Tên sản phẩm không được để trống và phải dưới 100 ký tự.");
             }
 
-            if (!AllowedCharactersRegex.IsMatch(productName))
+            if (!AllowedCharactersRegex.IsMatch(productModel.ProductName))
             {
                 throw new ArgumentException("Tên sản phẩm chứa ký tự không hợp lệ.");
             }
 
-            if (quantity < 0)
+            if (productModel.Quantity < 0)
             {
                 throw new ArgumentException("Số lượng sản phẩm không được nhỏ hơn 0.");
             }
 
-            if (oldPrice.HasValue && oldPrice <= 0)
+            if (productModel.OldPrice.HasValue && productModel.OldPrice <= 0)
             {
                 throw new ArgumentException("Giá sản phẩm không hợp lệ. Giá phải lớn hơn 0.");
             }
 
-            if (discount.HasValue && (discount < 0 || discount > 100))
+            if (productModel.Discount.HasValue && (productModel.Discount < 0 || productModel.Discount > 100))
             {
                 throw new ArgumentException("Giảm giá không hợp lệ. Giảm giá phải từ 0 đến 100%.");
             }
 
             var newProduct = new Product
             {
-                ProductName = productName,
-                IsSelling = isSelling,
-                Description = description,
-                Quantity = quantity,
-                IsSoldOut = isSoldOut,
-                BackInStockDate = backInStockDate,
-                CategoryId = categoryId,
-                BrandId = brandId,
-                FeedbackTotal = feedbackTotal,
-                OldPrice = oldPrice,
-                Discount = discount,
-                NewPrice = oldPrice.HasValue && discount.HasValue ? oldPrice.Value - (oldPrice.Value * (decimal)(discount / 100)) : (decimal?)null,
-                ImageLinks = imageLinks
+                ProductName = productModel.ProductName,
+                IsSelling = productModel.IsSelling ?? false,
+                Description = productModel.Description,
+                Quantity = productModel.Quantity,
+                IsSoldOut = productModel.IsSoldOut,
+                BackInStockDate = productModel.BackInStockDate,
+                CategoryId = productModel.CategoryId,
+                BrandId = productModel.BrandId,
+                FeedbackTotal = productModel.FeedbackTotal ?? 0,
+                OldPrice = productModel.OldPrice,
+                Discount = productModel.Discount,
+                NewPrice = productModel.OldPrice.HasValue && productModel.Discount.HasValue
+                    ? productModel.OldPrice.Value - (productModel.OldPrice.Value * (decimal)(productModel.Discount.Value / 100))
+                    : (decimal?)null,
+                ImageLinks = productModel.ImageLinks
             };
 
             _context.Products.Add(newProduct);
@@ -84,113 +85,83 @@ namespace SWP391.DAL.Repositories.ProductRepository
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateProduct(int productId, string? productName, bool? isSelling, string? description, int? quantity, int? isSoldOut, DateTime? backInStockDate, int? categoryId, int? brandId, int? feedbackTotal, int? oldPrice, decimal? discount, string? imageLinks)
+        public async Task UpdateProduct(ProductModel productModel)
         {
-            var product = await _context.Products.FindAsync(productId);
+            var product = await _context.Products.FindAsync(productModel.ProductId);
 
             if (product == null)
             {
                 throw new ArgumentException("Sản phẩm không tồn tại.");
             }
 
-            if (productName != null)
-            {
-                if (productName.Length > 100)
-                {
-                    throw new ArgumentException("Tên sản phẩm không được để trống và phải dưới 100 ký tự.");
-                }
+            product.ProductName = productModel.ProductName ?? product.ProductName;
+            product.Quantity = productModel.Quantity;
 
-                if (!AllowedCharactersRegex.IsMatch(productName))
-                {
-                    throw new ArgumentException("Tên sản phẩm chứa ký tự không hợp lệ.");
-                }
-                product.ProductName = productName;
-            }
-
-            if (quantity.HasValue && quantity < 0)
+            if (productModel.Quantity < 0)
             {
                 throw new ArgumentException("Số lượng sản phẩm không được nhỏ hơn 0.");
             }
-            else if (quantity.HasValue)
+
+            if (productModel.OldPrice.HasValue)
             {
-                product.Quantity = quantity.Value;
+                if (productModel.OldPrice <= 0)
+                {
+                    throw new ArgumentException("Giá sản phẩm không hợp lệ. Giá phải lớn hơn 0.");
+                }
+                product.OldPrice = productModel.OldPrice.Value;
             }
 
-            if (oldPrice.HasValue && oldPrice <= 0)
+            if (productModel.Discount.HasValue)
             {
-                throw new ArgumentException("Giá sản phẩm không hợp lệ. Giá phải lớn hơn 0.");
-            }
-            else if (oldPrice.HasValue)
-            {
-                product.OldPrice = oldPrice.Value;
-            }
-
-            if (discount.HasValue && (discount < 0 || discount > 100))
-            {
-                throw new ArgumentException("Giảm giá không hợp lệ. Giảm giá phải từ 0 đến 100%.");
-            }
-            else if (discount.HasValue)
-            {
-                product.Discount = discount.Value;
-                product.NewPrice = oldPrice.HasValue ? oldPrice.Value - (oldPrice.Value * (decimal)(discount.Value / 100)) : product.NewPrice;
+                if (productModel.Discount < 0 || productModel.Discount > 100)
+                {
+                    throw new ArgumentException("Giảm giá không hợp lệ. Giảm giá phải từ 0 đến 100%.");
+                }
+                product.Discount = productModel.Discount.Value;
+                product.NewPrice = productModel.OldPrice.HasValue
+                    ? productModel.OldPrice.Value - (productModel.OldPrice.Value * (decimal)(productModel.Discount.Value / 100))
+                    : product.NewPrice;
             }
 
-            if (isSelling.HasValue)
-            {
-                product.IsSelling = isSelling.Value;
-            }
-
-            if (description != null)
-            {
-                product.Description = description;
-            }
-
-            if (isSoldOut.HasValue)
-            {
-                product.IsSoldOut = isSoldOut.Value;
-            }
-
-            if (backInStockDate.HasValue)
-            {
-                product.BackInStockDate = backInStockDate.Value;
-            }
-
-            if (categoryId.HasValue)
-            {
-                product.CategoryId = categoryId.Value;
-            }
-
-            if (brandId.HasValue)
-            {
-                product.BrandId = brandId.Value;
-            }
-
-            if (feedbackTotal.HasValue)
-            {
-                product.FeedbackTotal = feedbackTotal.Value;
-            }
-
-            if (imageLinks != null)
-            {
-                product.ImageLinks = imageLinks;
-            }
+            product.IsSelling = productModel.IsSelling ?? product.IsSelling;
+            product.Description = productModel.Description ?? product.Description;
+            product.IsSoldOut = productModel.IsSoldOut;
+            product.BackInStockDate = productModel.BackInStockDate;
+            product.CategoryId = productModel.CategoryId ?? product.CategoryId;
+            product.BrandId = productModel.BrandId ?? product.BrandId;
+            product.FeedbackTotal = productModel.FeedbackTotal ?? product.FeedbackTotal;
+            product.ImageLinks = productModel.ImageLinks ?? product.ImageLinks;
 
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<Product>> GetAllProducts()
+        public async Task<List<ProductModel>> GetAllProducts()
         {
             var products = await _context.Products
-                                         .Include(p => p.Brand)
-                                         .Include(p => p.Category)
-                                         .ThenInclude(c => c.ParentCategory)
-                                         .AsNoTracking()
-                                         .ToListAsync();
+                                .AsNoTracking()
+                                .Select(p => new ProductModel
+                                {
+                                    ProductId = p.ProductId,
+                                    ProductName = p.ProductName,
+                                    IsSelling = p.IsSelling,
+                                    Description = p.Description,
+                                    Quantity = p.Quantity,
+                                    IsSoldOut = p.IsSoldOut,
+                                    BackInStockDate = p.BackInStockDate,
+                                    CategoryId = p.CategoryId,
+                                    BrandId = p.BrandId,
+                                    FeedbackTotal = p.FeedbackTotal,
+                                    OldPrice = p.OldPrice,
+                                    Discount = p.Discount,
+                                    NewPrice = p.NewPrice,
+                                    ImageLinks = p.ImageLinks
+                                })
+                                .ToListAsync();
 
             return products;
         }
 
-        public async Task<List<Product>> SearchProductByName(string name)
+        public async Task<List<ProductModel>> SearchProductByName(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
@@ -211,9 +182,24 @@ namespace SWP391.DAL.Repositories.ProductRepository
 
             var products = await _context.Products
                 .Where(p => EF.Functions.Like(p.ProductName, $"%{name}%"))
-                .Include(p => p.Brand)
-                .Include(p => p.Category)
                 .AsNoTracking()
+                .Select(p => new ProductModel
+                {
+                    ProductId = p.ProductId,
+                    ProductName = p.ProductName,
+                    IsSelling = p.IsSelling,
+                    Description = p.Description,
+                    Quantity = p.Quantity,
+                    IsSoldOut = p.IsSoldOut,
+                    BackInStockDate = p.BackInStockDate,
+                    CategoryId = p.CategoryId,
+                    BrandId = p.BrandId,
+                    FeedbackTotal = p.FeedbackTotal,
+                    OldPrice = p.OldPrice,
+                    Discount = p.Discount,
+                    NewPrice = p.NewPrice,
+                    ImageLinks = p.ImageLinks
+                })
                 .ToListAsync();
 
             if (products.Count == 0)
@@ -224,86 +210,32 @@ namespace SWP391.DAL.Repositories.ProductRepository
             return products;
         }
 
-        public async Task<List<Product>> SearchProductByStatus(bool isSelling = true)
+        public async Task<List<ProductModel>> SearchProductByStatus(bool isSelling = true)
         {
             var products = await _context.Products
                 .Where(p => p.IsSelling == isSelling)
-                .Include(p => p.Brand)
-                .Include(p => p.Category)
                 .AsNoTracking()
+                .Select(p => new ProductModel
+                {
+                    ProductId = p.ProductId,
+                    ProductName = p.ProductName,
+                    IsSelling = p.IsSelling,
+                    Description = p.Description,
+                    Quantity = p.Quantity,
+                    IsSoldOut = p.IsSoldOut,
+                    BackInStockDate = p.BackInStockDate,
+                    CategoryId = p.CategoryId,
+                    BrandId = p.BrandId,
+                    FeedbackTotal = p.FeedbackTotal,
+                    OldPrice = p.OldPrice,
+                    Discount = p.Discount,
+                    NewPrice = p.NewPrice,
+                    ImageLinks = p.ImageLinks
+                })
                 .ToListAsync();
 
-            if (products.Count == 0)
-            {
-                throw new ArgumentException("Không tìm thấy sản phẩm nào phù hợp với tiêu chí của bạn.");
-            }
-
             return products;
         }
-
-        public async Task<List<Product>> SortProductByPrice(bool ascending = true)
-        {
-            var products = ascending
-                ? await _context.Products.OrderBy(p => p.NewPrice)
-                    .Include(p => p.Brand)
-                    .Include(p => p.Category)
-                    .AsNoTracking()
-                    .ToListAsync()
-                : await _context.Products.OrderByDescending(p => p.NewPrice)
-                    .Include(p => p.Brand)
-                    .Include(p => p.Category)
-                    .AsNoTracking()
-                    .ToListAsync();
-
-            if (products.Count == 0)
-            {
-                throw new ArgumentException("Không tìm thấy sản phẩm nào phù hợp với tiêu chí của bạn.");
-            }
-
-            return products;
-        }
-
-        public async Task<List<Product>> SortProductByName(bool ascending = true)
-        {
-            var products = ascending
-                ? await _context.Products.OrderBy(p => p.ProductName)
-                    .Include(p => p.Brand)
-                    .Include(p => p.Category)
-                    .AsNoTracking()
-                    .ToListAsync()
-                : await _context.Products.OrderByDescending(p => p.ProductName)
-                    .Include(p => p.Brand)
-                    .Include(p => p.Category)
-                    .AsNoTracking()
-                    .ToListAsync();
-
-            if (products.Count == 0)
-            {
-                throw new ArgumentException("Không tìm thấy sản phẩm nào phù hợp với tiêu chí của bạn.");
-            }
-
-            return products;
-        }
-
-        public async Task<Product> GetProductById(int productId)
-        {
-            var product = await _context.Products
-                                        .Include(p => p.Category)
-                                        .ThenInclude(c => c.ParentCategory) // Include ParentCategory
-                                        .Include(p => p.Brand)
-                                        .FirstOrDefaultAsync(p => p.ProductId == productId);
-
-            if (product == null)
-            {
-                throw new ArgumentException("Sản phẩm không tồn tại.");
-            }
-
-            // Load the ParentCategoryName if it exists
-            var parentCategoryName = product.Category?.ParentCategory?.CategoryName;
-
-            return product;
-        }
-
         public async Task UpdateProductQuantity(int productId, int quantity)
         {
             var product = await _context.Products.FindAsync(productId);
@@ -317,30 +249,6 @@ namespace SWP391.DAL.Repositories.ProductRepository
                 product.Quantity -= quantity;
                 await _context.SaveChangesAsync();
             }
-        }
-        public async Task AddFeedbackAsync(int productId, int userId, string content, int rating)
-        {
-            // Validate feedback content and rating
-
-            var feedback = new Feedback
-            {
-                UserId = userId,
-                Content = content,
-                Rating = rating,
-                DateCreated = DateTime.UtcNow
-            };
-
-            await _context.Feedbacks.AddAsync(feedback);
-
-            // Update feedbackTotal for the product
-            var product = await _context.Products.FindAsync(productId);
-            if (product != null)
-            {
-                product.FeedbackTotal++;
-                _context.Products.Update(product);
-            }
-
-            await _context.SaveChangesAsync();
         }
     }
 }

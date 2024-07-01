@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SWP391.BLL.Services.ProductServices;
-using SWP391.DAL.Entities;
+using SWP391.DAL.Model.Product;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -51,7 +51,7 @@ namespace SWP391.APIs.Controllers
         {
             try
             {
-                List<Product> foundProducts = await _productService.SearchProductByName(name);
+                List<ProductModel> foundProducts = await _productService.SearchProductByName(name);
                 return Ok(foundProducts);
             }
             catch (Exception ex)
@@ -65,7 +65,7 @@ namespace SWP391.APIs.Controllers
         {
             try
             {
-                List<Product> foundProducts = await _productService.SearchProductByStatus(isSelling);
+                List<ProductModel> foundProducts = await _productService.SearchProductByStatus(isSelling);
                 return Ok(foundProducts);
             }
             catch (Exception ex)
@@ -73,26 +73,14 @@ namespace SWP391.APIs.Controllers
                 return StatusCode(500, new { message = $"Tìm kiếm sản phẩm theo trạng thái thất bại: {ex.Message}" });
             }
         }
+
         [HttpGet("GetAllProducts")]
-        public async Task<IActionResult> GetAllProducts()
+        public async Task<ActionResult<List<ProductModel>>> GetAllProducts()
         {
             try
             {
                 var products = await _productService.ShowAllProducts();
-                var productResponses = new List<object>();
-
-                foreach (var product in products)
-                {
-                    var parentCategoryName = product.Category?.ParentCategory?.CategoryName;
-
-                    productResponses.Add(new
-                    {
-                        Product = product,
-                        ParentCategoryName = parentCategoryName
-                    });
-                }
-
-                return Ok(productResponses);
+                return Ok(products);
             }
             catch (Exception ex)
             {
@@ -105,7 +93,7 @@ namespace SWP391.APIs.Controllers
         {
             try
             {
-                List<Product> sortedProducts = await _productService.SortProductByName(ascending);
+                List<ProductModel> sortedProducts = await _productService.SortProductByName(ascending);
                 return Ok(sortedProducts);
             }
             catch (Exception ex)
@@ -119,7 +107,7 @@ namespace SWP391.APIs.Controllers
         {
             try
             {
-                List<Product> sortedProducts = await _productService.SortProductByPrice(ascending);
+                List<ProductModel> sortedProducts = await _productService.SortProductByPrice(ascending);
                 return Ok(sortedProducts);
             }
             catch (Exception ex)
@@ -134,13 +122,7 @@ namespace SWP391.APIs.Controllers
             try
             {
                 var product = await _productService.GetProductById(productId);
-                var parentCategoryName = product.Category?.ParentCategory?.CategoryName;
-
-                return Ok(new
-                {
-                    Product = product,
-                    ParentCategoryName = parentCategoryName
-                });
+                return Ok(product);
             }
             catch (ArgumentException ex)
             {
@@ -166,7 +148,7 @@ namespace SWP391.APIs.Controllers
             }
         }
 
-        [HttpPut("UpdateProducQuantity/{productId}")]
+        [HttpPut("UpdateProductQuantity/{productId}")]
         public async Task<IActionResult> UpdateProductQuantity(int productId, int quantity)
         {
             try

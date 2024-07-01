@@ -35,12 +35,18 @@ namespace SWP391.DAL.Repositories.RatingRepository
                 throw new ArgumentException("Mã sản phẩm không hợp lệ.");
             }
 
+            // Get the delivered status from the database
+            var deliveredStatus = await _context.OrderStatuses.FirstOrDefaultAsync(s => s.StatusName == "Đã giao hàng");
+            if (deliveredStatus == null)
+            {
+                throw new ArgumentException("Status 'Đã giao hàng' not found.");
+            }
+
             // Check if the user has bought and received the product
             var hasBoughtAndDelivered = await _context.Orders
                 .Include(o => o.OrderDetails)
-                .Include(o => o.Status)
                 .AnyAsync(o => o.UserId == userId &&
-                               o.Status.StatusName == "Đã giao hàng" &&
+                               o.OrderStatuses.Any(os => os.StatusId == deliveredStatus.StatusId) &&
                                o.OrderDetails.Any(od => od.ProductId == productId));
 
             if (!hasBoughtAndDelivered)
@@ -62,7 +68,7 @@ namespace SWP391.DAL.Repositories.RatingRepository
                 UserId = userId,
                 ProductId = productId,
                 RatingValue = ratingValue,
-                //RatingDate = ratingDate
+                // RatingDate = ratingDate
             };
 
             _context.Ratings.Add(newRating);
@@ -91,7 +97,7 @@ namespace SWP391.DAL.Repositories.RatingRepository
             if (rating != null)
             {
                 rating.RatingValue = ratingValue;
-                //rating.RatingDate = ratingDate;
+                // rating.RatingDate = ratingDate
 
                 await _context.SaveChangesAsync();
                 return true;

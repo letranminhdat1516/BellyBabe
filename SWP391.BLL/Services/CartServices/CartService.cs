@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using SWP391.DAL.Entities;
-using SWP391.DAL.Repositories.CartRepository;
+using SWP391.DAL.Repositories;
 
 namespace SWP391.BLL.Services.CartServices
 {
@@ -28,16 +28,29 @@ namespace SWP391.BLL.Services.CartServices
             }
         }
 
-        public async Task<string> AddProductToCartAsync(int userId, int productId, int quantity)
+        public async Task<string> AddProductToCartAsync(int userId, int productId, int quantity, bool isChecked = false)
         {
             try
             {
-                var result = await _cartRepository.AddToCartAsync(userId, productId, quantity);
+                var result = await _cartRepository.AddToCartAsync(userId, productId, quantity, isChecked);
                 return result;
             }
             catch (Exception ex)
             {
                 return $"Thêm sản phẩm vào giỏ hàng thất bại: {ex.Message}";
+            }
+        }
+
+        public async Task<string> PurchaseNowAsync(int userId, int productId, int quantity)
+        {
+            try
+            {
+                var result = await _cartRepository.PurchaseNowAsync(userId, productId, quantity);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return $"Mua ngay sản phẩm thất bại: {ex.Message}";
             }
         }
 
@@ -77,6 +90,19 @@ namespace SWP391.BLL.Services.CartServices
             catch (Exception ex)
             {
                 return $"Xóa sản phẩm khỏi giỏ hàng thất bại: {ex.Message}";
+            }
+        }
+
+        public async Task<string> UpdateProductCheckedStatusAsync(int userId, int orderDetailId, bool isChecked)
+        {
+            try
+            {
+                var result = await _cartRepository.UpdateProductCheckedStatusAsync(userId, orderDetailId, isChecked);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return $"Cập nhật trạng thái sản phẩm thất bại: {ex.Message}";
             }
         }
     }

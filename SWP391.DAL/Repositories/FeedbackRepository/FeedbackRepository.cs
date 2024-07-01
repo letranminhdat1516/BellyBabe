@@ -17,106 +17,139 @@ namespace SWP391.DAL.Repositories.FeedbackRepository
             _context = context;
         }
 
-        public async Task<Feedback> AddFeedbackAsync(int userId, string content, int rating)
+        public async Task<Feedback> CreateFeedbackAsync(int userId, int productId, string content, int rating)
         {
-            if (string.IsNullOrEmpty(content))
-            {
-                throw new ArgumentException("Nội dung phản hồi không được để trống.");
-            }
+            // Check if the user has purchased the product and if the order status is "Đã giao hàng"
+            var order = await _context.Orders
+                .Include(o => o.OrderStatuses)
+                .Where(o => o.UserId == userId &&
+                            o.OrderDetails.Any(od => od.ProductId == productId) &&
+                            o.OrderStatuses.Any(os => os.StatusName == "Đã giao hàng"))
+                .FirstOrDefaultAsync();
 
-            if (rating < 1 || rating > 5)
+            if (order == null)
             {
-                throw new ArgumentException("Đánh giá phải từ 1 đến 5.");
-            }
-
-            var hasDeliveredOrder = await _context.Orders
-                .Include(o => o.Status)
-                .AnyAsync(o => o.UserId == userId && o.Status.StatusName == "Đã giao hàng");
-
-            if (!hasDeliveredOrder)
-            {
-                throw new InvalidOperationException("Người dùng chỉ có thể phản hồi sau khi đơn hàng đã được giao.");
+                throw new InvalidOperationException("User has not purchased this product or the order has not been delivered yet.");
             }
 
             var feedback = new Feedback
             {
                 UserId = userId,
+                ProductId = productId,
                 Content = content,
                 Rating = rating,
-                DateCreated = DateTime.UtcNow
+                DateCreated = DateTime.Now,
             };
 
-            await _context.Feedbacks.AddAsync(feedback);
+            _context.Feedbacks.Add(feedback);
+
+            // Update FeedbackTotal for the product
+            var product = await _context.Products.FindAsync(productId);
+            if (product != null)
+            {
+                product.FeedbackTotal = (product.FeedbackTotal ?? 0) + 1;
+            }
+
             await _context.SaveChangesAsync();
 
             return feedback;
         }
 
-        public async Task<IEnumerable<Feedback>> GetFeedbacksByUserIdAsync(int userId)
-        {
-            return await _context.Feedbacks
-                .Include(f => f.User)
-                .Include(f => f.FeedbackResponses)
-                .Where(f => f.UserId == userId)
-                .AsNoTracking()
-                .ToListAsync();
-        }
-
         public async Task<Feedback> GetFeedbackByIdAsync(int feedbackId)
         {
             return await _context.Feedbacks
-                .Include(f => f.User)
-                .Include(f => f.FeedbackResponses)
-                .AsNoTracking()
+               // .Include(f => f.User)
+               // .Include(f => f.Product)
+               // .Include(f => f.RatingCategory)
                 .FirstOrDefaultAsync(f => f.FeedbackId == feedbackId);
         }
 
-        public async Task<IEnumerable<Feedback>> GetAllFeedbacksAsync()
+        public async Task<List<Feedback>> GetFeedbacksByProductIdAsync(int productId)
         {
             return await _context.Feedbacks
-                .Include(f => f.User)
-                .Include(f => f.FeedbackResponses)
-                .AsNoTracking()
+                .Where(f => f.ProductId == productId)
+               // .Include(f => f.User)
+               // .Include(f => f.RatingCategory)
                 .ToListAsync();
         }
 
-        public async Task<bool> DeleteFeedbackAsync(int feedbackId)
+        public async Task<Feedback> UpdateFeedbackAsync(int feedbackId, string content, int rating)
         {
             var feedback = await _context.Feedbacks.FindAsync(feedbackId);
             if (feedback == null)
             {
-                return false;
+                throw new InvalidOperationException("Feedback not found.");
+            }
+
+            feedback.Content = content;
+            feedback.Rating = rating;
+
+            await _context.SaveChangesAsync();
+
+            return feedback;
+        }
+
+        public async Task DeleteFeedbackAsync(int feedbackId)
+        {
+            var feedback = await _context.Feedbacks.FindAsync(feedbackId);
+            if (feedback == null)
+            {
+                throw new InvalidOperationException("Feedback not found.");
             }
 
             _context.Feedbacks.Remove(feedback);
+
+            // Decrease FeedbackTotal for the product
+            var product = await _context.Products.FindAsync(feedback.ProductId);
+            if (product != null)
+            {
+                product.FeedbackTotal = Math.Max((product.FeedbackTotal ?? 0) - 1, 0);
+            }
+
             await _context.SaveChangesAsync();
-            return true;
         }
 
-        public async Task<bool> UpdateFeedbackAsync(int feedbackId, string content, int rating)
+        public async Task<double> GetAverageRatingForProductAsync(int productId)
         {
-            var existingFeedback = await _context.Feedbacks.FindAsync(feedbackId);
-            if (existingFeedback == null)
+            var ratings = await _context.Feedbacks
+                .Where(f => f.ProductId == productId)
+                .Select(f => f.Rating ?? 0)
+                .ToListAsync();
+
+            if (ratings.Any())
             {
-                return false;
+                return ratings.Average();
             }
 
-            if (string.IsNullOrEmpty(content))
-            {
-                throw new ArgumentException("Nội dung phản hồi không được để trống.");
-            }
+            return 0;
+        }
 
-            if (rating < 1 || rating > 5)
-            {
-                throw new ArgumentException("Đánh giá phải từ 1 đến 5.");
-            }
+        public async Task<List<Feedback>> GetRecentFeedbacksAsync(int count)
+        {
+            return await _context.Feedbacks
+                .OrderByDescending(f => f.DateCreated)
+                .Take(count)
+                .Include(f => f.User)
+                .Include(f => f.Product)
+                .Include(f => f.RatingCategory)
+                .ToListAsync();
+        }
 
-            existingFeedback.Content = content;
-            existingFeedback.Rating = rating;
+        public async Task<bool> HasUserPurchasedProductAsync(int userId, int productId)
+        {
+            return await _context.Orders
+                .AnyAsync(o => o.UserId == userId &&
+                               o.OrderDetails.Any(od => od.ProductId == productId) &&
+                               o.OrderStatuses.Any(os => os.StatusName == "Đã giao hàng"));
+        }
 
-            _context.Feedbacks.Update(existingFeedback);
-            await _context.SaveChangesAsync();
-            return true;
+        public async Task<List<Feedback>> GetFeedbacksByUserIdAsync(int userId)
+        {
+            return await _context.Feedbacks
+                .Where(f => f.UserId == userId)
+                .Include(f => f.Product)
+                .Include(f => f.RatingCategory)
+                .ToListAsync();
         }
     }
 }

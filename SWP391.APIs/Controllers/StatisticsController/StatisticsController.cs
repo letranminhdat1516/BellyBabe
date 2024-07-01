@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SWP391.BLL.Services;
+using SWP391.DAL.Services.StatisticsServices;
+using SWP391.DAL.Model.Statistics;
 using System;
+using System.Threading.Tasks;
 
-namespace SWP391.API.Controllers
+namespace SWP391.DAL.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -16,24 +18,24 @@ namespace SWP391.API.Controllers
         }
 
         [HttpGet("weekly")]
-        public IActionResult GetWeeklyStatistics(DateTime startDate, DateTime endDate)
+        public async Task<IActionResult> GetWeeklyStatistics([FromQuery] string startDate, [FromQuery] string endDate)
         {
-            var statistics = _statisticsService.GetWeeklyStatistics(startDate, endDate);
-            return Ok(statistics);
+            var weeklyStats = await _statisticsService.GetWeeklyStatisticsAsync(startDate, endDate);
+            return Ok(weeklyStats);
         }
 
         [HttpGet("monthly")]
-        public IActionResult GetMonthlyStatistics(int year, int month)
+        public async Task<IActionResult> GetMonthlyStatistics([FromQuery] int month, [FromQuery] int year)
         {
-            var statistics = _statisticsService.GetMonthlyStatistics(year, month);
-            return Ok(statistics);
+            var monthlyStats = await _statisticsService.GetMonthlyStatisticsAsync(month, year);
+            return Ok(monthlyStats);
         }
 
         [HttpGet("yearly")]
-        public IActionResult GetYearlyStatistics(int year)
+        public async Task<IActionResult> GetYearlyStatistics([FromQuery] int year)
         {
-            var statistics = _statisticsService.GetYearlyStatistics(year);
-            return Ok(statistics);
+            var yearlyStats = await _statisticsService.GetYearlyStatisticsAsync(year);
+            return Ok(yearlyStats);
         }
     }
 }

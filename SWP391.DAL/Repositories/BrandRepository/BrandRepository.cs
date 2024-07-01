@@ -69,7 +69,6 @@ namespace SWP391.DAL.Repositories.BrandRepository
         public async Task<List<Brand>> GetAllBrands()
         {
             return await _context.Brands
-                .Include(b => b.Products)
                 .AsNoTracking()
                 .ToListAsync();
         }
@@ -77,7 +76,6 @@ namespace SWP391.DAL.Repositories.BrandRepository
         public async Task<Brand?> GetBrandById(int brandId)
         {
             return await _context.Brands
-                .Include(b => b.Products)
                 .AsNoTracking()
                 .FirstOrDefaultAsync(b => b.BrandId == brandId);
         }

@@ -3,7 +3,6 @@ using SWP391.DAL.Repositories.ProductRepository;
 using SWP391.BLL.Services.ProductServices;
 using SWP391.DAL.Swp391DbContext;
 using SWP391.BLL.Services.CartServices;
-using SWP391.DAL.Repositories.CartRepository;
 using SWP391.DAL.Repositories.Contract;
 using SWP391.BLL.Services.LoginService;
 using SWP391.DAL.Repositories.UserRepository;
@@ -24,7 +23,6 @@ using SWP391.DAL.Repositories.RatingRepository;
 using SWP391.DAL.Repositories.PreOrderRepository;
 using SWP391.BLL.Services.PreOrderService;
 using SWP391.DAL.Repositories.FeedbackRepository;
-using SWP391.BLL.Services.FeedbackService;
 using SWP391.BLL.Services.PaymentService;
 using AutoMapper;
 using SWP391.BLL.Config;
@@ -35,6 +33,8 @@ using SWP391.DAL.Entities;
 using SWP391.DAL.Repositories.OrderStatusRepository;
 using SWP391.BLL.Services.OrderStatusServices;
 using SWP391.DAL.Repositories.StatisticsRepository;
+using SWP391.DAL.Repositories;
+using SWP391.DAL.Services.StatisticsServices;
 
 namespace SWP391.APIs
 {
@@ -56,7 +56,6 @@ namespace SWP391.APIs
             // Register repositories
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<ProductRepository>();
-            builder.Services.AddScoped<CartRepository>();
             builder.Services.AddScoped<OrderRepository>();
             builder.Services.AddScoped<CumulativeScoreRepository>();
             builder.Services.AddScoped<BlogCategoryRepository>();
@@ -68,9 +67,8 @@ namespace SWP391.APIs
             builder.Services.AddScoped<PreOrderRepository>();
             builder.Services.AddScoped<FeedbackRepository>();
             builder.Services.AddScoped<OrderStatusRepository>();
-            builder.Services.AddScoped<StatisticsByMonth>();
-            builder.Services.AddScoped<StatisticsByYear>();
-            builder.Services.AddScoped<StatisticsByWeek>();
+            builder.Services.AddScoped<CartRepository>();
+            builder.Services.AddScoped<StatisticsRepository>();
 
             // Register services
             builder.Services.AddScoped<EmailService>();
@@ -90,9 +88,12 @@ namespace SWP391.APIs
             builder.Services.AddScoped<PreOrderService>();
             builder.Services.AddScoped<FeedbackService>();
             builder.Services.AddScoped<OrderStatusService>();
-            builder.Services.AddScoped<StatisticsService>();
             builder.Services.AddScoped<ChatService>();
             builder.Services.AddScoped<VoucherService>();
+            builder.Services.AddScoped<StatisticsService>();
+            builder.Services.AddScoped<CartService>();
+
+
             builder.Services.AddSignalR();
 
 

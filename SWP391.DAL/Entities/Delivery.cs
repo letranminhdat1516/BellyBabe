@@ -11,5 +11,7 @@ public partial class Delivery
 
     public int? DeliveryFee { get; set; }
 
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+    public int? OrderId { get; set; }
+
+    public virtual Order? Order { get; set; }
 }

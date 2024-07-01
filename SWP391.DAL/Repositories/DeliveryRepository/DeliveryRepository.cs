@@ -49,42 +49,34 @@ namespace SWP391.DAL.Repositories.DeliveryRepository
             }
         }
 
-        public async Task UpdateDelivery(int deliveryId, string deliveryName, int? deliveryFee)
+        public async Task UpdateDelivery(int deliveryId, string? deliveryName = null, int? deliveryFee = null)
         {
             var delivery = await _context.Deliveries.FindAsync(deliveryId);
-
-            if (delivery != null)
+            if (delivery == null)
             {
-                if (!string.IsNullOrEmpty(deliveryName))
-                {
-                    delivery.DeliveryName = deliveryName;
-                }
-                else
-                {
-                    throw new ArgumentException("Tên phương thức giao hàng không được để trống.");
-                }
-
-                if (deliveryFee.HasValue && deliveryFee >= 0)
-                {
-                    delivery.DeliveryFee = deliveryFee;
-                }
-                else
-                {
-                    throw new ArgumentException("Phí giao hàng phải lớn hơn hoặc bằng 0.");
-                }
-
-                await _context.SaveChangesAsync();
+                throw new ArgumentException("Không tìm thấy phương thức vận chuyển");
             }
-            else
+
+            if (deliveryName != null)
             {
-                throw new KeyNotFoundException("Không tìm thấy phương thức giao hàng.");
+                delivery.DeliveryName = deliveryName;
             }
+
+            if (deliveryFee.HasValue)
+            {
+                delivery.DeliveryFee = deliveryFee;
+            }
+            else if (deliveryFee == null)
+            {
+                delivery.DeliveryFee = null;
+            }
+
+            await _context.SaveChangesAsync();
         }
 
         public async Task<List<Delivery>> GetAllDeliveries()
         {
             return await _context.Deliveries
-                .Include(d => d.Orders)
                 .AsNoTracking()
                 .ToListAsync();
         }
@@ -92,7 +84,6 @@ namespace SWP391.DAL.Repositories.DeliveryRepository
         public async Task<Delivery> GetDeliveryById(int deliveryId)
         {
             var delivery = await _context.Deliveries
-                .Include(d => d.Orders)
                 .AsNoTracking()
                 .FirstOrDefaultAsync(d => d.DeliveryId == deliveryId);
 

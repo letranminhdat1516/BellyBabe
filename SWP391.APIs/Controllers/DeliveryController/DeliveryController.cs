@@ -55,7 +55,7 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPut("UpdateDelivery/{deliveryId}")]
-        public async Task<IActionResult> UpdateDelivery([FromRoute] int deliveryId, [FromQuery] string deliveryName, [FromQuery] int? deliveryFee)
+        public async Task<IActionResult> UpdateDelivery([FromRoute] int deliveryId, [FromQuery] string? deliveryName, [FromQuery] int? deliveryFee)
         {
             try
             {

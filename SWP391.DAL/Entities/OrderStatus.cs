@@ -9,5 +9,8 @@ public partial class OrderStatus
 
     public string StatusName { get; set; } = null!;
 
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+    public int? OrderId { get; set; }
+
+    public virtual Order? Order { get; set; }
+
 }

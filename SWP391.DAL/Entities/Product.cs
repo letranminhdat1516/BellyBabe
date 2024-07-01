@@ -41,11 +41,15 @@ public partial class Product
 
     public virtual ICollection<CumulativeScore> CumulativeScores { get; set; } = new List<CumulativeScore>();
 
+    public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();
+
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 
     public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
 
     public virtual ICollection<PreOrder> PreOrders { get; set; } = new List<PreOrder>();
+
+    public virtual ICollection<RatingCategory> RatingCategories { get; set; } = new List<RatingCategory>();
 
     public virtual ICollection<Rating> Ratings { get; set; } = new List<Rating>();
 

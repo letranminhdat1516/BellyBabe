@@ -8,13 +8,11 @@ namespace SWP391.DAL.Entities
 
         public string Date { get; set; } = null!;
 
-        public int NumberOfOrders { get; set; }
+        public int? NumberOfOrders { get; set; }
 
-        public int ItemsSold { get; set; }
+        public int? ItemsSold { get; set; }
 
-        public decimal TotalAmount { get; set; }
-
-        public decimal Profit { get; set; }
+        public decimal? TotalAmount { get; set; }
 
         public int? ProductCategoryId { get; set; }
 

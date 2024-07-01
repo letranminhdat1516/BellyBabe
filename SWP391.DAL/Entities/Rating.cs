@@ -15,7 +15,11 @@ public partial class Rating
 
     public DateTime? RatingDate { get; set; }
 
+    public int? RatingCategoryId { get; set; }
+
     public virtual Product? Product { get; set; }
+
+    public virtual RatingCategory? RatingCategory { get; set; }
 
     public virtual User? User { get; set; }
 }
