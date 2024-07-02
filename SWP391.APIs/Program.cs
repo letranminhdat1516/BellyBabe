@@ -158,13 +158,13 @@ namespace SWP391.APIs
                     });
             });
             var app = builder.Build();
-
+            app.UseCors("AllowLocalhost");
             // Configure the HTTP request pipeline.
             app.UseSwagger();
             app.UseSwaggerUI();
 
             app.UseHttpsRedirection();
-            app.UseCors("AllowLocalhost");
+
             app.UseAuthentication();
             app.UseAuthorization();
             app.MapControllers();

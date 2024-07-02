@@ -5,6 +5,7 @@ using SWP391.DAL.Repositories.Contract;
 using SWP391.DAL.Repositories.VoucherRepository;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Net.WebRequestMethods;
 namespace SWP391.BLL.Services
 {
@@ -51,7 +52,8 @@ namespace SWP391.BLL.Services
                 Email = userDto.Email,
                 Address = userDto.Address,
                 FullName = userDto.FullName,
-                RoleId = userDto.RoleId
+                RoleId = 2,
+                Image = userDto.Image
             };
 
             await _userRepository.AddUserAsync(user);

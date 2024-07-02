@@ -606,7 +606,7 @@ public partial class Swp391Context : DbContext
                 .HasConstraintName("FK_ProductCategory_ParentCategory");
         });
 
-        modelBuilder.Entity<Rating>(entity =>
+        modelBuilder.Entity<Rating>(entity => //add,delete, update,....
         {
             entity.HasKey(e => e.RatingId).HasName("PK__Rating__2D290D4987DA8EF6");
 
