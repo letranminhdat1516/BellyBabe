@@ -30,7 +30,10 @@ namespace SWP391.DAL.Repositories.BlogRepository
             _context.Blogs.Add(newBlog);
             await _context.SaveChangesAsync();
         }
-
+        public async Task<IEnumerable<Blog>> GetBlogsByUserIdAsync(int userId)
+        {
+            return await _context.Blogs.Where(b => b.UserId == userId).ToListAsync();
+        }
         public async Task DeleteBlog(int blogId)
         {
             var blog = await _context.Blogs.FindAsync(blogId);

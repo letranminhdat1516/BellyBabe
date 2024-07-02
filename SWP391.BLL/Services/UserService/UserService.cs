@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using SWP391.DAL.Entities;
 using SWP391.DAL.Model.users;
+using SWP391.DAL.Repositories.BlogRepository;
 using SWP391.DAL.Repositories.Contract;
 using SWP391.DAL.Repositories.VoucherRepository;
 using System.Collections.Generic;
@@ -16,11 +17,13 @@ namespace SWP391.BLL.Services
         private readonly OtpService otpService;
         private readonly ILogger<UserService> _logger;
         private readonly VoucherRepository _voucherRepository;
-        public UserService(IUserRepository userRepository, EmailService emailService, VoucherRepository voucherRepository)
+        private readonly BlogRepository _blogRepository;
+        public UserService(IUserRepository userRepository, EmailService emailService, VoucherRepository voucherRepository, BlogRepository blogRepository)
         {
             _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
              _emailService = emailService ?? throw new ArgumentNullException(nameof(emailService));
             _voucherRepository = voucherRepository ?? throw new ArgumentNullException(nameof(voucherRepository));
+            _blogRepository = blogRepository ?? throw new ArgumentNullException(nameof(blogRepository));
         }
 
         private object logger()
@@ -84,9 +87,29 @@ namespace SWP391.BLL.Services
             return user;
         }
 
-        public async Task DeleteUserAsync(int userId)
+        public async Task<bool> DeleteUserAsync(int userId)
         {
-            await _userRepository.DeleteUserAsync(userId);
+            var user = await _userRepository.GetUserByIdAsync(userId);
+            if (user == null)
+            {
+                return false; // User không tồn tại
+            }
+
+            if (user.RoleId == 1)
+            {
+                throw new InvalidOperationException("Cannot delete admin users.");
+            }
+
+            var blogs = await _blogRepository.GetBlogsByUserIdAsync(userId);
+            foreach (var blog in blogs)
+            {
+                await _blogRepository.DeleteBlog(blog.BlogId);
+            }
+
+            _userRepository.DeleteUser(user);
+
+            await _userRepository.SaveChangesAsync();
+            return true;
         }
 
         public async Task<List<User>> GetUsersAsync()

@@ -63,16 +63,24 @@ namespace SWP391.DAL.Repositories.UserRepository
             var user = await _context.Users.FindAsync(userId);
             if (user != null)
             {
+                _context.Blogs.RemoveRange(user.Blogs);
                 _context.Users.Remove(user);
                 await _context.SaveChangesAsync();
             }
         }
-
+        public void DeleteUser(User user)
+        {
+            _context.Users.Remove(user);
+            _context.SaveChanges();
+        }
         public async Task<List<User>> GetUsersAsync()
         {
             return await _context.Users.ToListAsync();
         }
-
+        public async Task SaveChangesAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
         public async Task<User> GetUserByIdAsync(int userId)
         {
             return await _context.Users.FindAsync(userId);

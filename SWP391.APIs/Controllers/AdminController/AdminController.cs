@@ -45,8 +45,23 @@ namespace SWP391.APIs.Controllers
         [HttpDelete("delete-user/{userId}")]
         public async Task<IActionResult> DeleteUser(int userId)
         {
-            await _userService.DeleteUserAsync(userId);
-            return NoContent();
+            try
+            {
+                var result = await _userService.DeleteUserAsync(userId);
+                if (!result)
+                {
+                    return NotFound(new { message = "User not found." });
+                }
+                return Ok(new { message = "User deleted successfully." });
+            }
+            catch (InvalidOperationException ex)
+            {
+                if (ex.Message == "Cannot delete admin users.")
+                {
+                    return BadRequest(new { message = "Cannot delete admin users." });
+                }
+                return BadRequest(new { message = ex.Message });
+            }
         }
 
         [HttpGet("get-user/{id}")]
@@ -64,6 +79,7 @@ namespace SWP391.APIs.Controllers
         public async Task<IActionResult> GetUsers()
         {
             var users = await _userService.GetUsersAsync();
+
             return Ok(users);
         }
         [HttpPost("forgot-password")]

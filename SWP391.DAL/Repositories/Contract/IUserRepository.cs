@@ -13,6 +13,8 @@ namespace SWP391.DAL.Repositories.Contract
         Task DeleteUserAsync(int userId);
         Task<List<User>> GetUsersAsync();
         Task<User> GetUserByIdAsync(int userId);
+        void DeleteUser(User user);
+        Task SaveChangesAsync();
         Task<User> GetUserByNameAsync(string userName);
         Task<List<User>> GetUsersByIdsAsync(List<int> userIds);
     }
