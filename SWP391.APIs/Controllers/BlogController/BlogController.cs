@@ -19,9 +19,9 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPost("AddBlock")]
-        public async Task<IActionResult> AddBlog(int? userId, string? blogContent, int? categoryId, string? titleName)
+        public async Task<IActionResult> AddBlog(int? userId, string? blogContent, int? categoryId, string? titleName, string? image)
         {
-            await _blogService.AddBlog(userId, blogContent, categoryId, titleName);
+            await _blogService.AddBlog(userId, blogContent, categoryId, titleName, image);
             return Ok("Blog đã được thêm thành công");
         }
 
