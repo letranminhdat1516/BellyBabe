@@ -107,5 +107,12 @@ namespace SWP391.API.Controllers
                 return StatusCode(500, new { Error = $"Lỗi server: {ex.Message}" });
             }
         }
+
+        [HttpGet("GetAllOrders")]
+        public async Task<IActionResult> GetAllOrders()
+        {
+            var listOfOrders = await _orderService.GetAllOrders();
+            return Ok(listOfOrders);
+        }
     }
 }

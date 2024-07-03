@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SWP391.DAL.Entities;
+using SWP391.DAL.Model.Order;
 using SWP391.DAL.Swp391DbContext;
 using System;
 using System.Collections.Generic;
@@ -210,6 +211,25 @@ namespace SWP391.DAL.Repositories.OrderRepository
                 await transaction.RollbackAsync();
                 throw;
             }
+        }
+        public async Task<List<OrderModel>> GetAllOrders()
+        {
+            var listOfOrders = await _context.Orders
+                .Select(o => new OrderModel
+                {
+                    OrderId = o.OrderId,
+                    UserId = o.UserId,
+                    Note = o.Note,
+                    VoucherId = o.VoucherId,
+                    TotalPrice = o.TotalPrice,
+                    OrderDate = o.OrderDate,
+                    RecipientName = o.RecipientName,
+                    RecipientPhone = o.RecipientPhone,
+                    RecipientAddress = o.RecipientAddress
+                })
+                .ToListAsync();
+
+            return listOfOrders;
         }
     }
 }

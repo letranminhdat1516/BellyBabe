@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using SWP391.DAL.Entities;
+using SWP391.DAL.Model.Order;
 using SWP391.DAL.Repositories.OrderRepository;
 
 namespace SWP391.BLL.Services.OrderServices
@@ -118,6 +119,11 @@ namespace SWP391.BLL.Services.OrderServices
             {
                 throw new Exception($"Hủy đơn hàng thất bại: {ex.Message}");
             }
+        }
+
+        public async Task<List<OrderModel>> GetAllOrders()
+        {
+            return await _orderRepository.GetAllOrders();
         }
     }
 }
