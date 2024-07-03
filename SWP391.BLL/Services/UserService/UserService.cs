@@ -30,21 +30,38 @@ namespace SWP391.BLL.Services
         {
             throw new NotImplementedException();
         }
-        public async Task<string> GetAddressAsync(int userId)
+        public async Task<UserContactInfoDTO> GetUserContactInfoAsync(int userId)
         {
             var user = await _userRepository.GetUserByIdAsync(userId);
-            return user?.Address;
-        }
-        public async Task<User> UpdateAddressAsync(int userId, string address)
-        {
-            var user = await _userRepository.GetUserByIdAsync(userId);
-            if (user != null)
+            if (user == null)
             {
-                user.Address = address;
-                await _userRepository.UpdateUserAsync(user);
+                return null;
             }
+
+            return new UserContactInfoDTO
+            {
+                Address = user.Address,
+                FullName = user.FullName,
+                PhoneNumber = user.PhoneNumber
+            };
+        }
+
+        public async Task<User> UpdateContactInfoAsync(int userId, UserContactInfoDTO contact)
+        {
+            var user = await _userRepository.GetUserByIdAsync(userId);
+            if (user == null)
+            {
+                return null;
+            }
+
+            user.Address = contact.Address;
+            user.PhoneNumber = contact.PhoneNumber;
+            user.FullName = contact.FullName;
+
+            await _userRepository.UpdateUserAsync(user);
             return user;
         }
+
         public async Task<User> CreateUserAsync(UserCreateDTO userDto)
         {
             var user = new User

@@ -68,36 +68,32 @@ public class UserController : ControllerBase
         var users = await _userService.GetUsersAsync();
         return Ok(users);
     }
-    [HttpGet("{userId}/address")]
-    public async Task<IActionResult> GetAddress(int userId)
+    [HttpGet("contact-info/{userId}")]
+    public async Task<IActionResult> GetUserContactInfo(int userId)
     {
-        var address = await _userService.GetAddressAsync(userId);
-        if (address == null)
+        var contactInfo = await _userService.GetUserContactInfoAsync(userId);
+        if (contactInfo == null)
         {
             return NotFound("User not found.");
         }
-        return Ok(new { Address = address });
+        return Ok(contactInfo);
     }
 
-    [HttpPost("{userId}/address")]
-    public async Task<IActionResult> UpdateAddress(int userId, [FromBody] UpdateAddressDTO model)
+    [HttpPost("contact-info/{userId}")]
+    public async Task<IActionResult> UpdateContactInfo(int userId, [FromBody] UserContactInfoDTO contact)
     {
-        if (model == null)
+        if (contact == null)
         {
             return BadRequest("Invalid data.");
         }
 
-        var user = await _userService.UpdateAddressAsync(userId, model.Address);
+        var user = await _userService.UpdateContactInfoAsync(userId, contact);
         if (user == null)
         {
             return NotFound("User not found.");
         }
-        return Ok(new { message = "Address updated successfully." });
+        return Ok(new { message = "Contact info updated successfully." });
     }
 }
 
-public class UpdateAddressDTO
-{
-    public string Address { get; set; }
-}
 
