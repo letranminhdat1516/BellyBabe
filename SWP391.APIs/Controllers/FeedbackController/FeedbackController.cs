@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using SWP391.DAL.Entities;
 using SWP391.BLL.Services;
 
-
 namespace SWP391.Controllers
 {
     [ApiController]
@@ -20,12 +19,15 @@ namespace SWP391.Controllers
         }
 
         [HttpPost("AddFeedback")]
-        public async Task<IActionResult> CreateFeedback(int userId, int productId, string content, int rating)
+        public async Task<IActionResult> CreateFeedback(int userId, int orderId, int productId, string content, int rating, int? ratingCategoryId)
         {
             try
             {
-                var feedback = await _feedbackService.CreateFeedbackAsync(userId, productId, content, rating);
-                return CreatedAtAction(nameof(GetFeedback), new { id = feedback.FeedbackId }, feedback);
+                var feedback = await _feedbackService.CreateFeedbackAsync(userId, orderId, productId, content, rating, ratingCategoryId);
+
+                // Adjust the CreatedAtAction to explicitly specify route values
+                var routeValues = new { id = feedback.FeedbackId }; // Assuming FeedbackId is the unique identifier
+                return CreatedAtAction(nameof(GetFeedback), routeValues, feedback);
             }
             catch (InvalidOperationException ex)
             {
@@ -33,7 +35,7 @@ namespace SWP391.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = "An error occurred while processing your request.", error = ex.Message });
+                return StatusCode(500, new { message = "Đã xảy ra lỗi khi xử lý yêu cầu của bạn.", error = ex.Message });
             }
         }
 
@@ -56,11 +58,11 @@ namespace SWP391.Controllers
         }
 
         [HttpPut("UpdateFeedback/{id}")]
-        public async Task<IActionResult> UpdateFeedback(int id, string content, int rating)
+        public async Task<IActionResult> UpdateFeedback(int id, string content, int rating, int? ratingCategoryId)
         {
             try
             {
-                var feedback = await _feedbackService.UpdateFeedbackAsync(id, content, rating);
+                var feedback = await _feedbackService.UpdateFeedbackAsync(id, content, rating, ratingCategoryId);
                 return Ok(feedback);
             }
             catch (InvalidOperationException ex)
@@ -83,11 +85,11 @@ namespace SWP391.Controllers
             }
         }
 
-        [HttpGet("user/{userId}/has-purchased/{productId}")]
-        public async Task<IActionResult> HasUserPurchasedProduct(int userId, int productId)
+        [HttpGet("user/{userId}/can-provide-feedback/{productId}/{orderDetailId}")]
+        public async Task<IActionResult> CanUserProvideFeedback(int userId, int productId, int orderDetailId)
         {
-            var hasPurchased = await _feedbackService.HasUserPurchasedProductAsync(userId, productId);
-            return Ok(hasPurchased);
+            var canProvideFeedback = await _feedbackService.CanUserProvideFeedbackAsync(userId, productId, orderDetailId);
+            return Ok(canProvideFeedback);
         }
 
         [HttpGet("user/{userId}")]

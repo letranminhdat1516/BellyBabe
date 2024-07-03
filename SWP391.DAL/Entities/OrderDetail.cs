@@ -19,6 +19,8 @@ public partial class OrderDetail
 
     public bool? IsChecked { get; set; }
 
+    public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();
+
     public virtual Order? Order { get; set; }
 
     public virtual Product? Product { get; set; }

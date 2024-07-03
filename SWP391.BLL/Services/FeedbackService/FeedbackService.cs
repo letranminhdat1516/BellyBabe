@@ -15,9 +15,11 @@ namespace SWP391.BLL.Services
             _feedbackRepository = feedbackRepository;
         }
 
-        public async Task<Feedback> CreateFeedbackAsync(int userId, int productId, string content, int rating)
+        public async Task<Feedback> CreateFeedbackAsync(int userId, int orderId, int productId, string content, int rating, int? ratingCategoryId)
         {
-            return await _feedbackRepository.CreateFeedbackAsync(userId, productId, content, rating);
+            var createdFeedback = await _feedbackRepository.CreateFeedbackAsync(userId, orderId, productId, content, rating, ratingCategoryId);
+
+            return createdFeedback;
         }
 
         public async Task<Feedback> GetFeedbackByIdAsync(int feedbackId)
@@ -30,9 +32,9 @@ namespace SWP391.BLL.Services
             return await _feedbackRepository.GetFeedbacksByProductIdAsync(productId);
         }
 
-        public async Task<Feedback> UpdateFeedbackAsync(int feedbackId, string content, int rating)
+        public async Task<Feedback> UpdateFeedbackAsync(int feedbackId, string content, int rating, int? ratingCategoryId)
         {
-            return await _feedbackRepository.UpdateFeedbackAsync(feedbackId, content, rating);
+            return await _feedbackRepository.UpdateFeedbackAsync(feedbackId, content, rating, ratingCategoryId);
         }
 
         public async Task DeleteFeedbackAsync(int feedbackId)
@@ -40,7 +42,7 @@ namespace SWP391.BLL.Services
             await _feedbackRepository.DeleteFeedbackAsync(feedbackId);
         }
 
-        public async Task<double> GetAverageRatingForProductAsync(int productId)
+        public async Task<decimal> GetAverageRatingForProductAsync(int productId)
         {
             return await _feedbackRepository.GetAverageRatingForProductAsync(productId);
         }
@@ -50,9 +52,9 @@ namespace SWP391.BLL.Services
             return await _feedbackRepository.GetRecentFeedbacksAsync(count);
         }
 
-        public async Task<bool> HasUserPurchasedProductAsync(int userId, int productId)
+        public async Task<bool> CanUserProvideFeedbackAsync(int userId, int productId, int orderDetailId)
         {
-            return await _feedbackRepository.HasUserPurchasedProductAsync(userId, productId);
+            return await _feedbackRepository.CanUserProvideFeedbackAsync(userId, productId, orderDetailId);
         }
 
         public async Task<List<Feedback>> GetFeedbacksByUserIdAsync(int userId)

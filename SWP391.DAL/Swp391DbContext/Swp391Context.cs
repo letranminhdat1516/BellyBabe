@@ -66,6 +66,10 @@ public partial class Swp391Context : DbContext
 
     public virtual DbSet<Voucher> Vouchers { get; set; }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Server=(local);Database= SWP391DB;UID=sa;PWD=12345;TrustServerCertificate=True");
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Blog>(entity =>
@@ -81,6 +85,7 @@ public partial class Swp391Context : DbContext
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime")
                 .HasColumnName("dateCreated");
+            entity.Property(e => e.Image).HasColumnName("image");
             entity.Property(e => e.TitleName).HasColumnName("titleName");
             entity.Property(e => e.UserId).HasColumnName("userID");
 
@@ -245,18 +250,26 @@ public partial class Swp391Context : DbContext
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime")
                 .HasColumnName("dateCreated");
+            entity.Property(e => e.OrderDetailId).HasColumnName("orderDetailID");
             entity.Property(e => e.ProductId).HasColumnName("productID");
             entity.Property(e => e.Rating).HasColumnName("rating");
             entity.Property(e => e.UserId).HasColumnName("userID");
+
+            entity.HasOne(d => d.OrderDetail).WithMany(p => p.Feedbacks)
+                .HasForeignKey(d => d.OrderDetailId)
+                .HasConstraintName("FK_Feedback_OrderDetail");
 
             entity.HasOne(d => d.Product).WithMany(p => p.Feedbacks)
                 .HasForeignKey(d => d.ProductId)
                 .HasConstraintName("FK__Feedback__produc__4D94879B");
 
+            //entity.HasOne(d => d.RatingCategory).WithMany(p => p.Feedbacks)
+            //    .HasForeignKey(d => d.RatingCategoryId)
+            //    .HasConstraintName("FK_Feedback_RatingCategory");
+
             entity.HasOne(d => d.User).WithMany(p => p.Feedbacks)
                 .HasForeignKey(d => d.UserId)
                 .HasConstraintName("FK__Feedback__userID__4CA06362");
-            entity.Property(e => e.RatingCategoryId).HasColumnName("RatingCategoryId");
         });
 
         modelBuilder.Entity<FeedbackResponse>(entity =>
@@ -606,7 +619,7 @@ public partial class Swp391Context : DbContext
                 .HasConstraintName("FK_ProductCategory_ParentCategory");
         });
 
-        modelBuilder.Entity<Rating>(entity => //add,delete, update,....
+        modelBuilder.Entity<Rating>(entity =>
         {
             entity.HasKey(e => e.RatingId).HasName("PK__Rating__2D290D4987DA8EF6");
 
