@@ -36,6 +36,8 @@ using SWP391.DAL.Repositories.StatisticsRepository;
 using SWP391.DAL.Repositories;
 using SWP391.DAL.Services.StatisticsServices;
 using SWP391.DAL.Repositories.VoucherRepository;
+using SWP391.DAL.Repositories.RatingCategoryRepository;
+using SWP391.BLL.Services.RatingCategoryServices;
 
 namespace SWP391.APIs
 {
@@ -71,6 +73,7 @@ namespace SWP391.APIs
             builder.Services.AddScoped<CartRepository>();
             builder.Services.AddScoped<StatisticsRepository>();
             builder.Services.AddScoped<VoucherRepository>();    
+            builder.Services.AddScoped<RatingCategoryRepository>();
 
             // Register services
             builder.Services.AddScoped<EmailService>();
@@ -94,7 +97,7 @@ namespace SWP391.APIs
             builder.Services.AddScoped<VoucherService>();
             builder.Services.AddScoped<StatisticsService>();
             builder.Services.AddScoped<CartService>();
-
+            builder.Services.AddScoped<RatingCategoryService>();
 
             builder.Services.AddSignalR();
 

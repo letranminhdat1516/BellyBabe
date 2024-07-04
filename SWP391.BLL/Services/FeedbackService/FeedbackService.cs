@@ -15,11 +15,9 @@ namespace SWP391.BLL.Services
             _feedbackRepository = feedbackRepository;
         }
 
-        public async Task<Feedback> CreateFeedbackAsync(int userId, int orderId, int productId, string content, int rating, int? ratingCategoryId)
+        public async Task<Feedback> CreateFeedbackAsync(int userId, int orderId, int productId, string content, int rating)
         {
-            var createdFeedback = await _feedbackRepository.CreateFeedbackAsync(userId, orderId, productId, content, rating, ratingCategoryId);
-
-            return createdFeedback;
+            return await _feedbackRepository.CreateFeedbackAsync(userId, orderId, productId, content, rating);
         }
 
         public async Task<Feedback> GetFeedbackByIdAsync(int feedbackId)
@@ -32,9 +30,9 @@ namespace SWP391.BLL.Services
             return await _feedbackRepository.GetFeedbacksByProductIdAsync(productId);
         }
 
-        public async Task<Feedback> UpdateFeedbackAsync(int feedbackId, string content, int rating, int? ratingCategoryId)
+        public async Task<Feedback> UpdateFeedbackAsync(int feedbackId, string content, int newRating)
         {
-            return await _feedbackRepository.UpdateFeedbackAsync(feedbackId, content, rating, ratingCategoryId);
+            return await _feedbackRepository.UpdateFeedbackAsync(feedbackId, content, newRating);
         }
 
         public async Task DeleteFeedbackAsync(int feedbackId)

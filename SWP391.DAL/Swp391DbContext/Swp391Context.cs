@@ -259,9 +259,9 @@ public partial class Swp391Context : DbContext
                 .HasForeignKey(d => d.ProductId)
                 .HasConstraintName("FK__Feedback__produc__4D94879B");
 
-            //entity.HasOne(d => d.RatingCategory).WithMany(p => p.Feedbacks)
-            //    .HasForeignKey(d => d.RatingCategoryId)
-            //    .HasConstraintName("FK_Feedback_RatingCategory");
+            entity.HasOne(d => d.RatingCategory).WithMany(p => p.Feedbacks)
+                .HasForeignKey(d => d.RatingCategoryId)
+                .HasConstraintName("FK_Feedback_RatingCategory");
 
             entity.HasOne(d => d.User).WithMany(p => p.Feedbacks)
                 .HasForeignKey(d => d.UserId)
