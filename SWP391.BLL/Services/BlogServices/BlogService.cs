@@ -15,9 +15,9 @@ namespace SWP391.BLL.Services
             _blogRepository = blogRepository;
         }
 
-        public async Task AddBlog(int? userId, string? blogContent, int? categoryId, string? titleName)
+        public async Task AddBlog(int? userId, string? blogContent, int? categoryId, string? titleName, string? image)
         {
-            await _blogRepository.AddBlog(userId, blogContent, categoryId, titleName);
+            await _blogRepository.AddBlog(userId, blogContent, categoryId, titleName, image);
         }
 
         public async Task DeleteBlog(int blogId)

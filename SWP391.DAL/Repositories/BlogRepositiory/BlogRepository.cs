@@ -17,14 +17,15 @@ namespace SWP391.DAL.Repositories.BlogRepository
             _context = context;
         }
 
-        public async Task AddBlog(int? userId, string? blogContent, int? categoryId, string? titleName)
+        public async Task AddBlog(int? userId, string? blogContent, int? categoryId, string? titleName, string? image)
         {
             var newBlog = new Blog
             {
                 UserId = userId,
                 BlogContent = blogContent,
                 CategoryId = categoryId,
-                TitleName = titleName
+                TitleName = titleName,
+                Image = image
             };
 
             _context.Blogs.Add(newBlog);

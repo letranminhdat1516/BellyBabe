@@ -17,6 +17,8 @@ public partial class Blog
 
     public DateTime? DateCreated { get; set; }
 
+    public string? Image { get; set; }
+
     public virtual BlogCategory? Category { get; set; }
 
     public virtual User? User { get; set; }

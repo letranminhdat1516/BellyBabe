@@ -34,6 +34,10 @@ namespace SWP391.BLL.Services.PreOrderService
         {
             return await _preOrderRepository.GetPreOrdersByUserIdAsync(userId);
         }
+        public async Task<List<PreOrder>> GetAllPreOrdersAsync()
+        {
+            return await _preOrderRepository.GetAllPreOrdersAsync();
+        }
     }
 
 }

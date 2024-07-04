@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SWP391.BLL.Services.PreOrderService;
+using SWP391.DAL.Entities;
 
 namespace SWP391.APIs.Controllers.PreOrderController
 {
@@ -30,6 +31,12 @@ namespace SWP391.APIs.Controllers.PreOrderController
         public async Task<IActionResult> GetPreOrdersByUserId(int userId)
         {
             var preOrders = await _preOrderService.GetPreOrdersByUserIdAsync(userId);
+            return Ok(preOrders);
+        }
+        [HttpGet("GetAllPreOrders")]
+        public async Task<ActionResult<List<PreOrder>>> GetAllPreOrders()
+        {
+            var preOrders = await _preOrderService.GetAllPreOrdersAsync();
             return Ok(preOrders);
         }
     }

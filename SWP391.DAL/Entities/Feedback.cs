@@ -19,7 +19,11 @@ public partial class Feedback
 
     public int? RatingCategoryId { get; set; }
 
+    public int? OrderDetailId { get; set; }
+
     public virtual ICollection<FeedbackResponse> FeedbackResponses { get; set; } = new List<FeedbackResponse>();
+
+    public virtual OrderDetail? OrderDetail { get; set; }
 
     public virtual Product? Product { get; set; }
 

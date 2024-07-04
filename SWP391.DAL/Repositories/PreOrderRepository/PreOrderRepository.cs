@@ -32,6 +32,10 @@ namespace SWP391.DAL.Repositories.PreOrderRepository
                 .Where(p => p.UserId == userId)
                 .ToListAsync();
         }
+        public async Task<List<PreOrder>> GetAllPreOrdersAsync()
+        {
+            return await _context.PreOrders.ToListAsync();
+        }
     }
 
 }

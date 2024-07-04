@@ -225,7 +225,21 @@ namespace SWP391.DAL.Repositories.OrderRepository
                     OrderDate = o.OrderDate,
                     RecipientName = o.RecipientName,
                     RecipientPhone = o.RecipientPhone,
-                    RecipientAddress = o.RecipientAddress
+                    RecipientAddress = o.RecipientAddress,
+                    OrderDetails = o.OrderDetails.Select(od => new OrderDetail
+                    {
+                        OrderDetailId = od.OrderDetailId,
+                        OrderId = od.OrderId,
+                        ProductId = od.ProductId,
+                        Quantity = od.Quantity,
+                        Price = od.Price
+                    }).ToList(),
+                    OrderStatuses = o.OrderStatuses.Select(os => new OrderStatus
+                    {
+                        StatusId = os.StatusId,
+                        StatusName = os.StatusName,
+                        OrderId = os.OrderId
+                    }).ToList(),
                 })
                 .ToListAsync();
 
