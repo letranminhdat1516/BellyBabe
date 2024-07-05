@@ -19,14 +19,12 @@ namespace SWP391.Controllers
         }
 
         [HttpPost("AddFeedback")]
-        public async Task<IActionResult> CreateFeedback(int userId, int orderId, int productId, string content, int rating, int? ratingCategoryId)
+        public async Task<IActionResult> CreateFeedback(int userId, int orderId, int productId, string content, int rating)
         {
             try
             {
-                var feedback = await _feedbackService.CreateFeedbackAsync(userId, orderId, productId, content, rating, ratingCategoryId);
-
-                // Adjust the CreatedAtAction to explicitly specify route values
-                var routeValues = new { id = feedback.FeedbackId }; // Assuming FeedbackId is the unique identifier
+                var feedback = await _feedbackService.CreateFeedbackAsync(userId, orderId, productId, content, rating);
+                var routeValues = new { id = feedback.FeedbackId };
                 return CreatedAtAction(nameof(GetFeedback), routeValues, feedback);
             }
             catch (InvalidOperationException ex)
@@ -58,11 +56,11 @@ namespace SWP391.Controllers
         }
 
         [HttpPut("UpdateFeedback/{id}")]
-        public async Task<IActionResult> UpdateFeedback(int id, string content, int rating, int? ratingCategoryId)
+        public async Task<IActionResult> UpdateFeedback(int id, string content, int newRating)
         {
             try
             {
-                var feedback = await _feedbackService.UpdateFeedbackAsync(id, content, rating, ratingCategoryId);
+                var feedback = await _feedbackService.UpdateFeedbackAsync(id, content, newRating);
                 return Ok(feedback);
             }
             catch (InvalidOperationException ex)
@@ -83,6 +81,20 @@ namespace SWP391.Controllers
             {
                 return NotFound(ex.Message);
             }
+        }
+
+        [HttpGet("AverageRating/{productId}")]
+        public async Task<IActionResult> GetAverageRating(int productId)
+        {
+            var averageRating = await _feedbackService.GetAverageRatingForProductAsync(productId);
+            return Ok(averageRating);
+        }
+
+        [HttpGet("RecentFeedbacks/{count}")]
+        public async Task<IActionResult> GetRecentFeedbacks(int count)
+        {
+            var recentFeedbacks = await _feedbackService.GetRecentFeedbacksAsync(count);
+            return Ok(recentFeedbacks);
         }
 
         [HttpGet("user/{userId}/can-provide-feedback/{productId}/{orderDetailId}")]

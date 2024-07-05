@@ -13,6 +13,8 @@ namespace SWP391.DAL.Entities
 
         public int? TotalRatings { get; set; }
 
+        public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();
+
         public virtual Product Product { get; set; } = null!;
 
         public virtual ICollection<Rating> Ratings { get; set; } = new List<Rating>();

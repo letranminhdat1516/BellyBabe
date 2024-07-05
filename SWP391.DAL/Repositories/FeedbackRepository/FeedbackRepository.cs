@@ -17,7 +17,7 @@ namespace SWP391.DAL.Repositories.FeedbackRepository
             _context = context;
         }
 
-        public async Task<Feedback> CreateFeedbackAsync(int userId, int orderId, int productId, string content, int rating, int? ratingCategoryId)
+        public async Task<Feedback> CreateFeedbackAsync(int userId, int orderId, int productId, string content, int rating)
         {
             // Check if the order exists and belongs to the user
             var order = await _context.Orders
@@ -43,6 +43,35 @@ namespace SWP391.DAL.Repositories.FeedbackRepository
                 throw new InvalidOperationException($"Product with ID {productId} not found in the order.");
             }
 
+            // Find or create rating categories for the product
+            var ratingCategories = await _context.RatingCategories
+                .Where(rc => rc.ProductId == productId)
+                .ToListAsync();
+
+            if (!ratingCategories.Any())
+            {
+                // Create rating categories for the product if they don't exist
+                for (int i = 1; i <= 5; i++)
+                {
+                    ratingCategories.Add(new RatingCategory
+                    {
+                        CategoryName = $"{i} Star",
+                        ProductId = productId,
+                        TotalRatings = 0
+                    });
+                }
+                _context.RatingCategories.AddRange(ratingCategories);
+                await _context.SaveChangesAsync();
+            }
+
+            // Find the appropriate rating category based on the rating value
+            var appropriateCategory = ratingCategories.FirstOrDefault(rc => rc.CategoryName == $"{rating} Star");
+            if (appropriateCategory == null)
+            {
+                throw new InvalidOperationException("Invalid rating value.");
+            }
+
+            // Create the feedback
             var feedback = new Feedback
             {
                 UserId = userId,
@@ -51,10 +80,13 @@ namespace SWP391.DAL.Repositories.FeedbackRepository
                 Content = content,
                 Rating = rating,
                 DateCreated = DateTime.Now,
-                RatingCategoryId = ratingCategoryId
+                RatingCategoryId = appropriateCategory.CategoryId
             };
 
             _context.Feedbacks.Add(feedback);
+
+            // Update the total ratings for the appropriate category
+            appropriateCategory.TotalRatings = (appropriateCategory.TotalRatings ?? 0) + 1;
 
             // Update FeedbackTotal and AverageRating for the product
             await UpdateProductFeedbackStatsAsync(productId, rating, isNewFeedback: true);
@@ -77,7 +109,7 @@ namespace SWP391.DAL.Repositories.FeedbackRepository
                 .ToListAsync();
         }
 
-        public async Task<Feedback> UpdateFeedbackAsync(int feedbackId, string content, int newRating, int? ratingCategoryId)
+        public async Task<Feedback> UpdateFeedbackAsync(int feedbackId, string content, int newRating)
         {
             var feedback = await _context.Feedbacks.FindAsync(feedbackId);
             if (feedback == null)
@@ -88,10 +120,26 @@ namespace SWP391.DAL.Repositories.FeedbackRepository
             int oldRating = feedback.Rating ?? 0;
             feedback.Content = content;
             feedback.Rating = newRating;
-            feedback.RatingCategoryId = ratingCategoryId;
+
+            // Update rating category if necessary
+            if (oldRating != newRating)
+            {
+                var oldCategory = await _context.RatingCategories.FindAsync(feedback.RatingCategoryId);
+                var newCategory = await _context.RatingCategories
+                    .FirstOrDefaultAsync(rc => rc.ProductId == feedback.ProductId && rc.CategoryName == $"{newRating} Star");
+
+                if (oldCategory != null)
+                    oldCategory.TotalRatings = (oldCategory.TotalRatings ?? 1) - 1;
+
+                if (newCategory != null)
+                {
+                    newCategory.TotalRatings = (newCategory.TotalRatings ?? 0) + 1;
+                    feedback.RatingCategoryId = newCategory.CategoryId;
+                }
+            }
 
             // Update AverageRating for the product
-            await UpdateProductFeedbackStatsAsync(feedback.ProductId.Value, newRating, oldRating, isUpdate: true);
+            await UpdateProductFeedbackStatsAsync(feedback.ProductId.Value, newRating, isNewFeedback: false, oldRating: oldRating);
 
             await _context.SaveChangesAsync();
 
@@ -106,53 +154,53 @@ namespace SWP391.DAL.Repositories.FeedbackRepository
                 throw new InvalidOperationException("Feedback not found.");
             }
 
+            var category = await _context.RatingCategories.FindAsync(feedback.RatingCategoryId);
+            if (category != null)
+            {
+                category.TotalRatings = (category.TotalRatings ?? 1) - 1;
+            }
+
             _context.Feedbacks.Remove(feedback);
 
             // Update FeedbackTotal and AverageRating for the product
-            await UpdateProductFeedbackStatsAsync(feedback.ProductId.Value, feedback.Rating ?? 0, isNewFeedback: false);
+            await UpdateProductFeedbackStatsAsync(feedback.ProductId.Value, 0, isNewFeedback: false, oldRating: feedback.Rating ?? 0);
 
             await _context.SaveChangesAsync();
         }
 
-        private async Task UpdateProductFeedbackStatsAsync(int productId, int rating, int? oldRating = null, bool isNewFeedback = true, bool isUpdate = false)
+        private async Task UpdateProductFeedbackStatsAsync(int productId, int newRating, bool isNewFeedback, int oldRating = 0)
         {
             var product = await _context.Products.FindAsync(productId);
             if (product != null)
             {
                 if (isNewFeedback)
-                {
                     product.FeedbackTotal = (product.FeedbackTotal ?? 0) + 1;
-                }
-                else if (!isUpdate)
-                {
-                    product.FeedbackTotal = Math.Max((product.FeedbackTotal ?? 0) - 1, 0);
-                }
+                else if (newRating == 0) // Deletion case
+                    product.FeedbackTotal = Math.Max((product.FeedbackTotal ?? 1) - 1, 0);
 
-                var allRatings = await _context.Feedbacks
-                    .Where(f => f.ProductId == productId)
-                    .Select(f => f.Rating)
+                // Calculate the new average rating
+                var ratingCategories = await _context.RatingCategories
+                    .Where(rc => rc.ProductId == productId)
                     .ToListAsync();
 
-                if (isNewFeedback)
+                int totalRatings = 0;
+                int totalFeedbacks = 0;
+
+                foreach (var category in ratingCategories)
                 {
-                    allRatings.Add(rating);
-                }
-                else if (isUpdate && oldRating.HasValue)
-                {
-                    allRatings.Remove(oldRating.Value);
-                    allRatings.Add(rating);
-                }
-                else if (!isUpdate)
-                {
-                    allRatings.Remove(rating);
+                    int categoryRating;
+                    if (int.TryParse(category.CategoryName.Split(' ')[0], out categoryRating))
+                    {
+                        totalRatings += (category.TotalRatings ?? 0) * categoryRating;
+                        totalFeedbacks += category.TotalRatings ?? 0;
+                    }
                 }
 
-                product.NewPrice = allRatings.Any() ? (decimal)allRatings.Average() : 0;
+                product.NewPrice = totalFeedbacks > 0 ? (decimal)totalRatings / totalFeedbacks : 0;
 
                 _context.Products.Update(product);
             }
         }
-
         public async Task<decimal> GetAverageRatingForProductAsync(int productId)
         {
             var product = await _context.Products.FindAsync(productId);
