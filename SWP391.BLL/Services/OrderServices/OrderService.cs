@@ -13,7 +13,7 @@ namespace SWP391.BLL.Services.OrderServices
 
         public OrderService(OrderRepository orderRepository)
         {
-            _orderRepository = orderRepository ?? throw new ArgumentNullException(nameof(orderRepository));
+            _orderRepository = orderRepository;
         }
 
         public async Task PlaceOrderAsync(int userId, string recipientName, string recipientPhone, string recipientAddress, int deliveryId, string note)

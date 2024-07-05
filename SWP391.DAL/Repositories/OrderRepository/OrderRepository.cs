@@ -41,13 +41,11 @@ namespace SWP391.DAL.Repositories.OrderRepository
                 throw new Exception("Không tìm thấy trạng thái xử lý.");
             }
 
-            var orderDetails = await _context.OrderDetails
-                .Where(od => od.UserId == userId && od.IsChecked == true && od.OrderId == null)
-                .ToListAsync();
+            var orderDetails = await _cartRepository.GetCartDetailsAsync(userId);
 
             if (!orderDetails.Any())
             {
-                throw new Exception("Không có sản phẩm được chọn trong giỏ hàng.");
+                throw new Exception("Không có sản phẩm trong giỏ hàng.");
             }
 
             var delivery = await _context.Deliveries.FindAsync(deliveryId);

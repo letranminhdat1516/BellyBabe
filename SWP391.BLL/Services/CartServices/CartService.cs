@@ -19,21 +19,62 @@ namespace SWP391.BLL.Services.CartServices
         {
             try
             {
-                var (orderDetails, message) = await _cartRepository.GetCartDetailsAsync(userId);
-                return (orderDetails, message);
+                var orderDetails = await _cartRepository.GetCartDetailsAsync(userId);
+                return (orderDetails, "Đã lấy thông tin giỏ hàng thành công.");
             }
             catch (Exception ex)
             {
-                throw new Exception($"Lấy chi tiết giỏ hàng thất bại: {ex.Message}");
+                return (null, $"Lấy chi tiết giỏ hàng thất bại: {ex.Message}");
             }
         }
 
-        public async Task<string> AddProductToCartAsync(int userId, int productId, int quantity, bool isChecked = false)
+        public async Task<string> AddProductToCartAsync(int userId, int productId, int quantity)
         {
             try
             {
-                var result = await _cartRepository.AddToCartAsync(userId, productId, quantity, isChecked);
-                return result;
+                var user = await _cartRepository.GetUserAsync(userId);
+                if (user == null)
+                {
+                    return "ID người dùng không hợp lệ.";
+                }
+
+                var product = await _cartRepository.GetProductAsync(productId);
+                if (product == null)
+                {
+                    return "ID sản phẩm không hợp lệ.";
+                }
+
+                if (product.IsSelling != true)
+                {
+                    return "Sản phẩm hiện không có sẵn để mua.";
+                }
+
+                if (quantity <= 0)
+                {
+                    return "Số lượng sản phẩm phải lớn hơn 0.";
+                }
+
+                var orderDetail = await _cartRepository.GetOrderDetailAsync(userId, productId);
+
+                if (orderDetail == null)
+                {
+                    orderDetail = new OrderDetail
+                    {
+                        UserId = userId,
+                        ProductId = productId,
+                        Quantity = quantity,
+                        Price = (int)(product.NewPrice * quantity)
+                    };
+                    await _cartRepository.AddOrderDetailAsync(orderDetail);
+                }
+                else
+                {
+                    orderDetail.Quantity += quantity;
+                    orderDetail.Price = (int)(product.NewPrice * orderDetail.Quantity);
+                    await _cartRepository.UpdateOrderDetailAsync(orderDetail);
+                }
+
+                return "Đã thêm sản phẩm vào giỏ hàng thành công.";
             }
             catch (Exception ex)
             {
@@ -45,8 +86,39 @@ namespace SWP391.BLL.Services.CartServices
         {
             try
             {
-                var result = await _cartRepository.PurchaseNowAsync(userId, productId, quantity);
-                return result;
+                var user = await _cartRepository.GetUserAsync(userId);
+                if (user == null)
+                {
+                    return "ID người dùng không hợp lệ.";
+                }
+
+                var product = await _cartRepository.GetProductAsync(productId);
+                if (product == null)
+                {
+                    return "ID sản phẩm không hợp lệ.";
+                }
+
+                if (product.IsSelling != true)
+                {
+                    return "Sản phẩm hiện không có sẵn để mua.";
+                }
+
+                if (quantity <= 0)
+                {
+                    return "Số lượng sản phẩm phải lớn hơn 0.";
+                }
+
+                var orderDetail = new OrderDetail
+                {
+                    UserId = userId,
+                    ProductId = productId,
+                    Quantity = quantity,
+                    Price = (int)(product.NewPrice * quantity)
+                };
+
+                await _cartRepository.AddOrderDetailAsync(orderDetail);
+
+                return "Đã mua ngay sản phẩm thành công.";
             }
             catch (Exception ex)
             {
@@ -58,12 +130,38 @@ namespace SWP391.BLL.Services.CartServices
         {
             try
             {
-                var result = await _cartRepository.IncreaseQuantityAsync(userId, productId, quantityToAdd);
-                return result;
+                var orderDetail = await _cartRepository.GetOrderDetailAsync(userId, productId);
+                if (orderDetail == null)
+                {
+                    return "Không tìm thấy sản phẩm trong giỏ hàng.";
+                }
+
+                var product = await _cartRepository.GetProductAsync(productId);
+                if (product == null)
+                {
+                    return "ID sản phẩm không hợp lệ.";
+                }
+
+                if (product.IsSelling != true)
+                {
+                    return "Sản phẩm hiện không có sẵn để mua.";
+                }
+
+                if (product.Quantity < orderDetail.Quantity + quantityToAdd)
+                {
+                    return "Không đủ số lượng sản phẩm để thêm vào giỏ hàng.";
+                }
+
+                orderDetail.Quantity += quantityToAdd;
+                orderDetail.Price = (int)(product.NewPrice * orderDetail.Quantity);
+
+                await _cartRepository.UpdateOrderDetailAsync(orderDetail);
+
+                return "Số lượng sản phẩm trong giỏ hàng đã được cập nhật thành công.";
             }
             catch (Exception ex)
             {
-                return $"Cập nhật số lượng sản phẩm thất bại: {ex.Message}";
+                return $"Cập nhật số lượng sản phẩm trong giỏ hàng thất bại: {ex.Message}";
             }
         }
 
@@ -71,12 +169,40 @@ namespace SWP391.BLL.Services.CartServices
         {
             try
             {
-                var result = await _cartRepository.DecreaseQuantityAsync(userId, productId, quantityToSubtract);
-                return result;
+                var orderDetail = await _cartRepository.GetOrderDetailAsync(userId, productId);
+                if (orderDetail == null)
+                {
+                    return "Không tìm thấy sản phẩm trong giỏ hàng.";
+                }
+
+                var product = await _cartRepository.GetProductAsync(productId);
+                if (product == null)
+                {
+                    return "ID sản phẩm không hợp lệ.";
+                }
+
+                if (product.IsSelling != true)
+                {
+                    return "Sản phẩm hiện không có sẵn để mua.";
+                }
+
+                orderDetail.Quantity -= quantityToSubtract;
+                if (orderDetail.Quantity <= 0)
+                {
+                    await _cartRepository.RemoveOrderDetailAsync(orderDetail);
+                    return "Sản phẩm đã được xóa khỏi giỏ hàng do số lượng bằng 0.";
+                }
+                else
+                {
+                    orderDetail.Price = (int)(product.NewPrice * orderDetail.Quantity);
+                    await _cartRepository.UpdateOrderDetailAsync(orderDetail);
+                }
+
+                return "Số lượng sản phẩm trong giỏ hàng đã được cập nhật thành công.";
             }
             catch (Exception ex)
             {
-                return $"Cập nhật số lượng sản phẩm thất bại: {ex.Message}";
+                return $"Cập nhật số lượng sản phẩm trong giỏ hàng thất bại: {ex.Message}";
             }
         }
 
@@ -84,25 +210,19 @@ namespace SWP391.BLL.Services.CartServices
         {
             try
             {
-                var result = await _cartRepository.DeleteProductFromCartAsync(userId, productId);
-                return result;
+                var orderDetail = await _cartRepository.GetOrderDetailAsync(userId, productId);
+                if (orderDetail == null)
+                {
+                    return "Không tìm thấy sản phẩm trong giỏ hàng.";
+                }
+
+                await _cartRepository.RemoveOrderDetailAsync(orderDetail);
+
+                return "Sản phẩm đã được xóa khỏi giỏ hàng thành công.";
             }
             catch (Exception ex)
             {
                 return $"Xóa sản phẩm khỏi giỏ hàng thất bại: {ex.Message}";
-            }
-        }
-
-        public async Task<string> UpdateProductCheckedStatusAsync(int userId, int orderDetailId, bool isChecked)
-        {
-            try
-            {
-                var result = await _cartRepository.UpdateProductCheckedStatusAsync(userId, orderDetailId, isChecked);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                return $"Cập nhật trạng thái sản phẩm thất bại: {ex.Message}";
             }
         }
     }

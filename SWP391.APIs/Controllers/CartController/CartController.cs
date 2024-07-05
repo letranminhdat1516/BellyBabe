@@ -18,14 +18,14 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPost("AddToCart")]
-        public async Task<IActionResult> AddToCartAsync(int userId, int productId, int quantity, bool isChecked = false)
+        public async Task<IActionResult> AddToCartAsync(int userId, int productId, int quantity)
         {
             if (userId <= 0 || productId <= 0 || quantity <= 0)
             {
                 return BadRequest("Thông số đầu vào không hợp lệ.");
             }
 
-            var result = await _cartService.AddProductToCartAsync(userId, productId, quantity, isChecked);
+            var result = await _cartService.AddProductToCartAsync(userId, productId, quantity);
             if (result.StartsWith("Thêm sản phẩm vào giỏ hàng thất bại"))
             {
                 return BadRequest(result);
@@ -112,23 +112,6 @@ namespace SWP391.API.Controllers
 
             var result = await _cartService.DeleteProductFromCartAsync(userId, productId);
             if (result.StartsWith("Xóa sản phẩm khỏi giỏ hàng thất bại"))
-            {
-                return BadRequest(result);
-            }
-
-            return Ok(result);
-        }
-
-        [HttpPost("UpdateProductCheckedStatus/{orderDetailId}")]
-        public async Task<IActionResult> UpdateProductCheckedStatusAsync(int userId, int orderDetailId, bool isChecked)
-        {
-            if (userId <= 0 || orderDetailId <= 0)
-            {
-                return BadRequest("Thông số đầu vào không hợp lệ.");
-            }
-
-            var result = await _cartService.UpdateProductCheckedStatusAsync(userId, orderDetailId, isChecked);
-            if (result.StartsWith("Cập nhật trạng thái sản phẩm thất bại"))
             {
                 return BadRequest(result);
             }
