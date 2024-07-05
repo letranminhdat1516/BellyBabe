@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using SWP391.DAL.Entities;
+using SWP391.DAL.Model.Feedback;
 using SWP391.DAL.Repositories.FeedbackRepository;
 
 namespace SWP391.BLL.Services
@@ -58,6 +59,11 @@ namespace SWP391.BLL.Services
         public async Task<List<Feedback>> GetFeedbacksByUserIdAsync(int userId)
         {
             return await _feedbackRepository.GetFeedbacksByUserIdAsync(userId);
+        }
+
+        public async Task<List<FeedbackGroupByRating>> GetFeedbacksByProductIdAndRatingAsync(int productId)
+        {
+            return await _feedbackRepository.GetFeedbacksByProductIdAndRatingAsync(productId);
         }
     }
 }

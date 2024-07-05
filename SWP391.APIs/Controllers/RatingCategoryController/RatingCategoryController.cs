@@ -93,5 +93,12 @@ namespace SWP391.APIs.Controllers.RatingCategoryController
 
             return NoContent();
         }
+
+        [HttpGet("CalculateAverageRating/{productId}")]
+        public async Task<IActionResult> CalculateAverageRating(int productId)
+        {
+            var averageRating = await _service.CalculateAverageRatingByProductIdAsync(productId);
+            return Ok(averageRating);
+        }
     }
 }

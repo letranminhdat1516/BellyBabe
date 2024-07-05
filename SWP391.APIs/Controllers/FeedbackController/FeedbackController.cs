@@ -83,12 +83,12 @@ namespace SWP391.Controllers
             }
         }
 
-        [HttpGet("AverageRating/{productId}")]
-        public async Task<IActionResult> GetAverageRating(int productId)
-        {
-            var averageRating = await _feedbackService.GetAverageRatingForProductAsync(productId);
-            return Ok(averageRating);
-        }
+        //[HttpGet("AverageRating/{productId}")]
+        //public async Task<IActionResult> GetAverageRating(int productId)
+        //{
+        //    var averageRating = await _feedbackService.GetAverageRatingForProductAsync(productId);
+        //    return Ok(averageRating);
+        //}
 
         [HttpGet("RecentFeedbacks/{count}")]
         public async Task<IActionResult> GetRecentFeedbacks(int count)
@@ -97,18 +97,25 @@ namespace SWP391.Controllers
             return Ok(recentFeedbacks);
         }
 
-        [HttpGet("user/{userId}/can-provide-feedback/{productId}/{orderDetailId}")]
-        public async Task<IActionResult> CanUserProvideFeedback(int userId, int productId, int orderDetailId)
-        {
-            var canProvideFeedback = await _feedbackService.CanUserProvideFeedbackAsync(userId, productId, orderDetailId);
-            return Ok(canProvideFeedback);
-        }
+        //[HttpGet("user/{userId}/can-provide-feedback/{productId}/{orderDetailId}")]
+        //public async Task<IActionResult> CanUserProvideFeedback(int userId, int productId, int orderDetailId)
+        //{
+        //    var canProvideFeedback = await _feedbackService.CanUserProvideFeedbackAsync(userId, productId, orderDetailId);
+        //    return Ok(canProvideFeedback);
+        //}
 
         [HttpGet("user/{userId}")]
         public async Task<IActionResult> GetFeedbacksByUser(int userId)
         {
             var feedbacks = await _feedbackService.GetFeedbacksByUserIdAsync(userId);
             return Ok(feedbacks);
+        }
+
+        [HttpGet("GetFeedbackByProductIdAndRating/{productId}")]
+        public async Task<IActionResult> GetFeedbacksByProductIdAndRating(int productId)
+        {
+            var groupedFeedbacks = await _feedbackService.GetFeedbacksByProductIdAndRatingAsync(productId);
+            return Ok(groupedFeedbacks);
         }
     }
 }

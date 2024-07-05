@@ -57,5 +57,10 @@ namespace SWP391.BLL.Services.RatingCategoryServices
 
             await _repository.DeleteAsync(id);
         }
+
+        public async Task<double> CalculateAverageRatingByProductIdAsync(int productId)
+        {
+            return await _repository.CalculateAverageRatingByProductIdAsync(productId);
+        }
     }
 }
