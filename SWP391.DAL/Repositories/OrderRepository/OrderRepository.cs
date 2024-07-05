@@ -57,7 +57,7 @@ namespace SWP391.DAL.Repositories.OrderRepository
             var order = new Order
             {
                 UserId = userId,
-                OrderStatuses = new List<OrderStatus> { processingStatus },
+                OrderStatuses = new List<OrderStatus> { processingStatus },  // Explicitly assign "Chờ xác nhận" status
                 RecipientName = recipientName,
                 RecipientPhone = recipientPhone,
                 RecipientAddress = recipientAddress,
@@ -102,7 +102,6 @@ namespace SWP391.DAL.Repositories.OrderRepository
 
             return order;
         }
-
         public async Task<List<Order>> GetOrdersAsync(int userId)
         {
             return await _context.Orders
@@ -126,13 +125,19 @@ namespace SWP391.DAL.Repositories.OrderRepository
                 throw new ArgumentException("Tên trạng thái không hợp lệ.");
             }
 
-            order.OrderStatuses.Clear();
-            order.OrderStatuses.Add(status);
+            var existingStatus = order.OrderStatuses.FirstOrDefault(os => os.StatusName == statusName);
 
-            // Save the updated order status
+            if (existingStatus != null)
+            {
+                // Update the existing record (no need to update statusUpdateDate as it's automatic)
+            }
+            else
+            {
+                order.OrderStatuses.Add(new OrderStatus { OrderId = orderId, StatusName = statusName });
+            }
+
             await _context.SaveChangesAsync();
 
-            // Update cumulative score if the order status is "Đã giao hàng"
             if (statusName == "Đã giao hàng")
             {
                 await _cumulativeScoreRepository.UpdateCumulativeScoreAsync(order.UserId);
@@ -212,34 +217,40 @@ namespace SWP391.DAL.Repositories.OrderRepository
         }
         public async Task<List<OrderModel>> GetAllOrders()
         {
-            var listOfOrders = await _context.Orders
-                .Select(o => new OrderModel
-                {
-                    OrderId = o.OrderId,
-                    UserId = o.UserId,
-                    Note = o.Note,
-                    VoucherId = o.VoucherId,
-                    TotalPrice = o.TotalPrice,
-                    OrderDate = o.OrderDate,
-                    RecipientName = o.RecipientName,
-                    RecipientPhone = o.RecipientPhone,
-                    RecipientAddress = o.RecipientAddress,
-                    OrderDetails = o.OrderDetails.Select(od => new OrderDetail
-                    {
-                        OrderDetailId = od.OrderDetailId,
-                        OrderId = od.OrderId,
-                        ProductId = od.ProductId,
-                        Quantity = od.Quantity,
-                        Price = od.Price
-                    }).ToList(),
-                    OrderStatuses = o.OrderStatuses.Select(os => new OrderStatus
-                    {
-                        StatusId = os.StatusId,
-                        StatusName = os.StatusName,
-                        OrderId = os.OrderId
-                    }).ToList(),
-                })
+            var orders = await _context.Orders
+                .Include(o => o.OrderDetails)
+                .Include(o => o.OrderStatuses)
                 .ToListAsync();
+
+            var listOfOrders = orders.Select(o => new OrderModel
+            {
+                OrderId = o.OrderId,
+                UserId = o.UserId,
+                Note = o.Note,
+                VoucherId = o.VoucherId,
+                TotalPrice = o.TotalPrice,
+                OrderDate = o.OrderDate,
+                RecipientName = o.RecipientName,
+                RecipientPhone = o.RecipientPhone,
+                RecipientAddress = o.RecipientAddress,
+                OrderDetails = o.OrderDetails.Select(od => new OrderDetail
+                {
+                    OrderDetailId = od.OrderDetailId,
+                    OrderId = od.OrderId,
+                    ProductId = od.ProductId,
+                    Quantity = od.Quantity,
+                    Price = od.Price
+                }).ToList(),
+                OrderStatuses = o.OrderStatuses.Any() 
+                  ? o.OrderStatuses.Select(os => new OrderStatus
+                  {
+                      StatusId = os.StatusId,
+                      StatusName = os.StatusName,
+                      OrderId = os.OrderId,
+                      StatusUpdateDate = os.StatusUpdateDate
+                  }).ToList()
+                  : new List<OrderStatus> { new OrderStatus { StatusName = "Chờ xác nhận" } } 
+            }).ToList();
 
             return listOfOrders;
         }

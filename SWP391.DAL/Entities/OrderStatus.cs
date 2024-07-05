@@ -11,6 +11,8 @@ public partial class OrderStatus
 
     public int? OrderId { get; set; }
 
+    public DateTime? StatusUpdateDate { get; set; }
+
     public virtual Order? Order { get; set; }
 
 }

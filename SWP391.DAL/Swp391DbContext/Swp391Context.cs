@@ -445,6 +445,10 @@ public partial class Swp391Context : DbContext
             entity.Property(e => e.StatusName)
                 .HasMaxLength(50)
                 .HasColumnName("statusName");
+            entity.Property(e => e.StatusUpdateDate)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime")
+                .HasColumnName("statusUpdateDate");
 
             entity.HasOne(d => d.Order).WithMany(p => p.OrderStatuses)
                 .HasForeignKey(d => d.OrderId)
