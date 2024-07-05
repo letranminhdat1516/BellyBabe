@@ -80,9 +80,9 @@ namespace SWP391.BLL.Services
             return user;
         }
 
-        public async Task<User> UpdateUserAsync(UserUpdateDTO userDto)
+        public async Task<User> UpdateUserAsync(int userId, UserUpdateDTO userDto)
         {
-            var user = await _userRepository.GetUserByIdAsync(userDto.UserId);
+            var user = await _userRepository.GetUserByIdAsync(userId);
             if (user != null)
             {
                 user.UserName = userDto.UserName;
@@ -103,6 +103,8 @@ namespace SWP391.BLL.Services
             }
             return user;
         }
+
+
 
         public async Task<bool> DeleteUserAsync(int userId)
         {
@@ -208,7 +210,9 @@ namespace SWP391.BLL.Services
             return true;
         }
 
-    
-
+        public async Task UpdateUserAsync(UserUpdateDTO userDto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

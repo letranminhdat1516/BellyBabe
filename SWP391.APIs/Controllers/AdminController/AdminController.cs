@@ -31,16 +31,17 @@ namespace SWP391.APIs.Controllers
             return Ok(user);
         }
 
-        [HttpPut("update-user")]
-        public async Task<IActionResult> UpdateUser([FromBody] UserUpdateDTO userDto)
+        [HttpPut("update-user/{userId}")]
+        public async Task<IActionResult> UpdateUser(int userId, [FromBody] UserUpdateDTO userDto)
         {
-            var user = await _userService.UpdateUserAsync(userDto);
+            var user = await _userService.UpdateUserAsync(userId, userDto);
             if (user == null)
             {
                 return NotFound("User not found.");
             }
             return Ok(user);
         }
+
 
         [HttpDelete("delete-user/{userId}")]
         public async Task<IActionResult> DeleteUser(int userId)

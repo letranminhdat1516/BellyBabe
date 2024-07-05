@@ -13,15 +13,15 @@ public class UserController : ControllerBase
         _userService = userService ?? throw new ArgumentNullException(nameof(userService));
     }
 
-    [HttpPost("upload")]
-    public async Task<IActionResult> Upload([FromBody] UserUploadProfile userUploadProfile)
+    [HttpPost("upload/{userId}")]
+    public async Task<IActionResult> Upload(int userId, [FromBody] UserUploadProfile userUploadProfile)
     {
         if (userUploadProfile == null)
         {
             return BadRequest("Invalid data.");
         }
 
-        var user = await _userService.GetUserByIdAsync(userUploadProfile.UserId);
+        var user = await _userService.GetUserByIdAsync(userId);
         if (user == null)
         {
             return NotFound("User not found.");
@@ -34,21 +34,24 @@ public class UserController : ControllerBase
         user.FullName = userUploadProfile.FullName;
         user.Image = userUploadProfile.Image;
 
-        var updatedUser = await _userService.UpdateUserAsync(new UserUpdateDTO
+        var userUpdateDto = new UserUpdateDTO
         {
-            UserId = user.UserId,
             UserName = user.UserName,
             PhoneNumber = user.PhoneNumber,
-            Password = user.Password, 
+            Password = user.Password,
             Email = user.Email,
             Address = user.Address,
             FullName = user.FullName,
             RoleId = userUploadProfile.RoleId,
-            Image = userUploadProfile.Image
-        });
+            Image = user.Image
+        };
+
+        var updatedUser = await _userService.UpdateUserAsync(userId, userUpdateDto);
 
         return Ok(updatedUser);
     }
+
+
 
     [HttpGet("{userId}")]
     public async Task<IActionResult> GetUserById(int userId)

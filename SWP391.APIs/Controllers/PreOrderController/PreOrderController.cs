@@ -39,7 +39,7 @@ namespace SWP391.APIs.Controllers.PreOrderController
             var preOrders = await _preOrderService.GetAllPreOrdersAsync();
             return Ok(preOrders);
         }
-    }
+    } 
 
     public class CreatePreOrderModel
     {
