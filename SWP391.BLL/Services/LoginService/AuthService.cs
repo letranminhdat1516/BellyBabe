@@ -36,12 +36,24 @@ namespace SWP391.BLL.Services.LoginService
         public async Task<AdminLoginResponseDTO> AdminLoginAsync(AdminLoginDTO loginDTO)
         {
             var user = await _userRepository.GetUserByEmailAsync(loginDTO.Email);
-            if (user == null || user.Password != loginDTO.Password || user.RoleId != 1)  
+            if (user == null || user.Password != loginDTO.Password || user.RoleId != 1)
             {
                 return null;
             }
-            return new AdminLoginResponseDTO { Email = user.Email };
+            return new AdminLoginResponseDTO
+            {
+                UserID = user.UserId,
+                UserName = user.UserName,
+                PhoneNumber = user.PhoneNumber,
+                Password = user.Password,
+                Email = user.Email,
+                Address = user.Address,
+                FullName = user.FullName,
+                RoleId = user.RoleId,
+                Image = user.Image
+            };
         }
+
 
         public string GenerateJwtToken(string email, string role)
         {

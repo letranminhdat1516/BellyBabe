@@ -164,8 +164,21 @@ public class OtpService
         }
 
         var token = GenerateJwtToken(loginDTO.PhoneNumber);
-        return new UserLoginResponseDTO { Token = token, PhoneNumber = loginDTO.PhoneNumber };
+        return new UserLoginResponseDTO
+        {
+            Token = token,
+            UserID = user.UserId,
+            UserName = user.UserName,
+            PhoneNumber = user.PhoneNumber,
+            Password = user.Password,
+            Email = user.Email,
+            Address = user.Address,
+            FullName = user.FullName,
+            RoleId = user.RoleId,
+            Image = user.Image
+        };
     }
+
 
     private string GenerateJwtToken(string phoneNumber)
     {

@@ -33,7 +33,21 @@ namespace SWP391.APIs.Controllers.LoginController
             }
 
             var token = _authService.GenerateJwtToken(loginDTO.Email, "Admin");
-            return Ok(new { Token = token });
+
+            // Assuming `response` contains the user information
+            return Ok(new
+            {
+                Token = token,
+                response.UserID,
+                response.UserName,
+                response.PhoneNumber,
+                response.Password,
+                response.Email,
+                response.Address,
+                response.FullName,
+                response.RoleId,
+                response.Image
+            });
         }
     }
 }
