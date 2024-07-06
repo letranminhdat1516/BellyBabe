@@ -32,7 +32,6 @@ using SWP391.BLL.Mapper;
 using SWP391.DAL.Entities;
 using SWP391.DAL.Repositories.OrderStatusRepository;
 using SWP391.BLL.Services.OrderStatusServices;
-using SWP391.DAL.Repositories.StatisticsRepository;
 using SWP391.DAL.Repositories;
 using SWP391.DAL.Services.StatisticsServices;
 using SWP391.DAL.Repositories.VoucherRepository;

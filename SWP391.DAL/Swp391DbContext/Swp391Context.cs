@@ -414,7 +414,7 @@ public partial class Swp391Context : DbContext
             entity.HasKey(e => e.OrderDetailId).HasName("PK__OrderDet__E4FEDE2A17EBCB57");
 
             entity.Property(e => e.OrderDetailId).HasColumnName("orderDetailID");
-            entity.Property(e => e.IsChecked).HasColumnName("isChecked");
+            //entity.Property(e => e.IsChecked).HasColumnName("isChecked");
             entity.Property(e => e.OrderId).HasColumnName("orderID");
             entity.Property(e => e.Price).HasColumnName("price");
             entity.Property(e => e.ProductId).HasColumnName("productID");

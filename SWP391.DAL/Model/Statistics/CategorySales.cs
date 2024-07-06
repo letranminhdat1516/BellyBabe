@@ -9,6 +9,7 @@ namespace SWP391.DAL.Model.Statistics
     public class CategorySales
     {
         public int? CategoryId { get; set; }
+        public string CategoryName { get; set; }
         public decimal TotalSales { get; set; }
         public int TotalOrders { get; set; }
     }
