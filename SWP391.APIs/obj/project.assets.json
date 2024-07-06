@@ -6320,19 +6320,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\phiye\\.nuget\\packages\\": {}
+    "C:\\Users\\Cicca\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.APIs\\SWP391.APIs.csproj",
+      "projectUniqueName": "C:\\Users\\Cicca\\source\\repos\\BellyBabe\\SWP391.APIs\\SWP391.APIs.csproj",
       "projectName": "SWP391.APIs",
-      "projectPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.APIs\\SWP391.APIs.csproj",
-      "packagesPath": "C:\\Users\\phiye\\.nuget\\packages\\",
-      "outputPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.APIs\\obj\\",
+      "projectPath": "C:\\Users\\Cicca\\source\\repos\\BellyBabe\\SWP391.APIs\\SWP391.APIs.csproj",
+      "packagesPath": "C:\\Users\\Cicca\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Cicca\\source\\repos\\BellyBabe\\SWP391.APIs\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\phiye\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Cicca\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6347,11 +6352,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.BLL\\SWP391.BLL.csproj": {
-              "projectPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.BLL\\SWP391.BLL.csproj"
+            "C:\\Users\\Cicca\\source\\repos\\BellyBabe\\SWP391.BLL\\SWP391.BLL.csproj": {
+              "projectPath": "C:\\Users\\Cicca\\source\\repos\\BellyBabe\\SWP391.BLL\\SWP391.BLL.csproj"
             },
-            "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj": {
-              "projectPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj"
+            "C:\\Users\\Cicca\\source\\repos\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj": {
+              "projectPath": "C:\\Users\\Cicca\\source\\repos\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj"
             }
           }
         }
@@ -6360,11 +6365,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -6423,7 +6423,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   },

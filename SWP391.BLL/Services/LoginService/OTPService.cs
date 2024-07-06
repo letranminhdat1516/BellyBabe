@@ -81,6 +81,7 @@ public class OtpService
         }
     }
 
+
     public async Task SendOtpViaEmailAsync(string email, string otp)
     {
         var emailService = new EmailService(_configuration);

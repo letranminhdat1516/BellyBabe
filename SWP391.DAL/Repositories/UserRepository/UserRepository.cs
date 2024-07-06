@@ -40,13 +40,6 @@ namespace SWP391.DAL.Repositories.UserRepository
 
         public async Task AddUserAsync(User user)
         {
-            var existingUser = await _context.Users
-                .FirstOrDefaultAsync(u => u.UserName == user.UserName);
-
-            if (existingUser != null)
-            {
-                throw new InvalidOperationException("UserName already exists.");
-            }
 
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
