@@ -18,5 +18,6 @@ namespace SWP391.DAL.Model.Login
         public string FullName { get; set; }
         public int? RoleId { get; set; }
         public string Image { get; set; }
+        public bool IsFirstLogin { get; set; }
     }
 }

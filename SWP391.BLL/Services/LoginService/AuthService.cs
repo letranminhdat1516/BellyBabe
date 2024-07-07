@@ -40,6 +40,17 @@ namespace SWP391.BLL.Services.LoginService
             {
                 return null;
             }
+
+            // Kiểm tra xem đây có phải là lần đăng nhập đầu tiên không
+            var isFirstLogin = user.IsFirstLogin;
+
+            // Cập nhật IsFirstLogin thành false sau khi đăng nhập lần đầu
+            if (user.IsFirstLogin)
+            {
+                user.IsFirstLogin = false;
+                await _userRepository.UpdateUserAsync(user);
+            }
+
             return new AdminLoginResponseDTO
             {
                 UserID = user.UserId,
@@ -50,7 +61,8 @@ namespace SWP391.BLL.Services.LoginService
                 Address = user.Address,
                 FullName = user.FullName,
                 RoleId = user.RoleId,
-                Image = user.Image
+                Image = user.Image,
+                IsFirstLogin = user.IsFirstLogin
             };
         }
 
@@ -66,7 +78,7 @@ namespace SWP391.BLL.Services.LoginService
                     new Claim(ClaimTypes.Name, email),
                     new Claim(ClaimTypes.Role, role)
                 }),
-                Expires = DateTime.UtcNow.AddHours(1),
+                Expires = DateTime.UtcNow.AddMinutes(5),
                 Issuer = _configuration["Jwt:Issuer"],
                 Audience = _configuration["Jwt:Audience"],
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

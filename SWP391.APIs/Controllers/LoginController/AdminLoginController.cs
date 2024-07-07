@@ -46,7 +46,8 @@ namespace SWP391.APIs.Controllers.LoginController
                 response.Address,
                 response.FullName,
                 response.RoleId,
-                response.Image
+                response.Image,
+                response.IsFirstLogin
             });
         }
     }

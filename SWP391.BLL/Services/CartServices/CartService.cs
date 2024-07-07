@@ -28,15 +28,10 @@ namespace SWP391.BLL.Services.CartServices
             }
         }
 
-        public async Task<string> AddProductToCartAsync(int userId, int productId, int quantity)
+        public async Task<string> AddProductToCartAsync(int? userId, int productId, int quantity)
         {
             try
             {
-                var user = await _cartRepository.GetUserAsync(userId);
-                if (user == null)
-                {
-                    return "ID người dùng không hợp lệ.";
-                }
 
                 var product = await _cartRepository.GetProductAsync(productId);
                 if (product == null)
@@ -54,7 +49,11 @@ namespace SWP391.BLL.Services.CartServices
                     return "Số lượng sản phẩm phải lớn hơn 0.";
                 }
 
-                var orderDetail = await _cartRepository.GetOrderDetailAsync(userId, productId);
+                OrderDetail orderDetail = null;
+                if (userId.HasValue)
+                {
+                    orderDetail = await _cartRepository.GetOrderDetailAsync(userId.Value, productId);
+                }
 
                 if (orderDetail == null)
                 {
@@ -81,6 +80,7 @@ namespace SWP391.BLL.Services.CartServices
                 return $"Thêm sản phẩm vào giỏ hàng thất bại: {ex.Message}";
             }
         }
+
 
         public async Task<string> PurchaseNowAsync(int userId, int productId, int quantity)
         {

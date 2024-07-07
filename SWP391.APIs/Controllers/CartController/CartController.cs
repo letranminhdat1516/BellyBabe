@@ -18,9 +18,9 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPost("AddToCart")]
-        public async Task<IActionResult> AddToCartAsync(int userId, int productId, int quantity)
+        public async Task<IActionResult> AddToCartAsync(int? userId, int productId, int quantity)
         {
-            if (userId <= 0 || productId <= 0 || quantity <= 0)
+            if (productId <= 0 || quantity <= 0)
             {
                 return BadRequest("Thông số đầu vào không hợp lệ.");
             }
@@ -33,6 +33,7 @@ namespace SWP391.API.Controllers
 
             return Ok(result);
         }
+
 
         [HttpPost("PurchaseNow")]
         public async Task<IActionResult> PurchaseNowAsync(int userId, int productId, int quantity)

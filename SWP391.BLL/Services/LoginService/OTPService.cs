@@ -156,17 +156,47 @@ public class OtpService
         {
             return null;
         }
+
+        // Kiểm tra xem số điện thoại
         var user = await _userRepository.GetUserByPhoneNumberAsync(loginDTO.PhoneNumber);
-        if (user != null && user.RoleId != 3)
+
+        // Nếu người dùng tồn tại thì đnawng nhập ở hàm này
+        if (user != null)
         {
-            user.RoleId = 3;
-            await _userRepository.UpdateUserAsync(user);
+            var token = GenerateJwtToken(user.PhoneNumber);
+            return new UserLoginResponseDTO
+            {
+                Token = token,
+                UserID = user.UserId,
+                UserName = user.UserName,
+                PhoneNumber = user.PhoneNumber,
+                Password = user.Password,
+                Email = user.Email,
+                Address = user.Address,
+                FullName = user.FullName,
+                RoleId = user.RoleId,
+                Image = user.Image,
+                IsFirstLogin = user.IsFirstLogin
+            };
         }
 
-        var token = GenerateJwtToken(loginDTO.PhoneNumber);
+        // tạo mới người dùng khi đã đã có đăng nhập
+        user = new User
+        {
+            PhoneNumber = loginDTO.PhoneNumber,
+            Otp = loginDTO.OTP,
+            Otpexpiry = DateTime.UtcNow.AddMinutes(5),
+            Password = "default_password",
+            RoleId = 3,
+            IsFirstLogin = true
+        };
+
+        await _userRepository.AddUserAsync(user);
+
+        var newToken = GenerateJwtToken(user.PhoneNumber);
         return new UserLoginResponseDTO
         {
-            Token = token,
+            Token = newToken,
             UserID = user.UserId,
             UserName = user.UserName,
             PhoneNumber = user.PhoneNumber,
@@ -175,9 +205,12 @@ public class OtpService
             Address = user.Address,
             FullName = user.FullName,
             RoleId = user.RoleId,
-            Image = user.Image
+            Image = user.Image,
+            IsFirstLogin = user.IsFirstLogin
         };
     }
+
+
 
 
     private string GenerateJwtToken(string phoneNumber)
@@ -191,7 +224,7 @@ public class OtpService
                 new Claim(ClaimTypes.Name, phoneNumber),
                 new Claim(ClaimTypes.Role, "User")
             }),
-            Expires = DateTime.UtcNow.AddHours(1),
+            Expires = DateTime.UtcNow.AddMinutes(5),
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
         };
         var token = tokenHandler.CreateToken(tokenDescriptor);
