@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Cicca\\source\\repos\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj": {}
+    "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Cicca\\source\\repos\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj": {
+    "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Cicca\\source\\repos\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj",
+        "projectUniqueName": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj",
         "projectName": "SWP391.DAL",
-        "projectPath": "C:\\Users\\Cicca\\source\\repos\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj",
-        "packagesPath": "C:\\Users\\Cicca\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Cicca\\source\\repos\\BellyBabe\\SWP391.DAL\\obj\\",
+        "projectPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj",
+        "packagesPath": "C:\\Users\\phiye\\.nuget\\packages\\",
+        "outputPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.DAL\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Cicca\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\phiye\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +35,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -86,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
