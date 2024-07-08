@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SWP391.BLL.Services.CumulativeScoreServices;
+using System;
 using System.Threading.Tasks;
 
 namespace SWP391.API.Controllers
@@ -15,33 +16,54 @@ namespace SWP391.API.Controllers
             _cumulativeScoreService = cumulativeScoreService;
         }
 
-        [HttpPost("UpdateScore/{userId}")]
-        public async Task<IActionResult> UpdateCumulativeScoreAsync(int userId)
+        [HttpGet("GetUserCumulativeScore/{userId}")]
+        public async Task<IActionResult> GetUserCumulativeScore(int userId)
         {
-            if (userId <= 0)
+            try
             {
-                return BadRequest("User ID must be provided.");
+                var score = await _cumulativeScoreService.GetUserCumulativeScoreAsync(userId);
+                return Ok(score);
             }
-
-            await _cumulativeScoreService.UpdateCumulativeScoreAsync(userId);
-            return Ok("Cumulative score updated successfully.");
+            catch (ApplicationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpGet("GetScore/{userId}")]
-        public async Task<IActionResult> GetCumulativeScoreAsync(int userId)
+        [HttpPost("{userId}/add/{points}")]
+        public async Task<IActionResult> AddPoints(int userId, int points)
         {
-            if (userId <= 0)
+            try
             {
-                return BadRequest("User ID must be provided.");
+                await _cumulativeScoreService.AddPointsAsync(userId, points);
+                return Ok($"Thêm {points} điểm thành công cho người dùng {userId}");
             }
-
-            var score = await _cumulativeScoreService.GetCumulativeScoreAsync(userId);
-            if (score == null)
+            catch (ArgumentException ex)
             {
-                return NotFound("No cumulative score found for this user.");
+                return BadRequest(ex.Message);
             }
+            catch (ApplicationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
-            return Ok(score);
+        [HttpPost("{userId}/use/{points}")]
+        public async Task<IActionResult> UsePoints(int userId, int points)
+        {
+            try
+            {
+                await _cumulativeScoreService.UsePointsAsync(userId, points);
+                return Ok($"Dùng {points} điểm thành công từ người dùng {userId}");
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (ApplicationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

@@ -41,10 +41,10 @@ namespace SWP391.BLL.Services.LoginService
                 return null;
             }
 
-            // Kiểm tra xem đây có phải là lần đăng nhập đầu tiên không
+            //// Kiểm tra xem đây có phải là lần đăng nhập đầu tiên không
             var isFirstLogin = user.IsFirstLogin;
 
-            // Cập nhật IsFirstLogin thành false sau khi đăng nhập lần đầu
+            //// Cập nhật IsFirstLogin thành false sau khi đăng nhập lần đầu
             if (user.IsFirstLogin)
             {
                 user.IsFirstLogin = false;

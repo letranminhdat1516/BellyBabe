@@ -160,7 +160,7 @@ public class OtpService
         // Kiểm tra xem số điện thoại
         var user = await _userRepository.GetUserByPhoneNumberAsync(loginDTO.PhoneNumber);
 
-        // Nếu người dùng tồn tại thì đnawng nhập ở hàm này
+        // Nếu người dùng tồn tại thì đăng nhập ở hàm này
         if (user != null)
         {
             var token = GenerateJwtToken(user.PhoneNumber);

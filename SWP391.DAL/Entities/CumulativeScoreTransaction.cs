@@ -9,17 +9,15 @@ public partial class CumulativeScoreTransaction
 
     public int? UserId { get; set; }
 
-    public int? ProductId { get; set; }
+    public int? OrderId { get; set; }
 
-    public decimal? ScoreChange { get; set; }
+    public int? ScoreChange { get; set; }
 
     public DateTime? TransactionDate { get; set; }
 
-    public int? ScoreId { get; set; }
+    public string? TransactionType { get; set; }
 
-    public virtual Product? Product { get; set; }
-
-    public virtual CumulativeScore? Score { get; set; }
+    public virtual Order? Order { get; set; }
 
     public virtual User? User { get; set; }
 }

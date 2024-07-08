@@ -16,11 +16,11 @@ namespace SWP391.BLL.Services.OrderServices
             _orderRepository = orderRepository;
         }
 
-        public async Task PlaceOrderAsync(int userId, string recipientName, string recipientPhone, string recipientAddress, int deliveryId, string note)
+        public async Task PlaceOrderAsync(int userId, string recipientName, string recipientPhone, string recipientAddress, int deliveryId, string note, bool? usePoints = null)
         {
             try
             {
-                await _orderRepository.PlaceOrderAsync(userId, recipientName, recipientPhone, recipientAddress, deliveryId, note);
+                await _orderRepository.PlaceOrderAsync(userId, recipientName, recipientPhone, recipientAddress, deliveryId, note, usePoints);
             }
             catch (ArgumentException ex)
             {
