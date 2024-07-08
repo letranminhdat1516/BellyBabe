@@ -1,4 +1,5 @@
 ﻿using SWP391.DAL.Repositories.CumulativeScoreRepository;
+using System;
 using System.Threading.Tasks;
 
 namespace SWP391.BLL.Services.CumulativeScoreServices
@@ -12,19 +13,54 @@ namespace SWP391.BLL.Services.CumulativeScoreServices
             _cumulativeScoreRepository = cumulativeScoreRepository;
         }
 
-        public async Task UpdateCumulativeScoreAsync(int userId)
+        public async Task<int> GetUserCumulativeScoreAsync(int userId)
         {
-            await _cumulativeScoreRepository.UpdateCumulativeScoreAsync(userId);
+            try
+            {
+                return await _cumulativeScoreRepository.GetUserCumulativeScoreAsync(userId);
+            }
+            catch (ArgumentException ex)
+            {
+                throw new ApplicationException("Lỗi khi lấy điểm tích lũy của người dùng", ex);
+            }
         }
 
-        public async Task<int?> GetCumulativeScoreAsync(int userId)
+        public async Task AddPointsAsync(int userId, int points)
         {
-            return await _cumulativeScoreRepository.GetCumulativeScoreAsync(userId);
+            if (points < 0)
+            {
+                throw new ArgumentException("Điểm để thêm phải là số không âm", nameof(points));
+            }
+
+            try
+            {
+                await _cumulativeScoreRepository.AddPointsAsync(userId, points);
+            }
+            catch (ArgumentException ex)
+            {
+                throw new ApplicationException("Lỗi khi thêm điểm tích lũy cho người dùng", ex);
+            }
         }
 
-        public async Task UpdateOrderScoreAsync(int orderId)
+        public async Task UsePointsAsync(int userId, int points)
         {
-            await _cumulativeScoreRepository.UpdateOrderScoreAsync(orderId);
+            if (points < 0)
+            {
+                throw new ArgumentException("Điểm để dùng phải là số không âm", nameof(points));
+            }
+
+            try
+            {
+                await _cumulativeScoreRepository.UsePointsAsync(userId, points);
+            }
+            catch (ArgumentException ex)
+            {
+                throw new ApplicationException("Lỗi khi dùng điểm tích lũy của người dùng", ex);
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw new ApplicationException("Không đủ điểm để thực hiện giao dịch", ex);
+            }
         }
     }
 }

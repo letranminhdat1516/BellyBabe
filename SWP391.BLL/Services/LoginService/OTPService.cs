@@ -1,9 +1,11 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using SWP391.DAL.Entities;
 using SWP391.DAL.Model.Login;
 using SWP391.DAL.Repositories.Contract;
+using SWP391.DAL.Swp391DbContext;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net.Http;
@@ -18,14 +20,14 @@ public class OtpService
     private readonly IUserRepository _userRepository;
     private readonly ILogger<OtpService> _logger;
     private readonly IConfiguration _configuration;
-
-    public OtpService(IUserRepository userRepository, ILogger<OtpService> logger, IConfiguration configuration)
+    private readonly Swp391Context _context;
+    public OtpService(IUserRepository userRepository, ILogger<OtpService> logger, IConfiguration configuration, Swp391Context context)
     {
         _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+        _context = context ?? throw new ArgumentNullException(nameof(context));
     }
-
     public string GenerateOtp()
     {
         using (var rng = RandomNumberGenerator.Create())
@@ -147,6 +149,14 @@ public class OtpService
         _logger.LogInformation($"Verification result for identifier {identifier}: {isValid}");
         return isValid;
     }
+    public async Task<string> GetOtpByPhoneNumberAsync(string phoneNumber)
+    {
+        var otpEntity = await _context.Users
+                                      .Where(u => u.PhoneNumber == phoneNumber)
+                                      .Select(u => u.Otp)
+                                      .FirstOrDefaultAsync();
+        return otpEntity;
+    }
 
 
     public async Task<UserLoginResponseDTO> LoginAsync(UserLoginDTO loginDTO)
@@ -160,7 +170,7 @@ public class OtpService
         // Kiểm tra xem số điện thoại
         var user = await _userRepository.GetUserByPhoneNumberAsync(loginDTO.PhoneNumber);
 
-        // Nếu người dùng tồn tại thì đnawng nhập ở hàm này
+        // Nếu người dùng tồn tại thì đăng nhập ở hàm này
         if (user != null)
         {
             var token = GenerateJwtToken(user.PhoneNumber);
@@ -209,7 +219,6 @@ public class OtpService
             IsFirstLogin = user.IsFirstLogin
         };
     }
-
 
 
 

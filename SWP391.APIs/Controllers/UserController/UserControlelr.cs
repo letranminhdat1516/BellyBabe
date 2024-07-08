@@ -51,7 +51,31 @@ public class UserController : ControllerBase
         return Ok(updatedUser);
     }
 
+    [HttpPut("update/{userId}")]
+    public async Task<IActionResult> UpdateUser(int userId, [FromBody] UserUpdateDTO userUpdateDto)
+    {
+        if (userUpdateDto == null)
+        {
+            return BadRequest("Invalid data.");
+        }
 
+        var user = await _userService.GetUserByIdAsync(userId);
+        if (user == null)
+        {
+            return NotFound("User not found.");
+        }
+
+        user.UserName = userUpdateDto.UserName;
+        user.PhoneNumber = userUpdateDto.PhoneNumber;
+        user.Email = userUpdateDto.Email;
+        user.Address = userUpdateDto.Address;
+        user.FullName = userUpdateDto.FullName;
+        user.Image = userUpdateDto.Image;
+
+        var updatedUser = await _userService.UpdateUserAsync(userId, userUpdateDto);
+
+        return Ok(updatedUser);
+    }
 
     [HttpGet("{userId}")]
     public async Task<IActionResult> GetUserById(int userId)

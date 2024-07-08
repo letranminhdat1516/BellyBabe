@@ -37,10 +37,6 @@ public partial class Product
 
     public virtual ProductCategory? Category { get; set; }
 
-    public virtual ICollection<CumulativeScoreTransaction> CumulativeScoreTransactions { get; set; } = new List<CumulativeScoreTransaction>();
-
-    public virtual ICollection<CumulativeScore> CumulativeScores { get; set; } = new List<CumulativeScore>();
-
     public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();
 
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();

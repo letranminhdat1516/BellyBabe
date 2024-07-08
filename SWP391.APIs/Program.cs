@@ -37,6 +37,9 @@ using SWP391.DAL.Services.StatisticsServices;
 using SWP391.DAL.Repositories.VoucherRepository;
 using SWP391.DAL.Repositories.RatingCategoryRepository;
 using SWP391.BLL.Services.RatingCategoryServices;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using SWP391.DAL.Repositories.CumulativeScoreTransactionRepository;
+using SWP391.BLL.Services.CumulativeScoreTransactionServices;
 
 namespace SWP391.APIs
 {
@@ -73,6 +76,7 @@ namespace SWP391.APIs
             builder.Services.AddScoped<StatisticsRepository>();
             builder.Services.AddScoped<VoucherRepository>();    
             builder.Services.AddScoped<RatingCategoryRepository>();
+            builder.Services.AddScoped<CumulativeScoreTransactionRepository>();
 
             // Register services
             builder.Services.AddScoped<EmailService>();
@@ -97,6 +101,7 @@ namespace SWP391.APIs
             builder.Services.AddScoped<StatisticsService>();
             builder.Services.AddScoped<CartService>();
             builder.Services.AddScoped<RatingCategoryService>();
+            builder.Services.AddScoped<CumulativeScoreTransactionService>();
 
             builder.Services.AddSignalR();
 

@@ -127,60 +127,50 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<CumulativeScore>(entity =>
         {
-            entity.HasKey(e => e.ScoreId).HasName("PK__Cumulati__B56A0D6DC5E1FDD3");
+            entity.HasKey(e => e.ScoreId).HasName("PK__Cumulati__B56A0D6D451C65F6");
 
             entity.ToTable("CumulativeScore");
 
             entity.Property(e => e.ScoreId).HasColumnName("scoreID");
+            entity.Property(e => e.AvailablePoints).HasColumnName("availablePoints");
             entity.Property(e => e.DateCreated)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime")
                 .HasColumnName("dateCreated");
-            entity.Property(e => e.ProductId).HasColumnName("productID");
             entity.Property(e => e.RatingCount).HasColumnName("ratingCount");
-            entity.Property(e => e.TotalScore)
-                .HasColumnType("decimal(10, 3)")
-                .HasColumnName("totalScore");
+            entity.Property(e => e.TotalScore).HasColumnName("totalScore");
             entity.Property(e => e.UserId).HasColumnName("userID");
-
-            entity.HasOne(d => d.Product).WithMany(p => p.CumulativeScores)
-                .HasForeignKey(d => d.ProductId)
-                .HasConstraintName("FK__Cumulativ__produ__1AD3FDA4");
 
             entity.HasOne(d => d.User).WithMany(p => p.CumulativeScores)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__Cumulativ__userI__19DFD96B");
+                .HasConstraintName("FK__Cumulativ__userI__0E6E26BF");
         });
 
         modelBuilder.Entity<CumulativeScoreTransaction>(entity =>
         {
-            entity.HasKey(e => e.TransactionId).HasName("PK__Cumulati__9B57CF52251F6E33");
+            entity.HasKey(e => e.TransactionId).HasName("PK__Cumulati__9B57CF526A0A7849");
 
             entity.ToTable("CumulativeScoreTransaction");
 
             entity.Property(e => e.TransactionId).HasColumnName("transactionID");
-            entity.Property(e => e.ProductId).HasColumnName("productID");
-            entity.Property(e => e.ScoreChange)
-                .HasColumnType("decimal(10, 3)")
-                .HasColumnName("scoreChange");
-            entity.Property(e => e.ScoreId).HasColumnName("scoreID");
+            entity.Property(e => e.OrderId).HasColumnName("orderID");
+            entity.Property(e => e.ScoreChange).HasColumnName("scoreChange");
             entity.Property(e => e.TransactionDate)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime")
                 .HasColumnName("transactionDate");
+            entity.Property(e => e.TransactionType)
+                .HasMaxLength(50)
+                .HasColumnName("transactionType");
             entity.Property(e => e.UserId).HasColumnName("userID");
 
-            entity.HasOne(d => d.Product).WithMany(p => p.CumulativeScoreTransactions)
-                .HasForeignKey(d => d.ProductId)
-                .HasConstraintName("FK__Cumulativ__produ__25518C17");
-
-            entity.HasOne(d => d.Score).WithMany(p => p.CumulativeScoreTransactions)
-                .HasForeignKey(d => d.ScoreId)
-                .HasConstraintName("FK__Cumulativ__score__2645B050");
+            entity.HasOne(d => d.Order).WithMany(p => p.CumulativeScoreTransactions)
+                .HasForeignKey(d => d.OrderId)
+                .HasConstraintName("FK__Cumulativ__order__18EBB532");
 
             entity.HasOne(d => d.User).WithMany(p => p.CumulativeScoreTransactions)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__Cumulativ__userI__245D67DE");
+                .HasConstraintName("FK__Cumulativ__userI__17F790F9");
         });
 
         modelBuilder.Entity<CustomerOption>(entity =>
@@ -375,7 +365,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.OrderId).HasName("PK__Order__0809337D8ADB32FE");
+            entity.HasKey(e => e.OrderId).HasName("PK__Order__0809337D38CE5B8F");
 
             entity.ToTable("Order");
 
@@ -385,6 +375,9 @@ public partial class Swp391Context : DbContext
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime")
                 .HasColumnName("orderDate");
+            entity.Property(e => e.PointsUsed)
+                .HasDefaultValue(0)
+                .HasColumnName("pointsUsed");
             entity.Property(e => e.RecipientAddress)
                 .HasMaxLength(255)
                 .HasColumnName("recipientAddress");
@@ -402,11 +395,11 @@ public partial class Swp391Context : DbContext
             entity.HasOne(d => d.User).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Order__userID__787EE5A0");
+                .HasConstraintName("FK__Order__userID__6FE99F9F");
 
             entity.HasOne(d => d.Voucher).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.VoucherId)
-                .HasConstraintName("FK__Order__voucherID__797309D9");
+                .HasConstraintName("FK__Order__voucherID__70DDC3D8");
         });
 
         modelBuilder.Entity<OrderDetail>(entity =>
@@ -558,7 +551,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity.HasKey(e => e.ProductId).HasName("PK__Product__2D10D14A881BDBF7");
+            entity.HasKey(e => e.ProductId).HasName("PK__Product__2D10D14A4F73731E");
 
             entity.ToTable("Product");
 

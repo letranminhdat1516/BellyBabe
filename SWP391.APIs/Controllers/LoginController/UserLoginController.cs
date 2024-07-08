@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SWP391.DAL.Model.Login;
+using SWP391.DAL.Swp391DbContext;
 using System.Threading.Tasks;
 
 namespace SWP391.APIs.Controllers
@@ -9,7 +11,7 @@ namespace SWP391.APIs.Controllers
     public class UserLoginController : ControllerBase
     {
         private readonly OtpService _otpService;
-
+        
         public UserLoginController(OtpService otpService)
         {
             _otpService = otpService;
@@ -41,6 +43,17 @@ namespace SWP391.APIs.Controllers
             });
 
             return Ok(tokenResponse);
+        }
+        [HttpGet("check-otp")]
+        public async Task<IActionResult> GetOtp([FromQuery] string phoneNumber)
+        {
+            var otp = await _otpService.GetOtpByPhoneNumberAsync(phoneNumber);
+            if (otp == null)
+            {
+                return NotFound(new { message = "OTP not found." });
+            }
+
+            return Ok(new { otp });
         }
     }
 

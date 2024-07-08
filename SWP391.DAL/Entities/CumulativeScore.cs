@@ -9,17 +9,13 @@ public partial class CumulativeScore
 
     public int? UserId { get; set; }
 
-    public int? ProductId { get; set; }
+    public int? TotalScore { get; set; }
 
-    public decimal? TotalScore { get; set; }
+    public int? AvailablePoints { get; set; }
 
     public int? RatingCount { get; set; }
 
     public DateTime? DateCreated { get; set; }
-
-    public virtual ICollection<CumulativeScoreTransaction> CumulativeScoreTransactions { get; set; } = new List<CumulativeScoreTransaction>();
-
-    public virtual Product? Product { get; set; }
 
     public virtual User? User { get; set; }
 }
