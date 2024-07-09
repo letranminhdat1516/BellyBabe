@@ -748,6 +748,9 @@ public partial class Swp391Context : DbContext
             entity.HasOne(d => d.Role).WithMany(p => p.Users)
                 .HasForeignKey(d => d.RoleId)
                 .HasConstraintName("FK__User__roleID__3C69FB99");
+            entity.Property(e => e.IsFirstLogin)
+                .IsRequired()
+                .HasDefaultValueSql("((1))");
         });
 
         modelBuilder.Entity<Voucher>(entity =>
