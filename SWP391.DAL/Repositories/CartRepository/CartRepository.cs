@@ -17,7 +17,7 @@ namespace SWP391.DAL.Repositories
             _context = context;
         }
 
-        public async Task<OrderDetail> GetOrderDetailAsync(int userId, int productId)
+        public async Task<OrderDetail> GetOrderDetailAsync(int? userId, int productId)
         {
             return await _context.OrderDetails
                 .FirstOrDefaultAsync(od => od.UserId == userId && od.ProductId == productId && od.OrderId == null);
@@ -51,7 +51,7 @@ namespace SWP391.DAL.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<OrderDetail>> GetCartDetailsAsync(int userId)
+        public async Task<List<OrderDetail>> GetCartDetailsAsync(int? userId)
         {
             return await _context.OrderDetails
                 .Where(od => od.UserId == userId && od.OrderId == null)

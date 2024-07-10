@@ -309,5 +309,28 @@ namespace SWP391.DAL.Repositories.OrderRepository
 
             return listOfOrders;
         }
+
+        public async Task<OrderStatus> GetLatestOrderStatusAsync(int orderId)
+        {
+            var order = await _context.Orders
+                .Include(o => o.OrderStatuses)
+                .FirstOrDefaultAsync(o => o.OrderId == orderId);
+
+            if (order == null)
+            {
+                throw new ArgumentException("ID đơn hàng không hợp lệ.");
+            }
+
+            var latestStatus = order.OrderStatuses
+                .OrderByDescending(os => os.StatusUpdateDate)
+                .FirstOrDefault();
+
+            if (latestStatus == null)
+            {
+                throw new InvalidOperationException("Không tìm thấy trạng thái đơn hàng.");
+            }
+
+            return latestStatus;
+        }
     }
 }
