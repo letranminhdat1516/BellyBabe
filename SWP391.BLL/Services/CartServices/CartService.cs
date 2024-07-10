@@ -15,7 +15,7 @@ namespace SWP391.BLL.Services.CartServices
             _cartRepository = cartRepository;
         }
 
-        public async Task<(List<OrderDetail>, string)> GetCartDetailsAsync(int userId)
+        public async Task<(List<OrderDetail>, string)> GetCartDetailsAsync(int? userId)
         {
             try
             {
@@ -32,7 +32,6 @@ namespace SWP391.BLL.Services.CartServices
         {
             try
             {
-
                 var product = await _cartRepository.GetProductAsync(productId);
                 if (product == null)
                 {
@@ -81,15 +80,17 @@ namespace SWP391.BLL.Services.CartServices
             }
         }
 
-
-        public async Task<string> PurchaseNowAsync(int userId, int productId, int quantity)
+        public async Task<string> PurchaseNowAsync(int? userId, int productId, int quantity)
         {
             try
             {
-                var user = await _cartRepository.GetUserAsync(userId);
-                if (user == null)
+                if (userId.HasValue)
                 {
-                    return "ID người dùng không hợp lệ.";
+                    var user = await _cartRepository.GetUserAsync(userId.Value);
+                    if (user == null)
+                    {
+                        return "ID người dùng không hợp lệ.";
+                    }
                 }
 
                 var product = await _cartRepository.GetProductAsync(productId);
@@ -126,7 +127,7 @@ namespace SWP391.BLL.Services.CartServices
             }
         }
 
-        public async Task<string> IncreaseQuantityAsync(int userId, int productId, int quantityToAdd)
+        public async Task<string> IncreaseQuantityAsync(int? userId, int productId, int quantityToAdd)
         {
             try
             {
@@ -165,7 +166,7 @@ namespace SWP391.BLL.Services.CartServices
             }
         }
 
-        public async Task<string> DecreaseQuantityAsync(int userId, int productId, int quantityToSubtract)
+        public async Task<string> DecreaseQuantityAsync(int? userId, int productId, int quantityToSubtract)
         {
             try
             {
@@ -206,7 +207,7 @@ namespace SWP391.BLL.Services.CartServices
             }
         }
 
-        public async Task<string> DeleteProductFromCartAsync(int userId, int productId)
+        public async Task<string> DeleteProductFromCartAsync(int? userId, int productId)
         {
             try
             {

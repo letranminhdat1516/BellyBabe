@@ -114,5 +114,23 @@ namespace SWP391.API.Controllers
             var listOfOrders = await _orderService.GetAllOrders();
             return Ok(listOfOrders);
         }
+
+        [HttpGet("GetLatestOrderStatus/{orderId}")]
+        public async Task<IActionResult> GetLatestOrderStatus(int orderId)
+        {
+            try
+            {
+                var latestStatus = await _orderService.GetLatestOrderStatusAsync(orderId);
+                return Ok(latestStatus);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { Error = $"Lỗi lấy trạng thái mới nhất của đơn hàng: {ex.Message}" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Error = $"Lỗi server: {ex.Message}" });
+            }
+        }
     }
 }

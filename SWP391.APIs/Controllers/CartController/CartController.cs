@@ -34,11 +34,10 @@ namespace SWP391.API.Controllers
             return Ok(result);
         }
 
-
         [HttpPost("PurchaseNow")]
-        public async Task<IActionResult> PurchaseNowAsync(int userId, int productId, int quantity)
+        public async Task<IActionResult> PurchaseNowAsync(int? userId, int productId, int quantity)
         {
-            if (userId <= 0 || productId <= 0 || quantity <= 0)
+            if (productId <= 0 || quantity <= 0)
             {
                 return BadRequest("Thông số đầu vào không hợp lệ.");
             }
@@ -52,14 +51,9 @@ namespace SWP391.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("CartDetails/{userId}")]
-        public async Task<ActionResult<List<OrderDetail>>> GetCartDetailsAsync(int userId)
+        [HttpGet("CartDetails/{userId?}")]
+        public async Task<ActionResult<List<OrderDetail>>> GetCartDetailsAsync(int? userId)
         {
-            if (userId <= 0)
-            {
-                return BadRequest("ID người dùng không hợp lệ.");
-            }
-
             var (orderDetails, message) = await _cartService.GetCartDetailsAsync(userId);
             if (orderDetails == null || orderDetails.Count == 0)
             {
@@ -70,9 +64,9 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPost("IncreaseQuantity")]
-        public async Task<IActionResult> IncreaseQuantityAsync(int userId, int productId, int quantityToAdd)
+        public async Task<IActionResult> IncreaseQuantityAsync(int? userId, int productId, int quantityToAdd)
         {
-            if (userId <= 0 || productId <= 0 || quantityToAdd <= 0)
+            if (productId <= 0 || quantityToAdd <= 0)
             {
                 return BadRequest("Thông số đầu vào không hợp lệ.");
             }
@@ -87,9 +81,9 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPost("DecreaseQuantity")]
-        public async Task<IActionResult> DecreaseQuantityAsync(int userId, int productId, int quantityToSubtract)
+        public async Task<IActionResult> DecreaseQuantityAsync(int? userId, int productId, int quantityToSubtract)
         {
-            if (userId <= 0 || productId <= 0 || quantityToSubtract <= 0)
+            if (productId <= 0 || quantityToSubtract <= 0)
             {
                 return BadRequest("Thông số đầu vào không hợp lệ.");
             }
@@ -104,9 +98,9 @@ namespace SWP391.API.Controllers
         }
 
         [HttpDelete("DeleteProductFromCart")]
-        public async Task<IActionResult> DeleteProductFromCartAsync(int userId, int productId)
+        public async Task<IActionResult> DeleteProductFromCartAsync(int? userId, int productId)
         {
-            if (userId <= 0 || productId <= 0)
+            if (productId <= 0)
             {
                 return BadRequest("Thông số đầu vào không hợp lệ.");
             }
