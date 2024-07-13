@@ -16,7 +16,8 @@ public partial class Voucher
     public DateTime? ExpiredDate { get; set; }
 
     public int? UserId { get; set; }
-
+    public decimal? Price { get; set; }
+    public decimal? MinimumBillAmount { get; set; }
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 
     public virtual User? User { get; set; }

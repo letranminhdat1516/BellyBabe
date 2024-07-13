@@ -37,6 +37,8 @@ namespace SWP391.BLL.Services
                 VoucherName = voucherDTO.VoucherName,
                 Quantity = voucherDTO.Quantity,
                 ExpiredDate = voucherDTO.ExpiredDate,
+                Price = voucherDTO.Price,
+                MinimumBillAmount = voucherDTO.MinimumBillAmount
 
             };
             _context.Vouchers.Add(voucher);
@@ -55,7 +57,8 @@ namespace SWP391.BLL.Services
             voucher.VoucherName = voucherDTO.VoucherName;
             voucher.Quantity = voucherDTO.Quantity;
             voucher.ExpiredDate = voucherDTO.ExpiredDate;
-
+            voucher.Price = voucherDTO.Price;
+            voucher.MinimumBillAmount = voucherDTO.MinimumBillAmount;
             _context.Vouchers.Update(voucher);
             await _context.SaveChangesAsync();
             return voucher;

@@ -14,6 +14,8 @@ namespace SWP391.DAL.Model.Voucher
         public string VoucherName { get; set; }
         public int Quantity { get; set; }
         public DateTime ExpiredDate { get; set; }
+        public decimal? Price { get; set; }
+        public decimal? MinimumBillAmount { get; set; }
     }
 
 }

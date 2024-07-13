@@ -32,7 +32,7 @@ namespace SWP391.APIs.Controllers.LoginController
                 return Unauthorized("Invalid email or password");
             }
 
-            var token = _authService.GenerateJwtToken(loginDTO.Email, "Admin");
+            var token = _authService.GenerateJwtToken(response.Email, "Admin", response.UserID);
 
             // Assuming `response` contains the user information
             return Ok(new

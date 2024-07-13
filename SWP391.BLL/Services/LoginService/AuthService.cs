@@ -19,7 +19,7 @@ namespace SWP391.BLL.Services.LoginService
             _userRepository = userRepository;
             _configuration = configuration;
         }
-      
+
 
         public async Task<UserLoginResponseDTO> UserLoginAsync(UserLoginDTO loginDTO)
         {
@@ -29,45 +29,44 @@ namespace SWP391.BLL.Services.LoginService
                 return null;
             }
 
-            var token = GenerateJwtToken(user.Email, "User");
+            var token = GenerateJwtToken(user.Email, "User", user.UserId);
             return new UserLoginResponseDTO { Token = token, PhoneNumber = user.PhoneNumber };
         }
 
         public async Task<AdminLoginResponseDTO> AdminLoginAsync(AdminLoginDTO loginDTO)
         {
             var user = await _userRepository.GetUserByEmailAsync(loginDTO.Email);
-            if (user == null || user.Password != loginDTO.Password || user.RoleId != 1)
+            if (user == null || user.Password != loginDTO.Password || (user.RoleId != 1 && user.RoleId != 2))
             {
                 return null;
             }
 
-            //// Kiểm tra xem đây có phải là lần đăng nhập đầu tiên không
             var isFirstLogin = user.IsFirstLogin;
 
-            //// Cập nhật IsFirstLogin thành false sau khi đăng nhập lần đầu
             if (user.IsFirstLogin)
             {
                 user.IsFirstLogin = false;
                 await _userRepository.UpdateUserAsync(user);
             }
 
+            var token = GenerateJwtToken(user.Email, "Admin", user.UserId);
+
             return new AdminLoginResponseDTO
             {
                 UserID = user.UserId,
                 UserName = user.UserName,
                 PhoneNumber = user.PhoneNumber,
-                Password = user.Password,
                 Email = user.Email,
                 Address = user.Address,
                 FullName = user.FullName,
                 RoleId = user.RoleId,
                 Image = user.Image,
-                IsFirstLogin = user.IsFirstLogin
+                IsFirstLogin = isFirstLogin,
+                Token = token
             };
         }
 
-
-        public string GenerateJwtToken(string email, string role)
+        public string GenerateJwtToken(string email, string role, int userId)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
@@ -75,10 +74,11 @@ namespace SWP391.BLL.Services.LoginService
             {
                 Subject = new ClaimsIdentity(new[]
                 {
+                    new Claim(ClaimTypes.NameIdentifier, userId.ToString()),
                     new Claim(ClaimTypes.Name, email),
                     new Claim(ClaimTypes.Role, role)
                 }),
-                Expires = DateTime.UtcNow.AddMinutes(5),
+                Expires = DateTime.UtcNow.AddHours(1),
                 Issuer = _configuration["Jwt:Issuer"],
                 Audience = _configuration["Jwt:Audience"],
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -88,3 +88,4 @@ namespace SWP391.BLL.Services.LoginService
         }
     }
 }
+

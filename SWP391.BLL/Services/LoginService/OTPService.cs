@@ -233,7 +233,7 @@ public class OtpService
                 new Claim(ClaimTypes.Name, phoneNumber),
                 new Claim(ClaimTypes.Role, "User")
             }),
-            Expires = DateTime.UtcNow.AddMinutes(5),
+            Expires = DateTime.UtcNow.AddHours(1),
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
         };
         var token = tokenHandler.CreateToken(tokenDescriptor);

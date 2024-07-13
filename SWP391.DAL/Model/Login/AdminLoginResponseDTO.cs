@@ -12,5 +12,6 @@
         public int? RoleId { get; set; }
         public string Image { get; set; }
         public bool IsFirstLogin { get; set; }
+        public string Token { get; set; }
     }
 }

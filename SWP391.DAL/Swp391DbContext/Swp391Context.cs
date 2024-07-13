@@ -770,7 +770,12 @@ public partial class Swp391Context : DbContext
             entity.Property(e => e.VoucherName)
                 .HasMaxLength(100)
                 .HasColumnName("voucherName");
-
+            entity.Property(e => e.Price)
+                .HasColumnType("decimal(18, 2)")
+                .HasColumnName("price");
+            entity.Property(e => e.MinimumBillAmount)
+                .HasColumnType("decimal(18, 2)")
+                .HasColumnName("MinimumBillAmount");
             entity.HasOne(d => d.User).WithMany(p => p.Vouchers)
                 .HasForeignKey(d => d.UserId)
                 .HasConstraintName("FK__Vouchers__userID__74AE54BC");

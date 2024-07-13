@@ -7,6 +7,6 @@ namespace SWP391.BLL.Services.LoginService
     {
         Task<AdminLoginResponseDTO> AdminLoginAsync(AdminLoginDTO loginDTO);
         Task<UserLoginResponseDTO> UserLoginAsync(UserLoginDTO loginDTO);
-        string GenerateJwtToken(string email, string role);
+        string GenerateJwtToken(string email, string role, int userId);
     }
 }
