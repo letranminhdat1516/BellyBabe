@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SWP391.DAL.Entities;
 using SWP391.DAL.Model.Order;
+using SWP391.DAL.Model.Product;
 using SWP391.DAL.Swp391DbContext;
 using System;
 using System.Collections.Generic;
@@ -288,13 +289,11 @@ namespace SWP391.DAL.Repositories.OrderRepository
                 RecipientName = o.RecipientName,
                 RecipientPhone = o.RecipientPhone,
                 RecipientAddress = o.RecipientAddress,
-                OrderDetails = o.OrderDetails.Select(od => new OrderDetail
+                OrderDetails = o.OrderDetails.Select(od => new OrderDetailModel
                 {
-                    OrderDetailId = od.OrderDetailId,
-                    OrderId = od.OrderId,
                     ProductId = od.ProductId,
-                    Quantity = od.Quantity,
-                    Price = od.Price
+                    Price = od.Price,
+                    Quantity = od.Quantity
                 }).ToList(),
                 OrderStatuses = o.OrderStatuses.Any()
                   ? o.OrderStatuses.Select(os => new OrderStatus
@@ -331,6 +330,66 @@ namespace SWP391.DAL.Repositories.OrderRepository
             }
 
             return latestStatus;
+        }
+
+        public async Task<OrderModel> GetOrderByIdAsync(int orderId)
+        {
+            var order = await _context.Orders
+                .Include(o => o.OrderDetails).ThenInclude(od => od.Product)
+                .Include(o => o.OrderStatuses)
+                .FirstOrDefaultAsync(o => o.OrderId == orderId);
+
+            if (order == null)
+            {
+                throw new ArgumentException("ID đơn hàng không hợp lệ.");
+            }
+
+            var orderModel = new OrderModel
+            {
+                OrderId = order.OrderId,
+                UserId = order.UserId,
+                Note = order.Note,
+                VoucherId = order.VoucherId,
+                TotalPrice = order.TotalPrice,
+                OrderDate = order.OrderDate,
+                RecipientName = order.RecipientName,
+                RecipientPhone = order.RecipientPhone,
+                RecipientAddress = order.RecipientAddress,
+                OrderDetails = order.OrderDetails.Select(od => new OrderDetailModel
+                {
+                    ProductId = od.ProductId,
+                    Price = od.Price,
+                    Quantity = od.Quantity,
+                    Product = new ProductModel
+                    {
+                        ProductId = od.Product?.ProductId ?? 0,
+                        ProductName = od.Product?.ProductName,
+                        IsSelling = od.Product?.IsSelling,
+                        Description = od.Product?.Description,
+                        Quantity = od.Product?.Quantity ?? 0,
+                        IsSoldOut = od.Product?.IsSoldOut ?? 0,
+                        BackInStockDate = od.Product?.BackInStockDate,
+                        CategoryId = od.Product?.CategoryId,
+                        BrandId = od.Product?.BrandId,
+                        FeedbackTotal = od.Product?.FeedbackTotal,
+                        OldPrice = od.Product?.OldPrice,
+                        Discount = od.Product?.Discount,
+                        NewPrice = od.Product?.NewPrice,
+                        ImageLinks = od.Product?.ImageLinks,
+                        Brand = od.Product?.Brand,
+                        Category = od.Product?.Category
+                    }
+                }).ToList(),
+                OrderStatuses = order.OrderStatuses.Select(os => new OrderStatus
+                {
+                    StatusId = os.StatusId,
+                    StatusName = os.StatusName,
+                    OrderId = os.OrderId,
+                    StatusUpdateDate = os.StatusUpdateDate
+                }).ToList()
+            };
+
+            return orderModel;
         }
     }
 }
