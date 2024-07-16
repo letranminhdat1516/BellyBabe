@@ -132,5 +132,23 @@ namespace SWP391.API.Controllers
                 return StatusCode(500, new { Error = $"Lỗi server: {ex.Message}" });
             }
         }
+
+        [HttpGet("GetOrderById/{orderId}")]
+        public async Task<IActionResult> GetOrderById(int orderId)
+        {
+            try
+            {
+                var order = await _orderService.GetOrderByIdAsync(orderId);
+                return Ok(order);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { Error = $"Lỗi lấy đơn hàng: {ex.Message}" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Error = $"Lỗi server: {ex.Message}" });
+            }
+        }
     }
 }

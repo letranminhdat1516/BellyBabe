@@ -146,5 +146,26 @@ namespace SWP391.BLL.Services.OrderServices
                 throw new Exception($"Lấy trạng thái mới nhất của đơn hàng thất bại: {ex.Message}");
             }
         }
+
+        public async Task<OrderModel> GetOrderByIdAsync(int orderId)
+        {
+            try
+            {
+                if (orderId <= 0)
+                {
+                    throw new ArgumentException("Vui lòng cung cấp ID đơn hàng.");
+                }
+
+                return await _orderRepository.GetOrderByIdAsync(orderId);
+            }
+            catch (ArgumentException ex)
+            {
+                throw new ArgumentException($"Không thể lấy đơn hàng: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Lấy đơn hàng thất bại: {ex.Message}");
+            }
+        }
     }
 }
