@@ -24,8 +24,7 @@ namespace SWP391.Controllers
             try
             {
                 var feedback = await _feedbackService.CreateFeedbackAsync(userId, orderId, productId, content, rating);
-                var routeValues = new { id = feedback.FeedbackId };
-                return CreatedAtAction(nameof(GetFeedback), routeValues, feedback);
+                return Ok(feedback);
             }
             catch (InvalidOperationException ex)
             {
