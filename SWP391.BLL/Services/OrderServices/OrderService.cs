@@ -32,7 +32,7 @@ namespace SWP391.BLL.Services.OrderServices
             }
         }
 
-        public async Task<List<Order>> GetOrdersAsync(int userId)
+        public async Task<List<OrderModel>> GetOrdersAsync(int userId)
         {
             try
             {
@@ -52,6 +52,7 @@ namespace SWP391.BLL.Services.OrderServices
                 throw new Exception($"Lấy đơn hàng thất bại: {ex.Message}");
             }
         }
+
 
         public async Task UpdateOrderStatusAsync(int orderId, string newStatus)
         {

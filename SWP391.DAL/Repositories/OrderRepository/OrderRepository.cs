@@ -142,15 +142,6 @@ namespace SWP391.DAL.Repositories.OrderRepository
             return order;
         }
 
-        public async Task<List<Order>> GetOrdersAsync(int userId)
-        {
-            return await _context.Orders
-                .Where(o => o.UserId == userId)
-                .Include(o => o.OrderStatuses)
-                .Include(o => o.Deliveries)
-                .ToListAsync();
-        }
-
         public async Task UpdateOrderStatusAsync(int orderId, string statusName)
         {
             using var transaction = await _context.Database.BeginTransactionAsync();
@@ -390,6 +381,64 @@ namespace SWP391.DAL.Repositories.OrderRepository
             };
 
             return orderModel;
+        }
+
+        public async Task<List<OrderModel>> GetOrdersAsync(int userId)
+        {
+            var orders = await _context.Orders
+                .Where(o => o.UserId == userId)
+                .Include(o => o.OrderDetails)
+                    .ThenInclude(od => od.Product) 
+                .Include(o => o.OrderStatuses)
+                .Include(o => o.Deliveries)
+                .ToListAsync();
+
+            var orderModels = orders.Select(order => new OrderModel
+            {
+                OrderId = order.OrderId,
+                UserId = order.UserId,
+                Note = order.Note,
+                VoucherId = order.VoucherId,
+                TotalPrice = order.TotalPrice,
+                OrderDate = order.OrderDate,
+                RecipientName = order.RecipientName,
+                RecipientPhone = order.RecipientPhone,
+                RecipientAddress = order.RecipientAddress,
+                OrderDetails = order.OrderDetails.Select(od => new OrderDetailModel
+                {
+                    ProductId = od.ProductId,
+                    Quantity = od.Quantity,
+                    Price = od.Price,
+                    Product = new ProductModel
+                    {
+                        ProductId = od.Product?.ProductId ?? 0,
+                        ProductName = od.Product?.ProductName,
+                        IsSelling = od.Product?.IsSelling,
+                        Description = od.Product?.Description,
+                        Quantity = od.Product?.Quantity ?? 0,
+                        IsSoldOut = od.Product?.IsSoldOut ?? 0,
+                        BackInStockDate = od.Product?.BackInStockDate,
+                        CategoryId = od.Product?.CategoryId,
+                        BrandId = od.Product?.BrandId,
+                        FeedbackTotal = od.Product?.FeedbackTotal,
+                        OldPrice = od.Product?.OldPrice,
+                        Discount = od.Product?.Discount,
+                        NewPrice = od.Product?.NewPrice,
+                        ImageLinks = od.Product?.ImageLinks,
+                        Brand = od.Product?.Brand,
+                        Category = od.Product?.Category
+                    }
+                }).ToList(),
+                OrderStatuses = order.OrderStatuses.Select(os => new OrderStatus
+                {
+                    StatusId = os.StatusId,
+                    StatusName = os.StatusName,
+                    OrderId = os.OrderId,
+                    StatusUpdateDate = os.StatusUpdateDate
+                }).ToList()
+            }).ToList();
+
+            return orderModels;
         }
     }
 }
