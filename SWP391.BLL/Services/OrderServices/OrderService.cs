@@ -16,7 +16,7 @@ namespace SWP391.BLL.Services.OrderServices
             _orderRepository = orderRepository;
         }
 
-        public async Task PlaceOrderAsync(int userId, string recipientName, string recipientPhone, string recipientAddress, int deliveryId, string note, bool? usePoints = null)
+        public async Task PlaceOrderAsync(int userId, string recipientName, string recipientPhone, string recipientAddress, int deliveryId, string? note, bool? usePoints = null)
         {
             try
             {

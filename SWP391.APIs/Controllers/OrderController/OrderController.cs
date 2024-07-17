@@ -19,7 +19,7 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPost("PlaceOrder")]
-        public async Task<IActionResult> PlaceOrder(int userId, string recipientName, string recipientPhone, string recipientAddress, int deliveryId, string note, bool? usePoints = null)
+        public async Task<IActionResult> PlaceOrder(int userId, string recipientName, string recipientPhone, string recipientAddress, int deliveryId, string? note, bool? usePoints = null)
         {
             try
             {

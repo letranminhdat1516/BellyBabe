@@ -31,7 +31,7 @@ namespace SWP391.DAL.Repositories.OrderRepository
             _cumulativeScoreTransactionRepository = cumulativeScoreTransactionRepository;
         }
 
-        public async Task<Order> PlaceOrderAsync(int userId, string recipientName, string recipientPhone, string recipientAddress, int deliveryId, string note, bool? usePoints = null)
+        public async Task<Order> PlaceOrderAsync(int userId, string recipientName, string recipientPhone, string recipientAddress, int deliveryId, string? note, bool? usePoints = null)
         {
             var user = await _context.Users.FindAsync(userId);
             if (user == null)
