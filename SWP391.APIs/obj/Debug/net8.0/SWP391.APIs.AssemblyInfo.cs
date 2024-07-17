@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SWP391.APIs")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d199920fe97fe83b4e013c6caf1dfc732a083fa")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+44631d390b91670b896f772c00268c4df4f38fd4")]
+>>>>>>> 5802bd84c9eb1c9b72bd8c341db6ab56273ec558
 [assembly: System.Reflection.AssemblyProductAttribute("SWP391.APIs")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SWP391.APIs")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
