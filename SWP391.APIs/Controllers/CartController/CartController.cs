@@ -18,14 +18,14 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPost("AddToCart")]
-        public async Task<IActionResult> AddToCartAsync(int userId, int productId, int quantity)
+        public async Task<IActionResult> AddToCartAsync(int userId, int productId, int quantity, bool isChecked = false)
         {
-            if (productId <= 0 || quantity <= 0)
+            if (userId <= 0 || productId <= 0 || quantity <= 0)
             {
                 return BadRequest("Thông số đầu vào không hợp lệ.");
             }
 
-            var result = await _cartService.AddProductToCartAsync(userId, productId, quantity);
+            var result = await _cartService.AddToCartAsync(userId, productId, quantity, isChecked);
             if (result.StartsWith("Thêm sản phẩm vào giỏ hàng thất bại"))
             {
                 return BadRequest(result);
@@ -33,7 +33,6 @@ namespace SWP391.API.Controllers
 
             return Ok(result);
         }
-
 
         [HttpPost("PurchaseNow")]
         public async Task<IActionResult> PurchaseNowAsync(int userId, int productId, int quantity)
@@ -44,7 +43,24 @@ namespace SWP391.API.Controllers
             }
 
             var result = await _cartService.PurchaseNowAsync(userId, productId, quantity);
-            if (result.StartsWith("Mua ngay sản phẩm thất bại"))
+            if (result.StartsWith("Thêm sản phẩm để mua ngay thất bại"))
+            {
+                return BadRequest(result);
+            }
+
+            return Ok(result);
+        }
+
+        [HttpPost("UpdateIsChecked")]
+        public async Task<IActionResult> UpdateIsCheckedAsync(int userId, int productId, bool isChecked)
+        {
+            if (userId <= 0 || productId <= 0)
+            {
+                return BadRequest("Thông số đầu vào không hợp lệ.");
+            }
+
+            var result = await _cartService.UpdateIsCheckedAsync(userId, productId, isChecked);
+            if (result.StartsWith("Cập nhật trạng thái chọn thất bại"))
             {
                 return BadRequest(result);
             }
@@ -103,7 +119,7 @@ namespace SWP391.API.Controllers
             return Ok(result);
         }
 
-        [HttpDelete("DeleteProductFromCart")]
+        [HttpPost("DeleteProductFromCart")]
         public async Task<IActionResult> DeleteProductFromCartAsync(int userId, int productId)
         {
             if (userId <= 0 || productId <= 0)

@@ -29,29 +29,29 @@ namespace SWP391.DAL.Repositories.DeliveryRepository
                 throw new ArgumentException("Phí giao hàng phải lớn hơn hoặc bằng 0.");
             }
 
-            var newDelivery = new Delivery
+            var newDelivery = new DeliveryMethod    
             {
                 DeliveryName = deliveryName,
                 DeliveryFee = deliveryFee
             };
 
-            _context.Deliveries.Add(newDelivery);
+            _context.DeliveryMethods.Add(newDelivery);
             await _context.SaveChangesAsync();
         }
 
         public async Task DeleteDelivery(int deliveryId)
         {
-            var delivery = await _context.Deliveries.FindAsync(deliveryId);
+            var delivery = await _context.DeliveryMethods.FindAsync(deliveryId);
             if (delivery != null)
             {
-                _context.Deliveries.Remove(delivery);
+                _context.DeliveryMethods.Remove(delivery);
                 await _context.SaveChangesAsync();
             }
         }
 
         public async Task UpdateDelivery(int deliveryId, string? deliveryName = null, int? deliveryFee = null)
         {
-            var delivery = await _context.Deliveries.FindAsync(deliveryId);
+            var delivery = await _context.DeliveryMethods.FindAsync(deliveryId);
             if (delivery == null)
             {
                 throw new ArgumentException("Không tìm thấy phương thức vận chuyển");
@@ -74,16 +74,16 @@ namespace SWP391.DAL.Repositories.DeliveryRepository
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<Delivery>> GetAllDeliveries()
+        public async Task<List<DeliveryMethod>> GetAllDeliveries()
         {
-            return await _context.Deliveries
+            return await _context.DeliveryMethods
                 .AsNoTracking()
                 .ToListAsync();
         }
 
-        public async Task<Delivery> GetDeliveryById(int deliveryId)
+        public async Task<DeliveryMethod> GetDeliveryById(int deliveryId)
         {
-            var delivery = await _context.Deliveries
+            var delivery = await _context.DeliveryMethods
                 .AsNoTracking()
                 .FirstOrDefaultAsync(d => d.DeliveryId == deliveryId);
 

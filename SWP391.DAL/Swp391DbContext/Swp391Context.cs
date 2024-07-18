@@ -28,7 +28,7 @@ public partial class Swp391Context : DbContext
 
     public virtual DbSet<CustomerOption> CustomerOptions { get; set; }
 
-    public virtual DbSet<Delivery> Deliveries { get; set; }
+    public virtual DbSet<DeliveryMethod> DeliveryMethods { get; set; }
 
     public virtual DbSet<Feedback> Feedbacks { get; set; }
 
@@ -206,11 +206,11 @@ public partial class Swp391Context : DbContext
                 .HasConstraintName("FK__CustomerO__userI__6E01572D");
         });
 
-        modelBuilder.Entity<Delivery>(entity =>
+        modelBuilder.Entity<DeliveryMethod>(entity =>
         {
-            entity.HasKey(e => e.DeliveryId).HasName("PK__Delivery__CDC3A0D26A2F597C");
+            entity.HasKey(e => e.DeliveryId).HasName("PK__Delivery__CDC3A0D22F70D5A2");
 
-            entity.ToTable("Delivery");
+            entity.ToTable("DeliveryMethod");
 
             entity.Property(e => e.DeliveryId).HasColumnName("deliveryID");
             entity.Property(e => e.DeliveryFee).HasColumnName("deliveryFee");
@@ -219,9 +219,9 @@ public partial class Swp391Context : DbContext
                 .HasColumnName("deliveryName");
             entity.Property(e => e.OrderId).HasColumnName("orderID");
 
-            entity.HasOne(d => d.Order).WithMany(p => p.Deliveries)
+            entity.HasOne(d => d.Order).WithMany(p => p.DeliveryMethods)
                 .HasForeignKey(d => d.OrderId)
-                .HasConstraintName("FK__Delivery__orderI__7F2BE32F");
+                .HasConstraintName("FK__DeliveryM__order__797309D9");
         });
 
         modelBuilder.Entity<Feedback>(entity =>
@@ -407,7 +407,7 @@ public partial class Swp391Context : DbContext
             entity.HasKey(e => e.OrderDetailId).HasName("PK__OrderDet__E4FEDE2A17EBCB57");
 
             entity.Property(e => e.OrderDetailId).HasColumnName("orderDetailID");
-            //entity.Property(e => e.IsChecked).HasColumnName("isChecked");
+            entity.Property(e => e.IsChecked).HasColumnName("isChecked");
             entity.Property(e => e.OrderId).HasColumnName("orderID");
             entity.Property(e => e.Price).HasColumnName("price");
             entity.Property(e => e.ProductId).HasColumnName("productID");

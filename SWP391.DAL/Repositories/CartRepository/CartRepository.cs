@@ -58,5 +58,52 @@ namespace SWP391.DAL.Repositories
                 .Include(od => od.Product)
                 .ToListAsync();
         }
+
+        public async Task<OrderDetail> AddToCartAsync(int userId, int productId, int quantity, bool isChecked)
+        {
+            var product = await GetProductAsync(productId);
+            if (product == null)
+            {
+                throw new ArgumentException("ID sản phẩm không hợp lệ.");
+            }
+
+            var orderDetail = await GetOrderDetailAsync(userId, productId);
+            if (orderDetail == null)
+            {
+                orderDetail = new OrderDetail
+                {
+                    UserId = userId,
+                    ProductId = productId,
+                    Quantity = quantity,
+                    Price = (int)(product.NewPrice * quantity),
+                    IsChecked = isChecked
+                };
+                await AddOrderDetailAsync(orderDetail);
+            }
+            else
+            {
+                orderDetail.Quantity += quantity;
+                orderDetail.Price = (int)(product.NewPrice * orderDetail.Quantity);
+                orderDetail.IsChecked = isChecked;
+                await UpdateOrderDetailAsync(orderDetail);
+            }
+
+            return orderDetail;
+        }
+
+        public async Task<OrderDetail> PurchaseNowAsync(int userId, int productId, int quantity)
+        {
+            return await AddToCartAsync(userId, productId, quantity, true);
+        }
+
+        public async Task UpdateIsCheckedAsync(int userId, int productId, bool isChecked)
+        {
+            var orderDetail = await GetOrderDetailAsync(userId, productId);
+            if (orderDetail != null)
+            {
+                orderDetail.IsChecked = isChecked;
+                await UpdateOrderDetailAsync(orderDetail);
+            }
+        }
     }
 }

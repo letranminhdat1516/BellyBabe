@@ -17,7 +17,7 @@ public partial class OrderDetail
 
     public int? Quantity { get; set; }
 
-    //public bool? IsChecked { get; set; }
+    public bool? IsChecked { get; set; }
 
     public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();
 
