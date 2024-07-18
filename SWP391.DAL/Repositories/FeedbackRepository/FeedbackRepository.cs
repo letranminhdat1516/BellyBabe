@@ -18,8 +18,22 @@ namespace SWP391.DAL.Repositories.FeedbackRepository
             _context = context;
         }
 
+        public async Task<bool> HasUserProvidedFeedbackAsync(int userId, int orderId, int productId)
+        {
+            return await _context.Feedbacks
+                .AnyAsync(f => f.UserId == userId &&
+                               f.OrderDetail.OrderId == orderId &&
+                               f.ProductId == productId);
+        }
+
         public async Task<Feedback> CreateFeedbackAsync(int userId, int orderId, int productId, string content, int rating)
         {
+            var hasProvidedFeedback = await HasUserProvidedFeedbackAsync(userId, orderId, productId);
+            if (hasProvidedFeedback)
+            {
+                throw new InvalidOperationException("User has already provided feedback for this order and product.");
+            }
+
             var order = await _context.Orders
                 .Include(o => o.OrderStatuses)
                 .Include(o => o.OrderDetails)
