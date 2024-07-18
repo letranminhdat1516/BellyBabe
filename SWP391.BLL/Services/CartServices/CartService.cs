@@ -28,11 +28,10 @@ namespace SWP391.BLL.Services.CartServices
             }
         }
 
-        public async Task<string> AddProductToCartAsync(int? userId, int productId, int quantity)
+        public async Task<string> AddToCartAsync(int userId, int productId, int quantity, bool isChecked = false)
         {
             try
             {
-
                 var product = await _cartRepository.GetProductAsync(productId);
                 if (product == null)
                 {
@@ -49,30 +48,7 @@ namespace SWP391.BLL.Services.CartServices
                     return "Số lượng sản phẩm phải lớn hơn 0.";
                 }
 
-                OrderDetail orderDetail = null;
-                if (userId.HasValue)
-                {
-                    orderDetail = await _cartRepository.GetOrderDetailAsync(userId.Value, productId);
-                }
-
-                if (orderDetail == null)
-                {
-                    orderDetail = new OrderDetail
-                    {
-                        UserId = userId,
-                        ProductId = productId,
-                        Quantity = quantity,
-                        Price = (int)(product.NewPrice * quantity)
-                    };
-                    await _cartRepository.AddOrderDetailAsync(orderDetail);
-                }
-                else
-                {
-                    orderDetail.Quantity += quantity;
-                    orderDetail.Price = (int)(product.NewPrice * orderDetail.Quantity);
-                    await _cartRepository.UpdateOrderDetailAsync(orderDetail);
-                }
-
+                await _cartRepository.AddToCartAsync(userId, productId, quantity, isChecked);
                 return "Đã thêm sản phẩm vào giỏ hàng thành công.";
             }
             catch (Exception ex)
@@ -81,48 +57,29 @@ namespace SWP391.BLL.Services.CartServices
             }
         }
 
-
         public async Task<string> PurchaseNowAsync(int userId, int productId, int quantity)
         {
             try
             {
-                var user = await _cartRepository.GetUserAsync(userId);
-                if (user == null)
-                {
-                    return "ID người dùng không hợp lệ.";
-                }
-
-                var product = await _cartRepository.GetProductAsync(productId);
-                if (product == null)
-                {
-                    return "ID sản phẩm không hợp lệ.";
-                }
-
-                if (product.IsSelling != true)
-                {
-                    return "Sản phẩm hiện không có sẵn để mua.";
-                }
-
-                if (quantity <= 0)
-                {
-                    return "Số lượng sản phẩm phải lớn hơn 0.";
-                }
-
-                var orderDetail = new OrderDetail
-                {
-                    UserId = userId,
-                    ProductId = productId,
-                    Quantity = quantity,
-                    Price = (int)(product.NewPrice * quantity)
-                };
-
-                await _cartRepository.AddOrderDetailAsync(orderDetail);
-
-                return "Đã mua ngay sản phẩm thành công.";
+                await _cartRepository.PurchaseNowAsync(userId, productId, quantity);
+                return "Đã thêm sản phẩm vào giỏ hàng và đánh dấu để mua ngay.";
             }
             catch (Exception ex)
             {
-                return $"Mua ngay sản phẩm thất bại: {ex.Message}";
+                return $"Thêm sản phẩm để mua ngay thất bại: {ex.Message}";
+            }
+        }
+
+        public async Task<string> UpdateIsCheckedAsync(int userId, int productId, bool isChecked)
+        {
+            try
+            {
+                await _cartRepository.UpdateIsCheckedAsync(userId, productId, isChecked);
+                return "Đã cập nhật trạng thái chọn của sản phẩm trong giỏ hàng.";
+            }
+            catch (Exception ex)
+            {
+                return $"Cập nhật trạng thái chọn thất bại: {ex.Message}";
             }
         }
 

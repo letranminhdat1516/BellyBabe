@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SWP391.DAL.Entities;
 
-public partial class Delivery
+public partial class DeliveryMethod
 {
     public int DeliveryId { get; set; }
 

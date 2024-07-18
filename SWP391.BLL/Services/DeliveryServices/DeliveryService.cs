@@ -59,7 +59,7 @@ namespace SWP391.BLL.Services
             }
         }
 
-        public async Task<List<Delivery>> GetAllDeliveries()
+        public async Task<List<DeliveryMethod>> GetAllDeliveries()
         {
             try
             {
@@ -71,7 +71,7 @@ namespace SWP391.BLL.Services
             }
         }
 
-        public async Task<Delivery> GetDeliveryById(int deliveryId)
+        public async Task<DeliveryMethod> GetDeliveryById(int deliveryId)
         {
             try
             {

@@ -73,7 +73,7 @@ namespace SWP391.API.Controllers
         }
 
         [HttpGet("GetAllDeliveries")]
-        public async Task<ActionResult<List<Delivery>>> GetAllDeliveries()
+        public async Task<ActionResult<List<DeliveryMethod>>> GetAllDeliveries()
         {
             try
             {
@@ -87,7 +87,7 @@ namespace SWP391.API.Controllers
         }
 
         [HttpGet("GetDeliveryById/{deliveryId}")]
-        public async Task<ActionResult<Delivery>> GetDeliveryById([FromRoute] int deliveryId)
+        public async Task<ActionResult<DeliveryMethod>> GetDeliveryById([FromRoute] int deliveryId)
         {
             try
             {

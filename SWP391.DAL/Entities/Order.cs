@@ -27,7 +27,7 @@ public partial class Order
 
     public virtual ICollection<CumulativeScoreTransaction> CumulativeScoreTransactions { get; set; } = new List<CumulativeScoreTransaction>();
 
-    public virtual ICollection<Delivery> Deliveries { get; set; } = new List<Delivery>();
+    public virtual ICollection<DeliveryMethod> DeliveryMethods { get; set; } = new List<DeliveryMethod>();
 
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 

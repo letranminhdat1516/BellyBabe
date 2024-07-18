@@ -40,13 +40,14 @@ namespace SWP391.DAL.Repositories.OrderRepository
             }
 
             var orderDetails = await _cartRepository.GetCartDetailsAsync(userId);
+            var checkedOrderDetails = orderDetails.Where(od => od.IsChecked == true).ToList();
 
-            if (!orderDetails.Any())
+            if (!checkedOrderDetails.Any())
             {
-                throw new Exception("Không có sản phẩm trong giỏ hàng.");
+                throw new Exception("Không có sản phẩm được chọn trong giỏ hàng.");
             }
 
-            var delivery = await _context.Deliveries.FindAsync(deliveryId);
+            var delivery = await _context.DeliveryMethods.FindAsync(deliveryId);
             if (delivery == null)
             {
                 throw new Exception("Không tìm thấy phương thức giao hàng.");
@@ -84,15 +85,15 @@ namespace SWP391.DAL.Repositories.OrderRepository
                 _context.Orders.Add(order);
                 await _context.SaveChangesAsync();
 
-                var orderDelivery = new Delivery
+                var orderDelivery = new DeliveryMethod
                 {
                     OrderId = order.OrderId,
                     DeliveryName = delivery.DeliveryName,
                     DeliveryFee = delivery.DeliveryFee
                 };
-                _context.Deliveries.Add(orderDelivery);
+                _context.DeliveryMethods.Add(orderDelivery);
 
-                foreach (var orderDetail in orderDetails)
+                foreach (var orderDetail in checkedOrderDetails)
                 {
                     orderDetail.OrderId = order.OrderId;
                     orderDetail.UserId = null;
@@ -141,8 +142,8 @@ namespace SWP391.DAL.Repositories.OrderRepository
 
             return order;
         }
-
-        public async Task UpdateOrderStatusAsync(int orderId, string statusName)
+    
+    public async Task UpdateOrderStatusAsync(int orderId, string statusName)
         {
             using var transaction = await _context.Database.BeginTransactionAsync();
             try
@@ -216,7 +217,7 @@ namespace SWP391.DAL.Repositories.OrderRepository
             return await _context.Orders
                 .Where(o => o.UserId == userId && o.OrderStatuses.Any(os => os.StatusId == status.StatusId))
                 .Include(o => o.OrderStatuses)
-                .Include(o => o.Deliveries)
+                .Include(o => o.DeliveryMethods)
                 .ToListAsync();
         }
 
@@ -390,7 +391,7 @@ namespace SWP391.DAL.Repositories.OrderRepository
                 .Include(o => o.OrderDetails)
                     .ThenInclude(od => od.Product) 
                 .Include(o => o.OrderStatuses)
-                .Include(o => o.Deliveries)
+                .Include(o => o.DeliveryMethods)
                 .ToListAsync();
 
             var orderModels = orders.Select(order => new OrderModel
