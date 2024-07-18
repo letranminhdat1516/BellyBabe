@@ -40,15 +40,23 @@ namespace SWP391.DAL.Repositories.UserRepository
 
         public async Task AddUserAsync(User user)
         {
-
+            user.PhoneNumber = NormalizePhoneNumber(user.PhoneNumber);
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
         }
-
         public async Task UpdateUserAsync(User user)
         {
+            user.PhoneNumber = NormalizePhoneNumber(user.PhoneNumber);
             _context.Users.Update(user);
             await _context.SaveChangesAsync();
+        }
+        private string NormalizePhoneNumber(string phoneNumber)
+        {
+            if (phoneNumber.StartsWith("0"))
+            {
+                phoneNumber = "84" + phoneNumber.Substring(1);
+            }
+            return phoneNumber;
         }
 
         public async Task DeleteUserAsync(int userId)

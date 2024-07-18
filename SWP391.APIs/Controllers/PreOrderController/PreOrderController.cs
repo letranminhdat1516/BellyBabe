@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SWP391.BLL.Services.PreOrderService;
-using SWP391.DAL.Entities;
+using SWP391.DAL.Model.PreOrder;
 
 namespace SWP391.APIs.Controllers.PreOrderController
 {
@@ -23,7 +23,7 @@ namespace SWP391.APIs.Controllers.PreOrderController
                 return BadRequest("Invalid client request");
             }
 
-            var preOrder = await _preOrderService.CreatePreOrderAsync(model.UserId, model.ProductId);
+            var preOrder = await _preOrderService.CreatePreOrderAsync(model);
             return Ok(preOrder);
         }
 
@@ -33,18 +33,23 @@ namespace SWP391.APIs.Controllers.PreOrderController
             var preOrders = await _preOrderService.GetPreOrdersByUserIdAsync(userId);
             return Ok(preOrders);
         }
+
         [HttpGet("GetAllPreOrders")]
-        public async Task<ActionResult<List<PreOrder>>> GetAllPreOrders()
+        public async Task<ActionResult<List<PreOrderModel>>> GetAllPreOrders()
         {
             var preOrders = await _preOrderService.GetAllPreOrdersAsync();
             return Ok(preOrders);
         }
-    } 
+        [HttpPost("NotifyCustomer")]
+        public async Task<IActionResult> NotifyCustomer([FromBody] NotifyCustomerModel model)
+        {
+            if (model == null)
+            {
+                return BadRequest("Invalid client request");
+            }
 
-    public class CreatePreOrderModel
-    {
-        public int UserId { get; set; }
-        public int ProductId { get; set; }
+            await _preOrderService.NotifyCustomerAsync(model);
+            return Ok("Notification sent to the customer.");
+        }
     }
-
 }

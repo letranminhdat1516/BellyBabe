@@ -1,10 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SWP391.DAL.Entities;
 using SWP391.DAL.Swp391DbContext;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace SWP391.DAL.Repositories.PreOrderRepository
@@ -32,10 +30,19 @@ namespace SWP391.DAL.Repositories.PreOrderRepository
                 .Where(p => p.UserId == userId)
                 .ToListAsync();
         }
+
         public async Task<List<PreOrder>> GetAllPreOrdersAsync()
         {
             return await _context.PreOrders.ToListAsync();
         }
+        public async Task UpdateNotificationSentAsync(int preOrderId)
+        {
+            var preOrder = await _context.PreOrders.FindAsync(preOrderId);
+            if (preOrder != null)
+            {
+                preOrder.NotificationSent = true;
+                await _context.SaveChangesAsync();
+            }
+        }
     }
-
 }

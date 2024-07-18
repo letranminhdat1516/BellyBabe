@@ -28,7 +28,7 @@ public class UserController : ControllerBase
         }
 
         user.UserName = userUploadProfile.UserName;
-        user.PhoneNumber = userUploadProfile.PhoneNumber;
+        user.PhoneNumber = NormalizePhoneNumber(userUploadProfile.PhoneNumber);
         user.Email = userUploadProfile.Email;
         user.Address = userUploadProfile.Address;
         user.FullName = userUploadProfile.FullName;
@@ -66,7 +66,7 @@ public class UserController : ControllerBase
         }
 
         user.UserName = userUpdateDto.UserName;
-        user.PhoneNumber = userUpdateDto.PhoneNumber;
+        user.PhoneNumber = NormalizePhoneNumber(userUpdateDto.PhoneNumber);
         user.Email = userUpdateDto.Email;
         user.Address = userUpdateDto.Address;
         user.FullName = userUpdateDto.FullName;
@@ -120,6 +120,14 @@ public class UserController : ControllerBase
             return NotFound("User not found.");
         }
         return Ok(new { message = "Contact info updated successfully." });
+    }
+    private string NormalizePhoneNumber(string phoneNumber)
+    {
+        if (phoneNumber.StartsWith("0"))
+        {
+            phoneNumber = "84" + phoneNumber.Substring(1);
+        }
+        return phoneNumber;
     }
 }
 

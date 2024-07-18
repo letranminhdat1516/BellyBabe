@@ -86,7 +86,7 @@ namespace SWP391.BLL.Services
             if (user != null)
             {
                 user.UserName = userDto.UserName;
-                user.PhoneNumber = userDto.PhoneNumber;
+                user.PhoneNumber = NormalizePhoneNumber(userDto.PhoneNumber);
                 user.Password = userDto.Password; 
                 user.Email = userDto.Email;
                 user.Address = userDto.Address;
@@ -104,7 +104,14 @@ namespace SWP391.BLL.Services
             return user;
         }
 
-
+        private string NormalizePhoneNumber(string phoneNumber)
+        {
+            if (phoneNumber.StartsWith("0"))
+            {
+                phoneNumber = "84" + phoneNumber.Substring(1);
+            }
+            return phoneNumber;
+        }
 
         public async Task<bool> DeleteUserAsync(int userId)
         {
