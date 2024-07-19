@@ -119,7 +119,7 @@ namespace SWP391.API.Controllers
             return Ok(result);
         }
 
-        [HttpPost("DeleteProductFromCart")]
+        [HttpDelete("DeleteProductFromCart")]
         public async Task<IActionResult> DeleteProductFromCartAsync(int userId, int productId)
         {
             if (userId <= 0 || productId <= 0)

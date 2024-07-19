@@ -91,20 +91,26 @@ namespace SWP391.BLL.Services.PreOrderService
 
             foreach (var preOrder in preOrders)
             {
-                preOrderModels.Add(new PreOrderModel
+                if (preOrder != null)
                 {
-                    PreOrderId = preOrder.PreOrderId,
-                    UserId = preOrder.UserId,
-                    ProductId = preOrder.ProductId,
-                    ProductName = preOrder.Product.ProductName, 
-                    PhoneNumber = preOrder.User.PhoneNumber,
-                    Email = preOrder.User.Email, 
-                    PreOrderDate = preOrder.PreOrderDate,
-                    NotificationSent = preOrder.NotificationSent
-                });
+                    var preOrderModel = new PreOrderModel
+                    {
+                        PreOrderId = preOrder.PreOrderId,
+                        UserId = preOrder.UserId,
+                        ProductId = preOrder.ProductId,
+                        ProductName = preOrder.Product?.ProductName,
+                        PhoneNumber = preOrder.User?.PhoneNumber,
+                        Email = preOrder.User?.Email,
+                        PreOrderDate = preOrder.PreOrderDate,
+                        NotificationSent = preOrder.NotificationSent
+                    };
+
+                    preOrderModels.Add(preOrderModel);
+                }
             }
 
             return preOrderModels;
         }
+
     }
 }

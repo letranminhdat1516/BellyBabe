@@ -27,14 +27,19 @@ namespace SWP391.DAL.Repositories.PreOrderRepository
         {
             return await _context.PreOrders
                 .Include(p => p.Product)
+                .Include(p => p.User)
                 .Where(p => p.UserId == userId)
                 .ToListAsync();
         }
 
         public async Task<List<PreOrder>> GetAllPreOrdersAsync()
         {
-            return await _context.PreOrders.ToListAsync();
+            return await _context.PreOrders
+                .Include(p => p.Product)
+                .Include(p => p.User)
+                .ToListAsync();
         }
+
         public async Task UpdateNotificationSentAsync(int preOrderId)
         {
             var preOrder = await _context.PreOrders.FindAsync(preOrderId);
