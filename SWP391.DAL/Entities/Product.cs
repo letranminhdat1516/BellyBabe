@@ -9,8 +9,6 @@ public partial class Product
 
     public string ProductName { get; set; } = null!;
 
-    public bool? IsSelling { get; set; }
-
     public string? Description { get; set; }
 
     public int Quantity { get; set; }
@@ -32,6 +30,8 @@ public partial class Product
     public decimal? NewPrice { get; set; }
 
     public string? ImageLinks { get; set; }
+
+    public int IsSelling { get; set; }
 
     public virtual Brand? Brand { get; set; }
 

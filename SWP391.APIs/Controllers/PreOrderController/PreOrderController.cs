@@ -40,6 +40,7 @@ namespace SWP391.APIs.Controllers.PreOrderController
             var preOrders = await _preOrderService.GetAllPreOrdersAsync();
             return Ok(preOrders);
         }
+
         [HttpPost("NotifyCustomer")]
         public async Task<IActionResult> NotifyCustomer([FromBody] NotifyCustomerModel model)
         {
@@ -50,6 +51,17 @@ namespace SWP391.APIs.Controllers.PreOrderController
 
             await _preOrderService.NotifyCustomerAsync(model);
             return Ok("Notification sent to the customer.");
+        }
+
+        [HttpDelete("{preOrderId}")]
+        public async Task<IActionResult> DeletePreOrder(int preOrderId)
+        {
+            var result = await _preOrderService.DeletePreOrderAsync(preOrderId);
+            if (result)
+            {
+                return Ok("Pre-order deleted successfully.");
+            }
+            return NotFound("Pre-order not found.");
         }
     }
 }

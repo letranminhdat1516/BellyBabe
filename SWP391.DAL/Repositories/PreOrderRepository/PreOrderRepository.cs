@@ -49,5 +49,16 @@ namespace SWP391.DAL.Repositories.PreOrderRepository
                 await _context.SaveChangesAsync();
             }
         }
+        public async Task<bool> DeletePreOrderAsync(int preOrderId)
+        {
+            var preOrder = await _context.PreOrders.FindAsync(preOrderId);
+            if (preOrder != null)
+            {
+                _context.PreOrders.Remove(preOrder);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            return false;
+        }
     }
 }

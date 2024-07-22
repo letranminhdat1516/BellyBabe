@@ -38,14 +38,9 @@ namespace SWP391.BLL.Services.CartServices
                     return "ID sản phẩm không hợp lệ.";
                 }
 
-                if (product.IsSelling != true)
+                if(product.IsSoldOut == 1)
                 {
-                    return "Sản phẩm hiện không có sẵn để mua.";
-                }
-
-                if (quantity <= 0)
-                {
-                    return "Số lượng sản phẩm phải lớn hơn 0.";
+                    return "Sản phẩm không thể thêm vào giỏ hàng.";
                 }
 
                 await _cartRepository.AddToCartAsync(userId, productId, quantity, isChecked);
@@ -99,11 +94,6 @@ namespace SWP391.BLL.Services.CartServices
                     return "ID sản phẩm không hợp lệ.";
                 }
 
-                if (product.IsSelling != true)
-                {
-                    return "Sản phẩm hiện không có sẵn để mua.";
-                }
-
                 if (product.Quantity < orderDetail.Quantity + quantityToAdd)
                 {
                     return "Không đủ số lượng sản phẩm để thêm vào giỏ hàng.";
@@ -136,11 +126,6 @@ namespace SWP391.BLL.Services.CartServices
                 if (product == null)
                 {
                     return "ID sản phẩm không hợp lệ.";
-                }
-
-                if (product.IsSelling != true)
-                {
-                    return "Sản phẩm hiện không có sẵn để mua.";
                 }
 
                 orderDetail.Quantity -= quantityToSubtract;

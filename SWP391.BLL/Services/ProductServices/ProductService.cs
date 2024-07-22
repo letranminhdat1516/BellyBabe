@@ -16,19 +16,15 @@ namespace SWP391.BLL.Services.ProductServices
             _productRepository = productRepository;
         }
 
-        public async Task AddProduct(string productName, bool? isSelling, string? description, int quantity, int isSoldOut, DateTime? backInStockDate, int? categoryId, int? brandId, int? feedbackTotal, int? oldPrice, decimal? discount, string? imageLinks)
+        public async Task AddProduct(string productName, string? description, int quantity, int? categoryId, int? brandId, int? oldPrice, decimal? discount, string? imageLinks)
         {
             var productModel = new ProductModel
             {
                 ProductName = productName,
-                IsSelling = isSelling,
                 Description = description,
                 Quantity = quantity,
-                IsSoldOut = isSoldOut,
-                BackInStockDate = backInStockDate,
                 CategoryId = categoryId,
                 BrandId = brandId,
-                FeedbackTotal = feedbackTotal,
                 OldPrice = oldPrice,
                 Discount = discount,
                 ImageLinks = imageLinks
@@ -84,20 +80,16 @@ namespace SWP391.BLL.Services.ProductServices
             return product;
         }
 
-        public async Task UpdateProduct(int productId, string? productName, bool? isSelling, string? description, int? quantity, int? isSoldOut, DateTime? backInStockDate, int? categoryId, int? brandId, int? feedbackTotal, int? oldPrice, decimal? discount, string? imageLinks)
+        public async Task UpdateProduct(int productId, string? productName, string? description, int? quantity, int? categoryId, int? brandId, int? oldPrice, decimal? discount, string? imageLinks)
         {
             var productModel = new ProductModel
             {
                 ProductId = productId,
                 ProductName = productName,
-                IsSelling = isSelling,
                 Description = description,
                 Quantity = quantity ?? 0,
-                IsSoldOut = isSoldOut ?? 0,
-                BackInStockDate = backInStockDate,
                 CategoryId = categoryId,
                 BrandId = brandId,
-                FeedbackTotal = feedbackTotal,
                 OldPrice = oldPrice,
                 Discount = discount,
                 ImageLinks = imageLinks
@@ -111,6 +103,12 @@ namespace SWP391.BLL.Services.ProductServices
             var product = await GetProductById(productId);
             product.Quantity = quantity;
             await _productRepository.UpdateProduct(product);
+        }
+
+        public async Task UpdateProductImageLinksAsync(int productId, List<string> imageLinks)
+        {
+            var imageLinksString = string.Join(",", imageLinks);
+            await _productRepository.UpdateProductImageLinksAsync(productId, imageLinksString);
         }
     }
 }

@@ -111,6 +111,10 @@ namespace SWP391.BLL.Services.PreOrderService
 
             return preOrderModels;
         }
+        public async Task<bool> DeletePreOrderAsync(int preOrderId)
+        {
+            return await _preOrderRepository.DeletePreOrderAsync(preOrderId);
+        }
 
     }
 }
