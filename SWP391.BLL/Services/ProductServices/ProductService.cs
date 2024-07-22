@@ -104,5 +104,11 @@ namespace SWP391.BLL.Services.ProductServices
             product.Quantity = quantity;
             await _productRepository.UpdateProduct(product);
         }
+
+        public async Task UpdateProductImageLinksAsync(int productId, List<string> imageLinks)
+        {
+            var imageLinksString = string.Join(",", imageLinks);
+            await _productRepository.UpdateProductImageLinksAsync(productId, imageLinksString);
+        }
     }
 }

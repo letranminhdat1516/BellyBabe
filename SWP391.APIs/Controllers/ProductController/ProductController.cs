@@ -12,10 +12,45 @@ namespace SWP391.APIs.Controllers
     public class ProductController : ControllerBase
     {
         private readonly ProductService _productService;
+        private readonly string _imageFolderPath = @"D:\Semester 05\SWP391\Project\swp391-project-fe\src\assets\images\products";
 
         public ProductController(ProductService productService)
         {
             _productService = productService;
+        }
+
+        [HttpPost("UploadImages")]
+        public async Task<IActionResult> UploadImages(int productId, [FromForm] List<IFormFile> images)
+        {
+            if (images == null || images.Count == 0)
+            {
+                return BadRequest("No images received.");
+            }
+
+            try
+            {
+                var imageLinks = new List<string>();
+
+                foreach (var image in images)
+                {
+                    var fileName = Guid.NewGuid() + Path.GetExtension(image.FileName);
+                    var filePath = Path.Combine(_imageFolderPath, fileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await image.CopyToAsync(stream);
+                    }
+
+                    imageLinks.Add(fileName);
+                }
+
+                await _productService.UpdateProductImageLinksAsync(productId, imageLinks);
+                return Ok(new { Message = "Images uploaded successfully.", ImageLinks = imageLinks });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
 
         [HttpPost("AddProduct")]

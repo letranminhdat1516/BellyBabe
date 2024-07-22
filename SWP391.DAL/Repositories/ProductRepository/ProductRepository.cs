@@ -249,5 +249,22 @@ namespace SWP391.DAL.Repositories.ProductRepository
                 await _context.SaveChangesAsync();
             }
         }
+
+
+        public async Task<Product> GetProductByIdAsync(int productId)
+        {
+            return await _context.Products.FindAsync(productId);
+        }
+
+        public async Task UpdateProductImageLinksAsync(int productId, string imageLinks)
+        {
+            var product = await GetProductByIdAsync(productId);
+            if (product != null)
+            {
+                product.ImageLinks = imageLinks;
+                _context.Products.Update(product);
+                await _context.SaveChangesAsync();
+            }
+        }
     }
 }

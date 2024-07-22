@@ -27,4 +27,8 @@
     <ProjectReference Include="..\SWP391.DAL\SWP391.DAL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="UploadPhotos\" />
+  </ItemGroup>
+
 </Project>
