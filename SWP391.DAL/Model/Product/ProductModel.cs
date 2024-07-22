@@ -13,7 +13,7 @@ namespace SWP391.DAL.Model.Product
 
         public string ProductName { get; set; } = null!;
 
-        public bool? IsSelling { get; set; }
+        public int IsSelling { get; set; }
 
         public string? Description { get; set; }
 

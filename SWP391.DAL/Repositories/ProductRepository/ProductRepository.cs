@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 
 namespace SWP391.DAL.Repositories.ProductRepository
 {
@@ -52,7 +53,6 @@ namespace SWP391.DAL.Repositories.ProductRepository
             var newProduct = new Product
             {
                 ProductName = productModel.ProductName,
-                IsSelling = productModel.IsSelling ?? false,
                 Description = productModel.Description,
                 Quantity = productModel.Quantity,
                 IsSoldOut = productModel.IsSoldOut,
@@ -123,7 +123,6 @@ namespace SWP391.DAL.Repositories.ProductRepository
                     : product.NewPrice;
             }
 
-            product.IsSelling = productModel.IsSelling ?? product.IsSelling;
             product.Description = productModel.Description ?? product.Description;
             product.IsSoldOut = productModel.IsSoldOut;
             product.BackInStockDate = productModel.BackInStockDate;
@@ -213,7 +212,7 @@ namespace SWP391.DAL.Repositories.ProductRepository
         public async Task<List<ProductModel>> SearchProductByStatus(bool isSelling = true)
         {
             var products = await _context.Products
-                .Where(p => p.IsSelling == isSelling)
+                .Where(p => p.IsSelling == 1)
                 .AsNoTracking()
                 .Select(p => new ProductModel
                 {

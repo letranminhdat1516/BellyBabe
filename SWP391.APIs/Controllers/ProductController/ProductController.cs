@@ -19,11 +19,11 @@ namespace SWP391.APIs.Controllers
         }
 
         [HttpPost("AddProduct")]
-        public async Task<IActionResult> AddProduct(string productName, bool? isSelling, string? description, int quantity, int isSoldOut, DateTime? backInStockDate, int? categoryId, int? brandId, int? feedbackTotal, int? oldPrice, decimal? discount, string? imageLinks)
+        public async Task<IActionResult> AddProduct(string productName, string? description, int quantity, int? categoryId, int? brandId, int? oldPrice, decimal? discount, string? imageLinks)
         {
             try
             {
-                await _productService.AddProduct(productName, isSelling, description, quantity, isSoldOut, backInStockDate, categoryId, brandId, feedbackTotal, oldPrice, discount, imageLinks);
+                await _productService.AddProduct(productName, description, quantity, categoryId, brandId, oldPrice, discount, imageLinks);
                 return Ok(new { message = "Thêm sản phẩm thành công." });
             }
             catch (Exception ex)
@@ -135,11 +135,11 @@ namespace SWP391.APIs.Controllers
         }
 
         [HttpPut("UpdateProduct/{productId}")]
-        public async Task<IActionResult> UpdateProduct(int productId, string? productName, bool? isSelling, string? description, int? quantity, int? isSoldOut, DateTime? backInStockDate, int? categoryId, int? brandId, int? feedbackTotal, int? oldPrice, decimal? discount, string? imageLinks)
+        public async Task<IActionResult> UpdateProduct(int productId, string? productName, string? description, int? quantity, int? categoryId, int? brandId, int? oldPrice, decimal? discount, string? imageLinks)
         {
             try
             {
-                await _productService.UpdateProduct(productId, productName, isSelling, description, quantity, isSoldOut, backInStockDate, categoryId, brandId, feedbackTotal, oldPrice, discount, imageLinks);
+                await _productService.UpdateProduct(productId, productName, description, quantity, categoryId, brandId, oldPrice, discount, imageLinks);
                 return Ok(new { message = "Cập nhật sản phẩm thành công." });
             }
             catch (Exception ex)

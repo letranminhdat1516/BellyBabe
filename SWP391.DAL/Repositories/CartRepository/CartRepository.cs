@@ -61,15 +61,24 @@ namespace SWP391.DAL.Repositories
 
         public async Task<OrderDetail> AddToCartAsync(int userId, int productId, int quantity, bool isChecked)
         {
+            // Fetch the product
             var product = await GetProductAsync(productId);
             if (product == null)
             {
                 throw new ArgumentException("ID sản phẩm không hợp lệ.");
             }
 
+            // Check if the product is sold out
+            if (product.IsSoldOut == 1)
+            {
+                throw new ArgumentException("Sản phẩm đã hết hàng và không thể thêm vào giỏ.");
+            }
+
+            // Get the existing order detail for the user and product
             var orderDetail = await GetOrderDetailAsync(userId, productId);
             if (orderDetail == null)
             {
+                // Create a new order detail if it doesn't exist
                 orderDetail = new OrderDetail
                 {
                     UserId = userId,
@@ -82,6 +91,7 @@ namespace SWP391.DAL.Repositories
             }
             else
             {
+                // Update the existing order detail
                 orderDetail.Quantity += quantity;
                 orderDetail.Price = (int)(product.NewPrice * orderDetail.Quantity);
                 orderDetail.IsChecked = isChecked;
@@ -93,6 +103,13 @@ namespace SWP391.DAL.Repositories
 
         public async Task<OrderDetail> PurchaseNowAsync(int userId, int productId, int quantity)
         {
+            var product = await GetProductAsync(productId);
+
+            if (product.IsSoldOut == 1)
+            {
+                throw new ArgumentException("Sản phẩm đã hết hàng và không thể thêm vào giỏ.");
+            }
+
             return await AddToCartAsync(userId, productId, quantity, true);
         }
 

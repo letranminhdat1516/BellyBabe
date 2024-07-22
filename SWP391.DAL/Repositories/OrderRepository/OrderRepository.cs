@@ -64,6 +64,7 @@ namespace SWP391.DAL.Repositories.OrderRepository
                 pointsToUse = Math.Min(availablePoints, totalPrice);
             }
 
+
             int finalPrice = pointsToUse.HasValue ? Math.Max(totalPrice - pointsToUse.Value, 0) : totalPrice;
 
             var order = new Order
@@ -356,7 +357,6 @@ namespace SWP391.DAL.Repositories.OrderRepository
                     {
                         ProductId = od.Product?.ProductId ?? 0,
                         ProductName = od.Product?.ProductName,
-                        IsSelling = od.Product?.IsSelling,
                         Description = od.Product?.Description,
                         Quantity = od.Product?.Quantity ?? 0,
                         IsSoldOut = od.Product?.IsSoldOut ?? 0,
@@ -414,7 +414,6 @@ namespace SWP391.DAL.Repositories.OrderRepository
                     {
                         ProductId = od.Product?.ProductId ?? 0,
                         ProductName = od.Product?.ProductName,
-                        IsSelling = od.Product?.IsSelling,
                         Description = od.Product?.Description,
                         Quantity = od.Product?.Quantity ?? 0,
                         IsSoldOut = od.Product?.IsSoldOut ?? 0,

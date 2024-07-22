@@ -571,7 +571,7 @@ public partial class Swp391Context : DbContext
                 .HasColumnName("feedbackTotal");
             entity.Property(e => e.ImageLinks).HasColumnName("imageLinks");
             entity.Property(e => e.IsSelling)
-                .HasDefaultValue(true)
+                .HasComputedColumnSql("(case when [quantity]>(0) then (1) else (0) end)", true)
                 .HasColumnName("isSelling");
             entity.Property(e => e.IsSoldOut)
                 .HasComputedColumnSql("(case when [quantity]=(0) then (1) else (0) end)", true)
