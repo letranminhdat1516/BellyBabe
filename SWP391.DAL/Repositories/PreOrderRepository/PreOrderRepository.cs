@@ -22,7 +22,30 @@ namespace SWP391.DAL.Repositories.PreOrderRepository
             await _context.SaveChangesAsync();
             return preOrder;
         }
+        public async Task<PreOrder> GetPreOrderByUserIdAndProductIdAsync(int userId, int productId)
+        {
+            return await _context.PreOrders
+                .Include(p => p.User) // Bao gồm thông tin người dùng
+                .FirstOrDefaultAsync(p => p.UserId == userId && p.ProductId == productId);
+        }
+        public async Task<PreOrder> AddOrUpdatePreOrderAsync(PreOrder preOrder)
+        {
+            var existingPreOrder = await GetPreOrderByUserIdAndProductIdAsync(preOrder.UserId, preOrder.ProductId);
 
+            if (existingPreOrder != null)
+            {
+                existingPreOrder.NotificationSent = preOrder.NotificationSent;
+
+                _context.PreOrders.Update(existingPreOrder);
+            }
+            else
+            {
+                await _context.PreOrders.AddAsync(preOrder);
+            }
+
+            await _context.SaveChangesAsync();
+            return preOrder;
+        }
         public async Task<IEnumerable<PreOrder>> GetPreOrdersByUserIdAsync(int userId)
         {
             return await _context.PreOrders
@@ -60,5 +83,7 @@ namespace SWP391.DAL.Repositories.PreOrderRepository
             }
             return false;
         }
+
+ 
     }
 }

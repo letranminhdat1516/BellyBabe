@@ -5,6 +5,10 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using SWP391.DAL.Model.PreOrder;
+using Microsoft.EntityFrameworkCore;
+using SWP391.DAL.Repositories.UserRepository;
+using SWP391.DAL.Repositories.ProductRepository;
+using SWP391.DAL.Repositories.Contract;
 
 namespace SWP391.BLL.Services.PreOrderService
 {
@@ -12,11 +16,15 @@ namespace SWP391.BLL.Services.PreOrderService
     {
         private readonly PreOrderRepository _preOrderRepository;
         private readonly EmailService _emailService;
+        private readonly IUserRepository _userRepository;
+        private readonly ProductRepository _productRepository;
 
-        public PreOrderService(PreOrderRepository preOrderRepository, EmailService emailService)
+        public PreOrderService(PreOrderRepository preOrderRepository, EmailService emailService, IUserRepository userRepository,ProductRepository productRepository)
         {
             _preOrderRepository = preOrderRepository;
             _emailService = emailService;
+            _userRepository = userRepository;
+            _productRepository = productRepository;
         }
 
         public async Task<PreOrderModel> CreatePreOrderAsync(CreatePreOrderModel model)
@@ -49,6 +57,69 @@ namespace SWP391.BLL.Services.PreOrderService
                 NotificationSent = savedPreOrder.NotificationSent
             };
         }
+        public async Task<PreOrderModel> CreateOrUpdatePreOrderAsync(CreatePreOrderModel model)
+        {
+            var user = await _userRepository.GetUserByIdAsync(model.UserId);
+            var product = await _productRepository.GetProductByIdAsync(model.ProductId);
+
+            if (user == null || product == null)
+            {
+                throw new Exception("User or Product not found");
+            }
+
+            // Chuẩn hóa số điện thoại
+            string normalizedPhoneNumber = NormalizePhoneNumber(model.PhoneNumber);
+            if (user.PhoneNumber != normalizedPhoneNumber)
+            {
+                user.PhoneNumber = normalizedPhoneNumber;
+                await _userRepository.UpdateUserAsync(user); // Cập nhật số điện thoại nếu khác
+            }
+
+            // Cập nhật email nếu khác
+            if (user.Email != model.Email)
+            {
+                user.Email = model.Email;
+                await _userRepository.UpdateUserAsync(user); // Cập nhật email nếu khác
+            }
+
+            var preOrder = new PreOrder
+            {
+                UserId = model.UserId,
+                ProductId = model.ProductId,
+                PreOrderDate = DateTime.UtcNow,
+                NotificationSent = false
+            };
+
+            var savedPreOrder = await _preOrderRepository.AddOrUpdatePreOrderAsync(preOrder);
+
+            var emailSubject = "XÁC NHẬN ĐẶT TRƯỚC ĐƠN HÀNG";
+            var emailBody = $"Thân gửi {user.Email},\n\nCảm ơn bạn đặt trước sản phẩm {product.ProductName}" +
+                $". Chúng tôi sẽ thông báo cho bạn khi đơn hàng của bạn được xử lý.\n\n" +
+                $"Trân trọng,\nBelly&Babe";
+            await _emailService.SendEmailAsync(user.Email, emailSubject, emailBody);
+
+            return new PreOrderModel
+            {
+                PreOrderId = savedPreOrder.PreOrderId,
+                UserId = savedPreOrder.UserId,
+                ProductId = savedPreOrder.ProductId,
+                ProductName = product.ProductName,
+                PhoneNumber = user.PhoneNumber,
+                Email = user.Email,
+                PreOrderDate = savedPreOrder.PreOrderDate,
+                NotificationSent = savedPreOrder.NotificationSent
+            };
+        }
+        private string NormalizePhoneNumber(string phoneNumber)
+        {
+            if (phoneNumber.StartsWith("0"))
+            {
+                return "84" + phoneNumber.Substring(1);
+            }
+            return phoneNumber;
+        }
+
+
 
         public async Task NotifyCustomerAsync(NotifyCustomerModel model)
         {

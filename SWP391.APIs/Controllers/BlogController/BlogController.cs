@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SWP391.BLL.Services;
+using SWP391.BLL.Services.ProductServices;
 using SWP391.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SWP391.API.Controllers
 {
@@ -33,9 +35,9 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPut("UpdateBlog/{blogId}")]
-        public async Task<IActionResult> UpdateBlog(int blogId, int? userId, string? blogContent, int? categoryId, string? titleName)
+        public async Task<IActionResult> UpdateBlog(int blogId, int? userId, string? blogContent, int? categoryId, string? titleName, string? image)
         {
-            await _blogService.UpdateBlog(blogId, userId, blogContent, categoryId, titleName);
+            await _blogService.UpdateBlog(blogId, userId, blogContent, categoryId, titleName, image);
             return Ok("Nội dung blog đã được cập nhật");
         }
 

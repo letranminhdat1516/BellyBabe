@@ -78,6 +78,7 @@ namespace SWP391.APIs
             builder.Services.AddScoped<RatingCategoryRepository>();
             builder.Services.AddScoped<CumulativeScoreTransactionRepository>();
 
+
             // Register services
             builder.Services.AddScoped<EmailService>();
             builder.Services.AddScoped<IAuthService, AuthService>();
@@ -102,6 +103,8 @@ namespace SWP391.APIs
             builder.Services.AddScoped<CartService>();
             builder.Services.AddScoped<RatingCategoryService>();
             builder.Services.AddScoped<CumulativeScoreTransactionService>();
+            
+         
 
             builder.Services.AddSignalR();
 

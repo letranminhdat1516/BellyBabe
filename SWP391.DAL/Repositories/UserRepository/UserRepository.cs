@@ -41,9 +41,29 @@ namespace SWP391.DAL.Repositories.UserRepository
         public async Task AddUserAsync(User user)
         {
             user.PhoneNumber = NormalizePhoneNumber(user.PhoneNumber);
-            _context.Users.Add(user);
+
+            var existingUser = await _context.Users
+                .FirstOrDefaultAsync(u => u.PhoneNumber == user.PhoneNumber || u.Email == user.Email);
+
+            if (existingUser != null)
+            {
+                existingUser.UserName = user.UserName;
+                existingUser.Password = user.Password;
+                existingUser.Address = user.Address;
+                existingUser.FullName = user.FullName;
+                existingUser.RoleId = user.RoleId;
+                existingUser.Image = user.Image;
+
+                _context.Users.Update(existingUser);
+            }
+            else
+            {
+                _context.Users.Add(user);
+            }
+
             await _context.SaveChangesAsync();
         }
+
         public async Task UpdateUserAsync(User user)
         {
             user.PhoneNumber = NormalizePhoneNumber(user.PhoneNumber);

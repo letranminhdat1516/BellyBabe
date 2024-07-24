@@ -1,5 +1,6 @@
 ﻿using SWP391.DAL.Entities;
 using SWP391.DAL.Repositories.BlogRepository;
+using SWP391.DAL.Repositories.ProductRepository;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -25,9 +26,9 @@ namespace SWP391.BLL.Services
             await _blogRepository.DeleteBlog(blogId);
         }
 
-        public async Task UpdateBlog(int blogId, int? userId, string? blogContent, int? categoryId, string? titleName)
+        public async Task UpdateBlog(int blogId, int? userId, string? blogContent, int? categoryId, string? titleName, string? image)
         {
-            await _blogRepository.UpdateBlog(blogId, userId, blogContent, categoryId, titleName);
+            await _blogRepository.UpdateBlog(blogId, userId, blogContent, categoryId, titleName, image);
         }
 
         public async Task<List<Blog>> GetAllBlogs()
