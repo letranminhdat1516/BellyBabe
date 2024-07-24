@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SWP391.BLL.Services;
+using SWP391.BLL.Services.ProductServices;
 using SWP391.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SWP391.API.Controllers
 {
@@ -12,10 +14,44 @@ namespace SWP391.API.Controllers
     public class BlogController : ControllerBase
     {
         private readonly BlogService _blogService;
+        private readonly string _imageFolderPath = @"D:\Semester 05\SWP391\Project\swp391-project-fe\src\assets\images\blogs";
 
         public BlogController(BlogService blogService)
         {
             _blogService = blogService;
+        }
+
+        [HttpPost("UploadImage")]
+        public async Task<IActionResult> UploadImage(int blogId, [FromForm] List<IFormFile> image)
+        {
+            if (image == null)
+            {
+                return BadRequest("No image received.");
+            }
+
+            try
+            {
+                var imageLinks = new List<string>();
+
+                foreach (var imageLink in image)
+                {
+                    var fileName = Guid.NewGuid() + Path.GetExtension(imageLink.FileName);
+                    var filePath = Path.Combine(_imageFolderPath, fileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await imageLink.CopyToAsync(stream);
+                    }
+                    imageLinks.Add(fileName);
+                }
+
+                await _blogService.UpdateBlogImageAsync(blogId, imageLinks);
+                return Ok(new { Message = "Images uploaded successfully.", ImageLinks = imageLinks });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
 
         [HttpPost("AddBlock")]

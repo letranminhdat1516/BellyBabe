@@ -1,5 +1,6 @@
 ﻿using SWP391.DAL.Entities;
 using SWP391.DAL.Repositories.BlogRepository;
+using SWP391.DAL.Repositories.ProductRepository;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -48,6 +49,12 @@ namespace SWP391.BLL.Services
         public async Task<List<Blog>> GetBlogsByUserId(int userId)
         {
             return await _blogRepository.GetBlogsByUserId(userId);
+        }
+
+        public async Task UpdateBlogImageAsync(int blogId, List<string> image)
+        {
+            var imageLinksString = string.Join(",", image);
+            await _blogRepository.UpdateBlogImageAsync(blogId, imageLinksString);
         }
     }
 }

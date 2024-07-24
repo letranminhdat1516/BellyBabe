@@ -108,5 +108,21 @@ namespace SWP391.DAL.Repositories.BlogRepository
                 .AsNoTracking()
                 .ToListAsync();
         }
+
+        public async Task<Blog> GetBlogByIdAsync(int blogId)
+        {
+            return await _context.Blogs.FindAsync(blogId);
+        }
+
+        public async Task UpdateBlogImageAsync(int blogId, string image)
+        {
+            var blog = await GetBlogByIdAsync(blogId);
+            if (blog != null)
+            {
+                blog.Image = image;
+                _context.Blogs.Update(blog);
+                await _context.SaveChangesAsync();
+            }
+        }
     }
 }

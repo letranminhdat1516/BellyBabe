@@ -31,8 +31,25 @@ namespace SWP391.DAL.Repositories.OrderRepository
             _cumulativeScoreTransactionRepository = cumulativeScoreTransactionRepository;
         }
 
+        private bool IsValidVietnameseAddress(string address)
+        {
+            string vietnameseAddressPattern = @"^[a-zA-Z0-9\s,.-áàạảãâấầậẩẫăắằặẳẵéèẹẻẽêếềệểễíìịỉĩóòọỏõôốồộổỗơớờợởỡúùụủũưứừựửữýỳỵỷỹđÁÀẠẢÃÂẤẦẬẨẪĂẮẰẶẲẴÉÈẸẺẼÊẾỀỆỂỄÍÌỊỈĨÓÒỌỎÕÔỐỒỘỔỖƠỚỜỢỞỠÚÙỤỦŨƯỨỪỰỬỮÝỲỴỶỸĐ]+$";
+
+            return System.Text.RegularExpressions.Regex.IsMatch(address, vietnameseAddressPattern);
+        }
+
         public async Task<Order> PlaceOrderAsync(int userId, string recipientName, string recipientPhone, string recipientAddress, int deliveryId, string? note, bool? usePoints = null)
         {
+            if (string.IsNullOrEmpty(recipientPhone) || !System.Text.RegularExpressions.Regex.IsMatch(recipientPhone, @"^[0-9]{1,11}$"))
+            {
+                throw new ArgumentException("Số điện thoại không hợp lệ.");
+            }
+
+            if (string.IsNullOrEmpty(recipientAddress) || !IsValidVietnameseAddress(recipientAddress))
+            {
+                throw new ArgumentException("Địa chỉ không hợp lệ. Vui lòng nhập địa chỉ hợp lệ bằng tiếng Việt.");
+            }
+
             var user = await _context.Users.FindAsync(userId);
             if (user == null)
             {
