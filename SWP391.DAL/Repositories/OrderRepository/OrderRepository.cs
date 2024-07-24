@@ -247,6 +247,7 @@ namespace SWP391.DAL.Repositories.OrderRepository
             {
                 var order = await _context.Orders
                     .Include(o => o.OrderStatuses)
+                    .Include(o => o.OrderDetails)
                     .FirstOrDefaultAsync(o => o.OrderId == orderId);
 
                 if (order == null)
@@ -270,6 +271,21 @@ namespace SWP391.DAL.Repositories.OrderRepository
                 };
 
                 order.OrderStatuses.Add(cancelStatus);
+
+                // Restore product quantities
+                foreach (var orderDetail in order.OrderDetails)
+                {
+                    if (orderDetail.ProductId.HasValue && orderDetail.Quantity.HasValue)
+                    {
+                        var product = await _context.Products.FindAsync(orderDetail.ProductId.Value);
+                        if (product != null)
+                        {
+                            product.Quantity += orderDetail.Quantity.Value;
+                            _context.Products.Update(product);
+                        }
+                    }
+                }
+
                 await _context.SaveChangesAsync();
 
                 transaction.Commit();

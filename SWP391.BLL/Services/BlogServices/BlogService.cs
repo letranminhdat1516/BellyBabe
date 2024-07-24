@@ -26,9 +26,9 @@ namespace SWP391.BLL.Services
             await _blogRepository.DeleteBlog(blogId);
         }
 
-        public async Task UpdateBlog(int blogId, int? userId, string? blogContent, int? categoryId, string? titleName)
+        public async Task UpdateBlog(int blogId, int? userId, string? blogContent, int? categoryId, string? titleName, string? image)
         {
-            await _blogRepository.UpdateBlog(blogId, userId, blogContent, categoryId, titleName);
+            await _blogRepository.UpdateBlog(blogId, userId, blogContent, categoryId, titleName, image);
         }
 
         public async Task<List<Blog>> GetAllBlogs()
@@ -49,12 +49,6 @@ namespace SWP391.BLL.Services
         public async Task<List<Blog>> GetBlogsByUserId(int userId)
         {
             return await _blogRepository.GetBlogsByUserId(userId);
-        }
-
-        public async Task UpdateBlogImageAsync(int blogId, List<string> image)
-        {
-            var imageLinksString = string.Join(",", image);
-            await _blogRepository.UpdateBlogImageAsync(blogId, imageLinksString);
         }
     }
 }

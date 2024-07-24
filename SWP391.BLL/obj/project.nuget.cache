@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UAKIbCM5fjA=",
+  "dgSpecHash": "kOjmffBb1CA=",
   "success": true,
-  "projectFilePath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\bellybabe\\SWP391.BLL\\SWP391.BLL.csproj",
+  "projectFilePath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.BLL\\SWP391.BLL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\phiye\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\phiye\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

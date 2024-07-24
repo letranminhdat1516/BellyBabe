@@ -45,7 +45,7 @@ namespace SWP391.DAL.Repositories.BlogRepository
             }
         }
 
-        public async Task UpdateBlog(int blogId, int? userId, string? blogContent, int? categoryId, string? titleName)
+        public async Task UpdateBlog(int blogId, int? userId, string? blogContent, int? categoryId, string? titleName, string? image)
         {
             var blog = await _context.Blogs.FindAsync(blogId);
 
@@ -67,6 +67,7 @@ namespace SWP391.DAL.Repositories.BlogRepository
             blog.BlogContent = blogContent ?? blog.BlogContent;
             blog.CategoryId = categoryId ?? blog.CategoryId;
             blog.TitleName = titleName ?? blog.TitleName;
+            blog.Image = image ?? blog.Image;
 
             await _context.SaveChangesAsync();
         }
@@ -107,22 +108,6 @@ namespace SWP391.DAL.Repositories.BlogRepository
                 //.Include(b => b.User)
                 .AsNoTracking()
                 .ToListAsync();
-        }
-
-        public async Task<Blog> GetBlogByIdAsync(int blogId)
-        {
-            return await _context.Blogs.FindAsync(blogId);
-        }
-
-        public async Task UpdateBlogImageAsync(int blogId, string image)
-        {
-            var blog = await GetBlogByIdAsync(blogId);
-            if (blog != null)
-            {
-                blog.Image = image;
-                _context.Blogs.Update(blog);
-                await _context.SaveChangesAsync();
-            }
         }
     }
 }
