@@ -4766,24 +4766,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Cicca.Mini\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\phiye\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Cicca.Mini\\source\\repos\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj",
+      "projectUniqueName": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\bellybabe\\SWP391.DAL\\SWP391.DAL.csproj",
       "projectName": "SWP391.DAL",
-      "projectPath": "C:\\Users\\Cicca.Mini\\source\\repos\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj",
-      "packagesPath": "C:\\Users\\Cicca.Mini\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Cicca.Mini\\source\\repos\\BellyBabe\\SWP391.DAL\\obj\\",
+      "projectPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\bellybabe\\SWP391.DAL\\SWP391.DAL.csproj",
+      "packagesPath": "C:\\Users\\phiye\\.nuget\\packages\\",
+      "outputPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\bellybabe\\SWP391.DAL\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Cicca.Mini\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\phiye\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4792,7 +4787,6 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "C:\\Users\\Cicca.Mini\\Documents\\BellyBabe": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4857,7 +4851,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

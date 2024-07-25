@@ -31,9 +31,13 @@ namespace SWP391.DAL.Repositories.BlogCategoryRepository
 
         public async Task DeleteBlogCategory(int categoryId)
         {
-            var blogCategory = await _context.BlogCategories.FindAsync(categoryId);
+            var blogCategory = await _context.BlogCategories
+                .Include(bc => bc.Blogs)
+                .FirstOrDefaultAsync(bc => bc.CategoryId == categoryId);
+
             if (blogCategory != null)
             {
+                _context.Blogs.RemoveRange(blogCategory.Blogs);
                 _context.BlogCategories.Remove(blogCategory);
                 await _context.SaveChangesAsync();
             }
