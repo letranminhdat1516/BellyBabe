@@ -65,7 +65,7 @@ public class VoucherController : ControllerBase
     [HttpPost("validateCode")]
     public async Task<IActionResult> ValidateVoucher([FromQuery] string voucherCode)
     {
-        var isValid = await _voucherService.ValidateVoucherAsync(voucherCode);
+        var isValid = await _voucherService.ValidateVoucherWithQueueAsync(voucherCode);
         if (!isValid)
         {
             return BadRequest("Invalid or expired voucher code.");

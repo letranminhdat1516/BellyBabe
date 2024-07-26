@@ -11,6 +11,8 @@ namespace SWP391.BLL.Services
     public class VoucherService
     {
         private readonly Swp391Context _context;
+        private static Queue<Func<Task>> _voucherQueue = new Queue<Func<Task>>();
+        private static object _queueLock = new object();
 
         public VoucherService(Swp391Context context)
         {
@@ -76,20 +78,69 @@ namespace SWP391.BLL.Services
             await _context.SaveChangesAsync();
             return true;
         }
-
+        //
         public async Task<bool> ValidateVoucherAsync(string voucherCode)
         {
-            var voucher = await _context.Vouchers
-                .FirstOrDefaultAsync(v => v.VoucherCode == voucherCode && v.Quantity > 0 && v.ExpiredDate > DateTime.Now);
-
-            if (voucher != null)
+            using (var transaction = await _context.Database.BeginTransactionAsync())
             {
-                voucher.Quantity -= 1;
-                _context.Vouchers.Update(voucher);
-                await _context.SaveChangesAsync();
-                return true;
+                try
+                {
+                    var voucher = await _context.Vouchers
+                        .FirstOrDefaultAsync(v => v.VoucherName == voucherCode && v.Quantity > 0 && v.ExpiredDate > DateTime.Now);
+
+                    if (voucher != null)
+                    {
+                        voucher.Quantity -= 1;
+                        _context.Vouchers.Update(voucher);
+                        await _context.SaveChangesAsync();
+                        await transaction.CommitAsync();
+                        return true;
+                    }
+
+                    return false;
+                }
+                catch
+                {
+                    await transaction.RollbackAsync();
+                    return false;
+                }
             }
-            return false;
+        }
+     
+        public async Task<bool> ValidateVoucherWithQueueAsync(string voucherCode)
+        {
+            var tcs = new TaskCompletionSource<bool>();
+
+            lock (_queueLock)
+            {
+                _voucherQueue.Enqueue(async () =>
+                {
+                    var result = await ValidateVoucherAsync(voucherCode);
+                    tcs.SetResult(result);
+                });
+
+                if (_voucherQueue.Count == 1)
+                {
+                    ProcessQueue();
+                }
+            }
+
+            return await tcs.Task;
+        }
+        private async void ProcessQueue()
+        {
+            while (true)
+            {
+                Func<Task> action;
+
+                lock (_queueLock)
+                {
+                    if (_voucherQueue.Count == 0) return;
+                    action = _voucherQueue.Dequeue();
+                }
+
+                await action.Invoke();
+            }
         }
     }
 
