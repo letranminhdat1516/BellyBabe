@@ -3,7 +3,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using SWP391.DAL.Entities;
-using SWP391.DAL.Model.Login;
 using SWP391.DAL.Repositories.Contract;
 using SWP391.DAL.Swp391DbContext;
 using System;
@@ -21,6 +20,7 @@ public class OtpService
     private readonly ILogger<OtpService> _logger;
     private readonly IConfiguration _configuration;
     private readonly Swp391Context _context;
+
     public OtpService(IUserRepository userRepository, ILogger<OtpService> logger, IConfiguration configuration, Swp391Context context)
     {
         _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
@@ -28,6 +28,7 @@ public class OtpService
         _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
         _context = context ?? throw new ArgumentNullException(nameof(context));
     }
+
     public string GenerateOtp()
     {
         using (var rng = RandomNumberGenerator.Create())
@@ -83,13 +84,6 @@ public class OtpService
         }
     }
 
-
-    public async Task SendOtpViaEmailAsync(string email, string otp)
-    {
-        var emailService = new EmailService(_configuration);
-        await emailService.SendEmailAsync(email, "Your OTP Code", $"Your OTP code is {otp}");
-    }
-
     public async Task SendOtpViaSmsAsync(string phoneNumber, string otp)
     {
         using (var client = new HttpClient())
@@ -119,7 +113,7 @@ public class OtpService
                     new
                     {
                         action = "talk",
-                        text = $"MÃ XÁC THỰC CỦA BẠN LÀ {otp}"
+                        text = $"MÃ XÁC THỰC CỦA BẠN LÀ {otp},NHẮC LẠI MÃ XÁC THỰC CỦA BẠN LÀ {otp}"
                     }
                 }
             };
@@ -149,6 +143,7 @@ public class OtpService
         _logger.LogInformation($"Verification result for identifier {identifier}: {isValid}");
         return isValid;
     }
+
     public async Task<string> GetOtpByPhoneNumberAsync(string phoneNumber)
     {
         var otpEntity = await _context.Users
@@ -157,86 +152,15 @@ public class OtpService
                                       .FirstOrDefaultAsync();
         return otpEntity;
     }
-
-
-    public async Task<UserLoginResponseDTO> LoginAsync(UserLoginDTO loginDTO)
+    public async Task<User> GetUserByPhoneNumberAsync(string phoneNumber)
     {
-        var isValid = await VerifyOtpAsync(loginDTO.PhoneNumber, loginDTO.OTP);
-        if (!isValid)
-        {
-            return null;
-        }
+        return await _userRepository.GetUserByPhoneNumberAsync(phoneNumber);
+    }
 
-        // Kiểm tra xem số điện thoại
-        var user = await _userRepository.GetUserByPhoneNumberAsync(loginDTO.PhoneNumber);
-
-        // Nếu người dùng tồn tại thì đăng nhập ở hàm này
-        if (user != null)
-        {
-            var token = GenerateJwtToken(user.PhoneNumber);
-            return new UserLoginResponseDTO
-            {
-                Token = token,
-                UserID = user.UserId,
-                UserName = user.UserName,
-                PhoneNumber = user.PhoneNumber,
-                Password = user.Password,
-                Email = user.Email,
-                Address = user.Address,
-                FullName = user.FullName,
-                RoleId = user.RoleId,
-                Image = user.Image,
-                IsFirstLogin = user.IsFirstLogin
-            };
-        }
-
-        // tạo mới người dùng khi đã đã có đăng nhập
-        user = new User
-        {
-            PhoneNumber = loginDTO.PhoneNumber,
-            Otp = loginDTO.OTP,
-            Otpexpiry = DateTime.UtcNow.AddMinutes(5),
-            Password = "default_password",
-            RoleId = 3,
-            IsFirstLogin = true
-        };
-
-        await _userRepository.AddUserAsync(user);
-
-        var newToken = GenerateJwtToken(user.PhoneNumber);
-        return new UserLoginResponseDTO
-        {
-            Token = newToken,
-            UserID = user.UserId,
-            UserName = user.UserName,
-            PhoneNumber = user.PhoneNumber,
-            Password = user.Password,
-            Email = user.Email,
-            Address = user.Address,
-            FullName = user.FullName,
-            RoleId = user.RoleId,
-            Image = user.Image,
-            IsFirstLogin = user.IsFirstLogin
-        };
+    public async Task UpdateUserAsync(User user)
+    {
+        await _userRepository.UpdateUserAsync(user);
     }
 
 
-
-    private string GenerateJwtToken(string phoneNumber)
-    {
-        var tokenHandler = new JwtSecurityTokenHandler();
-        var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
-        var tokenDescriptor = new SecurityTokenDescriptor
-        {
-            Subject = new ClaimsIdentity(new[]
-            {
-                new Claim(ClaimTypes.Name, phoneNumber),
-                new Claim(ClaimTypes.Role, "User")
-            }),
-            Expires = DateTime.UtcNow.AddHours(1),
-            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-        };
-        var token = tokenHandler.CreateToken(tokenDescriptor);
-        return tokenHandler.WriteToken(token);
-    }
 }

@@ -20,16 +20,21 @@ namespace SWP391.BLL.Services.LoginService
             _configuration = configuration;
         }
 
-
-        public async Task<UserLoginResponseDTO> UserLoginAsync(UserLoginDTO loginDTO)
+        public async Task<UserLoginResponseDTO> UserLoginAsync(UserLoginModel loginModel)
         {
-            var user = await _userRepository.GetUserByPhoneNumberAsync(loginDTO.PhoneNumber);
-            if (user == null || user.Otp != loginDTO.OTP || user.Otpexpiry < DateTime.UtcNow)
+            var user = await _userRepository.GetUserByPhoneNumberAsync(loginModel.PhoneNumber);
+            if (user == null || user.Password != loginModel.Password)
             {
                 return null;
             }
-
-            var token = GenerateJwtToken(user.Email, "User", user.UserId);
+            if (user.IsActive == false || user.IsActive == null)
+            {
+                return new UserLoginResponseDTO
+                {
+                    IsActive = false
+                };
+            }
+            var token = GenerateJwtToken(user.PhoneNumber, "User", user.UserId);
             return new UserLoginResponseDTO { Token = token, PhoneNumber = user.PhoneNumber };
         }
 
@@ -65,8 +70,7 @@ namespace SWP391.BLL.Services.LoginService
                 Token = token
             };
         }
-
-        public string GenerateJwtToken(string email, string role, int userId)
+        public string GenerateJwtToken(string identifier, string role, int userId)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
@@ -74,10 +78,10 @@ namespace SWP391.BLL.Services.LoginService
             {
                 Subject = new ClaimsIdentity(new[]
                 {
-                    new Claim(ClaimTypes.NameIdentifier, userId.ToString()),
-                    new Claim(ClaimTypes.Name, email),
-                    new Claim(ClaimTypes.Role, role)
-                }),
+                new Claim(ClaimTypes.NameIdentifier, userId.ToString()),
+                new Claim(ClaimTypes.Name, identifier),
+                new Claim(ClaimTypes.Role, role)
+            }),
                 Expires = DateTime.UtcNow.AddHours(1),
                 Issuer = _configuration["Jwt:Issuer"],
                 Audience = _configuration["Jwt:Audience"],
@@ -88,4 +92,3 @@ namespace SWP391.BLL.Services.LoginService
         }
     }
 }
-

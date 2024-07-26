@@ -1,71 +1,71 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SWP391.BLL.Services;
+using SWP391.BLL.Services.LoginService;
 using SWP391.DAL.Model.Login;
 using SWP391.DAL.Swp391DbContext;
 using System.Threading.Tasks;
-
 namespace SWP391.APIs.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     public class UserLoginController : ControllerBase
     {
+        private readonly UserService _userService;
         private readonly OtpService _otpService;
-        
-        public UserLoginController(OtpService otpService)
+        private readonly AuthService _authService;
+        public UserLoginController(UserService userService, OtpService otpService)
         {
+            _userService = userService;
             _otpService = otpService;
         }
-
-        [HttpPost("request-otp")]
-        public async Task<IActionResult> RequestOtp([FromBody] RequestOtpModel model)
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] UserLoginModel model)
         {
-            var otp = _otpService.GenerateOtp();
-            await _otpService.SaveOtpAsync(model.PhoneNumber, otp, model.UserName);
-            await _otpService.SendOtpViaSmsAsync(model.PhoneNumber, otp);
-            return Ok(new { message = "OTP sent successfully." });
-        }
-
-        [HttpPost("verify-otp")]
-        public async Task<IActionResult> VerifyOtp([FromBody] VerifyUserOtpModel model)
-        {
-            var isValid = await _otpService.VerifyOtpAsync(model.PhoneNumber, model.OTP);
-            if (!isValid)
+            if (model == null || string.IsNullOrEmpty(model.PhoneNumber))
             {
-                return Unauthorized(new { message = "Invalid OTP." });
+                return BadRequest(new { message = "Phone number is required." });
             }
 
-            // Generate and return token
-            var tokenResponse = await _otpService.LoginAsync(new UserLoginDTO
+            var userResponse = await _userService.UserLoginAsync(model);
+            if (userResponse == null)
             {
-                PhoneNumber = model.PhoneNumber,
-                OTP = model.OTP
-            });
-
-            return Ok(tokenResponse);
-        }
-        [HttpGet("check-otp")]
-        public async Task<IActionResult> GetOtp([FromQuery] string phoneNumber)
-        {
-            var otp = await _otpService.GetOtpByPhoneNumberAsync(phoneNumber);
-            if (otp == null)
-            {
-                return NotFound(new { message = "OTP not found." });
+                return Unauthorized(new { message = "Invalid phone number or password." });
             }
 
-            return Ok(new { otp });
+            if (userResponse.IsActive == false)
+            {
+                return Unauthorized(new { message = "Account is not active." });
+            }
+
+            return Ok(userResponse);
         }
-    }
 
-    public record RequestOtpModel
-    {
-        public string PhoneNumber { get; set; }
-        public string UserName { get; set; }
-    }
 
-    public record VerifyUserOtpModel
-    {
-        public string PhoneNumber { get; set; }
-        public string OTP { get; set; }
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] UserRegistrationModel model)
+        {
+            try
+            {
+                var newUser = await _userService.RegisterAsync(model);
+                return Ok(new { message = "Registration successful", user = newUser });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+
+        [HttpPost("complete-first-login")]
+        public async Task<IActionResult> CompleteFirstLogin([FromBody] FirstTimeUserInfoModel model)
+        {
+            var user = await _userService.CompleteFirstLoginAsync(model);
+            if (user == null)
+            {
+                return BadRequest(new { message = "Completion failed." });
+            }
+
+            return Ok(new { message = "User information updated successfully." });
+        }
     }
 }

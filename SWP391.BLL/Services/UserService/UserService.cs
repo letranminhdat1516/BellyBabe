@@ -1,10 +1,16 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using SWP391.DAL.Entities;
+using SWP391.DAL.Model.Login;
 using SWP391.DAL.Model.users;
 using SWP391.DAL.Repositories.BlogRepository;
 using SWP391.DAL.Repositories.Contract;
 using SWP391.DAL.Repositories.VoucherRepository;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Net.WebRequestMethods;
@@ -12,23 +18,93 @@ namespace SWP391.BLL.Services
 {
     public class UserService
     {
+        private readonly IConfiguration _configuration;
         private readonly IUserRepository _userRepository;
         private readonly EmailService _emailService;
         private readonly OtpService otpService;
         private readonly ILogger<UserService> _logger;
         private readonly VoucherRepository _voucherRepository;
         private readonly BlogRepository _blogRepository;
-        public UserService(IUserRepository userRepository, EmailService emailService, VoucherRepository voucherRepository, BlogRepository blogRepository)
+
+        public UserService(IUserRepository userRepository, EmailService emailService, VoucherRepository voucherRepository, BlogRepository blogRepository, IConfiguration configuration)
         {
             _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
              _emailService = emailService ?? throw new ArgumentNullException(nameof(emailService));
             _voucherRepository = voucherRepository ?? throw new ArgumentNullException(nameof(voucherRepository));
             _blogRepository = blogRepository ?? throw new ArgumentNullException(nameof(blogRepository));
+            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
         }
 
         private object logger()
         {
             throw new NotImplementedException();
+        }
+        public async Task<User> LoginAsync(string phoneNumber, string password)
+        {
+            var user = await _userRepository.GetUserByPhoneNumberAsync(phoneNumber);
+            if (user == null || user.Password != password)
+            {
+                return null;
+            }
+
+            return user;
+        }
+        public async Task<User> RegisterAsync(UserRegistrationModel registrationModel)
+        {
+            var existingUser = await _userRepository.GetUserByPhoneNumberAsync(registrationModel.PhoneNumber);
+            if (existingUser != null)
+            {
+                throw new InvalidOperationException("A user with this phone number already exists.");
+            }
+
+            var newUser = new User
+            {
+                UserName = registrationModel.UserName,
+                PhoneNumber = registrationModel.PhoneNumber,
+                Password = registrationModel.Password,
+                Email = registrationModel.Email,
+                FullName = registrationModel.FullName,
+                Address = registrationModel.Address,
+                Image = registrationModel.Image,
+                RoleId = 3
+            };
+
+            await _userRepository.AddUserAsync(newUser);
+            await _userRepository.SaveChangesAsync();
+            return newUser;
+        }
+        public async Task<UserLoginResponseDTO> UserLoginAsync(UserLoginModel loginModel)
+        {
+            var user = await _userRepository.GetUserByPhoneNumberAsync(loginModel.PhoneNumber);
+            if (user == null || user.Password != loginModel.Password)
+            {
+                return null;
+            }
+            var token = GenerateJwtToken(user.PhoneNumber, "User", user.UserId);
+            return new UserLoginResponseDTO { Token = token, PhoneNumber = user.PhoneNumber };
+
+        }
+
+        private bool VerifyPassword(string enteredPassword, string storedPassword)
+        {
+            
+            return enteredPassword == storedPassword; 
+        }
+        public async Task<User> CompleteFirstLoginAsync(DAL.Model.Login.FirstTimeUserInfoModel model)
+        {
+            var user = await _userRepository.GetUserByPhoneNumberAsync(model.PhoneNumber);
+            if (user == null)
+            {
+                return null;
+            }
+
+            user.FullName = model.FullName;
+            user.Address = model.Address;
+            user.Email = model.Email;
+            user.IsFirstLogin = false;
+
+            await _userRepository.UpdateUserAsync(user);
+            return user;
         }
         public async Task<UserContactInfoDTO> GetUserContactInfoAsync(int userId)
         {
@@ -221,5 +297,26 @@ namespace SWP391.BLL.Services
         {
             throw new NotImplementedException();
         }
+        public string GenerateJwtToken(string identifier, string role, int userId)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new[]
+                {
+                new Claim(ClaimTypes.NameIdentifier, userId.ToString()),
+                new Claim(ClaimTypes.Name, identifier),
+                new Claim(ClaimTypes.Role, role)
+            }),
+                Expires = DateTime.UtcNow.AddHours(1),
+                Issuer = _configuration["Jwt:Issuer"],
+                Audience = _configuration["Jwt:Audience"],
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
+        }
+
     }
 }

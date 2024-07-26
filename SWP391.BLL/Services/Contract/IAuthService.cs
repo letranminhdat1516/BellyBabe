@@ -6,7 +6,7 @@ namespace SWP391.BLL.Services.LoginService
     public interface IAuthService
     {
         Task<AdminLoginResponseDTO> AdminLoginAsync(AdminLoginDTO loginDTO);
-        Task<UserLoginResponseDTO> UserLoginAsync(UserLoginDTO loginDTO);
+        Task<UserLoginResponseDTO> UserLoginAsync(UserLoginModel loginDTO);
         string GenerateJwtToken(string email, string role, int userId);
     }
 }

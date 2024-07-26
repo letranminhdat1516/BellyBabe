@@ -1,4 +1,5 @@
 ﻿using SWP391.DAL.Entities;
+using SWP391.DAL.Model.Login;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -18,4 +19,5 @@ namespace SWP391.DAL.Repositories.Contract
         Task<User> GetUserByNameAsync(string userName);
         Task<List<User>> GetUsersByIdsAsync(List<int> userIds);
     }
+
 }
