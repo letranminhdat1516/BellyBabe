@@ -104,16 +104,23 @@ namespace SWP391.APIs.Controllers
             }
             return Ok("Password reset successful.");
         }
-        [HttpPost("send-voucher-to-users")]
-        public async Task<IActionResult> SendVoucherToUsers([FromBody] SendVoucherRequest request)
+        [HttpPost("ban-user/{userId}")]
+        public async Task<IActionResult> BanUser(int userId)
         {
-            var result = await _userService.SendVoucherToUsersAsync(request.UserIds, request.VoucherCode);
-            if (!result)
+            try
             {
-                return BadRequest("Voucher not sent or no users found.");
+                var result = await _userService.BanUserAsync(userId);
+                if (!result)
+                {
+                    return NotFound(new { message = "User not found." });
+                }
+                return Ok(new { message = "User banned successfully." });
             }
-
-            return Ok("Vouchers sent to specified users.");
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
+
     }
 }

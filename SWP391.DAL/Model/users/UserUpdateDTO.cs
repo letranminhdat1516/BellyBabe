@@ -10,5 +10,6 @@
         public string FullName { get; set; }
         public int? RoleId { get; set; } // 1: Admin, 2: Staff, 3: User
         public string? Image { get; set; }
+        public bool IsActive { get; set; }
     }
 }

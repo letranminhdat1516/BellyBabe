@@ -11,12 +11,10 @@ namespace SWP391.BLL.Services
     public class VoucherService
     {
         private readonly Swp391Context _context;
-        private readonly EmailService _emailService;
-        private readonly UserService _userService;
-        public VoucherService(Swp391Context context, EmailService emailService)
+
+        public VoucherService(Swp391Context context)
         {
             _context = context;
-            _emailService = emailService;
         }
 
         public async Task<List<Voucher>> GetVouchersAsync()
@@ -39,8 +37,8 @@ namespace SWP391.BLL.Services
                 ExpiredDate = voucherDTO.ExpiredDate,
                 Price = voucherDTO.Price,
                 MinimumBillAmount = voucherDTO.MinimumBillAmount
-
             };
+
             _context.Vouchers.Add(voucher);
             await _context.SaveChangesAsync();
             return voucher;
@@ -53,12 +51,14 @@ namespace SWP391.BLL.Services
             {
                 return null;
             }
+
             voucher.VoucherCode = voucherDTO.VoucherCode;
             voucher.VoucherName = voucherDTO.VoucherName;
             voucher.Quantity = voucherDTO.Quantity;
             voucher.ExpiredDate = voucherDTO.ExpiredDate;
             voucher.Price = voucherDTO.Price;
             voucher.MinimumBillAmount = voucherDTO.MinimumBillAmount;
+
             _context.Vouchers.Update(voucher);
             await _context.SaveChangesAsync();
             return voucher;
@@ -77,27 +77,10 @@ namespace SWP391.BLL.Services
             return true;
         }
 
-        public async Task<string> GenerateVoucherCodeAsync(int length = 8)
-        {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            var random = new Random();
-            return new string(Enumerable.Repeat(chars, length)
-                .Select(s => s[random.Next(s.Length)]).ToArray());
-        }
-
-        public async Task<bool> SendVoucherByEmailAsync(string email, string voucherCode)
-        {
-            var subject = "Voucher Belly and Babe";
-            var message = $"Your voucher code is: {voucherCode}";
-
-            await _emailService.SendEmailAsync(email, subject, message);
-            return true;
-        }
-
         public async Task<bool> ValidateVoucherAsync(string voucherCode)
         {
             var voucher = await _context.Vouchers
-                .FirstOrDefaultAsync(v => v.VoucherName == voucherCode && v.Quantity > 0 && v.ExpiredDate > DateTime.Now);
+                .FirstOrDefaultAsync(v => v.VoucherCode == voucherCode && v.Quantity > 0 && v.ExpiredDate > DateTime.Now);
 
             if (voucher != null)
             {
@@ -109,4 +92,6 @@ namespace SWP391.BLL.Services
             return false;
         }
     }
+
 }
+

@@ -168,7 +168,7 @@ namespace SWP391.BLL.Services
                 user.Address = userDto.Address;
                 user.FullName = userDto.FullName;
                 user.Image = userDto.Image;
-
+                user.IsActive = userDto.IsActive;
 
                 if (userDto.RoleId.HasValue)
                 {
@@ -179,15 +179,34 @@ namespace SWP391.BLL.Services
             }
             return user;
         }
+        public async Task<bool> BanUserAsync(int userId)
+        {
+            var user = await _userRepository.GetUserByIdAsync(userId);
+            if (user == null)
+            {
+                throw new InvalidOperationException("User not found.");
+            }
 
+            user.IsActive = false;
+
+            await _userRepository.UpdateUserAsync(user);
+            return true;
+        }
         private string NormalizePhoneNumber(string phoneNumber)
         {
+            if (string.IsNullOrEmpty(phoneNumber))
+            {
+                throw new ArgumentNullException(nameof(phoneNumber), "Phone number cannot be null or empty.");
+            }
+
             if (phoneNumber.StartsWith("0"))
             {
                 phoneNumber = "84" + phoneNumber.Substring(1);
             }
+
             return phoneNumber;
         }
+
 
         public async Task<bool> DeleteUserAsync(int userId)
         {
