@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using SWP391.DAL.Entities;
 using SWP391.DAL.Model.Login;
 
 namespace SWP391.BLL.Services.LoginService
@@ -7,6 +8,6 @@ namespace SWP391.BLL.Services.LoginService
     {
         Task<AdminLoginResponseDTO> AdminLoginAsync(AdminLoginDTO loginDTO);
         Task<UserLoginResponseDTO> UserLoginAsync(UserLoginModel loginDTO);
-        string GenerateJwtToken(string email, string role, int userId);
+        string GenerateJwtToken(string email, string role, int userId, string fullName);
     }
 }

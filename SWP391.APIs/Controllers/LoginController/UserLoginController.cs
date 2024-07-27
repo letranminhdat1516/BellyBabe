@@ -33,10 +33,7 @@ namespace SWP391.APIs.Controllers
                 return Unauthorized(new { message = "Invalid phone number or password." });
             }
 
-            if (userResponse.IsActive == false)
-            {
-                return Unauthorized(new { message = "Account is not active." });
-            }
+          
 
             return Ok(userResponse);
         }

@@ -74,14 +74,19 @@ namespace SWP391.BLL.Services
             return newUser;
         }
         public async Task<UserLoginResponseDTO> UserLoginAsync(UserLoginModel loginModel)
+
         {
             var user = await _userRepository.GetUserByPhoneNumberAsync(loginModel.PhoneNumber);
             if (user == null || user.Password != loginModel.Password)
             {
                 return null;
             }
-            var token = GenerateJwtToken(user.PhoneNumber, "User", user.UserId);
-            return new UserLoginResponseDTO { Token = token, PhoneNumber = user.PhoneNumber };
+            if (user.IsActive == false)
+            {
+                return null;
+            }
+            var token = GenerateJwtToken(user.PhoneNumber, "User", user.UserId, user.FullName);
+            return new UserLoginResponseDTO { Token = token, PhoneNumber = user.PhoneNumber, FullName = user.FullName};
 
         }
 
@@ -316,7 +321,7 @@ namespace SWP391.BLL.Services
         {
             throw new NotImplementedException();
         }
-        public string GenerateJwtToken(string identifier, string role, int userId)
+        public string GenerateJwtToken(string identifier, string role, int userId,string fullname)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
@@ -326,7 +331,8 @@ namespace SWP391.BLL.Services
                 {
                 new Claim(ClaimTypes.NameIdentifier, userId.ToString()),
                 new Claim(ClaimTypes.Name, identifier),
-                new Claim(ClaimTypes.Role, role)
+                new Claim(ClaimTypes.Role, role),
+                new Claim("fullName", fullname ?? string.Empty)
             }),
                 Expires = DateTime.UtcNow.AddHours(1),
                 Issuer = _configuration["Jwt:Issuer"],

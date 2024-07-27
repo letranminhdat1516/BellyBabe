@@ -34,8 +34,15 @@ namespace SWP391.BLL.Services.LoginService
                     IsActive = false
                 };
             }
-            var token = GenerateJwtToken(user.PhoneNumber, "User", user.UserId);
-            return new UserLoginResponseDTO { Token = token, PhoneNumber = user.PhoneNumber };
+            var token = GenerateJwtToken(user.PhoneNumber, "User", user.UserId, user.FullName);
+            return new UserLoginResponseDTO
+            {
+                Token = token,
+                PhoneNumber = user.PhoneNumber,
+                FullName = user.FullName,
+                UserID = user.UserId,
+                RoleId = user.RoleId
+            };
         }
 
         public async Task<AdminLoginResponseDTO> AdminLoginAsync(AdminLoginDTO loginDTO)
@@ -54,10 +61,11 @@ namespace SWP391.BLL.Services.LoginService
                 await _userRepository.UpdateUserAsync(user);
             }
 
-            var token = GenerateJwtToken(user.Email, "Admin", user.UserId);
+            var token = GenerateJwtToken(user.Email, "Admin", user.UserId, user.FullName);
 
             return new AdminLoginResponseDTO
             {
+                Token = token,
                 UserID = user.UserId,
                 UserName = user.UserName,
                 PhoneNumber = user.PhoneNumber,
@@ -66,11 +74,11 @@ namespace SWP391.BLL.Services.LoginService
                 FullName = user.FullName,
                 RoleId = user.RoleId,
                 Image = user.Image,
-                IsFirstLogin = isFirstLogin,
-                Token = token
+                IsFirstLogin = isFirstLogin
             };
         }
-        public string GenerateJwtToken(string identifier, string role, int userId)
+
+        public string GenerateJwtToken(string identifier, string role, int userId, string fullname)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
@@ -78,10 +86,11 @@ namespace SWP391.BLL.Services.LoginService
             {
                 Subject = new ClaimsIdentity(new[]
                 {
-                new Claim(ClaimTypes.NameIdentifier, userId.ToString()),
-                new Claim(ClaimTypes.Name, identifier),
-                new Claim(ClaimTypes.Role, role)
-            }),
+                    new Claim(ClaimTypes.NameIdentifier, userId.ToString()),
+                    new Claim(ClaimTypes.Name, identifier),
+                    new Claim(ClaimTypes.Role, role),
+                    new Claim("fullName", fullname ?? string.Empty) 
+                }),
                 Expires = DateTime.UtcNow.AddHours(1),
                 Issuer = _configuration["Jwt:Issuer"],
                 Audience = _configuration["Jwt:Audience"],

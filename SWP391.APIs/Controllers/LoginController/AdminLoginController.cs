@@ -32,22 +32,12 @@ namespace SWP391.APIs.Controllers.LoginController
                 return Unauthorized("Invalid email or password");
             }
 
-            var token = _authService.GenerateJwtToken(response.Email, "Admin", response.UserID);
+            var token = _authService.GenerateJwtToken(response.Email, "Admin", response.UserID, response.FullName);
 
-            // Assuming `response` contains the user information
+            
             return Ok(new
             {
-                Token = token,
-                response.UserID,
-                response.UserName,
-                response.PhoneNumber,
-                response.Password,
-                response.Email,
-                response.Address,
-                response.FullName,
-                response.RoleId,
-                response.Image,
-                response.IsFirstLogin
+                Token = token
             });
         }
     }
