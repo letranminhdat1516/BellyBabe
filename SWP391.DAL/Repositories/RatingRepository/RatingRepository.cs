@@ -35,21 +35,22 @@ namespace SWP391.DAL.Repositories.RatingRepository
                 throw new ArgumentException("Mã sản phẩm không hợp lệ.");
             }
 
-            // Get the delivered status from the database
-            var deliveredStatus = await _context.OrderStatuses.FirstOrDefaultAsync(s => s.StatusName == "Đã giao hàng");
-            if (deliveredStatus == null)
+            // Get the 'Đã nhận hàng' status from the database
+            var receivedStatus = await _context.OrderStatuses.FirstOrDefaultAsync(s => s.StatusName == "Đã nhận hàng");
+            if (receivedStatus == null)
             {
-                throw new ArgumentException("Status 'Đã giao hàng' not found.");
+                throw new ArgumentException("Status 'Đã nhận hàng' not found.");
             }
 
             // Check if the user has bought and received the product
-            var hasBoughtAndDelivered = await _context.Orders
+            var hasBoughtAndReceived = await _context.Orders
                 .Include(o => o.OrderDetails)
+                .Include(o => o.OrderStatusHistories)
                 .AnyAsync(o => o.UserId == userId &&
-                               o.OrderStatuses.Any(os => os.StatusId == deliveredStatus.StatusId) &&
+                               o.OrderStatusHistories.Any(osh => osh.StatusId == receivedStatus.StatusId) &&
                                o.OrderDetails.Any(od => od.ProductId == productId));
 
-            if (!hasBoughtAndDelivered)
+            if (!hasBoughtAndReceived)
             {
                 throw new ArgumentException("Người dùng chưa mua hoặc nhận sản phẩm này.");
             }

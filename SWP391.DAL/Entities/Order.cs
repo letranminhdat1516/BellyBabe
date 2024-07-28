@@ -25,20 +25,23 @@ public partial class Order
 
     public int? PointsUsed { get; set; }
 
+    public int? StatusId { get; set; }
+
     public virtual ICollection<CumulativeScoreTransaction> CumulativeScoreTransactions { get; set; } = new List<CumulativeScoreTransaction>();
 
     public virtual ICollection<DeliveryMethod> DeliveryMethods { get; set; } = new List<DeliveryMethod>();
 
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 
-    public virtual ICollection<OrderStatus> OrderStatuses { get; set; } = new List<OrderStatus>();
+    public virtual ICollection<OrderStatusHistory> OrderStatusHistories { get; set; } = new List<OrderStatusHistory>();
 
     public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
 
     public virtual ICollection<Statistic> Statistics { get; set; } = new List<Statistic>();
 
+    public virtual OrderStatus? Status { get; set; }
+
     public virtual User User { get; set; } = null!;
 
     public virtual Voucher? Voucher { get; set; }
-
 }

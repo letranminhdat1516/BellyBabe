@@ -25,7 +25,7 @@ namespace SWP391.DAL.Services.StatisticsServices
             return await _repository.GetOrdersForWeekAsync(startDateString);
         }
 
-        public async Task<MonthlyStatistics> GetMonthlyStatisticsAsync(int month, int year)
+        public async Task<MonthlyStatistics> GetMonthlyStatisticsAsync(int year, int month)
         {
             return await _repository.GetOrdersByMonthAsync(year, month);
         }
@@ -33,6 +33,11 @@ namespace SWP391.DAL.Services.StatisticsServices
         public async Task<YearlyStatistics> GetYearlyStatisticsAsync(int year)
         {
             return await _repository.GetOrdersByYearAsync(year);
+        }
+
+        public async Task<DailyStatistics> GetDailyStatisticsAsync(string date)
+        {
+            return await _repository.GetOrdersByDayAsync(date);
         }
 
         public async Task<List<CategorySales>> GetTotalSalesByCategoryAsync()

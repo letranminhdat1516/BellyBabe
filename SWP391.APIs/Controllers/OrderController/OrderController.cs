@@ -19,11 +19,11 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPost("PlaceOrder")]
-        public async Task<IActionResult> PlaceOrder(int userId, string recipientName, string recipientPhone, string recipientAddress, int deliveryId, string? note, bool? usePoints = null)
+        public async Task<IActionResult> PlaceOrder(int userId, string recipientName, string recipientPhone, string recipientAddress, string? note, bool? usePoints = null)
         {
             try
             {
-                await _orderService.PlaceOrderAsync(userId, recipientName, recipientPhone, recipientAddress, deliveryId, note, usePoints);
+                await _orderService.PlaceOrderAsync(userId, recipientName, recipientPhone, recipientAddress, note, usePoints);
                 return Ok(new { Message = "Đặt hàng thành công." });
             }
             catch (ArgumentException ex)
@@ -55,11 +55,11 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPut("UpdateOrderStatus/{orderId}")]
-        public async Task<IActionResult> UpdateOrderStatus(int orderId, string statusName)
+        public async Task<IActionResult> UpdateOrderStatus(int orderId, int statusId, string? note = null)
         {
             try
             {
-                await _orderService.UpdateOrderStatusAsync(orderId, statusName);
+                await _orderService.UpdateOrderStatusAsync(orderId, statusId, note);
                 return Ok(new { Message = "Cập nhật trạng thái đơn hàng thành công." });
             }
             catch (ArgumentException ex)
@@ -72,12 +72,12 @@ namespace SWP391.API.Controllers
             }
         }
 
-        [HttpGet("GetOrdersByStatusFromUser/{userId}")]
-        public async Task<IActionResult> GetOrdersByStatus(int userId, string statusName)
+        [HttpGet("GetOrdersByStatusFromUser/{userId}/{statusId}")]
+        public async Task<IActionResult> GetOrdersByStatus(int userId, int statusId)
         {
             try
             {
-                var orders = await _orderService.GetOrdersByStatusAsync(userId, statusName);
+                var orders = await _orderService.GetOrdersByStatusAsync(userId, statusId);
                 return Ok(orders);
             }
             catch (ArgumentException ex)
@@ -91,11 +91,29 @@ namespace SWP391.API.Controllers
         }
 
         [HttpDelete("CancelOrder/{orderId}")]
-        public async Task<IActionResult> CancelOrder(int orderId)
+        public async Task<IActionResult> CancelOrder(int orderId, string reason)
         {
             try
             {
-                await _orderService.CancelOrderAsync(orderId);
+                await _orderService.CancelOrderAsync(orderId, reason);
+                return Ok(new { Message = "Hủy đơn hàng thành công." });
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { Error = $"Lỗi hủy đơn hàng: {ex.Message}" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Error = $"Lỗi server: {ex.Message}" });
+            }
+        }
+
+        [HttpDelete("AdminCancelOrder/{orderId}")]
+        public async Task<IActionResult> AdminCancelOrder(int orderId, string reason)
+        {
+            try
+            {
+                await _orderService.AdminCancelOrderAsync(orderId, reason);
                 return Ok(new { Message = "Hủy đơn hàng thành công." });
             }
             catch (ArgumentException ex)
@@ -111,7 +129,7 @@ namespace SWP391.API.Controllers
         [HttpGet("GetAllOrders")]
         public async Task<IActionResult> GetAllOrders()
         {
-            var listOfOrders = await _orderService.GetAllOrders();
+            var listOfOrders = await _orderService.GetAllOrdersAsync();
             return Ok(listOfOrders);
         }
 

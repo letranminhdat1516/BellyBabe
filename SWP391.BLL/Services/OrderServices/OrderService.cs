@@ -16,157 +16,49 @@ namespace SWP391.BLL.Services.OrderServices
             _orderRepository = orderRepository;
         }
 
-        public async Task PlaceOrderAsync(int userId, string recipientName, string recipientPhone, string recipientAddress, int deliveryId, string? note, bool? usePoints = null)
+        public async Task<Order> PlaceOrderAsync(int userId, string recipientName, string recipientPhone, string recipientAddress, string? note, bool? usePoints = null)
         {
-            try
-            {
-                await _orderRepository.PlaceOrderAsync(userId, recipientName, recipientPhone, recipientAddress, deliveryId, note, usePoints);
-            }
-            catch (ArgumentException ex)
-            {
-                throw new ArgumentException($"Không thể đặt hàng: {ex.Message}");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Đặt hàng thất bại: {ex.Message}");
-            }
+            return await _orderRepository.PlaceOrderAsync(userId, recipientName, recipientPhone, recipientAddress, note, usePoints);
         }
 
-        public async Task<List<OrderModel>> GetOrdersAsync(int userId)
+        public async Task UpdateOrderStatusAsync(int orderId, int statusId, string? note = null)
         {
-            try
-            {
-                if (userId <= 0)
-                {
-                    throw new ArgumentException("Vui lòng cung cấp ID người dùng.");
-                }
-
-                return await _orderRepository.GetOrdersAsync(userId);
-            }
-            catch (ArgumentException ex)
-            {
-                throw new ArgumentException($"Không thể lấy đơn hàng: {ex.Message}");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Lấy đơn hàng thất bại: {ex.Message}");
-            }
+            await _orderRepository.UpdateOrderStatusAsync(orderId, statusId, note);
         }
 
-
-        public async Task UpdateOrderStatusAsync(int orderId, string newStatus)
+        public async Task<List<Order>> GetOrdersByStatusAsync(int userId, int statusId)
         {
-            try
-            {
-                if (orderId <= 0)
-                {
-                    throw new ArgumentException("Vui lòng cung cấp ID đơn hàng.");
-                }
-
-                await _orderRepository.UpdateOrderStatusAsync(orderId, newStatus);
-            }
-            catch (ArgumentException ex)
-            {
-                throw new ArgumentException($"Không thể cập nhật trạng thái đơn hàng: {ex.Message}");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Cập nhật trạng thái đơn hàng thất bại: {ex.Message}");
-            }
+            return await _orderRepository.GetOrdersByStatusAsync(userId, statusId);
         }
 
-        public async Task<List<Order>> GetOrdersByStatusAsync(int userId, string statusName)
+        public async Task CancelOrderAsync(int orderId, string reason)
         {
-            try
-            {
-                if (userId <= 0)
-                {
-                    throw new ArgumentException("Vui lòng cung cấp ID người dùng.");
-                }
-
-                if (string.IsNullOrWhiteSpace(statusName))
-                {
-                    throw new ArgumentException("Vui lòng cung cấp tên trạng thái.");
-                }
-
-                return await _orderRepository.GetOrdersByStatusAsync(userId, statusName);
-            }
-            catch (ArgumentException ex)
-            {
-                throw new ArgumentException($"Không thể lấy đơn hàng theo trạng thái: {ex.Message}");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Lấy đơn hàng theo trạng thái thất bại: {ex.Message}");
-            }
+            await _orderRepository.CancelOrderAsync(orderId, reason);
         }
 
-        public async Task CancelOrderAsync(int orderId)
+        public async Task AdminCancelOrderAsync(int orderId, string reason)
         {
-            try
-            {
-                if (orderId <= 0)
-                {
-                    throw new ArgumentException("Vui lòng cung cấp ID đơn hàng.");
-                }
-
-                await _orderRepository.CancelOrderAsync(orderId);
-            }
-            catch (ArgumentException ex)
-            {
-                throw new ArgumentException($"Không thể hủy đơn hàng: {ex.Message}");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Hủy đơn hàng thất bại: {ex.Message}");
-            }
+            await _orderRepository.AdminCancelOrderAsync(orderId, reason);
         }
 
-        public async Task<List<OrderModel>> GetAllOrders()
+        public async Task<List<Order>> GetAllOrdersAsync()
         {
             return await _orderRepository.GetAllOrders();
         }
 
-        public async Task<OrderStatus> GetLatestOrderStatusAsync(int orderId)
+        public async Task<OrderStatusHistory> GetLatestOrderStatusAsync(int orderId)
         {
-            try
-            {
-                if (orderId <= 0)
-                {
-                    throw new ArgumentException("Vui lòng cung cấp ID đơn hàng.");
-                }
-
-                return await _orderRepository.GetLatestOrderStatusAsync(orderId);
-            }
-            catch (ArgumentException ex)
-            {
-                throw new ArgumentException($"Không thể lấy trạng thái mới nhất của đơn hàng: {ex.Message}");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Lấy trạng thái mới nhất của đơn hàng thất bại: {ex.Message}");
-            }
+            return await _orderRepository.GetLatestOrderStatusAsync(orderId);
         }
 
-        public async Task<OrderModel> GetOrderByIdAsync(int orderId)
+        public async Task<Order> GetOrderByIdAsync(int orderId)
         {
-            try
-            {
-                if (orderId <= 0)
-                {
-                    throw new ArgumentException("Vui lòng cung cấp ID đơn hàng.");
-                }
+            return await _orderRepository.GetOrderByIdAsync(orderId);
+        }
 
-                return await _orderRepository.GetOrderByIdAsync(orderId);
-            }
-            catch (ArgumentException ex)
-            {
-                throw new ArgumentException($"Không thể lấy đơn hàng: {ex.Message}");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Lấy đơn hàng thất bại: {ex.Message}");
-            }
+        public async Task<List<Order>> GetOrdersAsync(int userId)
+        {
+            return await _orderRepository.GetOrdersAsync(userId);
         }
     }
 }

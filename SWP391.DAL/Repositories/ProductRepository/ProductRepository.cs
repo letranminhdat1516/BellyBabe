@@ -250,6 +250,17 @@ namespace SWP391.DAL.Repositories.ProductRepository
             }
         }
 
+        public async Task ReturnProductQuantity(int productId, int quantity)
+        {
+            var product = await _context.Products.FindAsync(productId);
+            if (product == null)
+            {
+                throw new ArgumentException("ID sản phẩm không hợp lệ.");
+            }
+
+            product.Quantity += quantity;
+            await _context.SaveChangesAsync();
+        }
 
         public async Task<Product> GetProductByIdAsync(int productId)
         {
