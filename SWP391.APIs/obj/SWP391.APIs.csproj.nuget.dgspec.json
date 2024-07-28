@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.APIs\\SWP391.APIs.csproj": {}
+    "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\bellybabe\\SWP391.APIs\\SWP391.APIs.csproj": {}
   },
   "projects": {
-    "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.APIs\\SWP391.APIs.csproj": {
+    "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\bellybabe\\SWP391.APIs\\SWP391.APIs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.APIs\\SWP391.APIs.csproj",
+        "projectUniqueName": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\bellybabe\\SWP391.APIs\\SWP391.APIs.csproj",
         "projectName": "SWP391.APIs",
-        "projectPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.APIs\\SWP391.APIs.csproj",
+        "projectPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\bellybabe\\SWP391.APIs\\SWP391.APIs.csproj",
         "packagesPath": "C:\\Users\\phiye\\.nuget\\packages\\",
         "outputPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.APIs\\obj\\",
         "projectStyle": "PackageReference",
@@ -29,11 +29,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.BLL\\SWP391.BLL.csproj": {
-                "projectPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.BLL\\SWP391.BLL.csproj"
+              "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\bellybabe\\SWP391.BLL\\SWP391.BLL.csproj": {
+                "projectPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\bellybabe\\SWP391.BLL\\SWP391.BLL.csproj"
               },
-              "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj": {
-                "projectPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj"
+              "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\bellybabe\\SWP391.DAL\\SWP391.DAL.csproj": {
+                "projectPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\bellybabe\\SWP391.DAL\\SWP391.DAL.csproj"
               }
             }
           }
@@ -109,12 +109,12 @@
         }
       }
     },
-    "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.BLL\\SWP391.BLL.csproj": {
+    "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\bellybabe\\SWP391.BLL\\SWP391.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.BLL\\SWP391.BLL.csproj",
+        "projectUniqueName": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\bellybabe\\SWP391.BLL\\SWP391.BLL.csproj",
         "projectName": "SWP391.BLL",
-        "projectPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.BLL\\SWP391.BLL.csproj",
+        "projectPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\bellybabe\\SWP391.BLL\\SWP391.BLL.csproj",
         "packagesPath": "C:\\Users\\phiye\\.nuget\\packages\\",
         "outputPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.BLL\\obj\\",
         "projectStyle": "PackageReference",
@@ -134,8 +134,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj": {
-                "projectPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj"
+              "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\bellybabe\\SWP391.DAL\\SWP391.DAL.csproj": {
+                "projectPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\bellybabe\\SWP391.DAL\\SWP391.DAL.csproj"
               }
             }
           }
@@ -212,12 +212,12 @@
         }
       }
     },
-    "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj": {
+    "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\bellybabe\\SWP391.DAL\\SWP391.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj",
+        "projectUniqueName": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\bellybabe\\SWP391.DAL\\SWP391.DAL.csproj",
         "projectName": "SWP391.DAL",
-        "projectPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.DAL\\SWP391.DAL.csproj",
+        "projectPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\bellybabe\\SWP391.DAL\\SWP391.DAL.csproj",
         "packagesPath": "C:\\Users\\phiye\\.nuget\\packages\\",
         "outputPath": "D:\\FPT\\SEMESTER_5\\SWP391\\GitHubClone\\BellyBabe\\SWP391.DAL\\obj\\",
         "projectStyle": "PackageReference",

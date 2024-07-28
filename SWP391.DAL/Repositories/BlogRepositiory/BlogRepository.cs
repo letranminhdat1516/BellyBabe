@@ -25,12 +25,14 @@ namespace SWP391.DAL.Repositories.BlogRepository
                 BlogContent = blogContent,
                 CategoryId = categoryId,
                 TitleName = titleName,
-                Image = image
+                Image = image,
+                DateCreated = DateTime.Now
             };
 
             _context.Blogs.Add(newBlog);
             await _context.SaveChangesAsync();
         }
+
         public async Task<IEnumerable<Blog>> GetBlogsByUserIdAsync(int userId)
         {
             return await _context.Blogs.Where(b => b.UserId == userId).ToListAsync();
