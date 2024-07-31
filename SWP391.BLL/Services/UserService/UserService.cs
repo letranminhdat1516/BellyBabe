@@ -158,7 +158,7 @@ namespace SWP391.BLL.Services
                 Email = userDto.Email,
                 Address = userDto.Address,
                 FullName = userDto.FullName,
-                RoleId = 2,
+                RoleId = userDto.RoleId,
                 Image = userDto.Image
             };
 
