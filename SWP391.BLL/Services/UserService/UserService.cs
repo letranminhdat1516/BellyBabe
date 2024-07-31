@@ -150,6 +150,14 @@ namespace SWP391.BLL.Services
 
         public async Task<User> CreateUserAsync(UserCreateDTO userDto)
         {
+            // check role id = 3
+            var existingUser = await _userRepository.GetUserByPhoneNumberAndRoleIdAsync(userDto.PhoneNumber, 3);
+            if (existingUser != null)
+            {
+                
+                throw new InvalidOperationException("Cannot create user with RoleId 1, 2, or 4 when phone number is already in use by a user with RoleId 3.");
+            }
+
             var user = new User
             {
                 UserName = userDto.UserName,
@@ -165,6 +173,7 @@ namespace SWP391.BLL.Services
             await _userRepository.AddUserAsync(user);
             return user;
         }
+
 
         public async Task<User> UpdateUserAsync(int userId, UserUpdateDTO userDto)
         {

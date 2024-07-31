@@ -110,5 +110,10 @@ namespace SWP391.DAL.Repositories.UserRepository
         {
             return await _context.Users.Where(u => userIds.Contains(u.UserId)).ToListAsync();
         }
+        public async Task<User> GetUserByPhoneNumberAndRoleIdAsync(string phoneNumber, int roleId)
+        {
+
+            return await _context.Users.FirstOrDefaultAsync(u => u.PhoneNumber == phoneNumber && u.RoleId == roleId);
+        }
     }
 }

@@ -19,16 +19,32 @@ namespace SWP391.APIs.Controllers
         {
             _userService = userService ?? throw new ArgumentNullException(nameof(userService));
         }
-
-        [HttpPost("create-user")]
-        public async Task<IActionResult> CreateUser([FromBody] UserCreateDTO userDto)
+        [HttpPost("CreateUser")]
+        public async Task<IActionResult> CreateUser(UserCreateDTO userDto)
         {
-            var user = await _userService.CreateUserAsync(userDto);
-            if (user == null)
+            try
             {
-                return BadRequest("User creation failed.");
+                var user = await _userService.CreateUserAsync(userDto);
+                return Ok(user);
             }
-            return Ok(user);
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new
+                {
+                    Message = ex.Message,
+                    ErrorCode = "USER_CREATION_ERROR",
+                    Status = 400
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    Message = "Đã xảy ra lỗi khi tạo người dùng.",
+                    ErrorCode = "INTERNAL_SERVER_ERROR",
+                    Status = 500
+                });
+            }
         }
 
         [HttpPut("update-user/{userId}")]
