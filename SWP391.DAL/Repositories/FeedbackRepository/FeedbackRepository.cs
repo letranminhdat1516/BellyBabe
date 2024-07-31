@@ -31,28 +31,28 @@ namespace SWP391.DAL.Repositories.FeedbackRepository
             var hasProvidedFeedback = await HasUserProvidedFeedbackAsync(userId, orderId, productId);
             if (hasProvidedFeedback)
             {
-                throw new InvalidOperationException("User has already provided feedback for this order and product.");
+                throw new InvalidOperationException("Người dùng đã gửi phản hồi cho đơn hàng và sản phẩm này.");
             }
 
             var order = await _context.Orders
-                .Include(o => o.OrderStatuses)
+                .Include(o => o.OrderStatusHistories)
                 .Include(o => o.OrderDetails)
                 .FirstOrDefaultAsync(o => o.OrderId == orderId && o.UserId == userId);
 
             if (order == null)
             {
-                throw new InvalidOperationException("Order not found or does not belong to the user.");
+                throw new InvalidOperationException("Không tìm thấy đơn hàng hoặc đơn hàng không thuộc về người dùng.");
             }
 
-            if (!order.OrderStatuses.Any(os => os.StatusName == "Đã giao hàng"))
+            if (!order.OrderStatusHistories.Any(os => os.StatusId == 6)) // StatusId 6 corresponds to "Đã nhận hàng"
             {
-                throw new InvalidOperationException("The order has not been delivered yet.");
+                throw new InvalidOperationException("Đơn hàng chưa được nhận.");
             }
 
             var orderDetail = order.OrderDetails.FirstOrDefault(od => od.ProductId == productId);
             if (orderDetail == null)
             {
-                throw new InvalidOperationException($"Product with ID {productId} not found in the order.");
+                throw new InvalidOperationException($"Không tìm thấy sản phẩm với ID {productId} trong đơn hàng.");
             }
 
             var ratingCategories = await _context.RatingCategories
@@ -77,7 +77,7 @@ namespace SWP391.DAL.Repositories.FeedbackRepository
             var appropriateCategory = ratingCategories.FirstOrDefault(rc => rc.CategoryName == $"{rating} Star");
             if (appropriateCategory == null)
             {
-                throw new InvalidOperationException("Invalid rating value.");
+                throw new InvalidOperationException("Giá trị đánh giá không hợp lệ.");
             }
 
             var feedback = new Feedback
@@ -117,7 +117,7 @@ namespace SWP391.DAL.Repositories.FeedbackRepository
             var feedback = await _context.Feedbacks.FindAsync(feedbackId);
             if (feedback == null)
             {
-                throw new InvalidOperationException("Feedback not found.");
+                throw new InvalidOperationException("Không tìm thấy phản hồi.");
             }
 
             int oldRating = feedback.Rating ?? 0;
@@ -151,7 +151,7 @@ namespace SWP391.DAL.Repositories.FeedbackRepository
             var feedback = await _context.Feedbacks.FindAsync(feedbackId);
             if (feedback == null)
             {
-                throw new InvalidOperationException("Feedback not found.");
+                throw new InvalidOperationException("Không tìm thấy phản hồi.");
             }
 
             var category = await _context.RatingCategories.FindAsync(feedback.RatingCategoryId);
@@ -217,9 +217,9 @@ namespace SWP391.DAL.Repositories.FeedbackRepository
         {
             return await _context.OrderDetails
                 .AnyAsync(od => od.OrderDetailId == orderDetailId &&
-                                od.UserId == userId &&
+                                od.Order.UserId == userId &&
                                 od.ProductId == productId &&
-                                od.Order.OrderStatuses.Any(os => os.StatusName == "Đã giao hàng") &&
+                                od.Order.OrderStatusHistories.Any(os => os.StatusId == 6) && // StatusId 6 corresponds to "Đã nhận hàng"
                                 !_context.Feedbacks.Any(f => f.OrderDetailId == od.OrderDetailId && f.ProductId == productId));
         }
 
@@ -248,7 +248,7 @@ namespace SWP391.DAL.Repositories.FeedbackRepository
                         Content = f.Content,
                         UserName = f.User.UserName,
                         DateCreated = f.DateCreated,
-                        Rating = f.Rating ?? 0 
+                        Rating = f.Rating ?? 0
                     }).ToList()
                 })
                 .OrderByDescending(g => g.Rating)

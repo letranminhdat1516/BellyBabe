@@ -27,7 +27,7 @@ namespace SWP391.DAL.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest($"Lỗi khi lấy đơn hàng theo khoảng thời gian: {ex.Message}");
             }
         }
 
@@ -41,7 +41,7 @@ namespace SWP391.DAL.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest($"Lỗi khi lấy thống kê hàng tuần: {ex.Message}");
             }
         }
 
@@ -50,12 +50,12 @@ namespace SWP391.DAL.Controllers
         {
             try
             {
-                var statistics = await _statisticsService.GetMonthlyStatisticsAsync(month, year);
+                var statistics = await _statisticsService.GetMonthlyStatisticsAsync(year, month);
                 return Ok(statistics);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest($"Lỗi khi lấy thống kê hàng tháng: {ex.Message}");
             }
         }
 
@@ -69,7 +69,21 @@ namespace SWP391.DAL.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest($"Lỗi khi lấy thống kê hàng năm: {ex.Message}");
+            }
+        }
+
+        [HttpGet("DailyStatistics")]
+        public async Task<IActionResult> GetDailyStatistics(string date)
+        {
+            try
+            {
+                var statistics = await _statisticsService.GetDailyStatisticsAsync(date);
+                return Ok(statistics);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Lỗi khi lấy thống kê hàng ngày: {ex.Message}");
             }
         }
 
@@ -79,17 +93,15 @@ namespace SWP391.DAL.Controllers
             try
             {
                 var categorySales = await _statisticsService.GetTotalSalesByCategoryAsync();
-
-                if (categorySales == null)
+                if (categorySales == null || categorySales.Count == 0)
                 {
-                    return NotFound("No sales data found for any category.");
+                    return NotFound("Không tìm thấy dữ liệu bán hàng cho bất kỳ danh mục nào.");
                 }
-
                 return Ok(categorySales);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest($"Lỗi khi lấy tổng doanh số theo danh mục: {ex.Message}");
             }
         }
     }

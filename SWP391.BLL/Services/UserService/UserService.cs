@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using SWP391.DAL.Entities;
@@ -89,7 +90,11 @@ namespace SWP391.BLL.Services
             return new UserLoginResponseDTO { Token = token, PhoneNumber = user.PhoneNumber, FullName = user.FullName};
 
         }
+        public async Task<User> GetUserByPhoneNumberAsync(string phoneNumber)
+        {
 
+            return await _userRepository.GetUserByPhoneNumberAsync(phoneNumber);
+        }
         private bool VerifyPassword(string enteredPassword, string storedPassword)
         {
             

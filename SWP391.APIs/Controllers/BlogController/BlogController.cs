@@ -2,6 +2,7 @@
 using SWP391.BLL.Services;
 using SWP391.BLL.Services.ProductServices;
 using SWP391.DAL.Entities;
+using SWP391.DAL.Model.BlogContent;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -21,9 +22,16 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPost("AddBlock")]
-        public async Task<IActionResult> AddBlog(int? userId, string? blogContent, int? categoryId, string? titleName, string? image)
+        public async Task<IActionResult> AddBlog(int? userId, [FromBody] BlogContentModel blogContentModel, int? categoryId, string? titleName, string? image)
         {
-            await _blogService.AddBlog(userId, blogContent, categoryId, titleName, image);
+            if (blogContentModel == null || string.IsNullOrWhiteSpace(blogContentModel.BlogContent))
+            {
+                return BadRequest("Invalid blog content.");
+            }
+
+            string sanitizedContent = blogContentModel.BlogContent.Replace("\n", "").Replace("\r", "");
+
+            await _blogService.AddBlog(userId, blogContentModel.BlogContent, categoryId, titleName, image);
             return Ok("Blog đã được thêm thành công");
         }
 

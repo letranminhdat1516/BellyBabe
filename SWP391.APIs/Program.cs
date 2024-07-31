@@ -104,7 +104,6 @@ namespace SWP391.APIs
             builder.Services.AddScoped<RatingCategoryService>();
             builder.Services.AddScoped<CumulativeScoreTransactionService>();
 
-            builder.Services.AddScoped<IAuthService, AuthService>();
 
 
             builder.Services.AddSignalR();

@@ -46,6 +46,8 @@ public partial class Swp391Context : DbContext
 
     public virtual DbSet<OrderStatus> OrderStatuses { get; set; }
 
+    public virtual DbSet<OrderStatusHistory> OrderStatusHistories { get; set; }
+
     public virtual DbSet<Payment> Payments { get; set; }
 
     public virtual DbSet<PreOrder> PreOrders { get; set; }
@@ -365,7 +367,7 @@ public partial class Swp391Context : DbContext
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.OrderId).HasName("PK__Order__0809337D38CE5B8F");
+            entity.HasKey(e => e.OrderId).HasName("PK__Order__0809337D87A48F04");
 
             entity.ToTable("Order");
 
@@ -388,23 +390,29 @@ public partial class Swp391Context : DbContext
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("recipientPhone");
+            entity.Property(e => e.StatusId).HasColumnName("statusID");
             entity.Property(e => e.TotalPrice).HasColumnName("totalPrice");
+
             entity.Property(e => e.UserId).HasColumnName("userID");
             entity.Property(e => e.VoucherId).HasColumnName("voucherID");
+
+            entity.HasOne(d => d.Status).WithMany(p => p.Orders)
+                .HasForeignKey(d => d.StatusId)
+                .HasConstraintName("FK__Order__statusID__73BA3083");
 
             entity.HasOne(d => d.User).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Order__userID__6FE99F9F");
+                .HasConstraintName("FK__Order__userID__71D1E811");
 
             entity.HasOne(d => d.Voucher).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.VoucherId)
-                .HasConstraintName("FK__Order__voucherID__70DDC3D8");
+                .HasConstraintName("FK__Order__voucherID__72C60C4A");
         });
 
         modelBuilder.Entity<OrderDetail>(entity =>
         {
-            entity.HasKey(e => e.OrderDetailId).HasName("PK__OrderDet__E4FEDE2A17EBCB57");
+            entity.HasKey(e => e.OrderDetailId).HasName("PK__OrderDet__E4FEDE2A331AF136");
 
             entity.Property(e => e.OrderDetailId).HasColumnName("orderDetailID");
             entity.Property(e => e.IsChecked).HasColumnName("isChecked");
@@ -416,36 +424,55 @@ public partial class Swp391Context : DbContext
 
             entity.HasOne(d => d.Order).WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.OrderId)
-                .HasConstraintName("FK__OrderDeta__order__03F0984C");
+                .HasConstraintName("FK__OrderDeta__order__787EE5A0");
 
             entity.HasOne(d => d.Product).WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.ProductId)
-                .HasConstraintName("FK__OrderDeta__produ__02FC7413");
+                .HasConstraintName("FK__OrderDeta__produ__778AC167");
 
             entity.HasOne(d => d.User).WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__OrderDeta__userI__02084FDA");
+                .HasConstraintName("FK__OrderDeta__userI__76969D2E");
         });
 
         modelBuilder.Entity<OrderStatus>(entity =>
         {
-            entity.HasKey(e => e.StatusId).HasName("PK__OrderSta__36257A3869D46FF8");
+            entity.HasKey(e => e.StatusId).HasName("PK__OrderSta__36257A3898C742E7");
 
             entity.ToTable("OrderStatus");
 
             entity.Property(e => e.StatusId).HasColumnName("statusID");
-            entity.Property(e => e.OrderId).HasColumnName("orderID");
             entity.Property(e => e.StatusName)
                 .HasMaxLength(50)
                 .HasColumnName("statusName");
-            entity.Property(e => e.StatusUpdateDate)
+        });
+
+        modelBuilder.Entity<OrderStatusHistory>(entity =>
+        {
+            entity.HasKey(e => new { e.OrderId, e.UserId, e.StatusId });
+
+            entity.Property(e => e.OrderId).HasColumnName("orderID");
+            entity.Property(e => e.UserId).HasColumnName("userID");
+            entity.Property(e => e.StatusId).HasColumnName("statusID");
+            entity.Property(e => e.UpdatedDate)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime")
-                .HasColumnName("statusUpdateDate");
+                .HasColumnName("updatedDate");
 
-            entity.HasOne(d => d.Order).WithMany(p => p.OrderStatuses)
+            entity.HasOne(d => d.Order).WithMany(p => p.OrderStatusHistories)
                 .HasForeignKey(d => d.OrderId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__OrderStat__order__7C4F7684");
+
+            entity.HasOne(d => d.Status).WithMany(p => p.OrderStatusHistories)
+                .HasForeignKey(d => d.StatusId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__OrderStat__statu__7D439ABD");
+
+            entity.HasOne(d => d.User).WithMany(p => p.OrderStatusHistories)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__OrderStat__userI__7B5B524B");
         });
 
         modelBuilder.Entity<Payment>(entity =>

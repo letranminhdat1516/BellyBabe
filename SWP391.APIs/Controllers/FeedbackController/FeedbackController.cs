@@ -24,7 +24,11 @@ namespace SWP391.Controllers
             try
             {
                 var feedback = await _feedbackService.CreateFeedbackAsync(userId, orderId, productId, content, rating);
-                return Ok(feedback);
+                return Ok(new
+                {
+                    feedback = feedback,
+                    message = "Đã hoàn tất đánh giá sản phẩm. Cảm ơn quý khách."
+                });
             }
             catch (InvalidOperationException ex)
             {
@@ -35,6 +39,7 @@ namespace SWP391.Controllers
                 return StatusCode(500, new { message = "Đã xảy ra lỗi khi xử lý yêu cầu của bạn.", error = ex.Message });
             }
         }
+
 
         [HttpGet("GetFeedbackById/{id}")]
         public async Task<IActionResult> GetFeedback(int id)

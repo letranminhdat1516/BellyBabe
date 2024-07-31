@@ -6,6 +6,7 @@ using SWP391.DAL.Swp391DbContext;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace SWP391.DAL.Repositories.OrderRepository
@@ -34,13 +35,12 @@ namespace SWP391.DAL.Repositories.OrderRepository
         private bool IsValidVietnameseAddress(string address)
         {
             string vietnameseAddressPattern = @"^[a-zA-Z0-9\s,.-áàạảãâấầậẩẫăắằặẳẵéèẹẻẽêếềệểễíìịỉĩóòọỏõôốồộổỗơớờợởỡúùụủũưứừựửữýỳỵỷỹđÁÀẠẢÃÂẤẦẬẨẪĂẮẰẶẲẴÉÈẸẺẼÊẾỀỆỂỄÍÌỊỈĨÓÒỌỎÕÔỐỒỘỔỖƠỚỜỢỞỠÚÙỤỦŨƯỨỪỰỬỮÝỲỴỶỸĐ]+$";
-
-            return System.Text.RegularExpressions.Regex.IsMatch(address, vietnameseAddressPattern);
+            return Regex.IsMatch(address, vietnameseAddressPattern);
         }
 
-        public async Task<Order> PlaceOrderAsync(int userId, string recipientName, string recipientPhone, string recipientAddress, int deliveryId, string? note, bool? usePoints = null)
+        public async Task<Order> PlaceOrderAsync(int userId, string recipientName, string recipientPhone, string recipientAddress, string? note, bool? usePoints = null)
         {
-            if (string.IsNullOrEmpty(recipientPhone) || !System.Text.RegularExpressions.Regex.IsMatch(recipientPhone, @"^[0-9]{1,11}$"))
+            if (string.IsNullOrEmpty(recipientPhone) || !Regex.IsMatch(recipientPhone, @"^[0-9]{1,11}$"))
             {
                 throw new ArgumentException("Số điện thoại không hợp lệ.");
             }
@@ -64,14 +64,8 @@ namespace SWP391.DAL.Repositories.OrderRepository
                 throw new Exception("Không có sản phẩm được chọn trong giỏ hàng.");
             }
 
-            var delivery = await _context.DeliveryMethods.FindAsync(deliveryId);
-            if (delivery == null)
-            {
-                throw new Exception("Không tìm thấy phương thức giao hàng.");
-            }
-
-            int subtotal = orderDetails.Sum(od => od.Price ?? 0);
-            int deliveryFee = delivery.DeliveryFee ?? 0;
+            int subtotal = checkedOrderDetails.Sum(od => od.Price ?? 0);
+            int deliveryFee = subtotal > 1500000 ? 0 : 30000;
             int totalPrice = subtotal + deliveryFee;
 
             int? pointsToUse = null;
@@ -80,7 +74,6 @@ namespace SWP391.DAL.Repositories.OrderRepository
                 int availablePoints = await _cumulativeScoreRepository.GetUserCumulativeScoreAsync(userId);
                 pointsToUse = Math.Min(availablePoints, totalPrice);
             }
-
 
             int finalPrice = pointsToUse.HasValue ? Math.Max(totalPrice - pointsToUse.Value, 0) : totalPrice;
 
@@ -93,218 +86,220 @@ namespace SWP391.DAL.Repositories.OrderRepository
                 Note = note,
                 OrderDate = DateTime.Now,
                 TotalPrice = finalPrice,
-                PointsUsed = pointsToUse
+                PointsUsed = pointsToUse,
+                StatusId = 1 // Chờ xác nhận
             };
 
-            using var transaction = await _context.Database.BeginTransactionAsync();
+            _context.Orders.Add(order);
+            await _context.SaveChangesAsync();
 
-            try
+            foreach (var orderDetail in checkedOrderDetails)
             {
-                _context.Orders.Add(order);
-                await _context.SaveChangesAsync();
+                orderDetail.OrderId = order.OrderId;
+                orderDetail.UserId = null; 
 
-                var orderDelivery = new DeliveryMethod
+                if (orderDetail.ProductId.HasValue && orderDetail.Quantity.HasValue)
                 {
-                    OrderId = order.OrderId,
-                    DeliveryName = delivery.DeliveryName,
-                    DeliveryFee = delivery.DeliveryFee
-                };
-                _context.DeliveryMethods.Add(orderDelivery);
-
-                foreach (var orderDetail in checkedOrderDetails)
-                {
-                    orderDetail.OrderId = order.OrderId;
-                    orderDetail.UserId = null;
-
-                    if (orderDetail.ProductId.HasValue && orderDetail.Quantity.HasValue)
-                    {
-                        await _productRepository.UpdateProductQuantity(orderDetail.ProductId.Value, orderDetail.Quantity.Value);
-                    }
+                    await _productRepository.UpdateProductQuantity(orderDetail.ProductId.Value, orderDetail.Quantity.Value);
                 }
-
-                var payment = new Payment
-                {
-                    OrderId = order.OrderId,
-                    PayTime = DateTime.Now,
-                    Amount = finalPrice,
-                    ExternalTransactionCode = "ExternalCode"
-                };
-
-                _context.Payments.Add(payment);
-
-                // Update user's cumulative score if points were used
-                if (pointsToUse.HasValue && pointsToUse.Value > 0)
-                {
-                    await _cumulativeScoreRepository.UsePointsAsync(userId, pointsToUse.Value);
-                    await _cumulativeScoreTransactionRepository.AddTransactionAsync(userId, order.OrderId, -pointsToUse.Value, "PointsUsed");
-                }
-
-                // Add the "Chờ xác nhận" status directly to the order
-                var processingStatus = new OrderStatus
-                {
-                    StatusName = "Chờ xác nhận",
-                    OrderId = order.OrderId,
-                    StatusUpdateDate = DateTime.Now
-                };
-
-                _context.OrderStatuses.Add(processingStatus);
-                await _context.SaveChangesAsync();
-
-                await transaction.CommitAsync();
             }
-            catch (Exception ex)
+
+            var payment = new Payment
             {
-                await transaction.RollbackAsync();
-                throw new InvalidOperationException("Có lỗi xảy ra khi đặt hàng", ex);
+                OrderId = order.OrderId,
+                PayTime = DateTime.Now,
+                Amount = finalPrice,
+                ExternalTransactionCode = "ExternalCode"
+            };
+
+            _context.Payments.Add(payment);
+
+            if (pointsToUse.HasValue && pointsToUse.Value > 0)
+            {
+                await _cumulativeScoreRepository.UsePointsAsync(userId, pointsToUse.Value);
+                await _cumulativeScoreTransactionRepository.AddTransactionAsync(userId, order.OrderId, -pointsToUse.Value, "PointsUsed");
             }
+
+            var orderStatusHistory = new OrderStatusHistory
+            {
+                OrderId = order.OrderId,
+                UserId = userId,
+                StatusId = 1, // Chờ xác nhận
+                UpdatedDate = DateTime.Now
+            };
+
+            _context.OrderStatusHistories.Add(orderStatusHistory);
+            await _context.SaveChangesAsync();
 
             return order;
         }
-    
-    public async Task UpdateOrderStatusAsync(int orderId, string statusName)
+
+        public async Task UpdateOrderStatusAsync(int orderId, int statusId, string? note = null)
         {
-            using var transaction = await _context.Database.BeginTransactionAsync();
-            try
-            {
-                var order = await _context.Orders
-                .Include(o => o.OrderStatuses)
+            var order = await _context.Orders
+                .Include(o => o.OrderStatusHistories)
                 .FirstOrDefaultAsync(o => o.OrderId == orderId);
 
-                if (order == null)
-                {
-                    throw new ArgumentException("ID đơn hàng không hợp lệ.");
-                }
-
-                // Check if the order has the "Chờ xác nhận" status
-                var processingStatus = order.OrderStatuses.FirstOrDefault(os => os.StatusName == "Chờ xác nhận");
-                if (processingStatus == null)
-                {
-                    throw new InvalidOperationException("Chỉ có thể cập nhật trạng thái đơn hàng khi trạng thái hiện tại là 'Chờ xác nhận'.");
-                }
-
-                // Add or update the status
-                var existingStatus = order.OrderStatuses.FirstOrDefault(os => os.StatusName == statusName);
-                if (existingStatus != null)
-                {
-                    existingStatus.StatusUpdateDate = DateTime.Now;
-                }
-                else
-                {
-                    order.OrderStatuses.Add(new OrderStatus
-                    {
-                        OrderId = orderId,
-                        StatusName = statusName,
-                        StatusUpdateDate = DateTime.Now
-                    });
-                }
-
-                await _context.SaveChangesAsync();
-
-                // Update cumulative score if the status is "Đã giao hàng"
-                if (statusName == "Đã giao hàng")
-                {
-                    int scoreToAdd = CalculateScoreToAdd(order.TotalPrice.GetValueOrDefault());
-                    await _cumulativeScoreRepository.AddPointsAsync(order.UserId, scoreToAdd);
-                    await _cumulativeScoreTransactionRepository.AddTransactionAsync(order.UserId, order.OrderId, scoreToAdd, "OrderCompleted");
-
-                    // Log for debugging
-                    Console.WriteLine("Cumulative score updated.");
-                }
-                await transaction.CommitAsync();
-            }
-            catch (Exception ex)
+            if (order == null)
             {
-                await transaction.RollbackAsync();
-                throw new InvalidOperationException("Có lỗi xảy ra khi cập nhật trạng thái đơn hàng", ex);
+                throw new ArgumentException("ID đơn hàng không hợp lệ.");
+            }
+
+            var orderStatusHistory = new OrderStatusHistory
+            {
+                OrderId = order.OrderId,
+                UserId = order.UserId,
+                StatusId = statusId,
+                UpdatedDate = DateTime.Now,
+                Note = note
+            };
+
+            order.StatusId = statusId;
+
+            _context.OrderStatusHistories.Add(orderStatusHistory);
+            await _context.SaveChangesAsync();
+
+            if (statusId == 6) // Đã nhận hàng
+            {
+                int scoreToAdd = CalculateScoreToAdd((int)order.TotalPrice.GetValueOrDefault());
+                await _cumulativeScoreRepository.AddPointsAsync(order.UserId, scoreToAdd);
+                await _cumulativeScoreTransactionRepository.AddTransactionAsync(order.UserId, order.OrderId, scoreToAdd, "OrderCompleted");
             }
         }
+
         private int CalculateScoreToAdd(int totalPrice)
         {
-            // You can adjust this calculation based on your business rules
             return totalPrice / 1000;
         }
 
-        public async Task<List<Order>> GetOrdersByStatusAsync(int userId, string statusName)
+        public async Task<List<Order>> GetOrdersByStatusAsync(int userId, int statusId)
         {
-            var status = await _context.OrderStatuses.FirstOrDefaultAsync(s => s.StatusName == statusName);
-            if (status == null)
-            {
-                throw new ArgumentException("Tên trạng thái không hợp lệ.");
-            }
-
-            return await _context.Orders
-                .Where(o => o.UserId == userId && o.OrderStatuses.Any(os => os.StatusId == status.StatusId))
-                .Include(o => o.OrderStatuses)
-                .Include(o => o.DeliveryMethods)
+            var orders = await _context.Orders
+                .Where(o => o.UserId == userId && o.StatusId == statusId)
+                .Include(o => o.OrderStatusHistories).ThenInclude(osh => osh.Status)
+                .Include(o => o.OrderDetails)
                 .ToListAsync();
-        }
 
-        public async Task CancelOrderAsync(int orderId)
-        {
-            using var transaction = await _context.Database.BeginTransactionAsync();
-
-            try
+            return orders.Select(order => new Order
             {
-                var order = await _context.Orders
-                    .Include(o => o.OrderStatuses)
-                    .Include(o => o.OrderDetails)
-                    .FirstOrDefaultAsync(o => o.OrderId == orderId);
-
-                if (order == null)
+                OrderId = order.OrderId,
+                UserId = order.UserId,
+                Note = order.Note,
+                VoucherId = order.VoucherId,
+                TotalPrice = order.TotalPrice,
+                OrderDate = order.OrderDate,
+                RecipientName = order.RecipientName,
+                RecipientPhone = order.RecipientPhone,
+                RecipientAddress = order.RecipientAddress,
+                OrderDetails = order.OrderDetails,
+                OrderStatusHistories = order.OrderStatusHistories.Select(osh => new OrderStatusHistory
                 {
-                    throw new ArgumentException("ID đơn hàng không hợp lệ.");
-                }
-
-                // Check if the order has the "Chờ xác nhận" status
-                var processingStatus = order.OrderStatuses.FirstOrDefault(os => os.StatusName == "Chờ xác nhận");
-                if (processingStatus == null)
-                {
-                    throw new InvalidOperationException("Chỉ có thể hủy đơn hàng khi trạng thái hiện tại là 'Chờ xác nhận'.");
-                }
-
-                // Set the order status to "Đã hủy"
-                var cancelStatus = new OrderStatus
-                {
-                    StatusName = "Đã hủy",
-                    OrderId = orderId,
-                    StatusUpdateDate = DateTime.Now
-                };
-
-                order.OrderStatuses.Add(cancelStatus);
-
-                // Restore product quantities
-                foreach (var orderDetail in order.OrderDetails)
-                {
-                    if (orderDetail.ProductId.HasValue && orderDetail.Quantity.HasValue)
+                    StatusId = osh.StatusId,
+                    OrderId = osh.OrderId,
+                    UserId = osh.UserId,
+                    UpdatedDate = osh.UpdatedDate,
+                    Note = osh.Note,
+                    Status = osh.Status != null ? new OrderStatus
                     {
-                        var product = await _context.Products.FindAsync(orderDetail.ProductId.Value);
-                        if (product != null)
-                        {
-                            product.Quantity += orderDetail.Quantity.Value;
-                            _context.Products.Update(product);
-                        }
-                    }
-                }
-
-                await _context.SaveChangesAsync();
-
-                transaction.Commit();
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                throw new InvalidOperationException("Có lỗi xảy ra khi hủy đơn hàng", ex);
-            }
+                        StatusId = osh.Status.StatusId,
+                        StatusName = osh.Status.StatusName
+                    } : null
+                }).ToList()
+            }).ToList();
         }
 
-        public async Task<List<OrderModel>> GetAllOrders()
+        public async Task CancelOrderAsync(int orderId, string reason)
+        {
+            var order = await _context.Orders
+                .Include(o => o.OrderStatusHistories)
+                .Include(o => o.OrderDetails)
+                .FirstOrDefaultAsync(o => o.OrderId == orderId);
+
+            if (order == null)
+            {
+                throw new ArgumentException("ID đơn hàng không hợp lệ.");
+            }
+
+            if (order.StatusId != 1)
+            {
+                throw new InvalidOperationException("Chỉ có thể hủy đơn hàng khi trạng thái hiện tại là 'Chờ xác nhận'.");
+            }
+
+            // Update the product quantities
+            foreach (var orderDetail in order.OrderDetails)
+            {
+                if (orderDetail.ProductId.HasValue && orderDetail.Quantity.HasValue)
+                {
+                    await _productRepository.ReturnProductQuantity(orderDetail.ProductId.Value, orderDetail.Quantity.Value);
+                }
+            }
+
+            order.StatusId = 7; // "Hủy đơn hàng"
+
+            var orderStatusHistory = new OrderStatusHistory
+            {
+                OrderId = orderId,
+                UserId = order.UserId,
+                StatusId = 7,
+                UpdatedDate = DateTime.Now,
+                Note = reason
+            };
+
+            _context.OrderStatusHistories.Add(orderStatusHistory);
+
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task AdminCancelOrderAsync(int orderId, string reason)
+        {
+            var order = await _context.Orders
+                .Include(o => o.OrderStatusHistories)
+                .Include(o => o.OrderDetails)
+                .FirstOrDefaultAsync(o => o.OrderId == orderId);
+
+            if (order == null)
+            {
+                throw new ArgumentException("ID đơn hàng không hợp lệ.");
+            }
+
+            if (order.StatusId != 1)
+            {
+                throw new InvalidOperationException("Chỉ có thể hủy đơn hàng khi trạng thái hiện tại là 'Chờ xác nhận'.");
+            }
+
+            foreach (var orderDetail in order.OrderDetails)
+            {
+                if (orderDetail.ProductId.HasValue && orderDetail.Quantity.HasValue)
+                {
+                    await _productRepository.ReturnProductQuantity(orderDetail.ProductId.Value, orderDetail.Quantity.Value);
+                }
+            }
+
+            order.StatusId = 3; // "Hủy xác nhận"
+
+            var orderStatusHistory = new OrderStatusHistory
+            {
+                OrderId = orderId,
+                UserId = order.UserId,
+                StatusId = 3,
+                UpdatedDate = DateTime.Now,
+                Note = reason
+            };
+
+            _context.OrderStatusHistories.Add(orderStatusHistory);
+
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<List<Order>> GetAllOrders()
         {
             var orders = await _context.Orders
                 .Include(o => o.OrderDetails)
-                .Include(o => o.OrderStatuses)
+                .Include(o => o.OrderStatusHistories)
+                    .ThenInclude(osh => osh.Status)
                 .ToListAsync();
 
-            var listOfOrders = orders.Select(o => new OrderModel
+            return orders.Select(o => new Order
             {
                 OrderId = o.OrderId,
                 UserId = o.UserId,
@@ -315,54 +310,77 @@ namespace SWP391.DAL.Repositories.OrderRepository
                 RecipientName = o.RecipientName,
                 RecipientPhone = o.RecipientPhone,
                 RecipientAddress = o.RecipientAddress,
-                OrderDetails = o.OrderDetails.Select(od => new OrderDetailModel
+                OrderDetails = o.OrderDetails.Select(od => new OrderDetail
                 {
+                    OrderDetailId = od.OrderDetailId,
+                    OrderId = od.OrderId,
                     ProductId = od.ProductId,
                     Price = od.Price,
                     Quantity = od.Quantity
                 }).ToList(),
-                OrderStatuses = o.OrderStatuses.Any()
-                  ? o.OrderStatuses.Select(os => new OrderStatus
-                  {
-                      StatusId = os.StatusId,
-                      StatusName = os.StatusName,
-                      OrderId = os.OrderId,
-                      StatusUpdateDate = os.StatusUpdateDate
-                  }).ToList()
-                  : new List<OrderStatus> { new OrderStatus { StatusName = "Chờ xác nhận" } }
+                OrderStatusHistories = o.OrderStatusHistories.Select(osh => new OrderStatusHistory
+                {
+                    OrderId = osh.OrderId,
+                    UserId = osh.UserId,
+                    StatusId = osh.StatusId,
+                    UpdatedDate = osh.UpdatedDate,
+                    Note = osh.Note,
+                    Status = osh.Status != null ? new OrderStatus
+                    {
+                        StatusId = osh.Status.StatusId,
+                        StatusName = osh.Status.StatusName
+                    } : null
+                }).ToList(),
+                StatusId = o.StatusId,
+                PointsUsed = o.PointsUsed,
+                Status = o.Status,
+                CumulativeScoreTransactions = o.CumulativeScoreTransactions,
+                DeliveryMethods = o.DeliveryMethods,
+                Payments = o.Payments,
+                Statistics = o.Statistics,
+                User = o.User,
+                Voucher = o.Voucher
             }).ToList();
-
-            return listOfOrders;
         }
 
-        public async Task<OrderStatus> GetLatestOrderStatusAsync(int orderId)
+        //public async Task<OrderStatus> GetLatestOrderStatusAsync(int orderId)
+        //{
+        //    var order = await _context.Orders
+        //        .Include(o => o.OrderStatuses)
+        //        .FirstOrDefaultAsync(o => o.OrderId == orderId);
+
+        //    if (order == null)
+        //    {
+        //        throw new ArgumentException("ID đơn hàng không hợp lệ.");
+        //    }
+
+        //    var latestStatus = order.OrderStatuses
+        //        .OrderByDescending(os => os.StatusUpdateDate)
+        //        .FirstOrDefault();
+
+        //    if (latestStatus == null)
+        //    {
+        //        throw new InvalidOperationException("Không tìm thấy trạng thái đơn hàng.");
+        //    }
+
+        //    return latestStatus;
+        //}
+
+        public async Task<OrderStatusHistory?> GetLatestOrderStatusAsync(int orderId)
         {
-            var order = await _context.Orders
-                .Include(o => o.OrderStatuses)
-                .FirstOrDefaultAsync(o => o.OrderId == orderId);
-
-            if (order == null)
-            {
-                throw new ArgumentException("ID đơn hàng không hợp lệ.");
-            }
-
-            var latestStatus = order.OrderStatuses
-                .OrderByDescending(os => os.StatusUpdateDate)
-                .FirstOrDefault();
-
-            if (latestStatus == null)
-            {
-                throw new InvalidOperationException("Không tìm thấy trạng thái đơn hàng.");
-            }
+            var latestStatus = await _context.OrderStatusHistories
+                .Where(osh => osh.OrderId == orderId)
+                .OrderByDescending(osh => osh.UpdatedDate)
+                .FirstOrDefaultAsync();
 
             return latestStatus;
         }
 
-        public async Task<OrderModel> GetOrderByIdAsync(int orderId)
+        public async Task<Order> GetOrderByIdAsync(int orderId)
         {
             var order = await _context.Orders
                 .Include(o => o.OrderDetails).ThenInclude(od => od.Product)
-                .Include(o => o.OrderStatuses)
+                .Include(o => o.OrderStatusHistories).ThenInclude(osh => osh.Status)
                 .FirstOrDefaultAsync(o => o.OrderId == orderId);
 
             if (order == null)
@@ -370,7 +388,7 @@ namespace SWP391.DAL.Repositories.OrderRepository
                 throw new ArgumentException("ID đơn hàng không hợp lệ.");
             }
 
-            var orderModel = new OrderModel
+            var orderModel = new Order
             {
                 OrderId = order.OrderId,
                 UserId = order.UserId,
@@ -381,12 +399,13 @@ namespace SWP391.DAL.Repositories.OrderRepository
                 RecipientName = order.RecipientName,
                 RecipientPhone = order.RecipientPhone,
                 RecipientAddress = order.RecipientAddress,
-                OrderDetails = order.OrderDetails.Select(od => new OrderDetailModel
+                OrderDetails = order.OrderDetails.Select(od => new OrderDetail
                 {
+                    OrderDetailId = od.OrderDetailId,
                     ProductId = od.ProductId,
                     Price = od.Price,
                     Quantity = od.Quantity,
-                    Product = new ProductModel
+                    Product = new Product
                     {
                         ProductId = od.Product?.ProductId ?? 0,
                         ProductName = od.Product?.ProductName,
@@ -405,29 +424,38 @@ namespace SWP391.DAL.Repositories.OrderRepository
                         Category = od.Product?.Category
                     }
                 }).ToList(),
-                OrderStatuses = order.OrderStatuses.Select(os => new OrderStatus
+                OrderStatusHistories = order.OrderStatusHistories.Select(osh => new OrderStatusHistory
                 {
-                    StatusId = os.StatusId,
-                    StatusName = os.StatusName,
-                    OrderId = os.OrderId,
-                    StatusUpdateDate = os.StatusUpdateDate
+                    StatusId = osh.StatusId,
+                    OrderId = osh.OrderId,
+                    UserId = osh.UserId,
+                    UpdatedDate = osh.UpdatedDate,
+                    Note = osh.Note,
+                    Status = osh.Status != null ? new OrderStatus
+                    {
+                        StatusId = osh.Status.StatusId,
+                        StatusName = osh.Status.StatusName
+                    } : null
                 }).ToList()
             };
 
             return orderModel;
         }
 
-        public async Task<List<OrderModel>> GetOrdersAsync(int userId)
+        public async Task<List<Order>> GetOrdersAsync(int userId)
         {
             var orders = await _context.Orders
                 .Where(o => o.UserId == userId)
-                .Include(o => o.OrderDetails)
-                    .ThenInclude(od => od.Product) 
-                .Include(o => o.OrderStatuses)
-                .Include(o => o.DeliveryMethods)
+                .Include(o => o.OrderDetails).ThenInclude(od => od.Product)
+                .Include(o => o.OrderStatusHistories).ThenInclude(osh => osh.Status)
                 .ToListAsync();
 
-            var orderModels = orders.Select(order => new OrderModel
+            if (!orders.Any())
+            {
+                throw new ArgumentException("Không tìm thấy đơn hàng cho người dùng này.");
+            }
+
+            var orderModels = orders.Select(order => new Order
             {
                 OrderId = order.OrderId,
                 UserId = order.UserId,
@@ -438,40 +466,57 @@ namespace SWP391.DAL.Repositories.OrderRepository
                 RecipientName = order.RecipientName,
                 RecipientPhone = order.RecipientPhone,
                 RecipientAddress = order.RecipientAddress,
-                OrderDetails = order.OrderDetails.Select(od => new OrderDetailModel
+                OrderDetails = order.OrderDetails.Select(od => new OrderDetail
                 {
+                    OrderDetailId = od.OrderDetailId,
                     ProductId = od.ProductId,
                     Quantity = od.Quantity,
                     Price = od.Price,
-                    Product = new ProductModel
+                    Product = od.Product != null ? new Product
                     {
-                        ProductId = od.Product?.ProductId ?? 0,
-                        ProductName = od.Product?.ProductName,
-                        Description = od.Product?.Description,
-                        Quantity = od.Product?.Quantity ?? 0,
-                        IsSoldOut = od.Product?.IsSoldOut ?? 0,
-                        BackInStockDate = od.Product?.BackInStockDate,
-                        CategoryId = od.Product?.CategoryId,
-                        BrandId = od.Product?.BrandId,
-                        FeedbackTotal = od.Product?.FeedbackTotal,
-                        OldPrice = od.Product?.OldPrice,
-                        Discount = od.Product?.Discount,
-                        NewPrice = od.Product?.NewPrice,
-                        ImageLinks = od.Product?.ImageLinks,
-                        Brand = od.Product?.Brand,
-                        Category = od.Product?.Category
-                    }
+                        ProductId = od.Product.ProductId,
+                        ProductName = od.Product.ProductName,
+                        Description = od.Product.Description,
+                        Quantity = od.Product.Quantity,
+                        IsSoldOut = od.Product.IsSoldOut,
+                        BackInStockDate = od.Product.BackInStockDate,
+                        CategoryId = od.Product.CategoryId,
+                        BrandId = od.Product.BrandId,
+                        FeedbackTotal = od.Product.FeedbackTotal,
+                        OldPrice = od.Product.OldPrice,
+                        Discount = od.Product.Discount,
+                        NewPrice = od.Product.NewPrice,
+                        ImageLinks = od.Product.ImageLinks,
+                        Brand = od.Product.Brand,
+                        Category = od.Product.Category
+                    } : null
                 }).ToList(),
-                OrderStatuses = order.OrderStatuses.Select(os => new OrderStatus
+                OrderStatusHistories = order.OrderStatusHistories.Select(osh => new OrderStatusHistory
                 {
-                    StatusId = os.StatusId,
-                    StatusName = os.StatusName,
-                    OrderId = os.OrderId,
-                    StatusUpdateDate = os.StatusUpdateDate
+                    StatusId = osh.StatusId,
+                    OrderId = osh.OrderId,
+                    UserId = osh.UserId,
+                    UpdatedDate = osh.UpdatedDate,
+                    Note = osh.Note,
+                    Status = osh.Status != null ? new OrderStatus
+                    {
+                        StatusId = osh.Status.StatusId,
+                        StatusName = osh.Status.StatusName
+                    } : null
                 }).ToList()
             }).ToList();
 
             return orderModels;
         }
+        public async Task<List<Order>> GetAllOrdersAsync()
+        {
+            return await _context.Orders.ToListAsync();
+        }
+
+        public async Task<int> GetTotalOrdersCountAsync()
+        {
+            return await _context.Orders.CountAsync();
+        }
+
     }
 }
