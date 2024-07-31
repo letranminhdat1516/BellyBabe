@@ -27,8 +27,8 @@ namespace SWP391.DAL.Model.Order
 
         public string? RecipientAddress { get; set; }
 
-        public List<OrderDetailModel> OrderDetails { get; set; } = new List<OrderDetailModel>();
+        public int? PointsUsed { get; set; }
 
-        public virtual ICollection<OrderStatus> OrderStatuses { get; set; } = new List<OrderStatus>();
+        public int? StatusId { get; set; }
     }
 }

@@ -127,30 +127,12 @@ namespace SWP391.API.Controllers
         }
 
         [HttpGet("GetAllOrders")]
-        public async Task<IActionResult> GetAllOrders(int pageNumber = 1, int pageSize = 10)
+        public async Task<IActionResult> GetAllOrders()
         {
-            if (pageNumber < 1 || pageSize < 1)
-            {
-                return BadRequest(new { Error = "Số trang và kích thước trang phải lớn hơn 0." });
-            }
-
             try
             {
-                var orders = await _orderService.GetAllOrdersAsync(pageNumber, pageSize);
-                var totalOrders = await _orderService.GetTotalOrdersCountAsync();
-
-                return Ok(new
-                {
-                    TotalCount = totalOrders,
-                    PageNumber = pageNumber,
-                    PageSize = pageSize,
-                    TotalPages = (int)Math.Ceiling((double)totalOrders / pageSize),
-                    Orders = orders
-                });
-            }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(new { Error = $"Lỗi lấy tất cả đơn hàng: {ex.Message}" });
+                var listOfOrders = await _orderService.GetAllOrdersAsync();
+                return Ok(listOfOrders);
             }
             catch (Exception ex)
             {

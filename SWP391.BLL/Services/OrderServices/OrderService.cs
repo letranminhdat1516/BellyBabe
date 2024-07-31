@@ -41,11 +41,6 @@ namespace SWP391.BLL.Services.OrderServices
             await _orderRepository.AdminCancelOrderAsync(orderId, reason);
         }
 
-        public async Task<List<Order>> GetAllOrdersAsync()
-        {
-            return await _orderRepository.GetAllOrders();
-        }
-
         public async Task<OrderStatusHistory> GetLatestOrderStatusAsync(int orderId)
         {
             return await _orderRepository.GetLatestOrderStatusAsync(orderId);
@@ -60,15 +55,27 @@ namespace SWP391.BLL.Services.OrderServices
         {
             return await _orderRepository.GetOrdersAsync(userId);
         }
-        public async Task<List<Order>> GetAllOrdersAsync(int pageNumber, int pageSize)
+        public async Task<List<OrderModel>> GetAllOrdersAsync()
         {
-            if (pageNumber < 1 || pageSize < 1)
-            {
-                throw new ArgumentException("Số trang và kích thước trang phải lớn hơn 0.");
-            }
             var orders = await _orderRepository.GetAllOrdersAsync();
-            return orders.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+            var orderDTOs = orders.Select(o => new OrderModel
+            {
+                OrderId = o.OrderId,
+                UserId = o.UserId,
+                Note = o.Note,
+                VoucherId = o.VoucherId,
+                TotalPrice = o.TotalPrice,
+                OrderDate = o.OrderDate,
+                RecipientName = o.RecipientName,
+                RecipientPhone = o.RecipientPhone,
+                RecipientAddress = o.RecipientAddress,
+                PointsUsed = o.PointsUsed,
+                StatusId = o.StatusId
+            }).ToList();
+
+            return orderDTOs;
         }
+
 
         public async Task<int> GetTotalOrdersCountAsync()
         {
