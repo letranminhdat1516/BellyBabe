@@ -26,9 +26,22 @@ namespace SWP391.DAL.Repositories.UserRepository
 
         public async Task<User> GetUserByEmailAsync(string email)
         {
-            return await _context.Users
+            var user = await _context.Users
                 .Include(u => u.Role)
                 .FirstOrDefaultAsync(u => u.Email == email);
+
+            if (user == null)
+            {
+                // Logging if user is not found
+                Console.WriteLine($"User with email {email} not found.");
+            }
+            else
+            {
+                // Logging if user is found
+                Console.WriteLine($"User with email {email} found: {user.UserName}");
+            }
+
+            return user;
         }
 
         public async Task<User> GetUserByNameAsync(string userName)
@@ -70,6 +83,7 @@ namespace SWP391.DAL.Repositories.UserRepository
             _context.Users.Update(user);
             await _context.SaveChangesAsync();
         }
+
         private string NormalizePhoneNumber(string phoneNumber)
         {
             if (phoneNumber.StartsWith("0"))
@@ -89,30 +103,35 @@ namespace SWP391.DAL.Repositories.UserRepository
                 await _context.SaveChangesAsync();
             }
         }
+
         public void DeleteUser(User user)
         {
             _context.Users.Remove(user);
             _context.SaveChanges();
         }
+
         public async Task<List<User>> GetUsersAsync()
         {
             return await _context.Users.ToListAsync();
         }
+
         public async Task SaveChangesAsync()
         {
             await _context.SaveChangesAsync();
         }
+
         public async Task<User> GetUserByIdAsync(int userId)
         {
             return await _context.Users.FindAsync(userId);
         }
+
         public async Task<List<User>> GetUsersByIdsAsync(List<int> userIds)
         {
             return await _context.Users.Where(u => userIds.Contains(u.UserId)).ToListAsync();
         }
+
         public async Task<User> GetUserByPhoneNumberAndRoleIdAsync(string phoneNumber, int roleId)
         {
-
             return await _context.Users.FirstOrDefaultAsync(u => u.PhoneNumber == phoneNumber && u.RoleId == roleId);
         }
     }

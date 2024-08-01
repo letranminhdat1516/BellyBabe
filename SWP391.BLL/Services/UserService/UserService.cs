@@ -82,10 +82,7 @@ namespace SWP391.BLL.Services
             {
                 return null;
             }
-            if (user.IsActive == false)
-            {
-                return null;
-            }
+        
             var token = GenerateJwtToken(user.PhoneNumber, "User", user.UserId, user.FullName);
             return new UserLoginResponseDTO { Token = token, PhoneNumber = user.PhoneNumber, FullName = user.FullName};
 
@@ -167,7 +164,8 @@ namespace SWP391.BLL.Services
                 Address = userDto.Address,
                 FullName = userDto.FullName,
                 RoleId = userDto.RoleId,
-                Image = userDto.Image
+                Image = userDto.Image,
+                IsActive = true
             };
 
             await _userRepository.AddUserAsync(user);

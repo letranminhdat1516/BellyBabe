@@ -4,22 +4,27 @@ using System.Threading.Tasks;
 using SWP391.DAL.Entities;
 using SWP391.DAL.Model.Order;
 using SWP391.DAL.Repositories.OrderRepository;
-
+using Microsoft.EntityFrameworkCore;
 namespace SWP391.BLL.Services.OrderServices
 {
     public class OrderService
     {
         private readonly OrderRepository _orderRepository;
+        private readonly VoucherService _voucherService;
 
-        public OrderService(OrderRepository orderRepository)
+        public OrderService(OrderRepository orderRepository, VoucherService voucherService)
         {
             _orderRepository = orderRepository;
+            _voucherService = voucherService;
+        }
+        public async Task<Order> PlaceOrderAsync(int userId, string recipientName, string recipientPhone, string recipientAddress, string? note, bool? usePoints = null, string? voucherCode = null)
+        {
+         
+            var order = await _orderRepository.PlaceOrderAsync(userId, recipientName, recipientPhone, recipientAddress, note, usePoints, voucherCode);
+            return order;
         }
 
-        public async Task<Order> PlaceOrderAsync(int userId, string recipientName, string recipientPhone, string recipientAddress, string? note, bool? usePoints = null)
-        {
-            return await _orderRepository.PlaceOrderAsync(userId, recipientName, recipientPhone, recipientAddress, note, usePoints);
-        }
+
 
         public async Task UpdateOrderStatusAsync(int orderId, int statusId, string? note = null)
         {

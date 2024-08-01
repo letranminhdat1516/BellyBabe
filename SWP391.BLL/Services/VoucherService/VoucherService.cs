@@ -106,7 +106,29 @@ namespace SWP391.BLL.Services
                 }
             }
         }
-     
+        public async Task<decimal> ApplyVoucherAsync(string voucherCode, decimal totalBillAmount)
+        {
+            var isValid = await ValidateVoucherAsync(voucherCode);
+
+            if (!isValid)
+            {
+                throw new Exception("Invalid or expired voucher code.");
+            }
+
+            var voucher = await _context.Vouchers.FirstOrDefaultAsync(v => v.VoucherCode == voucherCode);
+
+            if (voucher != null)
+            {
+                if (totalBillAmount >= voucher.MinimumBillAmount)
+                {
+                    totalBillAmount -= (voucher.Price ?? 0); 
+                                                         
+                }
+            }
+
+            return totalBillAmount;
+        }
+
         public async Task<bool> ValidateVoucherWithQueueAsync(string voucherCode)
         {
             var tcs = new TaskCompletionSource<bool>();

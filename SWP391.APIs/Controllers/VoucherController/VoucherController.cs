@@ -63,13 +63,17 @@ public class VoucherController : ControllerBase
     }
 
     [HttpPost("validateCode")]
-    public async Task<IActionResult> ValidateVoucher([FromQuery] string voucherCode)
+    public async Task<IActionResult> ValidateVoucher([FromQuery] string voucherCode, [FromQuery] decimal totalBillAmount)
     {
-        var isValid = await _voucherService.ValidateVoucherWithQueueAsync(voucherCode);
-        if (!isValid)
+        try
         {
-            return BadRequest("Invalid or expired voucher code.");
+            var finalAmount = await _voucherService.ApplyVoucherAsync(voucherCode, totalBillAmount);
+            return Ok(new { Message = "Voucher code is valid.", FinalAmount = finalAmount });
         }
-        return Ok("Voucher code is valid.");
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
+
 }

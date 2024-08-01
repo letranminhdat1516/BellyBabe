@@ -12,6 +12,7 @@ namespace SWP391.DAL.Model.users
         public string FullName { get; set; }
         public string? Image { get; set; }
         public int? RoleId { get; set; }
+        public bool? IsActive { get; set; }
 
     }
 }

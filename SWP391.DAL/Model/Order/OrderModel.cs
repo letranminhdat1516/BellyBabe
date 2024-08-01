@@ -30,5 +30,6 @@ namespace SWP391.DAL.Model.Order
         public int? PointsUsed { get; set; }
 
         public int? StatusId { get; set; }
+        public string? VoucherCode { get; set; }
     }
 }

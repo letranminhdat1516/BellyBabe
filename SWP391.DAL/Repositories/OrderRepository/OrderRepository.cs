@@ -38,7 +38,7 @@ namespace SWP391.DAL.Repositories.OrderRepository
             return Regex.IsMatch(address, vietnameseAddressPattern);
         }
 
-        public async Task<Order> PlaceOrderAsync(int userId, string recipientName, string recipientPhone, string recipientAddress, string? note, bool? usePoints = null)
+        public async Task<Order> PlaceOrderAsync(int userId, string recipientName, string recipientPhone, string recipientAddress, string? note, bool? usePoints = null, string? voucherCode = null)
         {
             if (string.IsNullOrEmpty(recipientPhone) || !Regex.IsMatch(recipientPhone, @"^[0-9]{1,11}$"))
             {
@@ -68,6 +68,28 @@ namespace SWP391.DAL.Repositories.OrderRepository
             int deliveryFee = subtotal > 1500000 ? 0 : 30000;
             int totalPrice = subtotal + deliveryFee;
 
+         
+            decimal discountAmount = 0;
+            Voucher? voucher = null; 
+            if (!string.IsNullOrEmpty(voucherCode))
+            {
+                voucher = await _context.Vouchers.FirstOrDefaultAsync(v => v.VoucherCode == voucherCode && v.ExpiredDate >= DateTime.UtcNow && v.Quantity > 0);
+                if (voucher != null)
+                {
+                    discountAmount = voucher.Price ?? 0;
+                    totalPrice -= (int)discountAmount;
+
+                   
+                    voucher.Quantity -= 1;
+                    _context.Vouchers.Update(voucher);
+                    await _context.SaveChangesAsync();
+                }
+                else
+                {
+                    throw new ArgumentException("Voucher không hợp lệ hoặc đã hết hạn.");
+                }
+            }
+
             int? pointsToUse = null;
             if (usePoints == true)
             {
@@ -87,7 +109,8 @@ namespace SWP391.DAL.Repositories.OrderRepository
                 OrderDate = DateTime.Now,
                 TotalPrice = finalPrice,
                 PointsUsed = pointsToUse,
-                StatusId = 1 // Chờ xác nhận
+                StatusId = 1, // Chờ xác nhận
+                VoucherId = voucher?.VoucherId // Lưu VoucherId nếu có
             };
 
             _context.Orders.Add(order);
@@ -96,7 +119,7 @@ namespace SWP391.DAL.Repositories.OrderRepository
             foreach (var orderDetail in checkedOrderDetails)
             {
                 orderDetail.OrderId = order.OrderId;
-                orderDetail.UserId = null; 
+                orderDetail.UserId = null;
 
                 if (orderDetail.ProductId.HasValue && orderDetail.Quantity.HasValue)
                 {
@@ -133,6 +156,7 @@ namespace SWP391.DAL.Repositories.OrderRepository
 
             return order;
         }
+
 
         public async Task UpdateOrderStatusAsync(int orderId, int statusId, string? note = null)
         {

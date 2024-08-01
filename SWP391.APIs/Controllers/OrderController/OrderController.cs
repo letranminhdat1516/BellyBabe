@@ -19,11 +19,11 @@ namespace SWP391.API.Controllers
         }
 
         [HttpPost("PlaceOrder")]
-        public async Task<IActionResult> PlaceOrder(int userId, string recipientName, string recipientPhone, string recipientAddress, string? note, bool? usePoints = null)
+        public async Task<IActionResult> PlaceOrderPlaceOrder(int userId, string recipientName, string recipientPhone, string recipientAddress, string? note, bool? usePoints = null, string? voucherCode = null)
         {
             try
             {
-                await _orderService.PlaceOrderAsync(userId, recipientName, recipientPhone, recipientAddress, note, usePoints);
+                await _orderService.PlaceOrderAsync(userId, recipientName, recipientPhone, recipientAddress, note, usePoints, voucherCode);
                 return Ok(new { Message = "Đặt hàng thành công." });
             }
             catch (ArgumentException ex)
