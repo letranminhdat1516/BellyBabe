@@ -115,5 +115,9 @@ namespace SWP391.DAL.Repositories.UserRepository
 
             return await _context.Users.FirstOrDefaultAsync(u => u.PhoneNumber == phoneNumber && u.RoleId == roleId);
         }
+        public async Task<bool> CheckPhoneNumberExistsAsync(string phoneNumber)
+        {
+            return await _context.Users.AnyAsync(u => u.PhoneNumber == phoneNumber);
+        }
     }
 }

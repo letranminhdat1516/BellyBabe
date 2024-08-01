@@ -42,47 +42,24 @@ public class OtpService
         }
     }
 
-    public async Task SaveOtpAsync(string identifier, string otp, string userName, bool isEmail = false)
+    public async Task SaveOtpAsync(string identifier, string otp)
     {
-        User user;
-        if (isEmail)
-        {
-            user = await _userRepository.GetUserByEmailAsync(identifier);
-        }
-        else
-        {
-            user = await _userRepository.GetUserByPhoneNumberAsync(identifier);
-        }
+        var user = await _userRepository.GetUserByPhoneNumberAsync(identifier);
 
         if (user == null)
         {
-            user = new User
-            {
-                UserName = userName,
-                Otp = otp,
-                Otpexpiry = DateTime.UtcNow.AddMinutes(5),
-                Password = "default_password",
-                RoleId = 3
-            };
-            if (isEmail)
-            {
-                user.Email = identifier;
-            }
-            else
-            {
-                user.PhoneNumber = identifier;
-            }
-            await _userRepository.AddUserAsync(user);
-            _logger.LogInformation($"Added new user with identifier: {identifier} and OTP: {otp}");
+            // Log thông báo hoặc trả về lỗi nếu cần thiết
+            _logger.LogWarning($"Không tìm thấy người dùng với số điện thoại: {identifier}");
+            throw new Exception("Số điện thoại này chưa được đăng ký.");
         }
-        else
-        {
-            user.Otp = otp;
-            user.Otpexpiry = DateTime.UtcNow.AddMinutes(5);
-            await _userRepository.UpdateUserAsync(user);
-            _logger.LogInformation($"Updated user with identifier: {identifier} with new OTP: {otp}");
-        }
+
+        // Cập nhật OTP cho người dùng đã tồn tại
+        user.Otp = otp;
+        user.Otpexpiry = DateTime.UtcNow.AddMinutes(5);
+        await _userRepository.UpdateUserAsync(user);
+        _logger.LogInformation($"Updated user with identifier: {identifier} with new OTP: {otp}");
     }
+
 
     public async Task SendOtpViaSmsAsync(string phoneNumber, string otp)
     {
