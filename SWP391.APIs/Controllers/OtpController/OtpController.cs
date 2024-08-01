@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SWP391.BLL.Services;
 using SWP391.DAL.Model.VerifyPhoneNumber;
 
 namespace SWP391.APIs.Controllers
@@ -8,20 +9,42 @@ namespace SWP391.APIs.Controllers
     public class OtpController : ControllerBase
     {
         private readonly OtpService _otpService;
+        private readonly ILogger _logger;
+        private readonly UserService _userService;
 
-        public OtpController(OtpService otpService)
+        public OtpController(UserService userService, OtpService otpService, ILogger<OtpController> logger)
         {
+            _userService = userService;
             _otpService = otpService;
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
+
 
         [HttpPost("request")]
         public async Task<IActionResult> RequestOtp([FromBody] RequestOtpModel model)
         {
+            if (model == null || string.IsNullOrEmpty(model.PhoneNumber))
+            {
+                return BadRequest(new { message = "Model hoặc số điện thoại không hợp lệ." });
+            }
+
+            var phoneNumberExists = await _userService.CheckPhoneNumberExistsAsync(model.PhoneNumber);
+
+            if (!phoneNumberExists)
+            {
+                _logger.LogWarning($"Số điện thoại {model.PhoneNumber} chưa được đăng ký.");
+                return NotFound(new { message = "Số điện thoại này chưa được đăng ký." });
+            }
+
             var otp = _otpService.GenerateOtp();
-            await _otpService.SaveOtpAsync(model.PhoneNumber, otp, "GuestUser");
+            await _otpService.SaveOtpAsync(model.PhoneNumber, otp);
             await _otpService.SendOtpViaSmsAsync(model.PhoneNumber, otp);
-            return Ok(new { phoneNumber = model.PhoneNumber, message = "OTP sent successfully." });
+
+            _logger.LogInformation($"OTP đã được gửi thành công tới số điện thoại {model.PhoneNumber}.");
+            return Ok(new { phoneNumber = model.PhoneNumber, message = "OTP đã được gửi thành công." });
         }
+
+
 
         [HttpPost("verify")]
         public async Task<IActionResult> VerifyOtp([FromBody] VerifyOtpModel model)

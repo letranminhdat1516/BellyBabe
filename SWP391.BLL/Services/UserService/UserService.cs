@@ -354,6 +354,10 @@ namespace SWP391.BLL.Services
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
         }
+        public async Task<bool> CheckPhoneNumberExistsAsync(string phoneNumber)
+        {
+            return await _userRepository.CheckPhoneNumberExistsAsync(phoneNumber);
+        }
 
     }
 }

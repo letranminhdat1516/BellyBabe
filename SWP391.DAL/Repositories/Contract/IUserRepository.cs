@@ -19,6 +19,7 @@ namespace SWP391.DAL.Repositories.Contract
         Task<User> GetUserByNameAsync(string userName);
         Task<List<User>> GetUsersByIdsAsync(List<int> userIds);
         Task<User> GetUserByPhoneNumberAndRoleIdAsync(string phoneNumber, int roleId);
+        Task<bool> CheckPhoneNumberExistsAsync(string phoneNumber);
     }
 
 }
